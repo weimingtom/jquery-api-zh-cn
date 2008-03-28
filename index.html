@@ -180,17 +180,17 @@ $("&lt;input type='checkbox'&gt;");<br/>
 				<p class="indent"><strong>jQuery 代码:</strong></p>
 				<div class="code">
 					$(function(){<br/>
-  // Document is ready<br/>
+  // 文档就绪<br/>
 });
 				</div>
 				<hr />
 				<p class="indent">
-					Uses both the shortcut for $(document).ready() and the argument to write failsafe jQuery code using the $ alias, without relying on the global alias. 
+					使用 $(document).ready() 的简写，同时内部的 jQuery 代码依然使用 $ 作为别名，而不管全局的 $ 为何。
 				</p>
 				<p class="indent"><strong>jQuery 代码:</strong></p>
 				<div class="code">
 					jQuery(function($) {<br/>
-  // Your code using failsafe $ alias here...<br/>
+  // 你可以在这里继续使用$作为别名...<br/>
 });
 				</div>
 			</div>
@@ -414,8 +414,8 @@ $("button").click(function () {
 				</div>
 				<p class="indent"><strong>结果:</strong></p>
 				<div class="code">
-					$("input[@type=checkbox]").check();<br/>
-$("input[@type=radio]").uncheck(); 
+					$("input[type=checkbox]").check();<br/>
+$("input[type=radio]").uncheck(); 
 				</div>
 			</div>
 			<div class="functionitem">jQuery.extend(object)</div>
@@ -1298,7 +1298,7 @@ jQuery("div &gt; p").hide();
 				</p>
 				<p class="indent"><strong>HTML 代码:</strong></p>
 				<div class="code">
-					'&lt;input type="checkbox" name="newsletter" value="Hot Fuzz" /&gt;<br/>
+					&lt;input type="checkbox" name="newsletter" value="Hot Fuzz" /&gt;<br/>
 &lt;input type="checkbox" name="newsletter" value="Cold Fusion" /&gt;<br/>
 &lt;input type="checkbox" name="accept" value="Evil Plans" /&gt; 
 				</div>
@@ -1326,7 +1326,7 @@ jQuery("div &gt; p").hide();
 				</p>
 				<p class="indent"><strong>HTML 代码:</strong></p>
 				<div class="code">
-					'&lt;input type="checkbox" name="newsletter" value="Hot Fuzz" /&gt;<br/>
+					&lt;input type="checkbox" name="newsletter" value="Hot Fuzz" /&gt;<br/>
 &lt;input type="checkbox" name="newsletter" value="Cold Fusion" /&gt;<br/>
 &lt;input type="checkbox" name="accept" value="Evil Plans" /&gt; 
 				</div>
@@ -2897,7 +2897,7 @@ $("p").eq(1)
 				</div>
 				<hr />
 				<p class="indent">
-					Selects all paragraphs, then slices the selection to include only the third element. 
+					选取第最后一个p元素 
 				</p>
 				<p class="indent"><strong>HTML 代码:</strong></p>
 				<div class="code">
@@ -3032,7 +3032,7 @@ $("p").eq(1)
 				</div>
 				<p class="indent"><strong>jQuery 代码:</strong></p>
 				<div class="code">
-					$("p").contents().not("[@nodeType=1]").wrap("&lt;b/&gt;"); 
+					$("p").contents().not("[nodeType=1]").wrap("&lt;b/&gt;"); 
 				</div>
 				<p class="indent"><strong>结果:</strong></p>
 				<div class="code">
@@ -3169,8 +3169,7 @@ $("p").eq(1)
 				</div>
 				<p class="indent"><strong>结果:</strong></p>
 				<div class="code">
-					[ &lt;div&gt;&lt;p&gt;Hello&lt;/p&gt;&lt;p&gt;Hello&lt;/p&gt;&lt;/div&gt;
-&lt;/body&gt; ] 
+					[ &lt;div&gt;&lt;p&gt;Hello&lt;/p&gt;&lt;p&gt;Hello&lt;/p&gt;&lt;/div&gt;] 
 				</div>
 				<hr />
 				<p class="indent">
@@ -3394,7 +3393,7 @@ $("p").eq(1)
 				<h2>返回值</h2>
 				<p class="indent">jQuery</p>
 				<h2>参数</h2>
-				<p class="indent"><strong>content </strong>(String, Element, jQuery) : C要追加到目标中的内容</p>
+				<p class="indent"><strong>content </strong>(String, Element, jQuery) : 要追加到目标中的内容</p>
 				<h2>示例</h2>
 				<p class="indent">
 					向所有段落中追加一些HTML标记。
@@ -4057,7 +4056,6 @@ $("p").eq(1)
 				<div class="code">
 					$("p").css("color"); 
 				</div>
-				<hr />
 			</div>
 			<div class="functionitem">css(properties)</div>
 			<div class="content">
@@ -4243,17 +4241,17 @@ p.html( "left: " + offset.left + ", top: " + offset.top );
 				<p class="indent"><strong>jQuery 代码:</strong></p>
 				<div class="code">
 					$(document).ready(function(){<br/>
-&nbsp; // Your code here...<br/>
+&nbsp; // 在这里写你的代码...<br/>
 });
 				</div>
 				<hr />
 				<p class="indent">
-					使用$(document).ready()的简写，并且具有安全保障（failsafe）的jQuery代码。安全保障能够让你的$别名不依赖于全局的$. 
+					使用 $(document).ready() 的简写，同时内部的 jQuery 代码依然使用 $ 作为别名，而不管全局的 $ 为何。
 				</p>
 				<p class="indent"><strong>jQuery 代码:</strong></p>
 				<div class="code">
 					jQuery(function($) {<br/>
-&nbsp; // Your code using failsafe $ alias here...<br/>
+&nbsp; // 你可以在这里继续使用$作为别名...<br/>
 });
 				</div>
 			</div>
@@ -4450,12 +4448,12 @@ $("input").focus(function(){
 				<p class="indent"><strong>jQuery 代码:</strong></p>
 				<div class="code">
 					var foo = function () {<br/>
-&nbsp; // code to handle some kind of event<br/>
+&nbsp; // 处理某个事件的代码<br/>
 };<br/>
 <br/>
-$("p").bind("click", foo); // ... now foo will be called when paragraphs are clicked ...<br/>
+$("p").bind("click", foo); // ... 当点击段落的时候会触发 foo <br/>
 <br/>
-$("p").unbind("click", foo); // ... foo will no longer be called.<br/>
+$("p").unbind("click", foo); // ... 再也不会被触发 foo <br/>
 				</div>
 			</div>
 		</div>
@@ -4573,8 +4571,8 @@ $("p").unbind("click", foo); // ... foo will no longer be called.<br/>
 				</p>
 				<p class="indent"><strong>jQuery 代码:</strong></p>
 				<div class="code">
-					$("input[@type='text']").change( function() {<br/>
-&nbsp; // check input for validity here<br/>
+					$("input[type='text']").change( function() {<br/>
+&nbsp; // 这里可以写些验证代码<br/>
 });
 				</div>
 			</div>
@@ -4597,7 +4595,7 @@ $("p").unbind("click", foo); // ... foo will no longer be called.<br/>
 			<div class="functionitem">click(fn)</div>
 			<div class="content">
 				<h1>click(fn)</h1>
-				<div class="desc"><div>在每一个匹配元素的click事件中绑定一个处理函数。</div> <div class="longdesc">点击事件会在你的指针设备的按钮在元素上单击时触发。单击的定义是在屏幕的同一点触发了mousedown和mouseup.常用的事件有如下的				<p>mousedown</p>
+				<div class="desc"><div>在每一个匹配元素的click事件中绑定一个处理函数。</div> <div class="longdesc">点击事件会在你的指针设备的按钮在元素上单击时触发。单击的定义是在屏幕的同一点触发了mousedown和mouseup.几个事件触发的顺序是：				<p>mousedown</p>
 				<p>mouseup</p>
 				<p>click</p></div></div><hr />
 				<div class="desc"><div>Binds a function to the click event of each matched element.</div> <div class="longdesc">The click event fires when the pointing device button is clicked over an element. A click is defined as a mousedown and mouseup over the same screen location. The sequence of these events is:
@@ -4636,7 +4634,7 @@ $("p").unbind("click", foo); // ... foo will no longer be called.<br/>
 				<p class="indent"><strong>fn </strong>(Function) : 在每一个匹配元素的dblclick事件中绑定的处理函数。</p>
 				<h2>示例</h2>
 				<p class="indent">
-					To bind a "Hello World!" alert box the dblclick event on every paragraph on the page: 
+					给页面上每个段落的双击事件绑上 "Hello World!" 警告框
 				</p>
 				<p class="indent"><strong>jQuery 代码:</strong></p>
 				<div class="code">
@@ -4659,7 +4657,7 @@ $("p").unbind("click", foo); // ... foo will no longer be called.<br/>
 				<h2>返回值</h2>
 				<p class="indent">jQuery</p>
 				<h2>参数</h2>
-				<p class="indent"><strong>fn </strong>(Function) :在每一个匹配元素的error事件中绑定的处理函数。2008-2-22</p>
+				<p class="indent"><strong>fn </strong>(Function) :在每一个匹配元素的error事件中绑定的处理函数。</p>
 				<h2>示例</h2>
 				<p class="indent">
 					在服务器端记录JavaScript错误日志: 
@@ -4700,7 +4698,7 @@ $("p").unbind("click", foo); // ... foo will no longer be called.<br/>
 				<p class="indent">jQuery</p>
 				<h2>示例</h2>
 				<p class="indent">
-					To focus on a login input box with id 'login' on page startup, try: 
+					当页面加载后将 id 为 'login' 的元素设置焦点: 
 				</p>
 				<p class="indent"><strong>jQuery 代码:</strong></p>
 				<div class="code">
@@ -4724,7 +4722,7 @@ $("p").unbind("click", foo); // ... foo will no longer be called.<br/>
 				</p>
 				<p class="indent"><strong>jQuery 代码:</strong></p>
 				<div class="code">
-					$("input[@type=text]").focus(function(){<br/>
+					$("input[type=text]").focus(function(){<br/>
 &nbsp; this.blur();<br/>
 });
 				</div>
@@ -4881,8 +4879,8 @@ $("p").unbind("click", foo); // ... foo will no longer be called.<br/>
 			</div>
 			<div class="functionitem">scroll(fn)</div>
 			<div class="content">
-				<h1>scroll(fn</h1>
-				<div class="desc"><div>在每一个匹配元素的resize事件中绑定一个处理函数。</div> <div class="longdesc">当滚动条发生变化时触发</div></div><hr />
+				<h1>scroll(fn)</h1>
+				<div class="desc"><div>在每一个匹配元素的scroll事件中绑定一个处理函数。</div> <div class="longdesc">当滚动条发生变化时触发</div></div><hr />
 				<div class="desc"><div>Bind a function to the scroll event of each matched element.</div> <div class="longdesc">The scroll event fires when a document view is scrolled.</div></div>
 				<h2>返回值</h2>
 				<p class="indent">jQuery</p>
@@ -4950,7 +4948,7 @@ $("p").unbind("click", foo); // ... foo will no longer be called.<br/>
 			<div class="functionitem">submit(fn)</div>
 			<div class="content">
 				<h1>submit(fn)</h1>
-				<div class="desc"><div>在每一个匹配元素的submit事件中绑定一个处理函数。</div> <div class="longdesc">select事件将会在表单提交时触发</div></div><hr />
+				<div class="desc"><div>在每一个匹配元素的submit事件中绑定一个处理函数。</div> <div class="longdesc">submit事件将会在表单提交时触发</div></div><hr />
 				<div class="desc"><div>Bind a function to the submit event of each matched element.</div> <div class="longdesc">The select event fires when a form is submitted</div></div>
 				<h2>返回值</h2>
 				<p class="indent">jQuery</p>
@@ -5132,7 +5130,6 @@ $("p").unbind("click", foo); // ... foo will no longer be called.<br/>
 				<div class="code">
 					&lt;p tyle="display: none"&gt;Hello&lt;/p&gt;&lt;p style="display: block"&gt;Hello Again&lt;/p&gt; 
 				</div>
-				<hr />
 			</div>
 		</div>
 		<div class="categoryitem">滑动</div>
@@ -5415,7 +5412,7 @@ $("#left").click(function(){<br/>
 				<p class="indent"><strong>duration </strong>(String,Number) : (默认值: "normal") 三种预定速度之一的字符串("slow", "normal", or "fast")或表示动画时长的毫秒数值(如：1000)</p>
 				<p class="indent"><strong>easing </strong>(String) : (默认值: "swing") 要使用的擦除效果的名称(需要插件支持).默认jQuery提供"linear" 和 "swing".</p>
 				<p class="indent"><strong>complete </strong>(Function) : 在动画完成时执行的函数</p>
-				<p class="indent"><strong>step </strong>(Callback) : <a href="http://docs.jquery.com/action/edit/Template:APICallback" class="new" title="Template:APICallback">Template:APICallback</a></p>
+				<p class="indent"><strong>step </strong>(Callback) : </p>
 				<p class="indent"><strong>queue </strong>(Boolean) : (默认值: true) 设定为false将使此动画不进入动画队列 (jQuery 1.2中新增)</p>
 				<h2>示例</h2>
 				<p class="indent">
@@ -5493,12 +5490,12 @@ $("#go2").click(function(){<br/>
 				</div>
 				<p class="indent"><strong>jQuery 代码:</strong></p>
 				<div class="code">
-					// Start animation<br/>
+					// 开始动画<br/>
 $("#go").click(function(){<br/>
 &nbsp; $(".block").animate({left: '+200px'}, 5000);<br/>
 });<br/>
 <br/>
-// Stop animation when button is clicked<br/>
+// 当点击按钮后停止动画<br/>
 $("#stop").click(function(){<br/>
 &nbsp; $(".block").stop();<br/>
 });
@@ -5507,7 +5504,7 @@ $("#stop").click(function(){<br/>
 			<div class="functionitem">queue()</div>
 			<div class="content">
 				<h1>queue()</h1>
-				<div class="desc">返回指向第一个匹配元素的队列(将是一个函数数组)</div>
+				<div class="desc">返回指向第一个匹配元素的队列(将是一个函数数组)</div><hr />
 				<div class="desc">Returns a reference to the first element's queue (which is an array of functions).</div>
 				<h2>返回值</h2>
 				<p class="indent">Array&lt;Function&gt;</p>
@@ -5691,7 +5688,7 @@ $(document.body).click(function () {
 				<p class="indent"><strong>options </strong>(可选) : AJAX 请求设置。所有选项都是可选的。</p>
 				<h2>选项</h2>
 				<p class="indent"><strong>async </strong>(Boolean) : (默认: true) 默认设置下，所有请求均为异步请求。如果需要发送同步请求，请将此选项设置为 false。注意，同步请求将锁住浏览器，用户其它操作必须等待请求完成才可以执行。</p>
-				<p class="indent"><strong>beforeSend </strong>(Function) : 发送请求前可修改 XMLHttpRequest 对象的函数，如添加自定义 HTTP 头。XMLHttpRequest 对象是唯一的参数。 <a href="http://docs.jquery.com/Ajax_Events" title="Ajax Events">Ajax Event</a>.</p>
+				<p class="indent"><strong>beforeSend </strong>(Function) : 发送请求前可修改 XMLHttpRequest 对象的函数，如添加自定义 HTTP 头。XMLHttpRequest 对象是唯一的参数。 <a href="http://docs.jquery.com/Ajax_Events" title="Ajax Events">Ajax 事件</a>.</p>
 				<p class="indent"><strong>cache </strong>(Boolean) : (默认: true) jQuery 1.2 新功能，设置为 false 将不会从浏览器缓存中加载请求信息。</p>
 				<p class="indent"><strong>complete </strong>(Function) : 请求完成后回调函数 (请求成功或失败时均调用)。参数：  XMLHttpRequest 对象，成功信息字符串。 <a href="http://docs.jquery.com/Ajax_Events" title="Ajax Events">Ajax 事件</a>。</p>
 				<p class="indent"><strong>contentType </strong>(String) : (默认: "application/x-www-form-urlencoded") 发送信息至服务器时内容编码类型。默认值适合大多数应用场合。</p>
@@ -6582,7 +6579,7 @@ First
 			<div class="functionitem">关于本版翻译</div>
 			<div class="content">
 				<h1>关于本版翻译</h1>
-				<div class="desc"><div><p>首先感谢 <a href="http://www.cn-cuckoo.com/">为之漫笔</a> 。他是1.1API的翻译者。1.2的翻译是完全基于1.1的API翻译的，拜一记。本次翻译临近结束时，由他翻译的Learning jQuery 的中文版《jQuery基础教程》即将出版。作为国内jQuery的引路人的他，我由衷地向他表示感谢！</p><p>其次感谢 <a href="http://mrwlwan.wordpress.com/">Ross Wan</a> 写的这个仿Visiul jQuery的样式。本次翻译是基于他的英文版制作的。(由于GFW缘故，其博客请通过代理访问)</p><p>最后感谢 <a href="http://www.cloudream.name/">Cloudream</a>,他也一起参与翻译了工具和AJAX部分。并且加入了英文说明切换功能。</p><p>断断续续翻译这个API有段时间了，虽然大部分都基于1.1的API复制过来，但也得校对以及跟官网的DOC进行比较。所以也花了点时间。如果大家使用过程中发现了什么翻译错误，可以找到我博客 <a href="http://shawphy.com/">http://shawphy.com/</a>来反馈。</p><p>同时欢迎利用此版制作其他发行版以方便广大jQuery爱好者。转载请保留版权信息，谢谢。</p><p>本API最后由<a href="http://shawphy.com/">Shawphy</a>更新于2008-03-11</p></div>
+				<div class="desc"><div><p>首先感谢 <a href="http://www.cn-cuckoo.com/">为之漫笔</a> 。他是1.1API的翻译者。1.2的翻译是完全基于1.1的API翻译的，拜一记。本次翻译临近结束时，由他翻译的Learning jQuery 的中文版《jQuery基础教程》即将出版。作为国内jQuery的引路人的他，我由衷地向他表示感谢！</p><p>其次感谢 <a href="http://mrwlwan.wordpress.com/">Ross Wan</a> 写的这个仿Visiul jQuery的样式。本次翻译是基于他的英文版制作的。(由于GFW缘故，其博客请通过代理访问)</p><p>最后感谢 <a href="http://www.cloudream.name/">Cloudream</a>,他也一起参与翻译了工具和AJAX部分。并且加入了英文说明切换功能。</p><p>断断续续翻译这个API有段时间了，虽然大部分都基于1.1的API复制过来，但也得校对以及跟官网的DOC进行比较。所以也花了点时间。如果大家使用过程中发现了什么翻译错误，可以找到我博客 <a href="http://shawphy.com/">http://shawphy.com/</a>来反馈。</p><p>同时欢迎利用此版制作其他发行版以方便广大jQuery爱好者。转载请保留版权信息，谢谢。</p><p>本API最后由<a href="http://shawphy.com/">Shawphy</a>更新于2008-03-28</p></div>
 				</div>
 			</div>
 		</div>
