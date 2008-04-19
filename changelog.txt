@@ -1,0 +1,23 @@
+2008-04-19 13:14:10 +0800
+
+* 修正agp001提出的siblings的示例代码错误
+* 翻译$.get中漏翻的一句
+- 删除$.post的空示例
+
+2008-03-29 13:14:02 +0800
+全文替换1.1遗留下的@符号
+
+jQuery(callback)		未翻译的翻译一下
+slice(start,[end])		未翻译的翻译一下
+parent(expr)			例子中删除个body
+append(content)			C要
+css(name)			删除多余的<hr />
+unbind([type],[data])		代码注释翻译
+change(fn)			未翻译的翻译一下
+click(fn)			常用的事件->几个事件的顺序
+dblclick(fn)			未翻译的翻译一下
+focus()				未翻译的翻译一下
+scroll(fn			修正
+submit(fn)			select->submit
+toggle()			删除多余的<hr />
+stop()				代码注释翻译
