@@ -384,6 +384,80 @@ $("button").click(function () {
 				</div>
 			</div>
 		</div>
+		<div class="categoryitem">数据缓存</div>
+		<div class="category">
+			<div class="functionitem">data(name)</div>
+			<div class="content">
+				<h1>data(name)</h1>
+				<div class="desc"><div>返回元素上储存的相应名字的数据，可以用data(name, value)来设定。</div><div class="longdesc"><p>如果jQuery集合指向多个元素，那将只返回第一个元素的对应数据。</p><p>这个函数可以用于在一个元素上存取数据而避免了循环引用的风险。jQuery.data是1.2.3版的新功能。你可以在很多地方使用这个函数，另外jQuery UI里经常使用这个函数。</p></div>
+				<hr /><div>Returns value at named data store for the element, as set by data(name, value).</div> <div class="longdesc"><p>If the JQuery collection references multiple elements, the value returned refers to the first element.</p><p>This function is used to get stored data on an element without the risk of a circular reference. It uses jQuery.data and is new to version 1.2.3. It can be used for many reasons and jQuery UI uses it heavily. </p></div></div>
+				<h2>返回值</h2>
+				<p class="indent">Any</p>
+				<h2>参数</h2>
+				<p class="indent"><strong>name </strong>(String) :存储的数据名 </p>
+				<h2>示例</h2>
+				<p class="indent">
+					在一个div上存取数据
+				</p>
+				<p class="indent"><strong>HTML 代码:</strong></p>
+				<div class="code">
+					&lt;div&gt;&lt;/div&gt;
+				</div>
+				<p class="indent"><strong>jQuery 代码:</strong></p>
+				<div class="code">
+					$("div").data("blah");  // undefined<br/>
+					$("div").data("blah", "hello");  // blah设置为hello<br/>
+					$("div").data("blah");  // hello<br/>
+					$("div").data("blah", 86);  // 设置为hello<br/>
+					$("div").data("blah");  //  86<br/>
+					$("div").removeData("blah");  //移除blah<br />
+					$("div").data("blah");  // undefined
+				</div>
+				<hr />
+				<p class="indent">
+					在一个div上存取名/值对数据
+				</p>
+				<p class="indent"><strong>HTML 代码:</strong></p>
+				<div class="code">
+					&lt;div&gt;&lt;/div&gt;
+				</div>
+				<p class="indent"><strong>jQuery 代码:</strong></p>
+				<div class="code">
+					$("div").data("test", { first: 16, last: "pizza!" });<br />
+					$("div").data("test").first  //16;<br />
+					$("div").data("test").last  //pizza!;
+				</div>
+			</div>
+			<div class="functionitem">data(name,value)</div>
+			<div class="content">
+				<h1>data(name,value)</h1>
+				<div class="desc"><div>在元素上存放数据，同时也返回value。</div><div class="longdesc"><p>如果jQuery集合指向多个元素，那将在所有元素上设置对应数据。</p><p>这个函数可以用于在一个元素上存放数据而避免建立一个新的expando。这个数据不限于字符串，可以是任何格式的。</p></div>
+				<hr /><div>Stores the value in the named spot and also returns the value.</div> <div class="longdesc"><p>If the JQuery collection references multiple elements, the data element is set on all of them.</p><p>This function can be useful for attaching data to elements without having to create a new expando. It also isn't limited to a string. The value can be any format.</p></div></div>
+				<h2>返回值</h2>
+				<p class="indent">Any</p>
+				<h2>参数</h2>
+				<p class="indent"><strong>name </strong>(String) :存储的数据名 </p>
+				<p class="indent"><strong>value </strong>(Any) :将要存储的任意数据 </p>
+				<h2>示例</h2>
+				<p class="indent">
+					参考data(name)的示例
+				</p>
+			</div>
+			<div class="functionitem">data(name,value)</div>
+			<div class="content">
+				<h1>data(name,value)</h1>
+				<div class="desc"><div>在元素上移除存放数据</div><div class="longdesc">与$(...).data(name, value)函数作用相反</div>
+				<hr /><div>Removes named data store from an element.</div> <div class="longdesc">This is the complement function to $(...).data(name, value).</div></div>
+				<h2>返回值</h2>
+				<p class="indent">jQuery</p>
+				<h2>参数</h2>
+				<p class="indent"><strong>name </strong>(String) :存储的数据名 </p>
+				<h2>示例</h2>
+				<p class="indent">
+					参考data(name)的示例
+				</p>
+			</div>
+		</div>
 		<div class="categoryitem">插件机制</div>
 		<div class="category">
 			<div class="functionitem">jQuery.fn.extend(object)</div>
@@ -448,7 +522,7 @@ jQuery.max(4,5); // =&gt; 5
 			<div class="functionitem">jQuery.noConflict()</div>
 			<div class="content">
 				<h1>jQuery.noConflict()</h1>
-				<div class="desc"><div>运行这个函数将变量$的控制权让渡给第一个实现它的那个库。</div> <div class="longdesc">这有助于确保jQuery不会与其他库的$对象发生冲突。在运行这个函数后，就只能使用jQuery变量访问jQuery对象。例如，在要用到$("div p")的地方，就必须换成jQuery("div p")。 </div><hr /><div>Run this function to give control of the $ variable back to whichever library first implemented it.</div> <div class="longdesc">This helps to make sure that jQuery doesn't conflict with the $ object of other libraries. By using this function, you will only be able to access jQuery using the 'jQuery' variable. For example, where you used to do $("div p"), you now must do jQuery("div p").</div></div>
+				<div class="desc"><div>运行这个函数将变量$的控制权让渡给第一个实现它的那个库。</div> <div class="longdesc"><p>这有助于确保jQuery不会与其他库的$对象发生冲突。</p><p>在运行这个函数后，就只能使用jQuery变量访问jQuery对象。例如，在要用到$("div p")的地方，就必须换成jQuery("div p")。</p><p><strong>注意:</strong>这个函数必须在你导入jQuery文件之后，并且在导入另一个导致冲突的库<strong>之前</strong>使用。当然也应当在其他冲突的库被使用之前，除非jQuery是最后一个导入的。</p></div><hr /><div>Run this function to give control of the $ variable back to whichever library first implemented it.</div><div class="longdesc"><p>This helps to make sure that jQuery doesn't conflict with the $ object of other libraries.</p><p>By using this function, you will only be able to access jQuery using the 'jQuery' variable. For example, where you used to do $("div p"), you now must do jQuery("div p").</p><p><strong>NOTE:</strong> This function must be called after including the jQuery javascript file, but <strong>before</strong> including any other conflicting library, and also before actually that other conflicting library gets used, in case jQuery is included last.</p></div></div>
 				<h2>返回值</h2>
 				<p class="indent">jQuery</p>
 				<h2>示例</h2>
@@ -6501,10 +6575,33 @@ First
 					[0, 1, 1, 2, 2, 3] 
 				</div>
 			</div>
+			<div class="functionitem">jQuery.inArray(value,array)</div>
+			<div class="content">
+				<h1>jQuery.inArray(value,array)</h1>
+				<div class="desc">确定第一个参数在数组中的位置(如果没有找到则返回 -1 )。</div><hr />
+				<div class="desc">Determine the index of the first parameter in the Array (-1 if not found).</div>
+				<h2>返回值</h2>
+				<p class="indent">jQuery</p>
+				<h2>参数</h2>
+				<p class="indent"><strong>value </strong>(Any) : 用于在数组中查找是否存在</p>
+				<p class="indent"><strong>array </strong>(Array) : 待处理数组。</p>
+				<h2>示例</h2>
+				<p class="indent">
+					删除重复 div 标签。
+				</p>
+				<p class="indent"><strong>jQuery 代码:</strong></p>
+				<div class="code">
+					var arr = [ 4, "Pete", 8, "John" ];<br />
+					jQuery.inArray("John", arr);&nbsp;&nbsp;//3<br />
+					jQuery.inArray(4, arr);&nbsp;&nbsp;//0<br />
+					jQuery.inArray("David", arr);&nbsp;&nbsp;//-1<br />
+				</div>
+			</div>
 			<div class="functionitem">jQuery.unique(array)</div>
 			<div class="content">
 				<h1>jQuery.unique(array)</h1>
-				<div class="desc">删除数组中重复元素。</div>
+				<div class="desc">删除数组中重复元素。</div><hr />
+				<div class="desc">Remove all duplicate elements from an array of elements.</div>
 				<h2>返回值</h2>
 				<p class="indent">jQuery</p>
 				<h2>参数</h2>
@@ -6595,7 +6692,7 @@ First
 			<div class="functionitem">关于本版翻译</div>
 			<div class="content">
 				<h1>关于本版翻译</h1>
-				<div class="desc"><div><p>首先感谢 <a href="http://www.cn-cuckoo.com/">为之漫笔</a> 。他是1.1API的翻译者。1.2的翻译是完全基于1.1的API翻译的，拜一记。本次翻译临近结束时，由他翻译的Learning jQuery 的中文版《jQuery基础教程》即将出版。作为国内jQuery的引路人的他，我由衷地向他表示感谢！</p><p>其次感谢 <a href="http://mrwlwan.wordpress.com/">Ross Wan</a> 写的这个仿Visiul jQuery的样式。本次翻译是基于他的英文版制作的。(由于GFW缘故，其博客请通过代理访问)</p><p>最后感谢 <a href="http://www.cloudream.name/">Cloudream</a>,他也一起参与翻译了工具和AJAX部分。并且加入了英文说明切换功能。</p><p>断断续续翻译这个API有段时间了，虽然大部分都基于1.1的API复制过来，但也得校对以及跟官网的DOC进行比较。所以也花了点时间。如果大家使用过程中发现了什么翻译错误，可以找到我博客 <a href="http://shawphy.com/">http://shawphy.com/</a>来反馈。</p><p>同时欢迎利用此版制作其他发行版以方便广大jQuery爱好者。转载请保留版权信息，谢谢。</p><p>本API最后由<a href="http://shawphy.com/">Shawphy</a>更新于2008-05-27 22:41:16 +0800</p></div>
+				<div class="desc"><div><p>首先感谢 <a href="http://www.cn-cuckoo.com/">为之漫笔</a> 。他是1.1API的翻译者。1.2的翻译是完全基于1.1的API翻译的，拜一记。本次翻译临近结束时，由他翻译的Learning jQuery 的中文版《jQuery基础教程》即将出版。作为国内jQuery的引路人的他，我由衷地向他表示感谢！</p><p>其次感谢 <a href="http://mrwlwan.wordpress.com/">Ross Wan</a> 写的这个仿Visiul jQuery的样式。本次翻译是基于他的英文版制作的。(由于GFW缘故，其博客请通过代理访问)</p><p>最后感谢 <a href="http://www.cloudream.name/">Cloudream</a>,他也一起参与翻译了工具和AJAX部分。并且加入了英文说明切换功能。</p><p>断断续续翻译这个API有段时间了，虽然大部分都基于1.1的API复制过来，但也得校对以及跟官网的DOC进行比较。所以也花了点时间。如果大家使用过程中发现了什么翻译错误，可以找到我博客 <a href="http://shawphy.com/">http://shawphy.com/</a>来反馈。</p><p>同时欢迎利用此版制作其他发行版以方便广大jQuery爱好者。转载请保留版权信息，谢谢。</p><p>本API最后由<a href="http://shawphy.com/">Shawphy</a>更新于2008-05-29 16:36:07 +0800</p></div>
 				</div>
 			</div>
 		</div>
