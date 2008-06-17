@@ -5808,7 +5808,10 @@ $(document.body).click(function () {
 }				</div></p>
 				<p class="indent"><strong>global </strong>(Boolean) : (默认: true) 是否触发全局 AJAX 事件。设置为 false 将不会触发全局 AJAX 事件，如 ajaxStart 或 ajaxStop 可用于控制不同的 <a href="http://docs.jquery.com/Ajax_Events" title="Ajax Events">Ajax 事件</a>。</p>
 				<p class="indent"><strong>ifModified </strong>(Boolean) : (默认: false) 仅在服务器数据改变时获取新数据。使用 HTTP 包 Last-Modified 头信息判断。</p>
+				<p class="indent"><strong>jsonp </strong>(String) : 在一个jsonp请求中重写回调函数的名字。这个值用来替代在"callback=?"这种GET或POST请求中URL参数里的"callback"部分，比如{jsonp:'onJsonPLoad'}会导致将"onJsonPLoad=?"传给服务器。</p>
+				<p class="indent"><strong>password </strong>(String) : 用于响应HTTP访问认证请求的密码</p>
 				<p class="indent"><strong>processData </strong>(Boolean) : (默认: true) 默认情况下，发送的数据将被转换为对象(技术上讲并非字符串) 以配合默认内容类型 "application/x-www-form-urlencoded"。如果要发送 DOM 树信息或其它不希望转换的信息，请设置为 false。</p>
+				<p class="indent"><strong>scriptCharset </strong>(String) : 只有当请求时dataType为"jsonp"或"script"，并且type是"GET"才会用于强制修改charset。通常在本地和远程的内容编码不同时使用。</p>
 				<p class="indent"><strong>success </strong>(Function) : 请求成功后回调函数。参数：服务器返回数据，数据格式。 <a href="http://docs.jquery.com/Ajax_Events" title="Ajax Events">Ajax 事件</a>。 <div class="code">
 					function (data, textStatus) {<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;// data 可能是 xmlDoc, jsonObj, html, text, 等等...<br/>
@@ -5817,7 +5820,7 @@ $(document.body).click(function () {
 				<p class="indent"><strong>timeout </strong>(Number) : 设置请求超时时间（毫秒）。此设置将覆盖全局设置。</p>
 				<p class="indent"><strong>type </strong>(String) : (默认: "GET") 请求方式 ("POST" 或 "GET")， 默认为 "GET"。注意：其它 HTTP 请求方法，如 PUT 和 DELETE 也可以使用，但仅部分浏览器支持。</p>
 				<p class="indent"><strong>url </strong>(String) : (默认: 当前页地址) 发送请求的地址。</p>
-				<p class="indent"><strong>username </strong>(String) : 用于响应HTTP访问认证请求</p>
+				<p class="indent"><strong>username </strong>(String) : 用于响应HTTP访问认证请求的用户名</p>
 				<h2>示例</h2>
 				<p class="indent">
 					加载并执行一个 JS 文件。
@@ -6719,7 +6722,7 @@ First
 			<div class="functionitem">关于本版翻译</div>
 			<div class="content">
 				<h1>关于本版翻译</h1>
-				<div class="desc"><div><p>首先感谢 <a href="http://www.cn-cuckoo.com/">为之漫笔</a> 。他是1.1API的翻译者。1.2的翻译是完全基于1.1的API翻译的，拜一记。本次翻译临近结束时，由他翻译的Learning jQuery 的中文版《jQuery基础教程》即将出版。作为国内jQuery的引路人的他，我由衷地向他表示感谢！</p><p>其次感谢 <a href="http://mrwlwan.wordpress.com/">Ross Wan</a> 写的这个仿Visiul jQuery的样式。本次翻译是基于他的英文版制作的。(由于GFW缘故，其博客请通过代理访问)</p><p>最后感谢 <a href="http://www.cloudream.name/">Cloudream</a>,他也一起参与翻译了工具和AJAX部分。并且加入了英文说明切换功能。</p><p>断断续续翻译这个API有段时间了，虽然大部分都基于1.1的API复制过来，但也得校对以及跟官网的DOC进行比较。所以也花了点时间。如果大家使用过程中发现了什么翻译错误，可以找到我博客 <a href="http://shawphy.com/">http://shawphy.com/</a>来反馈。</p><p>同时欢迎利用此版制作其他发行版以方便广大jQuery爱好者。转载请保留版权信息，谢谢。</p><p>本API最后由<a href="http://shawphy.com/">Shawphy</a>更新于2008-06-17 19:43:30 +0800</p></div>
+				<div class="desc"><div><p>首先感谢 <a href="http://www.cn-cuckoo.com/">为之漫笔</a> 。他是1.1API的翻译者。1.2的翻译是完全基于1.1的API翻译的，拜一记。本次翻译临近结束时，由他翻译的Learning jQuery 的中文版《jQuery基础教程》即将出版。作为国内jQuery的引路人的他，我由衷地向他表示感谢！</p><p>其次感谢 <a href="http://mrwlwan.wordpress.com/">Ross Wan</a> 写的这个仿Visiul jQuery的样式。本次翻译是基于他的英文版制作的。(由于GFW缘故，其博客请通过代理访问)</p><p>最后感谢 <a href="http://www.cloudream.name/">Cloudream</a>,他也一起参与翻译了工具和AJAX部分。并且加入了英文说明切换功能。</p><p>断断续续翻译这个API有段时间了，虽然大部分都基于1.1的API复制过来，但也得校对以及跟官网的DOC进行比较。所以也花了点时间。如果大家使用过程中发现了什么翻译错误，可以找到我博客 <a href="http://shawphy.com/">http://shawphy.com/</a>来反馈。</p><p>同时欢迎利用此版制作其他发行版以方便广大jQuery爱好者。转载请保留版权信息，谢谢。</p><p>本API最后由<a href="http://shawphy.com/">Shawphy</a>更新于2008-06-18 00:05:15 +0800</p></div>
 				</div>
 			</div>
 		</div>

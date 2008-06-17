@@ -1,3 +1,6 @@
+﻿2008-06-18 00:05:15 +0800
++ $.ajax中新增3个参数，jsonp,password,scriptCharset
+
 2008-06-17 19:43:30 +0800
 * 核心>数据缓存> 第三部分应该 "removeDate(name)"
 * 修改date(name)里的代码注释一个小错误
