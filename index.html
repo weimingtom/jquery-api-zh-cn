@@ -408,7 +408,7 @@ $("button").click(function () {
 					$("div").data("blah");  // undefined<br/>
 					$("div").data("blah", "hello");  // blah设置为hello<br/>
 					$("div").data("blah");  // hello<br/>
-					$("div").data("blah", 86);  // 设置为hello<br/>
+					$("div").data("blah", 86);  // 设置为86<br/>
 					$("div").data("blah");  //  86<br/>
 					$("div").removeData("blah");  //移除blah<br />
 					$("div").data("blah");  // undefined
@@ -431,7 +431,7 @@ $("button").click(function () {
 			<div class="functionitem">data(name,value)</div>
 			<div class="content">
 				<h1>data(name,value)</h1>
-				<div class="desc"><div>在元素上存放数据，同时也返回value。</div><div class="longdesc"><p>如果jQuery集合指向多个元素，那将在所有元素上设置对应数据。</p><p>这个函数可以用于在一个元素上存放数据而避免建立一个新的expando。这个数据不限于字符串，可以是任何格式的。</p></div>
+				<div class="desc"><div>在元素上存放数据，同时也返回value。</div><div class="longdesc"><p>如果jQuery集合指向多个元素，那将在所有元素上设置对应数据。</p><p>这个函数不用建立一个新的expando，就能在一个元素上存放任何格式的数据，而不仅仅是字符串。</p></div>
 				<hr /><div>Stores the value in the named spot and also returns the value.</div> <div class="longdesc"><p>If the JQuery collection references multiple elements, the data element is set on all of them.</p><p>This function can be useful for attaching data to elements without having to create a new expando. It also isn't limited to a string. The value can be any format.</p></div></div>
 				<h2>返回值</h2>
 				<p class="indent">Any</p>
@@ -443,10 +443,10 @@ $("button").click(function () {
 					参考data(name)的示例
 				</p>
 			</div>
-			<div class="functionitem">data(name,value)</div>
+			<div class="functionitem">removeData(name)</div>
 			<div class="content">
-				<h1>data(name,value)</h1>
-				<div class="desc"><div>在元素上移除存放数据</div><div class="longdesc">与$(...).data(name, value)函数作用相反</div>
+				<h1>removeData(name)</h1>
+				<div class="desc"><div>在元素上移除存放的数据</div><div class="longdesc">与$(...).data(name, value)函数作用相反</div>
 				<hr /><div>Removes named data store from an element.</div> <div class="longdesc">This is the complement function to $(...).data(name, value).</div></div>
 				<h2>返回值</h2>
 				<p class="indent">jQuery</p>
@@ -6719,7 +6719,7 @@ First
 			<div class="functionitem">关于本版翻译</div>
 			<div class="content">
 				<h1>关于本版翻译</h1>
-				<div class="desc"><div><p>首先感谢 <a href="http://www.cn-cuckoo.com/">为之漫笔</a> 。他是1.1API的翻译者。1.2的翻译是完全基于1.1的API翻译的，拜一记。本次翻译临近结束时，由他翻译的Learning jQuery 的中文版《jQuery基础教程》即将出版。作为国内jQuery的引路人的他，我由衷地向他表示感谢！</p><p>其次感谢 <a href="http://mrwlwan.wordpress.com/">Ross Wan</a> 写的这个仿Visiul jQuery的样式。本次翻译是基于他的英文版制作的。(由于GFW缘故，其博客请通过代理访问)</p><p>最后感谢 <a href="http://www.cloudream.name/">Cloudream</a>,他也一起参与翻译了工具和AJAX部分。并且加入了英文说明切换功能。</p><p>断断续续翻译这个API有段时间了，虽然大部分都基于1.1的API复制过来，但也得校对以及跟官网的DOC进行比较。所以也花了点时间。如果大家使用过程中发现了什么翻译错误，可以找到我博客 <a href="http://shawphy.com/">http://shawphy.com/</a>来反馈。</p><p>同时欢迎利用此版制作其他发行版以方便广大jQuery爱好者。转载请保留版权信息，谢谢。</p><p>本API最后由<a href="http://shawphy.com/">Shawphy</a>更新于2008-06-11 19:26:37 +0800</p></div>
+				<div class="desc"><div><p>首先感谢 <a href="http://www.cn-cuckoo.com/">为之漫笔</a> 。他是1.1API的翻译者。1.2的翻译是完全基于1.1的API翻译的，拜一记。本次翻译临近结束时，由他翻译的Learning jQuery 的中文版《jQuery基础教程》即将出版。作为国内jQuery的引路人的他，我由衷地向他表示感谢！</p><p>其次感谢 <a href="http://mrwlwan.wordpress.com/">Ross Wan</a> 写的这个仿Visiul jQuery的样式。本次翻译是基于他的英文版制作的。(由于GFW缘故，其博客请通过代理访问)</p><p>最后感谢 <a href="http://www.cloudream.name/">Cloudream</a>,他也一起参与翻译了工具和AJAX部分。并且加入了英文说明切换功能。</p><p>断断续续翻译这个API有段时间了，虽然大部分都基于1.1的API复制过来，但也得校对以及跟官网的DOC进行比较。所以也花了点时间。如果大家使用过程中发现了什么翻译错误，可以找到我博客 <a href="http://shawphy.com/">http://shawphy.com/</a>来反馈。</p><p>同时欢迎利用此版制作其他发行版以方便广大jQuery爱好者。转载请保留版权信息，谢谢。</p><p>本API最后由<a href="http://shawphy.com/">Shawphy</a>更新于2008-06-17 19:43:30 +0800</p></div>
 				</div>
 			</div>
 		</div>
