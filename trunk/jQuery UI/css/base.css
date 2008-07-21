@@ -126,6 +126,12 @@ ul{
 	width: 150px;
 	float:left;
 }
+#content .desc p,#content .desce p{
+	font-size: 14px;
+}
+#content .longdesc p{
+	font-size: 12px;
+}
 #content .longdesc{
 	margin-top: 5px;
 }

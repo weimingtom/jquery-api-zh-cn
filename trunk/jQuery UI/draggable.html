@@ -22,15 +22,15 @@
 	</ul>
 	<h3>概述</h3>
 	<div class="desc">
-		<p>创建Creates new draggables on the nodeset supplied by the query.</p>
+		<p>让请求的对象可以拖动</p>
 		<div class="longdesc">
-			<p>创建This jQuery plugin makes DOM nodes draggable by mouse. You can additionally supply a great range of options to make them fit your needs. </p>
-			<p>All callbacks (start,stop,drag) receive two arguments: The original browser event and a prepared ui object, view below for a documentation of this object (if you name your second argument 'ui'):</p>
+			<p>这个jQuery插件可以让DOM节点随你鼠标拖动。你可以通过设置大量的选项，使其符合你的需求。</p>
+			<p>所有的回调函数(start,stop,drag)接受两个参数：浏览器原始的event对象和一个ui对象，你可以参考下面的文档来了解这个对象。(这里假定你把这个对象命名为"ui"):</p>
 			<ul>
-				<li><strong>ui.options</strong> - options used to initialize the draggable </li>
-				<li><strong>ui.helper</strong> - the JQuery object representing the helper that's being dragged </li>
-				<li><strong>ui.position</strong> - current position of the helper as { top, left } object, relative to the offset element </li>
-				<li><strong>ui.absolutePosition</strong> - current absolute position of the helper as { top, left } object, relative to page</li>
+				<li><strong>ui.options</strong> - 用于初始化draggable的option参数</li>
+				<li><strong>ui.helper</strong> - 指向用于被拖动的helper元素的jQuery对象 </li>
+				<li><strong>ui.position</strong> - helper元素当前相对于偏移元素的位置，是一个{ top, left }的对象</li>
+				<li><strong>ui.absolutePosition</strong> - helper元素当前相对于当前页面的位置，是一个{ top, left }的对象</li>
 			</ul>
 		</div>
 	</div>
