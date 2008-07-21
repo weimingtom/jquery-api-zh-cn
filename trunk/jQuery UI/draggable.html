@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>jQuery UI 中文参考</title>
+	<link type="text/css" rel="stylesheet" rev="stylesheet" href="css/base.css" media="all" />
+	<script type="text/javascript" src="js/jquery-1.2.6.pack.js"></script>
+	<script type="text/javascript" src="js/jqueryui-doc.js"></script>
+	<style type="text/css">
+		#content .desce{
+			display:block;
+		}
+	</style>
+</head>
+<body id="content">
+<a href="index.html">回到首页</a>
+<div id="options">
+	<h2>draggable(options)</h2>
+	<h3>依赖性</h3>
+	<ul>
+		<li>ui.core.js</li>
+	</ul>
+	<h3>概述</h3>
+	<div class="desc">
+		<p>创建Creates new draggables on the nodeset supplied by the query.</p>
+		<div class="longdesc">
+			<p>创建This jQuery plugin makes DOM nodes draggable by mouse. You can additionally supply a great range of options to make them fit your needs. </p>
+			<p>All callbacks (start,stop,drag) receive two arguments: The original browser event and a prepared ui object, view below for a documentation of this object (if you name your second argument 'ui'):</p>
+			<ul>
+				<li><strong>ui.options</strong> - options used to initialize the draggable </li>
+				<li><strong>ui.helper</strong> - the JQuery object representing the helper that's being dragged </li>
+				<li><strong>ui.position</strong> - current position of the helper as { top, left } object, relative to the offset element </li>
+				<li><strong>ui.absolutePosition</strong> - current absolute position of the helper as { top, left } object, relative to page</li>
+			</ul>
+		</div>
+	</div>
+	<div class="desce">
+		<p>Creates new draggables on the nodeset supplied by the query.</p>
+		<div class="longdesc">
+			<p>This jQuery plugin makes DOM nodes draggable by mouse. You can additionally supply a great range of options to make them fit your needs. </p>
+			<p>All callbacks (start,stop,drag) receive two arguments: The original browser event and a prepared ui object, view below for a documentation of this object (if you name your second argument 'ui'):</p>
+			<ul>
+				<li><strong>ui.options</strong> - options used to initialize the draggable </li>
+				<li><strong>ui.helper</strong> - the JQuery object representing the helper that's being dragged </li>
+				<li><strong>ui.position</strong> - current position of the helper as { top, left } object, relative to the offset element </li>
+				<li><strong>ui.absolutePosition</strong> - current absolute position of the helper as { top, left } object, relative to page</li>
+			</ul>
+		</div>
+	</div>
+	<h3>参数</h3>
+	<div>
+		<h4><strong>appendTo</strong><span>Element, Selector</span></h4>
+		<p>For a draggable with a helper specified, the matched element passed to appendTo will be used as the helper's container. If not specified, the helper is appended to the same container as the draggable.</p>
+		<h4><strong>axis</strong><span>String</span></h4>
+		<p>Constrains dragging to either the horizontal (x) or vertical (y) axis. Possible values: 'x', 'y'.</p>
+	</div>
+	<h3>示例</h3>
+	<div class="code"><code>
+		&lt;script&gt;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;$(document).ready(function(){<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(&quot;.block&quot;).draggable();<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;});<br />
+		&lt;/script&gt;<br />
+		&lt;style&gt;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;.block&nbsp;{&nbsp;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;border:&nbsp;2px&nbsp;solid&nbsp;#0090df;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;background-color:&nbsp;#68bfef;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:&nbsp;150px;&nbsp;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height:&nbsp;70px;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;margin:&nbsp;10px;&nbsp;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+		&lt;/style&gt;<br />
+		&lt;div&nbsp;class=&quot;block&quot;&gt;&lt;/div&gt;<br />
+	</code></div>
+</div>
+<div id="disable">
+	<h2>draggable("disable") </h2>
+	<h3>依赖性</h3>
+	<ul>
+		<li>ui.core.js</li>
+	</ul>
+	<h3>概述</h3>
+	<div class="desc">
+		<p>Temporarily disable the draggable functionality.</p>
+		<div class="longdesc">
+			<p>This method temporarily disables draggable functionality. It can later be reenabled by calling $(..).draggable("enable").</p>
+		</div>
+	</div>
+	<div class="desce">
+		<p>Temporarily disable the draggable functionality.</p>
+		<div class="longdesc">
+			<p>This method temporarily disables draggable functionality. It can later be reenabled by calling $(..).draggable("enable").</p>
+		</div>
+	</div>
+	<h3>参数</h3>
+	<div>
+		<h4><strong>"disable"</strong><span>String</span></h4>
+	</div>
+	<h3>示例</h3>
+	<div class="code"><code>
+	</code></div>
+</div>
+<div id="enable">
+	<h2>draggable("enable")</h2>
+	<h3>依赖性</h3>
+	<ul>
+		<li>ui.core.js</li>
+	</ul>
+	<h3>概述</h3>
+	<div class="desc">
+		<p>Enable the draggable functionality.</p>
+		<div class="longdesc">
+			<p>This method re-enables a previously disabled draggable.</p>
+		</div>
+	</div>
+	<div class="desce">
+		<p>Enable the draggable functionality.</p>
+		<div class="longdesc">
+			<p>This method re-enables a previously disabled draggable.</p>
+		</div>
+	</div>
+	<h3>参数</h3>
+	<div>
+		<h4><strong>"enable"</strong><span>String</span></h4>
+	</div>
+	<h3>示例</h3>
+	<div class="code"><code>
+	</code></div>
+</div>
+<div id="destroy">
+	<h2>draggable("destroy")</h2>
+	<h3>依赖性</h3>
+	<ul>
+		<li>ui.core.js</li>
+	</ul>
+	<h3>概述</h3>
+	<div class="desc">
+		<p>Completely remove the draggable functionality.</p>
+		<div class="longdesc">
+			<p>This method removes the draggable functionality completely.</p>
+		</div>
+	</div>
+	<div class="desce">
+		<p>Completely remove the draggable functionality.</p>
+		<div class="longdesc">
+			<p>This method removes the draggable functionality completely.</p>
+		</div>
+	</div>
+	<h3>参数</h3>
+	<div>
+		<h4><strong>"destroy"</strong><span>String</span></h4>
+	</div>
+	<h3>示例</h3>
+	<div class="code"><code>
+	</code></div>
+</div>
+</body>
+</html>
