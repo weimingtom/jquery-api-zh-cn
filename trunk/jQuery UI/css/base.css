@@ -124,11 +124,11 @@ ul{
 }
 #content h4 strong{
 	width: 150px;
-	float:left;
+	display:inline-block;
 }
 #content h4 span{
 	width: 250px;
-	float:left;
+	display:inline-block;
 }
 #content .desc p,#content .desce p{
 	font-size: 14px;
