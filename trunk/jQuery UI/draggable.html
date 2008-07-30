@@ -52,7 +52,53 @@
 		<h4><strong>appendTo</strong><span>Element, Selector</span></h4>
 		<p>For a draggable with a helper specified, the matched element passed to appendTo will be used as the helper's container. If not specified, the helper is appended to the same container as the draggable.</p>
 		<h4><strong>axis</strong><span>String</span></h4>
-		<p>Constrains dragging to either the horizontal (x) or vertical (y) axis. Possible values: 'x', 'y'.</p>
+		<p>用于确定是水平方向(X)还是垂直方向(Y)拖动的，可选值：'x', 'y'。</p>
+		<h4><strong>cancel</strong><span>Selector</span><em>默认值: ':input, button'.</em></h4>
+		<p>如果你拖动的时候是点在匹配的元素上，则不会开始拖动。</p>
+		<h4><strong>containment</strong><span>Element, Selector</span></h4>
+		<p></p>
+		<h4><strong>cursor</strong><span>	String</span></h4>
+		<p>设置拖动时css的cursor值。</p>
+		<h4><strong>cursorAt</strong><span>Object, Array</span></h4>
+		<p>用于设置拖动时光标的相对位置。传递一个Hash对象，可以设置top, left, right, bottom这几个属性。如{top:10,left:10}</p>
+		<h4><strong>delay</strong><span>Integer</span><em>默认值: undefined</em></h4>
+		<p>设置毫秒为单位的一个延时。用于想要点击一个元素而不想拖动这个元素时。</p>
+		<h4><strong>distance</strong><span>Integer</span></h4>
+		<p>以像素为单位，设置当鼠标按住移动多少距离后才开始拖动</p>
+		<h4><strong>grid</strong><span>[Integer x, Integer y]</span></h4>
+		<p>使拖动的距离栅格化。设定x和y来决定每次能拖动的距离。</p>
+		<h4><strong>handle</strong><span>Element, Selector</span><em>默认值:调用draggable的元素</em></h4>
+		<p>允许决定鼠标在哪个元素上才可以开始拖动。类似于一个把手。</p>
+		<h4><strong>helper</strong><span>String, Function</span><em>默认值：'original'</em></h4>
+		<p>允许一个helper元素用于拖动时的显示。设置为"clone"会使拖动时复制一份元素出来。可选值：'original', 'clone',函数。如果提供了一个函数，那必须返回一个标准合法的DOM节点。</p>
+		<h4><strong>opacity</strong><span>Float</span></h4>
+		<p>设置helper元素拖动时候的透明度。</p>
+		<h4><strong>revert</strong><span>Boolean,String</span></h4>
+		<p>如果设为true，那么元素在拖动结束后会返回他开始拖动时的位置。这个参数也可以设置为"valid"或者"invalid"。如果设置为"invalid"，那么仅仅在拖动的元素没有被放到可置放的对象上时候返回原位。如果设为"valid"，那就相反。</p>
+		<h4><strong>revertDuration</strong><span>Integer</span><em>默认值:'500'</em></h4>
+		<p>返回原位的动画持续时间,单位毫秒。</p>
+		<h4><strong>scroll</strong><span>Boolean</span><em>默认值:true</em></h4>
+		<p>如果设为真，则在拖动的时候，容器自动滚动。</p>
+		<h4><strong>scrollSensitivity</strong><span>Integer</span><em>默认值:20</em></h4>
+		<p>滚动敏感距离。设置当在离视口边缘多少像素内时开始滚动。这个距离是相对于鼠标的而不是拖动元素的。</p>
+		<h4><strong>scrollSpeed</strong><span>Integer</span><em>默认值:20</em></h4>
+		<p>设置当鼠标移动到滚动敏感距离内的时候，容器滚动的速度。</p>
+		<h4><strong>snap</strong><span>Boolean,Selector</span></h4>
+		<p></p>
+		<h4><strong>snapMode</strong><span>"inner","outer"</span></h4>
+		<p></p>
+		<h4><strong>snapTolerance</strong><span>	Integer</span></h4>
+		<p></p>
+		<h4><strong>refreshPositions</strong><span>	Boolean</span></h4>
+		<p>如果设置为true，每移动一下鼠标，所有拖动的位置将重新计算。注意：这用于高度动态的页面，但极大降低性能。</p>
+		<h4><strong>zIndex</strong><span>	Integer</span></h4>
+		<p>设置被拖动的helper对象的z-index值。</p>
+		<h4><strong>start</strong><span>	Function(e, ui)</span></h4>
+		<p>当拖动开始时调用的函数。</p>
+		<h4><strong>drag</strong><span>	Function(e, ui)</span></h4>
+		<p>当拖动拖动中调用的函数。</p>
+		<h4><strong>stop</strong><span>	Function(e, ui)</span></h4>
+		<p>当拖动停止时调用的函数。</p>
 	</div>
 	<h3>示例</h3>
 	<div class="code"><code>
@@ -81,9 +127,9 @@
 	</ul>
 	<h3>概述</h3>
 	<div class="desc">
-		<p>Temporarily disable the draggable functionality.</p>
+		<p>临时性禁用拖动功能</p>
 		<div class="longdesc">
-			<p>This method temporarily disables draggable functionality. It can later be reenabled by calling $(..).draggable("enable").</p>
+			<p>这个方法临时性地禁用拖动功能。之后可以用$(..).draggable("enable")重新启用。</p>
 		</div>
 	</div>
 	<div class="desce">
@@ -108,9 +154,9 @@
 	</ul>
 	<h3>概述</h3>
 	<div class="desc">
-		<p>Enable the draggable functionality.</p>
+		<p>启用拖动功能。</p>
 		<div class="longdesc">
-			<p>This method re-enables a previously disabled draggable.</p>
+			<p>这个功能可以把先前禁用的拖动功能重新启用</p>
 		</div>
 	</div>
 	<div class="desce">
@@ -135,9 +181,9 @@
 	</ul>
 	<h3>概述</h3>
 	<div class="desc">
-		<p>Completely remove the draggable functionality.</p>
+		<p>彻底移除对象上的拖动功能</p>
 		<div class="longdesc">
-			<p>This method removes the draggable functionality completely.</p>
+			<p>这个方法将会把对象上的拖动功能彻底移除。</p>
 		</div>
 	</div>
 	<div class="desce">
@@ -150,9 +196,6 @@
 	<div>
 		<h4><strong>"destroy"</strong><span>String</span></h4>
 	</div>
-	<h3>示例</h3>
-	<div class="code"><code>
-	</code></div>
 </div>
 </body>
 </html>

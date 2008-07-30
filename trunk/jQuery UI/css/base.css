@@ -32,12 +32,12 @@ ul,ol,li{
 a,a:link,a:visited{
 	color:rgb(79,129,189);
 }
+a:active{
+	color:black;
+}
 a:hover{
 	color:white;
 	background: rgb(79,129,189);
-}
-a:active{
-	color:black;
 }
 
 .clear {
@@ -124,6 +124,10 @@ ul{
 }
 #content h4 strong{
 	width: 150px;
+	float:left;
+}
+#content h4 span{
+	width: 250px;
 	float:left;
 }
 #content .desc p,#content .desce p{
