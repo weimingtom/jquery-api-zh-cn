@@ -21,7 +21,9 @@ jQuery(function($) {
 		return false;
 	});
 	$("#content").ajaxStart(function() {
-		this.innerHTML="正在加载中..."
+		this.innerHTML="正在加载页面...";
+	}).ajaxError(function(event, XMLHttpRequest, ajaxOptions, thrownError) {
+		this.innerHTML=XMLHttpRequest.status+"错误，加载"+ajaxOptions.url+"失败。";
 	});
 /*	setInterval(function() {
 		$("#sidebar>ul ul a").eq(0).click();
