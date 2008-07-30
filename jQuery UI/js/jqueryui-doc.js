@@ -20,6 +20,9 @@ jQuery(function($) {
 		$("#content").load(this.href.replace(/#/," #"))
 		return false;
 	});
+	$("#content").ajaxStart(function() {
+		this.innerHTML="正在加载中..."
+	});
 /*	setInterval(function() {
 		$("#sidebar>ul ul a").eq(0).click();
 	},1000);*/
