@@ -6,7 +6,7 @@
  * http://www.opensource.org/licenses/mit-license.php
  * http://www.gnu.org/licenses/gpl.html
  *
- * $id$
+ * $Id$
  * 
  */
 
