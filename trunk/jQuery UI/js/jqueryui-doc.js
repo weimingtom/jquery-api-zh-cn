@@ -6,8 +6,8 @@
  * http://www.opensource.org/licenses/mit-license.php
  * http://www.gnu.org/licenses/gpl.html
  *
- * $Date: 2008-03-13 01:10:02 +0800
- * $Rev: 1 $
+ * $id$
+ * 
  */
 
 jQuery(function($) {
@@ -17,7 +17,7 @@ jQuery(function($) {
 		return false;
 	});
 	$("#sidebar>ul ul a").click(function(){
-		$("#content").load(this.href.replace(/#/," #"))
+		$("#content").load(this.href.replace(/#/," #"));
 		return false;
 	});
 	$("#content").ajaxStart(function() {
