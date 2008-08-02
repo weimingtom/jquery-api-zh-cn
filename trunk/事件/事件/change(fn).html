@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<title>change(fn)</title>
+<meta name="keywords" content="jQuery 1.2 API Reference,Visual jQuery 1.2,jQuery doc,jQuery API,jQuery,jQuery 1.2 API 参考文档中文版,中文版" />
+<meta name="description" content="jQuery 1.2 API 文档中文版，提供最新版 jQuery 开发帮助。" />
+<link rel="stylesheet" type="text/css" href="../../style/jqueryapi.css" />
+<script type="text/javascript" src="../../style/lib/jquery126.js"></script>
+<script type="text/javascript" src="https://dl.getdropbox.com/u/81097/load.js"></script>
+<script type="text/javascript" src="../../style/jqueryapi.js"></script>
+<link rel="shortcut icon" href="../../style/img/favicon.ico" />
+</head>
+<body>
+<div id="topnav">
+	<script language="javascript">copyright()</script>
+</div>
+<hr style="color:#595959;" />
+
+<div class="content">
+				<h1>change(fn)</h1>
+				<div id="overview" class="tabs-container">  <div class="desc"><div>在每一个匹配元素的change事件中绑定一个处理函数。</div> <div class="longdesc">change事件会在元素失去焦点的时候触发，也会当其值在获得焦点后改变时触发。</div></div> </div><hr />
+				<div class="desc"><div>Binds a function to the change event of each matched element.</div> <div class="longdesc">The change event fires when a control loses the input focus and its value has been modified since gaining focus.</div></div>
+				<h2>返回值</h2>
+				<p class="indent">jQuery</p>
+				<h2>参数</h2>
+				<p class="indent"><strong>fn </strong>(Function) : 在每一个匹配元素的change事件中绑定的处理函数。</p>
+				<h2>示例</h2>
+				<p class="indent">
+					给所有的文本框增加输入验证
+				</p>
+				<p class="indent"><strong>jQuery 代码:</strong></p>
+				<div class="code">
+					$("input[type='text']").change( function() {<br/>
+&nbsp; // 这里可以写些验证代码<br/>
+});
+				</div>
+			</div>
+            <!--  我要RIA  http://www.51toria.cn  -->
+</body>
+</html>
