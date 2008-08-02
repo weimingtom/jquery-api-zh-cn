@@ -8,6 +8,9 @@ var jCurrentItem;
 var jCurrentContent;
 
 $(document).ready(function(){
+	//读取版权信息			   
+	//$("#topnav").load("http://www.51toria.cn/demo/jqueryDEMO/jqueryAPI12/loadtext.html #topnav",function(){$("#checkDown").html("ok")});
+	
 	//文档加载完后，为 jMenuItem 和 jCategoryItem 赋值
 	jMenuItem = $('body > .mainmenu > .menuitem');
 	jCategoryItem = jMenuItem.next('.functionmenu').children('.categoryitem');
