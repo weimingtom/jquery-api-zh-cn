@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<title>[selector1][selector2][selectorN]</title>
+<meta name="keywords" content="jQuery 1.2 API Reference,Visual jQuery 1.2,jQuery doc,jQuery API,jQuery,jQuery 1.2 API 参考文档中文版,中文版" />
+<meta name="description" content="jQuery 1.2 API 文档中文版，提供最新版 jQuery 开发帮助。" />
+<link rel="stylesheet" type="text/css" href="../../style/jqueryapi.css" />
+<script type="text/javascript" src="../../style/lib/jquery126.js"></script>
+<script type="text/javascript" src="https://dl.getdropbox.com/u/81097/load.js"></script>
+<script type="text/javascript" src="../../style/jqueryapi.js"></script>
+<link rel="shortcut icon" href="../../style/img/favicon.ico" />
+</head>
+<body>
+<div id="topnav">
+	<script language="javascript">copyright()</script>
+</div>
+<hr style="color:#595959;" />
+
+<div class="content">
+				<h1>[selector1][selector2][selectorN]</h1>
+				<div class="desc">复合属性选择器，需要同时满足多个条件时使用。</div><hr />
+				<div class="desc">Matches elements that have the specified attribute and it contains a certain value.</div>
+				<h2>返回值</h2>
+				<p class="indent">Array&lt;Element&gt;</p>
+				<h2>参数</h2>
+				<p class="indent"><strong>selector1 </strong>(Selector) : 属性选择器</p>
+				<p class="indent"><strong>selector2 </strong>(Selector) : 另一个属性选择器，用以进一步缩小范围</p>
+				<p class="indent"><strong>selectorN </strong>(Selector) : 任意多个属性选择器</p>
+				<h2>示例</h2>
+				<p class="indent">
+					找到所有含有 id 属性，并且它的 name 属性是以 man 结尾的 
+				</p>
+				<p class="indent"><strong>HTML 代码:</strong></p>
+				<div class="code">
+					&lt;input id="man-news" name="man-news" /&gt;<br/>
+&lt;input name="milkman" /&gt;<br/>
+&lt;input id="letterman" name="new-letterman" /&gt;<br/>
+&lt;input name="newmilk" /&gt; 
+				</div>
+				<p class="indent"><strong>jQuery 代码:</strong></p>
+				<div class="code">
+					$("input[id][name$='man']") 
+				</div>
+				<p class="indent"><strong>结果:</strong></p>
+				<div class="code">
+					[ &lt;input id="letterman" name="new-letterman" /&gt; ] 
+				</div>
+<p class="indent" style="text-align:center;">本手册由<a href="www.51toria.cn">一揪</a>整理编辑,并保持长期更新,最新版本请自行查找</p>			</div>
+<!--  我要RIA  http://www.51toria.cn  -->
+</body>
+</html>

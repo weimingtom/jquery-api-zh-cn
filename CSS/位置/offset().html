@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<title>offset()</title>
+<meta name="keywords" content="jQuery 1.2 API Reference,Visual jQuery 1.2,jQuery doc,jQuery API,jQuery,jQuery 1.2 API 参考文档中文版,中文版" />
+<meta name="description" content="jQuery 1.2 API 文档中文版，提供最新版 jQuery 开发帮助。" />
+<link rel="stylesheet" type="text/css" href="../../style/jqueryapi.css" />
+<script type="text/javascript" src="../../style/lib/jquery126.js"></script>
+<script type="text/javascript" src="https://dl.getdropbox.com/u/81097/load.js"></script>
+<script type="text/javascript" src="../../style/jqueryapi.js"></script>
+<link rel="shortcut icon" href="../../style/img/favicon.ico" />
+</head>
+<body>
+<div id="topnav">
+	<script language="javascript">copyright()</script>
+</div>
+<hr style="color:#595959;" />
+
+<div class="content">
+				<h1>offset()</h1>
+				<div class="desc"><div>获取匹配元素在当前视口的相对偏移。</div> <div class="longdesc">返回的对象包含两个整形属性：top 和 left。此方法只对可见元素有效。</div></div>  <hr />
+				<div class="desc"><div>Get the current offset of the first matched element relative to the viewport.</div> <div class="longdesc">The returned object contains two Integer properties, top and left. The method works only with visible elements.</div></div>  
+				<h2>返回值</h2>
+				<p class="indent">Object{top,left}</p>
+				<h2>示例</h2>
+				<p class="indent">
+					获取第二段的偏移
+				</p>
+				<p class="indent"><strong>HTML 代码:</strong></p>
+				<div class="code">
+					&lt;p&gt;Hello&lt;/p&gt;&lt;p&gt;2nd Paragraph&lt;/p&gt; 
+				</div>
+				<p class="indent"><strong>jQuery 代码:</strong></p>
+				<div class="code">
+					var p = $("p:last");<br/>
+var offset = p.offset();<br/>
+p.html( "left: " + offset.left + ", top: " + offset.top ); 
+				</div>
+				<p class="indent"><strong>结果:</strong></p>
+				<div class="code">
+					&lt;p&gt;Hello&lt;/p&gt;&lt;p&gt;left: 0, top: 35&lt;/p&gt; 
+				</div>
+			</div>
+            <!--  我要RIA  http://www.51toria.cn  -->
+</body>
+</html>

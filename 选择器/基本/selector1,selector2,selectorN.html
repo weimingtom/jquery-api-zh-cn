@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<title>selector1,selector2,selectorN</title>
+<meta name="keywords" content="jQuery 1.2 API Reference,Visual jQuery 1.2,jQuery doc,jQuery API,jQuery,jQuery 1.2 API 参考文档中文版,中文版" />
+<meta name="description" content="jQuery 1.2 API 文档中文版，提供最新版 jQuery 开发帮助。" />
+<link rel="stylesheet" type="text/css" href="../../style/jqueryapi.css" />
+<script type="text/javascript" src="../../style/lib/jquery126.js"></script>
+<script type="text/javascript" src="https://dl.getdropbox.com/u/81097/load.js"></script>
+<script type="text/javascript" src="../../style/jqueryapi.js"></script>
+<link rel="shortcut icon" href="../../style/img/favicon.ico" />
+</head>
+<body>
+<div id="topnav">
+	<script language="javascript">copyright()</script>
+</div>
+<hr style="color:#595959;" />
+
+<div class="content">
+				<h1>selector1,selector2,selectorN</h1>
+				<div class="desc"><div>将每一个选择器匹配到的元素合并后一起返回。</div> <div class="longdesc">你可以指定任意多个选择器，并将匹配到的元素合并到一个结果内。</div><hr /><div>Matches the combined results of all the specified selectors.</div> <div class="longdesc">You can specify any number of selectors to combine into a single result.</div></div>
+				<h2>返回值</h2>
+				<p class="indent">Array&lt;Element&gt;</p>
+				<h2>参数</h2>
+				<p class="indent"><strong>selector1 </strong>(Selector) : 一个有效的选择器</p>
+				<p class="indent"><strong>selector2 </strong>(Selector) : 另一个有效的选择器</p>
+				<p class="indent"><strong>selectorN </strong>(Selector) : (可选) 任意多个有效选择器</p>
+				<h2>示例</h2>
+				<p class="indent">
+					找到匹配任意一个类的元素。
+				</p>
+				<p class="indent"><strong>HTML 代码:</strong></p>
+				<div class="code">
+					&lt;div&gt;div&lt;/div&gt;<br/>
+&lt;p class="myClass"&gt;p class="myClass"&lt;/p&gt;<br/>
+&lt;span&gt;span&lt;/span&gt;<br/>
+&lt;p class="notMyClass"&gt;p class="notMyClass"&lt;/p&gt; <br/>
+				</div>
+				<p class="indent"><strong>jQuery 代码:</strong></p>
+				<div class="code">
+					$("div,span,p.myClass") 
+				</div>
+				<p class="indent"><strong>结果:</strong></p>
+				<div class="code">
+					[ &lt;div&gt;div&lt;/div&gt;, &lt;p class="myClass"&gt;p class="myClass"&lt;/p&gt;, &lt;span&gt;span&lt;/span&gt; ] 
+				</div>
+			</div>
+
+
+<!--  我要RIA  http://www.51toria.cn  -->
+</body>
+</html>

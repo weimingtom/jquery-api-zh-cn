@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<title>css(properties)</title>
+<meta name="keywords" content="jQuery 1.2 API Reference,Visual jQuery 1.2,jQuery doc,jQuery API,jQuery,jQuery 1.2 API 参考文档中文版,中文版" />
+<meta name="description" content="jQuery 1.2 API 文档中文版，提供最新版 jQuery 开发帮助。" />
+<link rel="stylesheet" type="text/css" href="../../style/jqueryapi.css" />
+<script type="text/javascript" src="../../style/lib/jquery126.js"></script>
+<script type="text/javascript" src="https://dl.getdropbox.com/u/81097/load.js"></script>
+<script type="text/javascript" src="../../style/jqueryapi.js"></script>
+<link rel="shortcut icon" href="../../style/img/favicon.ico" />
+</head>
+<body>
+<div id="topnav">
+	<script language="javascript">copyright()</script>
+</div>
+<hr style="color:#595959;" />
+
+<div class="content">
+				<h1>css(properties)</h1>
+				<div class="desc"><div>把一个“名/值对”对象设置为所有匹配元素的样式属性。</div> <div class="longdesc">这是一种在所有匹配的元素上设置大量样式属性的最佳方式。</div></div>  <hr />
+				<div class="desc"><div>Set a key/value object as style properties to all matched elements.</div> <div class="longdesc">This is the best way to set several style properties on all matched elements.</div></div>  
+				<h2>返回值</h2>
+				<p class="indent">jQuery</p>
+				<h2>参数</h2>
+				<p class="indent"><strong>properties </strong>(Map) : 要设置为样式属性的名/值对</p>
+				<h2>示例</h2>
+				<p class="indent">
+					将所有段落的字体颜色设为红色并且背景为蓝色。
+				</p>
+				<p class="indent"><strong>jQuery 代码:</strong></p>
+				<div class="code">
+					$("p").css({ color: "#ff0011", background: "blue" });
+				</div>
+				<hr />
+				<p class="indent">
+					如果属性名包含 "-"的话，必须使用引号: 
+				</p>
+				<p class="indent"><strong>jQuery 代码:</strong></p>
+				<div class="code">
+					$("p").css({ "margin-left": "10px", "background-color": "blue" });
+				</div>
+			</div>
+            <!--  我要RIA  http://www.51toria.cn  -->
+</body>
+</html>
