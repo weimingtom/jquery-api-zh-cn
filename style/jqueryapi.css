@@ -3,8 +3,8 @@
 	padding: 0;
 }
 body {
-	background-color: #ffffff;
-	color: #444444;
+	background-color: #000000;
+	color: #ffffff;
 	height: 100%;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 12px;
@@ -24,7 +24,7 @@ table {
 	float: right;
 	margin-left: 5px;
 	font-size: 12px;
-	color: #0066CC;
+	color: #ffffff;
 }
 
 #header {
@@ -101,30 +101,31 @@ hr {
 }
 
 .content {
-	
+	position: absolute;
+	left: 231px;
+	top: 0px;
+	width: 350px;
+	display: none;
+	background-color: #48b;
 	padding: 10px 20px;
 	cursor: auto;
 }
 
 .content h1, .content h2, .content h3 {
-
 	font-size: 12px;
 	margin-bottom: 10px;
-	color:#ffffff;
 }
 .content h1 {
 	font-size: 14px;
 	border-bottom: 1px solid #cccccc;
-	padding: 10px;
-	background-color: #48b;
+	padding-bottom: 2px;
 }
 .content h2 {
-	background-color: #95B3D7;
+	background-color: #226699;
 	margin-top: 10px;
 	padding: 3px;
 }
 .content h3 {
-	background-color: #95B3D7;
 	text-indent: 2em;
 	font-weight: bold;
 
@@ -138,36 +139,30 @@ hr {
 	margin-bottom: 10px;
 }
 .content .desc .longdesc {
-	line-height:20px;
 	font-size: 0.9em;
 	margin-top: 10px;
 }
 p.indent {
-	background-color:#DBE5F1;
 	text-indent: 2em;
 	margin-top: 10px;
-	padding:5px;
 }
 div.code {
-	border: 1px dashed #95B3D7;
-	background-color: #ffffff;
+	border: 1px solid #ffffff;
+	background-color: #226699;
 	word-wrap: break-word;
 	overflow: auto;
 	margin-top: 10px;
-	padding: 15px 10px;
+	padding: 5px;
 }
 .content hr {
-	color: #DBE5F1;
 	margin: 10px 0px 0px 0px;
 }
 
 .content a:link {
-	color: #666666;
-	text-decoration:none;
+	color:#FFF;
 }
 .content a:visited {
-	color: #993300;
-	text-decoration:none;
+	color:#DDD;
 }
 .content a:hover {
 	background-color:#fff;
