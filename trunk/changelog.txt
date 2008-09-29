@@ -1,6 +1,7 @@
 ﻿2008-09-29 20:39:17 +0800
 * ajax 中参数dataType部分修正
 + ajax 中参数 beforeSend 如果返回false可以取消本次ajax请求。
+* ajax 中参数success参数修正
 
 ﻿2008-09-19 23:08:18 +0800
 * keydown->keypress->keyup
