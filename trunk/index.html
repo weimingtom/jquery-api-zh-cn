@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
@@ -5767,7 +5767,7 @@ $(document.body).click(function () {
 				<p class="indent"><strong>options </strong>(可选) : AJAX 请求设置。所有选项都是可选的。</p>
 				<h2>选项</h2>
 				<p class="indent"><strong>async </strong>(Boolean) : (默认: true) 默认设置下，所有请求均为异步请求。如果需要发送同步请求，请将此选项设置为 false。注意，同步请求将锁住浏览器，用户其它操作必须等待请求完成才可以执行。</p>
-				<p class="indent"><strong>beforeSend </strong>(Function) : 发送请求前可修改 XMLHttpRequest 对象的函数，如添加自定义 HTTP 头。XMLHttpRequest 对象是唯一的参数。 <a href="http://docs.jquery.com/Ajax_Events" title="Ajax Events">Ajax 事件</a>.
+				<p class="indent"><strong>beforeSend </strong>(Function) : 发送请求前可修改 XMLHttpRequest 对象的函数，如添加自定义 HTTP 头。XMLHttpRequest 对象是唯一的参数。这是一个 <a href="http://docs.jquery.com/Ajax_Events" title="Ajax Events">Ajax 事件</a>。如果返回false可以取消本次ajax请求。
 				<div class="code">
 					function (XMLHttpRequest) {<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;this; // 调用本次AJAX请求时传递的options参数<br/>
@@ -5785,7 +5785,7 @@ $(document.body).click(function () {
 &nbsp;&nbsp;&nbsp;&nbsp;// 对Ajax返回的原始数据进行预处理<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;return data  // 返回处理后的数据<br/>
 }				</div></p>
-				<p class="indent"><strong>dataType </strong>(String) : 预期服务器返回的数据类型。如果不指定，jQuery 将自动根据 HTTP 包 MIME 信息返回 responseXML 或 responseText，并作为回调函数参数传递，可用值: <p>"xml": 返回 XML 文档，可用 jQuery 处理。</p><p>"html": 返回纯文本 HTML 信息；包含 script 元素。 </p><p>"script": 返回纯文本 JavaScript 代码。不会自动缓存结果。除非设置了"cache"参数</p><p>"json": 返回 JSON 数据 。</p><p>"jsonp": <a href="http://bob.pythonmac.org/archives/2005/12/05/remote-json-jsonp/" class="external text" title="http://bob.pythonmac.org/archives/2005/12/05/remote-json-jsonp/">JSONP</a> 格式。使用 <a href="http://bob.pythonmac.org/archives/2005/12/05/remote-json-jsonp/" class="external text" title="http://bob.pythonmac.org/archives/2005/12/05/remote-json-jsonp/">JSONP</a> 形式调用函数时，如 "myurl?callback=?" jQuery 将自动替换 ? 为正确的函数名，以执行回调函数。</p><p>"text": 返回纯文本字符串</p></p>
+				<p class="indent"><strong>dataType </strong>(String) : (默认值：智能判断xml或者html)预期服务器返回的数据类型。如果不指定，jQuery 将自动根据 HTTP 包 MIME 信息返回 responseXML 或 responseText，并作为回调函数参数传递，可用值: <p>"xml": 返回 XML 文档，可用 jQuery 处理。</p><p>"html": 返回纯文本 HTML 信息；包含的script标签会在插入dom时执行。</p><p>"script": 返回纯文本 JavaScript 代码。不会自动缓存结果。除非设置了"cache"参数。<strong>注意：</strong>如果dataType设置为"script"，那么所有的远程(不在同一域名下)的POST请求都将转化为GET请求。(因为将使用DOM的script标签来加载)</p><p>"json": 返回 JSON 数据 。</p><p>"jsonp": <a href="http://bob.pythonmac.org/archives/2005/12/05/remote-json-jsonp/" class="external text" title="http://bob.pythonmac.org/archives/2005/12/05/remote-json-jsonp/">JSONP</a> 格式。使用 <a href="http://bob.pythonmac.org/archives/2005/12/05/remote-json-jsonp/" class="external text" title="http://bob.pythonmac.org/archives/2005/12/05/remote-json-jsonp/">JSONP</a> 形式调用函数时，如 "myurl?callback=?" jQuery 将自动替换 ? 为正确的函数名，以执行回调函数。</p><p>"text": 返回纯文本字符串</p></p>
 				<p class="indent"><strong>error </strong>(Function) : (默认: 自动判断 (xml 或 html)) 请求失败时调用时间。参数：XMLHttpRequest 对象、错误信息、（可选）捕获的错误对象。<a href="http://docs.jquery.com/Ajax_Events" title="Ajax Events">Ajax 事件</a>。 <div class="code">
 					function (XMLHttpRequest, textStatus, errorThrown) {<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;// 通常 textStatus 和 errorThrown 之中<br/>
@@ -6710,7 +6710,7 @@ First
 			<div class="functionitem">关于本版翻译</div>
 			<div class="content">
 				<h1>关于本版翻译</h1>
-				<div class="desc"><div><p>首先感谢 <a href="http://www.cn-cuckoo.com/">为之漫笔</a> 。他是1.1API的翻译者。1.2的翻译是完全基于1.1的API翻译的，拜一记。本次翻译临近结束时，由他翻译的Learning jQuery 的中文版《jQuery基础教程》即将出版。作为国内jQuery的引路人的他，我由衷地向他表示感谢！</p><p>其次感谢 <a href="http://mrwlwan.wordpress.com/">Ross Wan</a> 写的这个仿Visiul jQuery的样式。本次翻译是基于他的英文版制作的。(由于GFW缘故，其博客请通过代理访问)</p><p>最后感谢 <a href="http://www.cloudream.name/">Cloudream</a>,他也一起参与翻译了工具和AJAX部分。并且加入了英文说明切换功能。</p><p>断断续续翻译这个API有段时间了，虽然大部分都基于1.1的API复制过来，但也得校对以及跟官网的DOC进行比较。所以也花了点时间。如果大家使用过程中发现了什么翻译错误，可以找到我博客 <a href="http://shawphy.com/">http://shawphy.com/</a>来反馈。</p><p>同时欢迎利用此版制作其他发行版以方便广大jQuery爱好者。转载请保留版权信息，谢谢。</p><p>本API最后由<a href="http://www.shawphy.com/">Shawphy</a>更新于<br />﻿2008-09-19 23:08:18 +0800</p><p>changelog: <a href="changelog.txt">changelog.txt</a></p></div>
+				<div class="desc"><div><p>首先感谢 <a href="http://www.cn-cuckoo.com/">为之漫笔</a> 。他是1.1API的翻译者。1.2的翻译是完全基于1.1的API翻译的，拜一记。本次翻译临近结束时，由他翻译的Learning jQuery 的中文版《jQuery基础教程》即将出版。作为国内jQuery的引路人的他，我由衷地向他表示感谢！</p><p>其次感谢 <a href="http://mrwlwan.wordpress.com/">Ross Wan</a> 写的这个仿Visiul jQuery的样式。本次翻译是基于他的英文版制作的。(由于GFW缘故，其博客请通过代理访问)</p><p>最后感谢 <a href="http://www.cloudream.name/">Cloudream</a>,他也一起参与翻译了工具和AJAX部分。并且加入了英文说明切换功能。</p><p>断断续续翻译这个API有段时间了，虽然大部分都基于1.1的API复制过来，但也得校对以及跟官网的DOC进行比较。所以也花了点时间。如果大家使用过程中发现了什么翻译错误，可以找到我博客 <a href="http://shawphy.com/">http://shawphy.com/</a>来反馈。</p><p>同时欢迎利用此版制作其他发行版以方便广大jQuery爱好者。转载请保留版权信息，谢谢。</p><p>本API最后由<a href="http://www.shawphy.com/">Shawphy</a>更新于<br />2008-09-29 20:39:17 +0800</p><p>changelog: <a href="changelog.txt">changelog.txt</a></p></div>
 				</div>
 			</div>
 		</div>
