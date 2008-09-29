@@ -5798,7 +5798,7 @@ $(document.body).click(function () {
 				<p class="indent"><strong>password </strong>(String) : 用于响应HTTP访问认证请求的密码</p>
 				<p class="indent"><strong>processData </strong>(Boolean) : (默认: true) 默认情况下，发送的数据将被转换为对象(技术上讲并非字符串) 以配合默认内容类型 "application/x-www-form-urlencoded"。如果要发送 DOM 树信息或其它不希望转换的信息，请设置为 false。</p>
 				<p class="indent"><strong>scriptCharset </strong>(String) : 只有当请求时dataType为"jsonp"或"script"，并且type是"GET"才会用于强制修改charset。通常在本地和远程的内容编码不同时使用。</p>
-				<p class="indent"><strong>success </strong>(Function) : 请求成功后回调函数。参数：服务器返回数据，数据格式。 <a href="http://docs.jquery.com/Ajax_Events" title="Ajax Events">Ajax 事件</a>。 <div class="code">
+				<p class="indent"><strong>success </strong>(Function) : 请求成功后的回调函数。参数：由服务器返回，并根据dataType参数进行处理后的数据；描述状态的字符串。 <a href="http://docs.jquery.com/Ajax_Events" title="Ajax Events">Ajax 事件</a>。 <div class="code">
 					function (data, textStatus) {<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;// data 可能是 xmlDoc, jsonObj, html, text, 等等...<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;this; // 调用本次AJAX请求时传递的options参数<br/>
