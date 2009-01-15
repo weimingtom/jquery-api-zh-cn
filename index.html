@@ -3305,7 +3305,7 @@ $("p").eq(1)
 			<div class="functionitem">closest( [expr] )</div>
 			<div class="content">
 				<h1>closest( [expr] )</h1>
-				<div class="desc"><div>jQuery 1.3新增。获取匹配指定选择器的最接近的父辈元素。</div> <div class="longdesc"><p>closest会首先检查当前元素是否匹配，如果匹配则直接返回元素本身。如果不匹配则向上查找父元素，一层一层往上，直到找到匹配选择器的元素。如果什么都没找到则不返回任何东西。</p><p>closest对于处理事件委派非常有用。</p></div></div>  <hr />
+				<div class="desc"><div>jQuery 1.3新增。获取匹配指定选择器的最接近的父辈元素。</div> <div class="longdesc"><p>closest会首先检查当前元素是否匹配，如果匹配则直接返回元素本身。如果不匹配则向上查找父元素，一层一层往上，直到找到匹配选择器的元素。如果什么都没找到则返回一个空的jQuery对象。</p><p>closest对于处理事件委派非常有用。</p></div></div>  <hr />
 				<div class="desc"><div>New in jQuery 1.3 Get a set of elements containing the closest parent element that matches the specified selector, the starting element included.</div> <div class="longdesc">Closest works by first looking at the current element to see if it matches the specified expression, if so it just returns the element itself. If it doesn't match then it will continue to traverse up the document, parent by parent, until an element is found that matches the specified expression. If no matching element is found then none will be returned.
 
 Closest is especially useful for dealing with event delegation.</div></div>  
@@ -3320,15 +3320,15 @@ Closest is especially useful for dealing with event delegation.</div></div>
 				<p class="indent"><strong>HTML 代码:</strong></p>
 				<div class="code">
 &lt;ul&gt;<br />
-&lt;li&gt;&lt;b&gt;Click me!&lt;/b&gt;&lt;/li&gt;<br />
-&lt;li&gt;You can also &lt;b&gt;Click me!&lt;/b&gt;&lt;/li&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;b&gt;Click me!&lt;/b&gt;&lt;/li&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;You can also &lt;b&gt;Click me!&lt;/b&gt;&lt;/li&gt;<br />
 &lt;/ul&gt;<br />
 				</div>
 				<p class="indent"><strong>jQuery 代码:</strong></p>
 				<div class="code">
-&nbsp;&nbsp;&nbsp;&nbsp;$(document).bind("click", function (e) {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(e.target).closest("li").toggleClass("hilight");<br />
-&nbsp;&nbsp;&nbsp;&nbsp;}); <br />
+$(document).bind("click", function (e) {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$(e.target).closest("li").toggleClass("hilight");<br />
+}); <br />
 				</div>
 			</div>
 			<div class="functionitem">contents()</div>
