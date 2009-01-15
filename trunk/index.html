@@ -509,6 +509,174 @@ BODY<br />
 					参考data(name)的示例
 				</p>
 			</div>
+			<div class="functionitem">queue()</div>
+			<div class="content">
+				<h1>queue()</h1>
+				<div class="desc">返回指向第一个匹配元素的队列(将是一个函数数组)</div><hr />
+				<div class="desc">Returns a reference to the first element's queue (which is an array of functions).</div>
+				<h2>返回值</h2>
+				<p class="indent">Array&lt;Function&gt;</p>
+				<h2>示例</h2>
+				<p class="indent">
+					显示队列长度
+				</p>
+				<p class="indent"><strong>HTML 代码:</strong></p>
+				<div class="code"><pre>
+  &lt;style&gt;
+  div { margin:3px; width:40px; height:40px;
+        position:absolute; left:0px; top:30px; 
+        background:green; display:none; }
+  div.newcolor { background:blue; }
+  span { color:red; }
+  &lt;/style&gt;
+  &lt;button id="show">Show Length of Queue&lt;/button&gt;
+  &lt;span&gt;&lt;/span&gt;
+  &lt;div&gt;&lt;/div&gt;</pre>		
+				</div>
+				<p class="indent"><strong>jQuery 代码:</strong></p>
+				<div class="code"><pre>
+$("#show").click(function () {
+      var n = $("div").queue("fx");
+      $("span").text("Queue length is: " + n.length);
+});
+function runIt() {
+      $("div").show("slow");
+      $("div").animate({left:'+=200'},2000);
+      $("div").slideToggle(1000);
+      $("div").slideToggle("fast");
+      $("div").animate({left:'-=200'},1500);
+      $("div").hide("slow");
+      $("div").show(1200);
+      $("div").slideUp("normal", runIt);
+}
+runIt();</pre>
+				</div>
+			</div>
+			<div class="functionitem">queue(callback)</div>
+			<div class="content">
+				<h1>queue(callback)</h1>
+				<div class="desc">在匹配的元素的动画队列中添加一个函数</div><hr />
+				<div class="desc">Adds a new function, to be executed, onto the end of the queue of all matched elements.</div>
+				<h2>返回值</h2>
+				<p class="indent">jQuery</p>
+				<h2>参数</h2>
+				<p class="indent"><strong>callback </strong>(Function) : 要添加进队列的函数</p>
+				<h2>示例</h2>
+				<p class="indent">
+					插入一个自定义函数
+					如果函数执行后要继续队列，则执行 jQuery(this).dequeue();
+				</p>
+				<p class="indent"><strong>HTML 代码:</strong></p>
+				<div class="code"><pre>
+  &lt;style&gt;
+  div { margin:3px; width:40px; height:40px;
+        position:absolute; left:0px; top:30px; 
+        background:green; display:none; }
+  div.newcolor { background:blue; }
+  &lt;/style&gt;
+  Click here...
+  &lt;div&gt;&lt;/div&gt;</pre>		
+				</div>
+				<p class="indent"><strong>jQuery 代码:</strong></p>
+				<div class="code"><pre>
+$(document.body).click(function () {
+      $("div").show("slow");
+      $("div").animate({left:'+=200'},2000);
+      $("div").queue(function () {
+          $(this).addClass("newcolor");
+          $(this).dequeue();
+      });
+      $("div").animate({left:'-=200'},500);
+      $("div").queue(function () {
+          $(this).removeClass("newcolor");
+          $(this).dequeue();
+      });
+      $("div").slideUp();
+});
+</pre>
+				</div>
+			</div>
+			<div class="functionitem">queue(queue)</div>
+			<div class="content">
+				<h1>queue(queue)</h1>
+				<div class="desc">将匹配元素的动画队列用新的一个队列来代替(函数数组).</div><hr /><hr />
+				<div class="desc">Replaces the queue of all matched element with this new queue (the array of functions).</div>
+				<h2>返回值</h2>
+				<p class="indent">queue</p>
+				<h2>参数</h2>
+				<p class="indent"><strong>queue </strong>(Array&lt;Function&gt;) : 用于替换的队列。所有函数都有同一个参数，这个值与queue(callback)相同</p>
+				<h2>示例</h2>
+				<p class="indent">
+					通过设定队列数组来删除动画队列
+				</p>
+				<p class="indent"><strong>HTML 代码:</strong></p>
+				<div class="code"><pre>
+  &lt;style&gt;
+  div { margin:3px; width:40px; height:40px;
+        position:absolute; left:0px; top:30px; 
+        background:green; display:none; }
+  div.newcolor { background:blue; }
+  &lt;/style&gt;
+
+  &lt;button id="start"&gt;Start&lt;/button&gt;
+  &lt;button id="stop"&gt;Stop&lt;/button&gt;
+  &lt;div&gt;&lt;/div&gt;</pre>
+				</div>
+				<p class="indent"><strong>jQuery 代码:</strong></p>
+				<div class="code"><pre>
+  $("#start").click(function () {
+      $("div").show("slow");
+      $("div").animate({left:'+=200'},5000);
+      $("div").queue(function () {
+          $(this).addClass("newcolor");
+          $(this).dequeue();
+      });
+      $("div").animate({left:'-=200'},1500);
+      $("div").queue(function () {
+          $(this).removeClass("newcolor");
+          $(this).dequeue();
+      });
+      $("div").slideUp();
+  });
+  $("#stop").click(function () {
+      $("div").queue("fx", []);
+      $("div").stop();
+  });</pre>
+				</div>
+			</div>
+			<div class="functionitem">dequeue()</div>
+			<div class="content">
+				<h1>dequeue()</h1>
+				<div class="desc">从动画队列中移除一个队列函数.</div><hr />
+				<div class="desc">Removes a queued function from the front of the queue and executes it.</div>
+				<h2>返回值</h2>
+				<p class="indent">jQuery</p>
+				<h2>示例</h2>
+				<p class="indent"><strong>HTML 代码:</strong></p>
+				<div class="code"><pre>
+  &lt;style&gt;
+  div { margin:3px; width:50px; position:absolute;
+        height:50px; left:10px; top:30px; 
+        background-color:yellow; }
+  div.red { background-color:red; }
+  &lt;/style&gt;
+
+  &lt;button&gt;Start&lt;/button&gt;
+  &lt;div&gt;&lt;/div&gt;</pre>
+				</div>
+				<p class="indent"><strong>jQuery 代码:</strong></p>
+				<div class="code"><pre>
+  $("button").click(function () {
+      $("div").animate({left:'+=200px'}, 2000);
+      $("div").animate({top:'0px'}, 600);
+      $("div").queue(function () {
+          $(this).toggleClass("red");
+          $(this).dequeue();
+      });
+      $("div").animate({left:'10px', top:'30px'}, 700);
+  });</pre>
+				</div>
+			</div>
 		</div>
 		<div class="categoryitem">插件机制</div>
 		<div class="category">
@@ -654,7 +822,7 @@ jQuery("div &gt; p").hide();
 			<div class="functionitem">#id</div>
 			<div class="content">
 				<h1>#id</h1>
-				<div class="desc">根据给定的ID匹配一个元素。</div><hr />
+				<div class="desc">根据给定的ID匹配一个元素。</div><div class="longdesc">如果选择器中包含特殊字符，可以用两个斜杠转义。参见示例。</div><hr />
 				<div class="desc">Matches a single element with the given id attribute.</div>
 				<h2>返回值</h2>
 				<p class="indent">Element</p>
@@ -676,6 +844,21 @@ jQuery("div &gt; p").hide();
 				<p class="indent"><strong>结果:</strong></p>
 				<div class="code">
 					[ &lt;div id="myDiv"&gt;id="myDiv"&lt;/div&gt; ] 
+				</div>
+				<p class="indent">
+					查找含有特殊字符的元素 
+				</p>
+				<p class="indent"><strong>HTML 代码:</strong></p>
+				<div class="code">
+&lt;span id="foo:bar"&gt;&lt;/span&gt;<br />
+&lt;span id="foo[bar]"&gt;&lt;/span&gt;<br />
+&lt;span id="foo.bar"&gt;&lt;/span&gt;<br />
+				</div>
+				<p class="indent"><strong>jQuery 代码:</strong></p>
+				<div class="code">
+					#foo\\:bar<br />
+					#foo\\[bar\\]<br />
+					#foo\\.bar<br />
 				</div>
 			</div>
 			<div class="functionitem">element</div>
@@ -1382,7 +1565,7 @@ jQuery("div &gt; p").hide();
 			<div class="functionitem">[attribute]</div>
 			<div class="content">
 				<h1>[attribute]</h1>
-				<div class="desc">匹配包含给定属性的元素</div><hr /> <div class="desc">Matches elements that have the specified attribute.</div>
+				<div class="desc">匹配包含给定属性的元素。注意，在jQuery 1.3中，前导的@符号已经被废除！如果想要兼容最新版本，只需要简单去掉@符号即可。</div><hr /> <div class="desc">Matches elements that have the specified attribute.</div>
 				<h2>返回值</h2>
 				<p class="indent">Array&lt;Element&gt;</p>
 				<h2>参数</h2>
@@ -5630,174 +5813,6 @@ $("#go").click(function(){<br/>
 $("#stop").click(function(){<br/>
 &nbsp; $(".block").stop();<br/>
 });
-				</div>
-			</div>
-			<div class="functionitem">queue()</div>
-			<div class="content">
-				<h1>queue()</h1>
-				<div class="desc">返回指向第一个匹配元素的队列(将是一个函数数组)</div><hr />
-				<div class="desc">Returns a reference to the first element's queue (which is an array of functions).</div>
-				<h2>返回值</h2>
-				<p class="indent">Array&lt;Function&gt;</p>
-				<h2>示例</h2>
-				<p class="indent">
-					显示队列长度
-				</p>
-				<p class="indent"><strong>HTML 代码:</strong></p>
-				<div class="code"><pre>
-  &lt;style&gt;
-  div { margin:3px; width:40px; height:40px;
-        position:absolute; left:0px; top:30px; 
-        background:green; display:none; }
-  div.newcolor { background:blue; }
-  span { color:red; }
-  &lt;/style&gt;
-  &lt;button id="show">Show Length of Queue&lt;/button&gt;
-  &lt;span&gt;&lt;/span&gt;
-  &lt;div&gt;&lt;/div&gt;</pre>		
-				</div>
-				<p class="indent"><strong>jQuery 代码:</strong></p>
-				<div class="code"><pre>
-$("#show").click(function () {
-      var n = $("div").queue("fx");
-      $("span").text("Queue length is: " + n.length);
-});
-function runIt() {
-      $("div").show("slow");
-      $("div").animate({left:'+=200'},2000);
-      $("div").slideToggle(1000);
-      $("div").slideToggle("fast");
-      $("div").animate({left:'-=200'},1500);
-      $("div").hide("slow");
-      $("div").show(1200);
-      $("div").slideUp("normal", runIt);
-}
-runIt();</pre>
-				</div>
-			</div>
-			<div class="functionitem">queue(callback)</div>
-			<div class="content">
-				<h1>queue(callback)</h1>
-				<div class="desc">在匹配的元素的动画队列中添加一个函数</div><hr />
-				<div class="desc">Adds a new function, to be executed, onto the end of the queue of all matched elements.</div>
-				<h2>返回值</h2>
-				<p class="indent">jQuery</p>
-				<h2>参数</h2>
-				<p class="indent"><strong>callback </strong>(Function) : 要添加进队列的函数</p>
-				<h2>示例</h2>
-				<p class="indent">
-					插入一个自定义函数
-					如果函数执行后要继续队列，则执行 jQuery(this).dequeue();
-				</p>
-				<p class="indent"><strong>HTML 代码:</strong></p>
-				<div class="code"><pre>
-  &lt;style&gt;
-  div { margin:3px; width:40px; height:40px;
-        position:absolute; left:0px; top:30px; 
-        background:green; display:none; }
-  div.newcolor { background:blue; }
-  &lt;/style&gt;
-  Click here...
-  &lt;div&gt;&lt;/div&gt;</pre>		
-				</div>
-				<p class="indent"><strong>jQuery 代码:</strong></p>
-				<div class="code"><pre>
-$(document.body).click(function () {
-      $("div").show("slow");
-      $("div").animate({left:'+=200'},2000);
-      $("div").queue(function () {
-          $(this).addClass("newcolor");
-          $(this).dequeue();
-      });
-      $("div").animate({left:'-=200'},500);
-      $("div").queue(function () {
-          $(this).removeClass("newcolor");
-          $(this).dequeue();
-      });
-      $("div").slideUp();
-});
-</pre>
-				</div>
-			</div>
-			<div class="functionitem">queue(queue)</div>
-			<div class="content">
-				<h1>queue(queue)</h1>
-				<div class="desc">将匹配元素的动画队列用新的一个队列来代替(函数数组).</div><hr /><hr />
-				<div class="desc">Replaces the queue of all matched element with this new queue (the array of functions).</div>
-				<h2>返回值</h2>
-				<p class="indent">queue</p>
-				<h2>参数</h2>
-				<p class="indent"><strong>queue </strong>(Array&lt;Function&gt;) : 用于替换的队列。所有函数都有同一个参数，这个值与queue(callback)相同</p>
-				<h2>示例</h2>
-				<p class="indent">
-					通过设定队列数组来删除动画队列
-				</p>
-				<p class="indent"><strong>HTML 代码:</strong></p>
-				<div class="code"><pre>
-  &lt;style&gt;
-  div { margin:3px; width:40px; height:40px;
-        position:absolute; left:0px; top:30px; 
-        background:green; display:none; }
-  div.newcolor { background:blue; }
-  &lt;/style&gt;
-
-  &lt;button id="start"&gt;Start&lt;/button&gt;
-  &lt;button id="stop"&gt;Stop&lt;/button&gt;
-  &lt;div&gt;&lt;/div&gt;</pre>
-				</div>
-				<p class="indent"><strong>jQuery 代码:</strong></p>
-				<div class="code"><pre>
-  $("#start").click(function () {
-      $("div").show("slow");
-      $("div").animate({left:'+=200'},5000);
-      $("div").queue(function () {
-          $(this).addClass("newcolor");
-          $(this).dequeue();
-      });
-      $("div").animate({left:'-=200'},1500);
-      $("div").queue(function () {
-          $(this).removeClass("newcolor");
-          $(this).dequeue();
-      });
-      $("div").slideUp();
-  });
-  $("#stop").click(function () {
-      $("div").queue("fx", []);
-      $("div").stop();
-  });</pre>
-				</div>
-			</div>
-			<div class="functionitem">dequeue()</div>
-			<div class="content">
-				<h1>dequeue()</h1>
-				<div class="desc">从动画队列中移除一个队列函数.</div><hr />
-				<div class="desc">Removes a queued function from the front of the queue and executes it.</div>
-				<h2>返回值</h2>
-				<p class="indent">jQuery</p>
-				<h2>示例</h2>
-				<p class="indent"><strong>HTML 代码:</strong></p>
-				<div class="code"><pre>
-  &lt;style&gt;
-  div { margin:3px; width:50px; position:absolute;
-        height:50px; left:10px; top:30px; 
-        background-color:yellow; }
-  div.red { background-color:red; }
-  &lt;/style&gt;
-
-  &lt;button&gt;Start&lt;/button&gt;
-  &lt;div&gt;&lt;/div&gt;</pre>
-				</div>
-				<p class="indent"><strong>jQuery 代码:</strong></p>
-				<div class="code"><pre>
-  $("button").click(function () {
-      $("div").animate({left:'+=200px'}, 2000);
-      $("div").animate({top:'0px'}, 600);
-      $("div").queue(function () {
-          $(this).toggleClass("red");
-          $(this).dequeue();
-      });
-      $("div").animate({left:'10px', top:'30px'}, 700);
-  });</pre>
 				</div>
 			</div>
 		</div>

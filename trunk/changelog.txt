@@ -2,6 +2,7 @@
 * jQuery(html,[ownerDocument]) (Shawphy)
 + jQuery.selector (Shawphy)
 + jQuery.context (Shawphy)
+* 效果下的queue和dequeue搬到核心下 (Shawphy)
 
 2009-01-08 23:41:47 +0800
 * index()重复的“值值”
