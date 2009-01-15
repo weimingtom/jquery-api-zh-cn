@@ -359,7 +359,7 @@ $("ul")<br />
 				</div>
 				<p class="indent"><strong>结果:</strong></p>
 				<div class="code">
-[object HTMLDocument]<br />
+[object HTMLDocument]  //如果是IE浏览器，则返回[object]<br />
 BODY<br />
 				</div>
 
@@ -6507,9 +6507,9 @@ jQuery.each( fields, function(i, field){<br/>
 					</ul>
 					<p>jQuery.support主要包括以下测试：</p>
 					<p>
-						<strong>boxModel</strong>: 如果这个页面和浏览器是以W3C CSS盒式模型来渲染的，则等于true(通常在IE 6和IE 7的怪癖模式中这个值是false)。在document准备就绪前，这个值是null。<br />
-						<strong>cssFloat</strong>: Is equal to true if style.cssFloat is used to access the current CSS float value (is currently false in IE, it uses styleFloat instead).<br />
-						<strong>hrefNormalized</strong>: Is equal to true if the browser leaves intact the results from getAttribute("href")(is currently false in IE, the URLs are normalized).<br />
+						<strong>boxModel</strong>: 如果这个页面和浏览器是以W3C CSS盒式模型来渲染的，则等于true。通常在IE 6和IE 7的怪癖模式中这个值是false。在document准备就绪前，这个值是null。<br />
+						<strong>cssFloat</strong>: 如果用cssFloat来访问CSS的float的值，则返回true。目前在IE中会返回false,他用styleFloat代替。<br />
+						<strong>hrefNormalized</strong>: 如果浏览器从getAttribute("href")返回的是原封不动的结果，则返回true。在IE中会返回false，因为他的URLs已经常规化了。Is equal to true if the browser leaves intact the results from getAttribute("href")(is currently false in IE, the URLs are normalized).<br />
 						<strong>htmlSerialize</strong>: Is equal to true if the browser properly serializes link elements when innerHTML is used (is currently false in IE).<br />
 						<strong>leadingWhitespace</strong>: Is equal to true if the browser preserves leading whitespace when innerHTML is used (is currently false in IE 6-8).<br />
 						<strong>noCloneEvent</strong>: Is equal to true if the browser does not clone event handlers when elements are cloned (is currently false in IE).<br />
