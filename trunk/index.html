@@ -5887,13 +5887,16 @@ $("#go2").click(function(){<br/>
 &nbsp;}, { duration: "slow", easing: "easein" });
 				</div>
 			</div>
-			<div class="functionitem">stop()</div>
+			<div class="functionitem">stop( [clearQueue], [gotoEnd])</div>
 			<div class="content">
-				<h1>stop()</h1>
-				<div class="desc"><div>停止所有在指定元素上正在运行的动画。</div> <div class="longdesc">如果队列中有等待执行的动画，他们将被马上执行</div></div><hr />
+				<h1>stop( [clearQueue], [gotoEnd])</h1>
+				<div class="desc"><div>停止所有在指定元素上正在运行的动画。</div> <div class="longdesc">如果队列中有等待执行的动画(并且clearQueue没有设为true)，他们将被马上执行</div></div><hr />
 				<div class="desc"><div>Stops all the currently running animations on all the specified elements.</div> <div class="longdesc">If any animations are queued to run, then they will begin immediately.</div></div>
 				<h2>返回值</h2>
 				<p class="indent">jQuery</p>
+				<h2>参数</h2>
+				<p class="indent"><strong>clearQueue </strong>(Boolean) : 可选，如果设置成true，则清空队列。可以立即结束动画。</p>
+				<p class="indent"><strong>gotoEnd </strong>(Boolean) : 可选，让当前正在执行的动画立即完成，并且重设show和hide的原始样式，调用回调函数等。</p>
 				<h2>示例</h2>
 				<p class="indent">
 					点击Go之后开始动画,点Stop之后会在当前位置停下来

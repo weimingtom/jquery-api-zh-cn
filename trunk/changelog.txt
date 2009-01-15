@@ -1,5 +1,6 @@
 2009-01-15 19:48:44 +0800
 + closest
+* stop( [clearQueue], [gotoEnd])
 
 2009-01-15 19:23:50 +0800
 + live (Shawphy)
