@@ -1,7 +1,7 @@
 2009-01-15 17:16:35 +0800
-* jQuery(html,[ownerDocument])<br />
-+ jQuery.selector<br />
-+ jQuery.context
+* jQuery(html,[ownerDocument]) (Shawphy)
++ jQuery.selector (Shawphy)
++ jQuery.context (Shawphy)
 
 2009-01-08 23:41:47 +0800
 * index()重复的“值值”
