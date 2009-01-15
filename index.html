@@ -6507,17 +6507,17 @@ jQuery.each( fields, function(i, field){<br/>
 					</ul>
 					<p></p>
 					<p>jQuery.support主要包括以下测试：</p>
-						<p><strong>boxModel</strong>: 如果这个页面和浏览器是以W3C CSS盒式模型来渲染的，则等于true。通常在IE 6和IE 7的怪癖模式中这个值是false。在document准备就绪前，这个值是null。<br /></p>
-						<p><strong>cssFloat</strong>: 如果用cssFloat来访问CSS的float的值，则返回true。目前在IE中会返回false,他用styleFloat代替。<br /></p>
-						<p><strong>hrefNormalized</strong>: 如果浏览器从getAttribute("href")返回的是原封不动的结果，则返回true。在IE中会返回false，因为他的URLs已经常规化了。Is equal to true if the browser leaves intact the results from getAttribute("href")(is currently false in IE, the URLs are normalized).<br /></p>
-						<p><strong>htmlSerialize</strong>: 如果浏览器通过innerHTML插入链接元素的时候会序列化这些链接，则返回true，目前IE中返回false。<br /></p>
-						<p><strong>leadingWhitespace</strong>: 如果在使用innerHTML的时候浏览器会保持前导空白字符，则返回true，目前在IE 6-8中返回false。<br /></p>
-						<p><strong>noCloneEvent</strong>: 如果浏览器在克隆元素的时候不会连同事件处理函数一起复制，则返回true，目前在IE中返回false。<br /></p>
-						<p><strong>objectAll</strong>: 如果在某个元素对象上执行getElementsByTagName("*")会返回所有子孙元素，则为true，目前在IE 7中为false。<br /></p>
-						<p><strong>opacity</strong>: Is equal to true if a browser can properly interpret the opacity style property (is currently false in IE, it uses alpha filters instead).<br /></p>
-						<p><strong>scriptEval</strong>: Is equal to true if using appendChild/createTextNode to inject inline scripts executes them (is currently false in IE, it uses .text to insert executable scripts).<br /></p>
-						<p><strong>style</strong>: Is equal to true if getAttribute("style") is able to return the inline style specified by an element (is currently false in IE - it uses cssText instead).<br /></p>
-						<p><strong>tbody</strong>: Is equal to true if the browser allows table elements without tbody elements (is currently false in IE, which automatically inserts tbody if it is not present).</p>
+						<p><strong>boxModel</strong>: 如果这个页面和浏览器是以W3C CSS盒式模型来渲染的，则等于true。通常在IE 6和IE 7的怪癖模式中这个值是false。在document准备就绪前，这个值是null。</p>
+						<p><strong>cssFloat</strong>: 如果用cssFloat来访问CSS的float的值，则返回true。目前在IE中会返回false,他用styleFloat代替。</p>
+						<p><strong>hrefNormalized</strong>: 如果浏览器从getAttribute("href")返回的是原封不动的结果，则返回true。在IE中会返回false，因为他的URLs已经常规化了。</p>
+						<p><strong>htmlSerialize</strong>: 如果浏览器通过innerHTML插入链接元素的时候会序列化这些链接，则返回true，目前IE中返回false。</p>
+						<p><strong>leadingWhitespace</strong>: 如果在使用innerHTML的时候浏览器会保持前导空白字符，则返回true，目前在IE 6-8中返回false。</p>
+						<p><strong>noCloneEvent</strong>: 如果浏览器在克隆元素的时候不会连同事件处理函数一起复制，则返回true，目前在IE中返回false。</p>
+						<p><strong>objectAll</strong>: 如果在某个元素对象上执行getElementsByTagName("*")会返回所有子孙元素，则为true，目前在IE 7中为false。</p>
+						<p><strong>opacity</strong>: 如果浏览器能适当解释透明度样式属性，则返回true，目前在IE中返回false，因为他用alpha滤镜代替。</p>
+						<p><strong>scriptEval</strong>: Is equal to true if using appendChild/createTextNode to inject inline scripts executes them (is currently false in IE, it uses .text to insert executable scripts).</p>
+						<p><strong>style</strong>: 如果getAttribute("style")返回元素的行内样式，则为true。目前IE中为false，因为他用cssText代替。</p>
+						<p><strong>tbody</strong>: 如果浏览器允许table元素不包含tbody元素，则返回true。目前在IE中会返回false，他会自动插入缺失的tbody。</p>
 					</div></div>
 					<hr />
 					<div class="desc"><div>Added in jQuery 1.3 A collection of properties that represent the presence of different browser features or bugs.</div> <div class="longdesc">
@@ -6544,24 +6544,14 @@ tbody: Is equal to true if the browser allows table elements without tbody eleme
 					</div></div>
 				</div>
 				<h2>返回值</h2>
-				<p class="indent">Map</p>
+				<p class="indent">Boolean</p>
 				<h2>示例</h2>
 				<p class="indent">
-					在 Microsoft's Internet Explorer 浏览器中返回 true。
+					检测浏览器是否支持盒式模型
 				</p>
 				<p class="indent"><strong>jQuery 代码:</strong></p>
 				<div class="code">
-					$.browser.msie 
-				</div>
-				<hr />
-				<p class="indent">
-					仅在 Safari 中提示 "this is safari!" 。
-				</p>
-				<p class="indent"><strong>jQuery 代码:</strong></p>
-				<div class="code">
-					if ($.browser.safari) {<br/>
-&nbsp;&nbsp; alert("this is safari!");<br/>
-} 
+					jQuery.support.boxModel
 				</div>
 			</div>
 			<div class="functionitem">jQuery.browser</div>
@@ -6880,6 +6870,28 @@ First
 		</div>
 		<div class="categoryitem">测试操作</div>            
 		<div class="category">
+			<div class="functionitem">jQuery.isArray( obj )</div>
+			<div class="content">
+				<h1>jQuery.isArray(obj)</h1>
+				<div class="desc"><div>jQuery 1.3 新增。测试对象是否为数组。</div><hr />
+				<div>Determine if the parameter passed is a array.</div></div>  
+				<h2>返回值</h2>
+				<p class="indent">Boolean</p>
+				<h2>参数</h2>
+				<p class="indent"><strong>obj </strong>(Object) : 用于测试是否为数组的对象</p>
+				<h2>示例</h2>
+				<p class="indent">
+					检测是否为数组
+				</p>
+				<p class="indent"><strong>jQuery 代码:</strong></p>
+				<div class="code">
+					$("b").append( "" + $.isArray([]) );
+				</div>
+				<p class="indent"><strong>结果:</strong></p>
+				<div class="code">
+					&lt;b&gt;true&lt;/b&gt;
+				</div>
+			</div>
 			<div class="functionitem">jQuery.isFunction(obj)</div>
 			<div class="content">
 				<h1>jQuery.isFunction(obj)</h1>
