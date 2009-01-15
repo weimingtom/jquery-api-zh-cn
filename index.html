@@ -1176,7 +1176,7 @@ jQuery("div &gt; p").hide();
 			<div class="functionitem">:not(selector)</div>
 			<div class="content">
 				<h1>:not(selector)</h1>
-				<div class="desc">去除所有与给定选择器匹配的元素</div><hr />
+				<div class="desc">去除所有与给定选择器匹配的元素</div><div class="longdesc">在jQuery 1.3中，已经支持复杂选择器了（例如:not(div a) 和 :not(div,a)）</div><hr />
 				<div class="desc">Removes all elements matching the given selector.</div>
 				<h2>返回值</h2>
 				<p class="indent">Array&lt;Element&gt;</p>
@@ -4741,6 +4741,79 @@ $("input").focus(function(){
 $("p").bind("click", foo); // ... 当点击段落的时候会触发 foo <br/>
 <br/>
 $("p").unbind("click", foo); // ... 再也不会被触发 foo <br/>
+				</div>
+			</div>
+		</div>
+		<div class="categoryitem">Live 事件</div>
+		<div class="category">
+			<div class="functionitem">live( type, fn )</div>
+			<div class="content">
+				<h1>live( type, fn )</h1>
+				<div class="desc"><div>jQuery 1.3中新增的方法。给所有当前以及将来会匹配的元素绑定一个事件处理函数（比如click事件）。也能绑定自定义事件。</div> <div class="longdesc"><p>目前支持 click, dblclick, mousedown, mouseup, mousemove, mouseover, mouseout, keydown, keypress, keyup。 <br />还不支持 blur, focus, mouseenter, mouseleave, change, submit <br />这个方法跟传统的bind很像，区别在于用live来绑定事件会给所有当前以及将来在页面上的元素绑定事件(使用委派的方式)。比如说，如果你给页面上所有的li用live绑定了click事件。那么当在以后增加一个li到这个页面时，对于这个新增加的li，其click事件依然可用。而无需重新给这种新增加的元素绑定事件。</p><p>.live()与流行的liveQuery插件很像，但有以下几个主要区别：</p><ul>
+					<li>.live 目前只支持所有事件的子集，支持列表参考上面的说明。</li>
+					<li>.live 不支持liveQuery提供的“无事件”样式的回调函数。.live只能绑定事件处理函数。</li>
+					<li>.live 没有"setup"和"cleanup"的过程。因为所有的事件是委派而不是直接绑定在元素上的。</li>
+				</ul>
+				<p>要移除用live绑定的事件，请用die方法</p>
+				</div></div><hr />
+				<div class="desc"><div>Added in jQuery 1.3: Binds a handler to an event (like click) for all current - and future - matched element. Can also bind custom events.</div> <div class="longdesc">Possible event values: click, dblclick, mousedown, mouseup, mousemove, mouseover, mouseout, keydown, keypress, keyup 
+Currently not supported: blur, focus, mouseenter, mouseleave, change, submit
+This method works and behaves very similarly to jQuery's bind method but with one important distinction: When you bind a "live" event it will bind to all current and future elements on the page (using event delegation). For example if you bound a live click to all "li" elements on the page then added another li at a later time - that click event would continue to work for the new element (this is not the case with bind which must be re-bound on all new elements).
+
+.live() behaves similarly to the popular liveQuery plugin but with a few major differences:
+
+.live (currently) supports a subset of all events. Note the full list of supported/not-supported events above.
+.live doesn't support the no-event style callback that liveQuery provides. Only event handlers can be bound with .live.
+.live doesn't have a "setup" or "cleanup" step, since all events are delegated rather than bound directly to an element.
+To remove a live event you should use the die method.</div></div>
+				<h2>返回值</h2>
+				<p class="indent">jQuery</p>
+				<h2>参数</h2>
+				<p class="indent"><strong>type </strong>(String) : 一个或多个用空格分隔的事件名</p>
+				<p class="indent"><strong>fn </strong>(Function) : 欲绑定的事件处理函数</p>
+				<h2>示例</h2>
+				<p class="indent">
+					点击生成的p依然据有同样的功能。
+				</p>
+				<p class="indent"><strong>HTML 代码:</strong></p>
+				<div class="code">
+&lt;p&gt;Click me!&lt;/p&gt;<br />
+				</div>
+				<p class="indent"><strong>jQuery 代码:</strong></p>
+				<div class="code">
+$("p").live("click", function(){<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$(this).after("&lt;p&gt;Another paragraph!&lt;/p&gt;");<br />
+});<br />
+				</div>
+			</div>
+			<div class="functionitem">die( [type], [fn] )</div>
+			<div class="content">
+				<h1>toggle(fn,fn)</h1>
+				<div class="desc"><div>jQuery 1.3新增。此方法与live正好完全相反。</div> <div class="longdesc"><p>如果不带参数，则所有绑定的live事件都会被移除。</p><p>你可以解除用live注册的自定义事件。</p><p>如果提供了type参数，那么会移除对应的live事件。</p><p>如果也指定了第二个参数function,则只移出指定的事件处理函数。</p></div></div><hr />
+				<div class="desc"><div>Added in jQuery 1.3: This does the opposite of live, it removes a bound live event.</div> <div class="longdesc"><p>Without any arguments, all bound live events are removed.
+
+You can also unbind custom events registered with live.
+
+If the type is provided, all bound live events of that type are removed.
+
+If the function that was passed to live is provided as the second argument, only that specific event handler is removed.</p></div></div>
+				<h2>返回值</h2>
+				<p class="indent">jQuery</p>
+				<h2>参数</h2>
+				<p class="indent"><strong>type  </strong>(String) : 可选，要解除绑定的live事件</p>
+				<p class="indent"><strong>fn  </strong>(Function) : 可选，要解除绑定的特定处理函数</p>
+				<h2>示例</h2>
+				<p class="indent">
+					给按钮解除click事件
+				</p>
+				<p class="indent"><strong>jQuery 代码:</strong></p>
+				<div class="code">
+  function aClick() {
+      $("div").show().fadeOut("slow");
+  }
+  $("#unbind").click(function () {
+      $("#theone").die("click", aClick)
+  });
 				</div>
 			</div>
 		</div>
