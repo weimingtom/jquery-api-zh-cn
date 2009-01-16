@@ -1,3 +1,6 @@
+2009-01-16 19:11:10 +0800
++ jQuery.fx.off
+
 2009-01-15 22:31:02 +0800
 * jQuery(html,[ownerDocument])
 + jQuery.selector
@@ -6,7 +9,7 @@
 + live
 + die
 + closest
-* stop( [clearQueue], [gotoEnd])
+* stop( [clearQueue], [gotoEnd]) 增加两个参数
 + jQuery.support
 + jQuery.isArray( obj )
 

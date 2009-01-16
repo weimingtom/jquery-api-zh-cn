@@ -5921,6 +5921,29 @@ $("#stop").click(function(){<br/>
 				</div>
 			</div>
 		</div>
+		<div class="categoryitem">设置</div>
+		<div class="category">
+			<div class="functionitem">jQuery.fx.off</div>
+			<div class="content">
+				<h1>jQuery.fx.off</h1>
+				<div class="desc"><div>关闭页面上所有的动画。</div> <div class="longdesc"><p>把这个属性设置为true可以立即关闭所有动画(所有效果会立即执行完毕)。有些情况下可能需要这样，比如：</p><p>* 你在配置比较低的电脑上使用jQuery。</p><p>* 你的一些用户由于动画效果而遇到了 <a href="http://www.jdeegan.phlegethon.org/turn_off_animation.html">可访问性问题</a></p><p>当把这个属性设成false之后，可以重新开启所有动画。</p></div></div><hr />
+				<div class="desc"><div>Globally disable all animations.</div> <div class="longdesc"><p>Setting this property to true will disable all animations from occurring (the effect will happen instantaneously, instead). This may be desirable for a couple reasons:</p><p>You're using jQuery on a low-resource device.</p><p>Some of your users are encountering <a href="http://www.jdeegan.phlegethon.org/turn_off_animation.html">accessibility problems</a> with the animations.</p><p>Animations can be turned back on by setting the property to false.</p>
+				</div></div>
+				<h2>返回值</h2>
+				<p class="indent">Boolean</p>
+				<h2>示例</h2>
+				<p class="indent">
+					执行一个禁用的动画
+				</p>
+				<p class="indent"><strong>jQuery 代码:</strong></p>
+				<div class="code">
+&nbsp;&nbsp;jQuery.fx.off = true;<br />
+&nbsp;&nbsp;$("input").click(function(){<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$("div").toggle("slow");<br />
+&nbsp;&nbsp;});<br />
+				</div>
+			</div>
+		</div>
 	</div>
 	<!-- Ajax -->
 	<div class="menuitem">Ajax</div>
