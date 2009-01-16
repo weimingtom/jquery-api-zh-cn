@@ -5609,19 +5609,19 @@ If the function that was passed to live is provided as the second argument, only
 				<p class="indent"><strong>callback </strong>(FunctionFunction) : (Optional) 在动画完成时执行的函数，每个元素执行一次。</p>
 				<h2>示例</h2>
 				<p class="indent">
-					用600毫秒的时间将段落缓慢的隐藏
+					用600毫秒的时间将段落缓慢的切换显示状态
 				</p>
 				<p class="indent"><strong>jQuery 代码:</strong></p>
 				<div class="code">
-					$("p").hide("slow"); 
+					$("p").toggle("slow"); 
 				</div>
 				<hr />
 				<p class="indent">
-					用200毫秒将段落迅速隐藏，之后弹出一个对话框。
+					用200毫秒将段落迅速切换显示状态，之后弹出一个对话框。
 				</p>
 				<p class="indent"><strong>jQuery 代码:</strong></p>
 				<div class="code">
-					$("p").hide("fast",function(){<br/>
+					$("p").toggle("fast",function(){<br/>
 &nbsp;&nbsp; alert("Animation Done.");<br/>
 &nbsp;});
 				</div>
