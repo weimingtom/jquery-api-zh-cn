@@ -3,6 +3,7 @@
 + toggleClass( class, switch )
 + toggle( switch )
 + toggle(speed,[callback])
+* 修改queue和dequeue方法的参数和说明
 
 2009-01-15 22:31:02 +0800
 * jQuery(html,[ownerDocument])

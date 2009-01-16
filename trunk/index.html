@@ -509,13 +509,15 @@ BODY<br />
 					参考data(name)的示例
 				</p>
 			</div>
-			<div class="functionitem">queue()</div>
+			<div class="functionitem">queue([name] )</div>
 			<div class="content">
-				<h1>queue()</h1>
+				<h1>queue([name])</h1>
 				<div class="desc">返回指向第一个匹配元素的队列(将是一个函数数组)</div><hr />
 				<div class="desc">Returns a reference to the first element's queue (which is an array of functions).</div>
 				<h2>返回值</h2>
 				<p class="indent">Array&lt;Function&gt;</p>
+				<h2>参数</h2>
+				<p class="indent"><strong>name </strong>(String) :队列名，默认为fx </p>
 				<h2>示例</h2>
 				<p class="indent">
 					显示队列长度
@@ -552,14 +554,15 @@ function runIt() {
 runIt();</pre>
 				</div>
 			</div>
-			<div class="functionitem">queue(callback)</div>
+			<div class="functionitem">queue([name],callback)</div>
 			<div class="content">
 				<h1>queue(callback)</h1>
-				<div class="desc">在匹配的元素的动画队列中添加一个函数</div><hr />
+				<div class="desc">在匹配的元素的队列最后添加一个函数</div><hr />
 				<div class="desc">Adds a new function, to be executed, onto the end of the queue of all matched elements.</div>
 				<h2>返回值</h2>
 				<p class="indent">jQuery</p>
 				<h2>参数</h2>
+				<p class="indent"><strong>name </strong>(String) :队列名，默认为fx </p>
 				<p class="indent"><strong>callback </strong>(Function) : 要添加进队列的函数</p>
 				<h2>示例</h2>
 				<p class="indent">
@@ -596,14 +599,15 @@ $(document.body).click(function () {
 </pre>
 				</div>
 			</div>
-			<div class="functionitem">queue(queue)</div>
+			<div class="functionitem">queue([name],queue)</div>
 			<div class="content">
 				<h1>queue(queue)</h1>
-				<div class="desc">将匹配元素的动画队列用新的一个队列来代替(函数数组).</div><hr /><hr />
+				<div class="desc">将匹配元素的队列用新的一个队列来代替(函数数组).</div><hr /><hr />
 				<div class="desc">Replaces the queue of all matched element with this new queue (the array of functions).</div>
 				<h2>返回值</h2>
-				<p class="indent">queue</p>
+				<p class="indent">jQuery</p>
 				<h2>参数</h2>
+				<p class="indent"><strong>name </strong>(String) :队列名，默认为fx </p>
 				<p class="indent"><strong>queue </strong>(Array&lt;Function&gt;) : 用于替换的队列。所有函数都有同一个参数，这个值与queue(callback)相同</p>
 				<h2>示例</h2>
 				<p class="indent">
@@ -644,14 +648,19 @@ $(document.body).click(function () {
   });</pre>
 				</div>
 			</div>
-			<div class="functionitem">dequeue()</div>
+			<div class="functionitem">dequeue([name])</div>
 			<div class="content">
-				<h1>dequeue()</h1>
-				<div class="desc">从动画队列中移除一个队列函数.</div><hr />
+				<h1>dequeue([name])</h1>
+				<div class="desc">从队列最前端移除一个队列函数，并执行他。</div><hr />
 				<div class="desc">Removes a queued function from the front of the queue and executes it.</div>
 				<h2>返回值</h2>
 				<p class="indent">jQuery</p>
+				<h2>参数</h2>
+				<p class="indent"><strong>name </strong>(String) :队列名，默认为fx </p>
 				<h2>示例</h2>
+				<p class="indent">
+					用dequeue来结束自定义队列函数，并让队列继续进行下去。
+				</p>
 				<p class="indent"><strong>HTML 代码:</strong></p>
 				<div class="code"><pre>
   &lt;style&gt;
