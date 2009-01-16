@@ -1,5 +1,6 @@
-2009-01-16 19:11:10 +0800
+﻿2009-01-16 19:11:10 +0800
 + jQuery.fx.off
++ toggleClass( class, switch )
 
 2009-01-15 22:31:02 +0800
 * jQuery(html,[ownerDocument])
