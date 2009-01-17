@@ -98,13 +98,12 @@
 				<div class="desc">
 					<div>根据提供的原始 HTML 标记字符串，动态创建由 jQuery 对象包装的 DOM 元素。
 					</div>
-					<div class="longdesc">你可以传递一个手写的 HTML 字符串，或者由某些模板引擎或插件创建的字符串，也可以是通过 AJAX 加载过来的字符串。但是在你创建 input 元素的时会有限制，可以参考第二个示例。当然这个字符串可以包含斜杠 (比如一个图像地址)，还有反斜杠。当你创建单个元素时，请使用闭合标签或 XHTML 格式。例如，创建一个 span ，可以用 $("&lt;span/&gt;") 或 $("&lt;span&gt;&lt;/span&gt;") ，但不推荐 $("&lt;span&gt;")
+					<div class="longdesc">你可以传递一个手写的 HTML 字符串，或者由某些模板引擎或插件创建的字符串，也可以是通过 AJAX 加载过来的字符串。但是在你创建 input 元素的时会有限制，可以参考第二个示例。当然这个字符串可以包含斜杠 (比如一个图像地址)，还有反斜杠。当你创建单个元素时，请使用闭合标签或 XHTML 格式。例如，创建一个 span ，可以用 $("&lt;span/&gt;") 或 $("&lt;span&gt;&lt;/span&gt;") ，但不推荐 $("&lt;span&gt;")。在jQuery 中，这个语法等同于$(document.createElement("span")) 。
 					</div>
 					<hr />
 					<div>Create DOM elements on-the-fly from the provided String of raw HTML.
 					</div>
-					<div class="longdesc">You can pass in plain HTML Strings written by hand, create them using some template engine or plugin, or load them via AJAX. There are limitations when creating input elements, see the second example. Also when passing strings that may include slashes (such as an image path), escape the slashes. When creating single elements use the closing tag or XHTML format. For example, to create a span use $("&lt;span/&gt;") or $("&lt;span&gt;&lt;/span&gt;") instead of without the closing slash/tag.
-					</div>
+					<div class="longdesc">You can pass in plain HTML Strings written by hand, create them using some template engine or plugin, or load them via AJAX. There are limitations when creating input elements, see the second example. Also when passing strings that may include slashes (such as an image path), escape the slashes. When creating single elements use the closing tag or XHTML format. For example, to create a span use $("&lt;span/&gt;") or $("&lt;span&gt;&lt;/span&gt;") instead of without the closing slash/tag. As of jQuery 1.3 this syntax is completely equivalent to $(document.createElement("span"))
 				</div>
 				<h2>返回值</h2>
 				<p class="indent">jQuery</p>
@@ -3060,8 +3059,8 @@ $("p").eq(1)
 			<div class="functionitem">is(expr)</div>
 			<div class="content">
 				<h1>is(expr)</h1>
-				<div class="desc"><div>用一个表达式来检查当前选择的元素集合，如果其中至少有一个元素符合这个给定的表达式就返回true。</div> <div class="longdesc">如果没有元素符合，或者表达式无效，都返回'false'. 'filter' 内部实际也是在调用这个函数，所以，filter()函数原有的规则在这里也适用。</div></div><hr />
-				<div class="desc"><div>Checks the current selection against an expression and returns true, if at least one element of the selection fits the given expression.</div> <div class="longdesc">If no element fits, or the expression is not valid, then the response will be 'false'. 'filter' is used internally, therefore all rules that apply there apply here, as well.</div></div>
+				<div class="desc"><div>用一个表达式来检查当前选择的元素集合，如果其中至少有一个元素符合这个给定的表达式就返回true。</div> <div class="longdesc">如果没有元素符合，或者表达式无效，都返回'false'。在jQuery 1.3中对所有表达式提供了支持。先前版本中如果提供了复杂的表达式，比如层级选择器（比如 + , ~ 和 > ）始终会返回true</div></div><hr />
+				<div class="desc"><div>Checks the current selection against an expression and returns true, if at least one element of the selection fits the given expression.</div> <div class="longdesc">If no element fits, or the expression is not valid, then the response will be 'false'.<strong>Note</strong>: As of jQuery 1.3 all expressions are supported. Previously complex expressions, such as those containing hierarchy selectors (such as +, ~, and >), always returned 'true'. </div></div>
 				<h2>返回值</h2>
 				<p class="indent">Boolean</p>
 				<h2>参数</h2>
