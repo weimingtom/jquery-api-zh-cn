@@ -2,6 +2,8 @@
 * live() - 与bind()不同的是，live()一次只能绑定一个事件。
 * [attribute!=value] jQuery 1.3中意义改变
 * load 的data参数在jQuery 1.3中也可以接受String
++ ajax的error回调的第二个参数可能值"timeout", "error", "notmodified" 和 "parsererror"
++ ajax参数xhr
 
 2009-01-17 18:31:10 +0800
 + jQuery.support.scriptEval

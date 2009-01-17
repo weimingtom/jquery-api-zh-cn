@@ -6294,7 +6294,7 @@ $("#stop").click(function(){<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;return data  // 返回处理后的数据<br/>
 }				</div></p>
 				<p class="indent"><strong>dataType </strong>(String) : (默认值：智能判断xml或者html)预期服务器返回的数据类型。如果不指定，jQuery 将自动根据 HTTP 包 MIME 信息返回 responseXML 或 responseText，并作为回调函数参数传递，可用值: <p>"xml": 返回 XML 文档，可用 jQuery 处理。</p><p>"html": 返回纯文本 HTML 信息；包含的script标签会在插入dom时执行。</p><p>"script": 返回纯文本 JavaScript 代码。不会自动缓存结果。除非设置了"cache"参数。<strong>注意：</strong>在远程请求时(不在同一个域下)，所有POST请求都将转为GET请求。(因为将使用DOM的script标签来加载)</p><p>"json": 返回 JSON 数据 。</p><p>"jsonp": <a href="http://bob.pythonmac.org/archives/2005/12/05/remote-json-jsonp/" class="external text" title="http://bob.pythonmac.org/archives/2005/12/05/remote-json-jsonp/">JSONP</a> 格式。使用 <a href="http://bob.pythonmac.org/archives/2005/12/05/remote-json-jsonp/" class="external text" title="http://bob.pythonmac.org/archives/2005/12/05/remote-json-jsonp/">JSONP</a> 形式调用函数时，如 "myurl?callback=?" jQuery 将自动替换 ? 为正确的函数名，以执行回调函数。</p><p>"text": 返回纯文本字符串</p></p>
-				<p class="indent"><strong>error </strong>(Function) : (默认: 自动判断 (xml 或 html)) 请求失败时调用时间。参数：XMLHttpRequest 对象、错误信息、（可选）捕获的错误对象。<a href="http://docs.jquery.com/Ajax_Events" title="Ajax Events">Ajax 事件</a>。 <div class="code">
+				<p class="indent"><strong>error </strong>(Function) : (默认: 自动判断 (xml 或 html)) 请求失败时调用时间。参数有以下三个：XMLHttpRequest 对象、错误信息、（可选）捕获的错误对象。如果发生了错误，错误信息（第二个参数）除了得到null之外，还可能是"timeout", "error", "notmodified" 和 "parsererror"。<a href="http://docs.jquery.com/Ajax_Events" title="Ajax Events">Ajax 事件</a>。 <div class="code">
 					function (XMLHttpRequest, textStatus, errorThrown) {<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;// 通常 textStatus 和 errorThrown 之中<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;// 只有一个会包含信息<br/>
@@ -6315,6 +6315,7 @@ $("#stop").click(function(){<br/>
 				<p class="indent"><strong>type </strong>(String) : (默认: "GET") 请求方式 ("POST" 或 "GET")， 默认为 "GET"。注意：其它 HTTP 请求方法，如 PUT 和 DELETE 也可以使用，但仅部分浏览器支持。</p>
 				<p class="indent"><strong>url </strong>(String) : (默认: 当前页地址) 发送请求的地址。</p>
 				<p class="indent"><strong>username </strong>(String) : 用于响应HTTP访问认证请求的用户名</p>
+				<p class="indent"><strong>xhr </strong>(Function) : 需要返回一个XMLHttpRequest 对象。默认在IE下是ActiveXObject 而其他情况下是XMLHttpRequest 。用于重写或者提供一个增强的XMLHttpRequest 对象。这个参数在jQuery 1.3以前不可用。</p>
 				<h2>示例</h2>
 				<p class="indent">
 					加载并执行一个 JS 文件。
