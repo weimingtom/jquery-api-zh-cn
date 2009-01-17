@@ -4479,6 +4479,121 @@ p.html( "left: " + offset.left + ", top: " + offset.top );
 					&lt;p&gt;Hello&lt;/p&gt;&lt;p&gt;left: 0, top: 35&lt;/p&gt; 
 				</div>
 			</div>
+			<div class="functionitem">position()</div>
+			<div class="content">
+				<h1>position()</h1>
+				<div class="desc"><div>获取匹配元素相对父元素的偏移。</div> <div class="longdesc">返回的对象包含两个整形属性：top 和 left。为精确计算结果，请在补白、边框和填充属性上使用像素单位。此方法只对可见元素有效。</div></div>
+				<hr />
+				<div class="desc"><div>Gets the top and left position of an element relative to its offset parent.</div> <div class="longdesc">The returned object contains two Integer properties, top and left. For accurate calculations make sure to use pixel values for margins, borders and padding. This method only works with visible elements.</div></div>  
+				<h2>返回值</h2>
+				<p class="indent">Object{top,left}</p>
+				<h2>示例</h2>
+				<p class="indent">
+					获取第一段的偏移
+				</p>
+				<p class="indent"><strong>HTML 代码:</strong></p>
+				<div class="code">
+					&lt;p&gt;Hello&lt;/p&gt;&lt;p&gt;2nd Paragraph&lt;/p&gt; 
+				</div>
+				<p class="indent"><strong>jQuery 代码:</strong></p>
+				<div class="code">
+					var p = $("p:first");<br/>
+var position = p.position();<br/>
+$("p:last").html( "left: " + position.left + ", top: " + position.top ); 
+				</div>
+				<p class="indent"><strong>结果:</strong></p>
+				<div class="code">
+					&lt;p&gt;Hello&lt;/p&gt;&lt;p&gt;left: 15, top: 15&lt;/p&gt; 
+				</div>
+			</div>
+			<div class="functionitem">scrollTop()</div>
+			<div class="content">
+				<h1>scrollTop()</h1>
+				<div class="desc"><div>获取匹配元素相对滚动条顶部的偏移。</div> <div class="longdesc">此方法对可见和隐藏元素均有效。</div></div>
+				<hr />
+				<div class="desc"><div>Gets the scroll top offset of the first matched element.</div> <div class="longdesc">This method works for both visible and hidden elements.</div></div>  
+				<h2>返回值</h2>
+				<p class="indent">Integer</p>
+				<h2>示例</h2>
+				<p class="indent">
+					获取第一段相对滚动条顶部的偏移
+				</p>
+				<p class="indent"><strong>HTML 代码:</strong></p>
+				<div class="code">
+					&lt;p&gt;Hello&lt;/p&gt;&lt;p&gt;2nd Paragraph&lt;/p&gt; 
+				</div>
+				<p class="indent"><strong>jQuery 代码:</strong></p>
+				<div class="code">
+					var p = $("p:first");<br/>
+$("p:last").text( "scrollTop:" + p.scrollTop() );
+
+				</div>
+				<p class="indent"><strong>结果:</strong></p>
+				<div class="code">
+					&lt;p&gt;Hello&lt;/p&gt;&lt;p&gt;scrollTop: 0&lt;/p&gt; 
+				</div>
+			</div>
+			<div class="functionitem">scrollTop(val)</div>
+			<div class="content">
+				<h1>scrollTop(val)</h1>
+				<div class="desc"><div>传递参数值时，设置滚动条顶部偏移为该值。</div> <div class="longdesc">此方法对可见和隐藏元素均有效。</div></div>
+				<hr />
+				<div class="desc"><div>When a value is passed in, the scroll top offset is set to that value on all matched elements.</div> <div class="longdesc">This method works for both visible and hidden elements.</div></div>  
+				<h2>返回值</h2>
+				<p class="indent">jQuery</p>
+				<h2>示例</h2>
+				<p class="indent">
+					获取第一段相对滚动条顶部的偏移
+				</p>
+				<p class="indent"><strong>jQuery 代码:</strong></p>
+				<div class="code">
+					$("div.demo").scrollTop(300);
+				</div>
+			</div>
+			<div class="functionitem">scrollLeft()</div>
+			<div class="content">
+				<h1>scrollLeft()</h1>
+				<div class="desc"><div>获取匹配元素相对滚动条左侧的偏移。</div> <div class="longdesc">此方法对可见和隐藏元素均有效。</div></div>
+				<hr />
+				<div class="desc"><div>Gets the scroll left offset of the first matched element.</div> <div class="longdesc">This method works for both visible and hidden elements.</div></div>  
+				<h2>返回值</h2>
+				<p class="indent">Integer</p>
+				<h2>示例</h2>
+				<p class="indent">
+					获取第一段相对滚动条左侧的偏移
+				</p>
+				<p class="indent"><strong>HTML 代码:</strong></p>
+				<div class="code">
+					&lt;p&gt;Hello&lt;/p&gt;&lt;p&gt;2nd Paragraph&lt;/p&gt; 
+				</div>
+				<p class="indent"><strong>jQuery 代码:</strong></p>
+				<div class="code">
+					var p = $("p:first");<br/>
+$("p:last").text( "scrollLeft:" + p.scrollLeft() );
+
+				</div>
+				<p class="indent"><strong>结果:</strong></p>
+				<div class="code">
+					&lt;p&gt;Hello&lt;/p&gt;&lt;p&gt;scrollLeft: 0&lt;/p&gt; 
+				</div>
+			</div>
+			<div class="functionitem">scrollLeft(val)</div>
+			<div class="content">
+				<h1>scrollLeft(val)</h1>
+				<div class="desc"><div>传递参数值时，设置滚动条左侧偏移为该值。</div> <div class="longdesc">此方法对可见和隐藏元素均有效。</div></div>
+				<hr />
+				<div class="desc"><div>When a value is passed in, the scroll left offset is set to that value on all matched elements.</div> <div class="longdesc">This method works for both visible and hidden elements.</div></div>  
+				<h2>返回值</h2>
+				<p class="indent">jQuery</p>
+				<h2>示例</h2>
+				<p class="indent">
+					获取第一段相对滚动条左侧的偏移
+				</p>
+				<p class="indent"><strong>jQuery 代码:</strong></p>
+				<div class="code">
+					$("div.demo").scrollLeft(300);
+				</div>
+			</div>
 		</div>
 		<div class="categoryitem">尺寸</div>
 		<div class="category">
