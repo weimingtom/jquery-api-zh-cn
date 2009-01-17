@@ -5033,7 +5033,7 @@ $("p").unbind("click", foo); // ... 再也不会被触发 foo <br/>
 			<div class="functionitem">live( type, fn )</div>
 			<div class="content">
 				<h1>live( type, fn )</h1>
-				<div class="desc"><div>jQuery 1.3中新增的方法。给所有当前以及将来会匹配的元素绑定一个事件处理函数（比如click事件）。也能绑定自定义事件。</div> <div class="longdesc"><p>目前支持 click, dblclick, mousedown, mouseup, mousemove, mouseover, mouseout, keydown, keypress, keyup。 <br />还不支持 blur, focus, mouseenter, mouseleave, change, submit <br />这个方法跟传统的bind很像，区别在于用live来绑定事件会给所有当前以及将来在页面上的元素绑定事件(使用委派的方式)。比如说，如果你给页面上所有的li用live绑定了click事件。那么当在以后增加一个li到这个页面时，对于这个新增加的li，其click事件依然可用。而无需重新给这种新增加的元素绑定事件。</p><p>.live()与流行的liveQuery插件很像，但有以下几个主要区别：</p><ul>
+				<div class="desc"><div>jQuery 1.3中新增的方法。给所有当前以及将来会匹配的元素绑定一个事件处理函数（比如click事件）。也能绑定自定义事件。</div> <div class="longdesc"><p>目前支持 click, dblclick, mousedown, mouseup, mousemove, mouseover, mouseout, keydown, keypress, keyup。 <br />还不支持 blur, focus, mouseenter, mouseleave, change, submit <br />与bind()不同的是，live()一次只能绑定一个事件。</p><p>这个方法跟传统的bind很像，区别在于用live来绑定事件会给所有当前以及将来在页面上的元素绑定事件(使用委派的方式)。比如说，如果你给页面上所有的li用live绑定了click事件。那么当在以后增加一个li到这个页面时，对于这个新增加的li，其click事件依然可用。而无需重新给这种新增加的元素绑定事件。</p><p>.live()与流行的liveQuery插件很像，但有以下几个主要区别：</p><ul>
 					<li>.live 目前只支持所有事件的子集，支持列表参考上面的说明。</li>
 					<li>.live 不支持liveQuery提供的“无事件”样式的回调函数。.live只能绑定事件处理函数。</li>
 					<li>.live 没有"setup"和"cleanup"的过程。因为所有的事件是委派而不是直接绑定在元素上的。</li>
