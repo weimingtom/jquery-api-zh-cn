@@ -15,13 +15,13 @@
 </head>
 <body>
 <div id="topnav">
-	<a class="topnav" href="http://cloudream.name/" title="1.2版翻译协助者">Cloudream</a>
+	<a class="topnav" href="http://cloudream.name/" title="1.2+版翻译协助者">Cloudream</a>
 	<span class="topnav">|</span>
 	<a class="topnav" href="http://mrwlwan.wordpress.com/" title="1.2版翻译样式作者">Ross Wan</a>
 	<span class="topnav">|</span>
 	<a class="topnav" href="http://www.cn-cuckoo.com/" title="1.1版译者">为之漫笔</a>
 	<span class="topnav">|</span>
-	<a class="topnav" href="http://shawphy.com/" title="1.2版翻译整理者">Shawphy</a>
+	<a class="topnav" href="http://shawphy.com/" title="1.2+版翻译整理者">Shawphy</a>
 	<span class="topnav">|</span>
 	<a class="topnav" href="http://code.google.com/p/jquery-api-zh-cn/downloads/list" title="1.2离线版下载">jQuery 1.2 API 离线版下载(1.3版尚未提供)</a>
 </div>
@@ -4681,6 +4681,114 @@ $("p:last").text( "scrollLeft:" + p.scrollLeft() );
 					$("p").width(20); 
 				</div>
 			</div>
+			<div class="functionitem">innerHeight()</div>
+			<div class="content">
+				<h1>innerHeight()</h1>
+				<div class="desc"><div>获取第一个匹配元素内部区域高度（包括补白、不包括边框）。</div> <div class="longdesc">此方法对可见和隐藏元素均有效。</div></div>
+				<hr />
+				<div class="desc"><div>Gets the inner height (excludes the border and includes the padding) for the first matched element.</div> <div class="longdesc">This method works for both visible and hidden elements.</div></div>  
+				<h2>返回值</h2>
+				<p class="indent">Integer</p>
+				<h2>示例</h2>
+				<p class="indent">
+					获取第一段落内部区域高度。
+				</p>
+				<p class="indent"><strong>HTML 代码:</strong></p>
+				<div class="code">
+					&lt;p&gt;Hello&lt;/p&gt;&lt;p&gt;2nd Paragraph&lt;/p&gt; 
+				</div>
+				<p class="indent"><strong>jQuery 代码:</strong></p>
+				<div class="code">
+					var p = $("p:first");<br/>
+$("p:last").text( "innerHeight:" + p.innerHeight() );
+				</div>
+				<p class="indent"><strong>结果:</strong></p>
+				<div class="code">
+					&lt;p&gt;Hello&lt;/p&gt;&lt;p&gt;innerHeight: 16&lt;/p&gt; 
+				</div>
+			</div>
+			<div class="functionitem">innerWidth()</div>
+			<div class="content">
+				<h1>innerHeight()</h1>
+				<div class="desc"><div>获取第一个匹配元素内部区域宽度（包括补白、不包括边框）。</div> <div class="longdesc">此方法对可见和隐藏元素均有效。</div></div>
+				<hr />
+				<div class="desc"><div>Gets the inner width (excludes the border and includes the padding) for the first matched element.</div> <div class="longdesc">This method works for both visible and hidden elements.</div></div>  
+				<h2>返回值</h2>
+				<p class="indent">Integer</p>
+				<h2>示例</h2>
+				<p class="indent">
+					获取第一段落内部区域宽度。
+				</p>
+				<p class="indent"><strong>HTML 代码:</strong></p>
+				<div class="code">
+					&lt;p&gt;Hello&lt;/p&gt;&lt;p&gt;2nd Paragraph&lt;/p&gt; 
+				</div>
+				<p class="indent"><strong>jQuery 代码:</strong></p>
+				<div class="code">
+					var p = $("p:first");<br/>
+$("p:last").text( "innerWidth:" + p.innerWidth() );
+				</div>
+				<p class="indent"><strong>结果:</strong></p>
+				<div class="code">
+					&lt;p&gt;Hello&lt;/p&gt;&lt;p&gt;innerWidth: 40&lt;/p&gt; 
+				</div>
+			</div>
+			<div class="functionitem">outerHeight(options)</div>
+			<div class="content">
+				<h1>outerHeight(options)</h1>
+				<div class="desc"><div>获取第一个匹配元素外部高度（默认包括补白和边框）。</div> <div class="longdesc">此方法对可见和隐藏元素均有效。</div></div>
+				<hr />
+				<div class="desc"><div>Gets the outer height (includes the border and padding by default) for the first matched element.</div> <div class="longdesc">This method works for both visible and hidden elements.</div></div>  
+				<h2>返回值</h2>
+				<p class="indent">Integer</p>
+				<h2>参数</h2>
+				<p class="indent"><strong>options</strong>(Boolean) : (false) 设置为 true 时，计算边距在内。</p>
+				<h2>示例</h2>
+				<p class="indent">
+					获取第一段落外部高度。
+				</p>
+				<p class="indent"><strong>HTML 代码:</strong></p>
+				<div class="code">
+					&lt;p&gt;Hello&lt;/p&gt;&lt;p&gt;2nd Paragraph&lt;/p&gt; 
+				</div>
+				<p class="indent"><strong>jQuery 代码:</strong></p>
+				<div class="code">
+					var p = $("p:first");<br/>
+$("p:last").text( "outerHeight:" + p.outerHeight() + " , outerHeight(true):" + p.outerHeight(true) );
+				</div>
+				<p class="indent"><strong>结果:</strong></p>
+				<div class="code">
+					&lt;p&gt;Hello&lt;/p&gt;&lt;p&gt;outerHeight: 35 , outerHeight(true):55&lt;/p&gt; 
+				</div>
+			</div>
+			<div class="functionitem">outerWidth(options)</div>
+			<div class="content">
+				<h1>outerHeight(options)</h1>
+				<div class="desc"><div>获取第一个匹配元素外部宽度（默认包括补白和边框）。</div> <div class="longdesc">此方法对可见和隐藏元素均有效。</div></div>
+				<hr />
+				<div class="desc"><div>Gets the outer width (includes the border and padding by default) for the first matched element.</div> <div class="longdesc">This method works for both visible and hidden elements.</div></div>  
+				<h2>返回值</h2>
+				<p class="indent">Integer</p>
+				<h2>参数</h2>
+				<p class="indent"><strong>options</strong>(Boolean) : (false) 设置为 true 时，计算边距在内。</p>
+				<h2>示例</h2>
+				<p class="indent">
+					获取第一段落外部宽度。
+				</p>
+				<p class="indent"><strong>HTML 代码:</strong></p>
+				<div class="code">
+					&lt;p&gt;Hello&lt;/p&gt;&lt;p&gt;2nd Paragraph&lt;/p&gt; 
+				</div>
+				<p class="indent"><strong>jQuery 代码:</strong></p>
+				<div class="code">
+					var p = $("p:first");<br/>
+$("p:last").text( "outerWidth:" + p.outerWidth() + " , outerWidth(true):" + p.outerWidth(true) );
+				</div>
+				<p class="indent"><strong>结果:</strong></p>
+				<div class="code">
+					&lt;p&gt;Hello&lt;/p&gt;&lt;p&gt;outerWidth: 65 , outerWidth(true):85&lt;/p&gt; 
+				</div>
+			</div>
 		</div>
 	</div>
 	<!-- Events -->
@@ -7188,7 +7296,7 @@ First
 			<div class="functionitem">关于本版翻译</div>
 			<div class="content">
 				<h1>关于本版翻译</h1>
-				<div class="desc"><div><p>首先感谢 <a href="http://www.cn-cuckoo.com/">为之漫笔</a> 。他是1.1API的翻译者。1.2的翻译是完全基于1.1的API翻译的，拜一记。本次翻译临近结束时，由他翻译的Learning jQuery 的中文版《jQuery基础教程》即将出版。作为国内jQuery的引路人的他，我由衷地向他表示感谢！</p><p>其次感谢 <a href="http://mrwlwan.wordpress.com/">Ross Wan</a> 写的这个仿Visiul jQuery的样式。本次翻译是基于他的英文版制作的。(由于GFW缘故，其博客请通过代理访问)</p><p>最后感谢 <a href="http://www.cloudream.name/">Cloudream</a>,他也一起参与翻译了工具和AJAX部分。并且加入了英文说明切换功能。</p><p>断断续续翻译这个API有段时间了，虽然大部分都基于1.1的API复制过来，但也得校对以及跟官网的DOC进行比较。所以也花了点时间。如果大家使用过程中发现了什么翻译错误，可以找到我博客 <a href="http://shawphy.com/">http://shawphy.com/</a>来反馈。</p><p>同时欢迎利用此版制作其他发行版以方便广大jQuery爱好者。转载请保留版权信息，谢谢。</p><p>本API最后由<a href="http://www.shawphy.com/">Shawphy</a>更新于<br /><2009-01-08 23:41:47 +0800/p><p>changelog: <a href="changelog.txt">changelog.txt</a></p></div>
+				<div class="desc"><div><p>首先感谢 <a href="http://www.cn-cuckoo.com/">为之漫笔</a> 。他是1.1API的翻译者。1.2的翻译是完全基于1.1的API翻译的，拜一记。本次翻译临近结束时，由他翻译的Learning jQuery 的中文版《jQuery基础教程》即将出版。作为国内jQuery的引路人的他，我由衷地向他表示感谢！</p><p>其次感谢 <a href="http://mrwlwan.wordpress.com/">Ross Wan</a> 写的这个仿Visiul jQuery的样式。本次翻译是基于他的英文版制作的。(由于GFW缘故，其博客请通过代理访问)</p><p>最后感谢 <a href="http://www.cloudream.name/">Cloudream</a>,他也一起参与翻译了工具、原Dimensions插件和AJAX部分。并且加入了英文说明切换功能。</p><p>断断续续翻译这个API有段时间了，虽然大部分都基于1.1的API复制过来，但也得校对以及跟官网的DOC进行比较。所以也花了点时间。如果大家使用过程中发现了什么翻译错误，可以找到我博客 <a href="http://shawphy.com/">http://shawphy.com/</a>来反馈。</p><p>同时欢迎利用此版制作其他发行版以方便广大jQuery爱好者。转载请保留版权信息，谢谢。</p><p>本API最后由<a href="http://www.shawphy.com/">Shawphy</a>更新于<br /><2009-01-08 23:41:47 +0800/p><p>changelog: <a href="changelog.txt">changelog.txt</a></p></div>
 				</div>
 			</div>
 		</div>
