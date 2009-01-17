@@ -5,6 +5,7 @@
 + ajax的error回调的第二个参数可能值"timeout", "error", "notmodified" 和 "parsererror"
 + ajax参数xhr
 * animate 的duration为0的问题
+* show, hide, toggle, slideDown, slideUp, slideToggle 在jQuery 1.3中，padding和margin也会有动画，效果更流畅。
 
 2009-01-17 18:31:10 +0800
 + jQuery.support.scriptEval
