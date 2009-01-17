@@ -1,6 +1,9 @@
 if (version<090117) {
-	$("#update").html("发现最新版，点击<a href='http://code.google.com/p/jquery-api-zh-cn/downloads/list'>这里下载</a>");
+	$("#update").html("发现新版，点击<a href='http://code.google.com/p/jquery-api-zh-cn/downloads/list'>下载新版</a>");
 	$("#changelog").html("\
+2009-01-17 18:31:10 +0800<br />\
++ jQuery.support.scriptEval<br />\
++ 原 Dimension 插件功能（1.2.6版加入jQuery核心）<br />\
 2009-01-16 19:11:10 +0800<br />\
 + jQuery.fx.off<br />\
 + toggleClass( class, switch )<br />\
@@ -19,8 +22,8 @@ if (version<090117) {
 * stop( [clearQueue], [gotoEnd]) 增加两个参数<br />\
 + jQuery.support<br />\
 + jQuery.isArray( obj )<br />\
-")
+");
 	
 }else {
-	$("#update").text("您当前已经是最新版了。")
+	$("#update").text("当前已是最新版。");
 }
