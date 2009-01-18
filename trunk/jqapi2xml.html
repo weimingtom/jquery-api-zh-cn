@@ -24,14 +24,41 @@
 					//获取函数名
 					var functionitem=$(e).next().find(".functionitem");
 					functionitem.each(function(j,e) {
+						//函数内容
+						var content=$(e).next()
 						//将函数插入大类节点
 						docs.cat[i].appendChild(
 							<method
 								cat={docs.cat[i].@value}
-								type={$(e).next().find("h2:contains(返回值)").next().text()}
+								type={content.find("h2:contains(返回值)").next().text()}
+								short=""
 								name={e.innerHTML.replace(/\(.*\)/,"")}
 							/>
 						);
+						//函数说明
+						var longdesc=(content.find(".longdesc")
+										.html()||"")
+											.replace(/<br *\/?>/gi,"\n")
+											.replace(/<\/p><p>/gi,"\n\n")
+											.replace(/<\/p>|<p>/gi,"")
+						if (longdesc) {
+							docs.cat[i].method[j].desc=longdesc;
+						}
+						var params=content.find("h2:contains(参数)");
+						if (params.length) {
+							do {
+								params=params.next()
+								docs.cat[i].method[j].appendChild(
+									<params
+										name={params.find("strong").text()}
+									>
+										<desc>{params.text().replace("：","").replace(/\([^)]*\)/,"")}</desc>	
+									</params>
+								);
+								//console.log(params.next())
+							} while (params.next()[0].nodeName!="H2");
+						}
+						//docs.cat[i].method[j].@short=content.find(".desc").remove(".longdesc").eq(0).text()
 					});
 					//测试期间,只输出前三个大类
 					if (i==2) {
