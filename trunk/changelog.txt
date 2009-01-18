@@ -1,3 +1,7 @@
+2009-01-18 23:40:10 +0800
++ offsetParent()
+* closest() 说明
+
 2009-01-18 16:06:52 +0800
 * triggerHandler 进一步说明
 * trigger 进一步说明
