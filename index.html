@@ -4916,7 +4916,7 @@ $("p").bind("click", {foo: "bar"}, handler)
 			<div class="functionitem">trigger(type,data)</div>
 			<div class="content">
 				<h1>trigger(type,[data])</h1>
-				<div class="desc"><div>在每一个匹配的元素上触发某类事件。</div> <div class="longdesc"><p>这个函数也会导致浏览器同名的默认行为的执行。比如，如果用trigger()触发一个'submit'，则同样会导致浏览器提交表单。如果要阻止这种默认行为，应返回false。</p><p>你也可以触发由bind()注册的自定义事件</p></div></div><hr />
+				<div class="desc"><div>在每一个匹配的元素上触发某类事件。</div> <div class="longdesc"><p>这个函数也会导致浏览器同名的默认行为的执行。比如，如果用trigger()触发一个'submit'，则同样会导致浏览器提交表单。如果要阻止这种默认行为，应返回false。</p><p>你也可以触发由bind()注册的自定义事件而不限于浏览器默认事件。</p></div></div><hr />
 				<div class="desc"><div>Trigger a type of event on every matched element.</div> <div class="longdesc"><p>This will also cause the default action of the browser with the same name (if one exists) to be executed. For example, passing 'submit' to the trigger() function will also cause the browser to submit the form. This default action can be prevented by returning false from one of the functions bound to the event.</p><p>You can also trigger custom events registered with bind.</p></div></div>
 				<h2>返回值</h2>
 				<p class="indent">jQuery</p>
@@ -4957,7 +4957,8 @@ $("p").trigger("myEvent", ["Hello","World!"]);
 			<div class="functionitem">triggerHandler(type,data)</div>
 			<div class="content">
 				<h1>triggerHandler(type,[data])</h1>
-				<div class="desc">这个特别的方法将会触发指定的事件类型上所有绑定的处理函数。但<strong>不会执行</strong>浏览器默认动作.</div><hr />
+				<div class="desc">这个特别的方法将会触发指定的事件类型上所有绑定的处理函数。但<strong>不会执行</strong>浏览器默认动作，也不会产生事件冒泡。<div class="longdesc">这个方法的行为表现与trigger类似，但有以下三个主要区别： <p>* 第一，他不会触发浏览器默认事件。</p><p>* 第二，只触发jQuery对象集合中第一个元素的事件处理函数。</p>* 第三，这个方法的返回的是事件处理函数的返回值，而不是据有可链性的jQuery对象。此外，如果最开始的jQuery对象集合为空，则这个方法返回 undefined 。<p></p></div></div>
+				<hr />
 				<div class="desc">This particular method triggers all bound event handlers on an element (for a specific event type) WITHOUT executing the browsers default actions.</div>
 				<h2>返回值</h2>
 				<p class="indent">jQuery</p>
