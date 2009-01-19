@@ -55,7 +55,7 @@
 									<desc>{params.html().replace(/^<strong>.*?<\/strong>\s*?\([^)]*?\)\s*?(:|：)\s*?/,"")}</desc>	
 								</params>
 							);
-						} while (params.next()[0].nodeName!="H2");
+						} while (params.next()[0]&&params.next()[0].nodeName!="H2");
 					}
 					//示例
 					var examples=content.find("h2:contains(示例)");
@@ -116,14 +116,10 @@
 					//TODO:短说明以及英文说明
 					//docs.cat[i].method[j].@short=content.find(".desc").remove(".longdesc").eq(0).text()
 				});
-				//测试期间,只输出前四个大类
-				if (i==3) {
-					return false;
-				}
 			});
 			//输出生成的docs
-			//$("#xml").text(docs)
-			console.log(docs);
+			$("#xml").text(docs)
+			//console.log(docs);
 		});
 	//-->
 	</script>
