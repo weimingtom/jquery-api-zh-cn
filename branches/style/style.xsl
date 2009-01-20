@@ -14,9 +14,7 @@
 							<xsl:if test="position() != last()">, </xsl:if>
 						</xsl:for-each>)</xsl:if>
 			</title>
-			<link type="text/css" rel="stylesheet" rev="stylesheet" href="css/base.css" media="all" />
-			<script type="text/javascript" src="js/jquery-1.2.6.pack.js"></script>
-			<script type="text/javascript" src="js/jqueryui-doc.js"></script>
+			<link type="text/css" rel="stylesheet" rev="stylesheet" href="style/style.css" media="all" />
 		</head>
 		<body id="method">
 		<div  id="content">
