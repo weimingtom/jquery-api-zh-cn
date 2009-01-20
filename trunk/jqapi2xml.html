@@ -118,8 +118,8 @@
 				});
 			});
 			//输出生成的docs
-			$("#xml").text(docs)
-			//console.log(docs);
+			$("#xml").text(docs.toString().replace(/&amp;(lt|gt|nbsp|amp)/g,"&$1"));
+			//console.log(docs.replace(/&amp;(lt;|gt;)/g,"&$1"));
 		});
 	//-->
 	</script>
