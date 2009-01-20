@@ -72,8 +72,6 @@ a:hover{
 #content{
 	float:left;
 	width:710px;
-}
-#content{
 	padding-left: 20px;
 	padding-bottom:20px;
 	/*IE 6 HACK START*/
@@ -81,6 +79,10 @@ a:hover{
 	height:600px;
 	/*IE 6 HACK END*/
 	min-height:600px;
+}
+#method #content{
+	margin: 0 auto;
+	float:none;
 }
 #footer{
 	clear:both;
@@ -91,7 +93,12 @@ a:hover{
 ul{
 	margin-left: 15px;
 }
-#sidebar {
+hr{
+	width: 95%;
+	margin: 0 auto;
+	border:1px solid #aaa;
+}
+#sidebar{
 	font-size: 14px;
 }
 #content ul li{
@@ -130,7 +137,7 @@ ul{
 	width: 250px;
 	display:inline-block;
 }
-#content .desc p,#content .desce p{
+#content .desc p{
 	font-size: 14px;
 }
 #content .longdesc p{
@@ -139,15 +146,11 @@ ul{
 #content .longdesc{
 	margin-top: 5px;
 }
-#content .code{
-	margin: 15px;
-	padding: 15px;
+#content code{
+	margin: 10px;
+	padding: 10px;
 	border: 1px dashed rgb(79,129,189);
-}
-#content .desce{
-	display:none;
-	border-top: 1px solid #ccc;
-	margin-top: 10px;
+	display:block;
 }
 #footer{
 	text-align: center;
