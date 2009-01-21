@@ -58,7 +58,8 @@ a:hover{
 #header,#sidebar,#content{
 	margin-bottom: 10px;
 }
-#wrapper,#footer{
+#wrapper{
+	position:relative;
 	width:960px;
 	margin:0 auto;
 }
@@ -70,7 +71,8 @@ a:hover{
 	padding-bottom:20px;
 }
 #content{
-	float:left;
+	position:absolute;
+	right:0px;
 	width:680px;
 	padding-left: 20px;
 	padding-bottom:20px;
@@ -83,9 +85,6 @@ a:hover{
 #method #content{
 	margin: 0 auto;
 	float:none;
-}
-#footer{
-	clear:both;
 }
 
 /* =Typegraphy
@@ -101,14 +100,23 @@ hr{
 #sidebar{
 	font-size: 14px;
 }
-#sidebar ul ul,#sidebar ul ul li *{
+#sidebar ul,#sidebar ul ul li *{
 	display:none;
+}
+#sidebar ul ul{
+	display:block;
 }
 #sidebar ul ul li h2{
 	display:block;
-	cursor:pointer;
+	background: #fff;
+	font-size: 12px;
 }
-#sidebar ul ul li h2:hover{
+#sidebar h2{
+	cursor:pointer;
+	background: rgb(219,229,241);
+	font-size: 14px;
+}
+#sidebar h2:hover{
 	color:white;
 	background: rgb(79,129,189);
 }
@@ -163,9 +171,4 @@ hr{
 	padding: 10px;
 	border: 1px dashed rgb(79,129,189);
 	display:block;
-}
-#footer{
-	text-align: center;
-	font-size: 9px;
-	color: #ccc;
 }

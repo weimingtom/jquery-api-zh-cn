@@ -11,12 +11,12 @@
  */
 
 jQuery(function($) {
-	$("#sidebar>ul>li>a").click(function(){
+	$("#sidebar>h2").click(function(){
 		$(this).next().toggle();
 		return false;
 	});
 	$("#sidebar ul ul li h2").click(function(){
-		$("#content").empty();
+		$("#content").empty().css("top",$(document).scrollTop());
 		$(this).parent().clone().children().appendTo("#content");
 	});
 	/*

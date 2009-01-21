@@ -23,7 +23,7 @@
 						<h2><xsl:value-of select="@name"/></h2>
 						<ul>
 							<xsl:for-each select="subcat">
-								<li><a href="#"><xsl:value-of select="@name"/></a>
+								<li><xsl:value-of select="@name"/>
 									<ul>
 										<xsl:apply-templates select="method"/>
 									</ul>
@@ -33,9 +33,6 @@
 					</xsl:for-each>
 				</div>
 				<div id="content"></div>
-			</div>
-			<div id="footer">
-				$Id: index.html 63 2009-01-15 07:25:17Z Shawphy $
 			</div>
 		</body>
 		</html>
