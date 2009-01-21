@@ -31,7 +31,7 @@ for node in xmldoc.getElementsByTagName("method"):
 	fname=""
 	for param in params:
 		fname+="_"+param.getAttribute("name")
-	xm=codecs.open("jqapixml\\"+(method+fname).replace(':','').replace('#','').replace('>','').replace('<','').replace('*','star')+".xml","w","utf-8")
+	xm=codecs.open("jqapixml\\"+(method+fname).replace(':','').replace('#','').replace('>','').replace('<','').replace('[','').replace(']','').replace('*','star')+".xml","w","utf-8")
 	xm.writelines("<?xml version='1.0' encoding='utf-8'?>")
 	xm.writelines("<?xml-stylesheet type='text/xsl' href='style/style.xsl'?>")
 	xm.writelines(node.toxml())
