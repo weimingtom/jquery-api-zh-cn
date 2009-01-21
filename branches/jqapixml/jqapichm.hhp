@@ -109,8 +109,6 @@ input.xml
 insertAfter_content.xml
 insertBefore_content.xml
 is_expr.xml
-js\jquery-1.2.6.pack.js
-js\jquery-doc.js
 jQuery.ajaxSetup_options.xml
 jQuery.ajax_options.xml
 jQuery.boxModel.xml

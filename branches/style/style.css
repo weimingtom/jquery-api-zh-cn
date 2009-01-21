@@ -68,7 +68,6 @@ a:hover{
 	width:239px;
 	border-right: 1px dashed #ccc;
 	padding-left: 20px;
-	padding-bottom:20px;
 }
 #docs #content{
 	position:absolute;
@@ -77,12 +76,6 @@ a:hover{
 #content{
 	width:680px;
 	padding-left: 20px;
-	padding-bottom:20px;
-	/*IE 6 HACK START*/
-	height:auto !important; 
-	height:600px;
-	/*IE 6 HACK END*/
-	min-height:600px;
 }
 #method #content{
 	margin: 0 auto;

@@ -9,6 +9,7 @@ try:
 except:
 	print(targetdir+"已被创建")
 
+'''
 try:
 	os.mkdir(targetdir+"\js")
 	print(targetdir+"\js"+"创建完成")
@@ -16,6 +17,8 @@ except:
 	print(targetdir+"\js"+"已被创建")
 shutil.copyfile('js\jquery-1.2.6.pack.js', targetdir+"\js\jquery-1.2.6.pack.js")
 shutil.copyfile('js\jquery-doc.js', targetdir+"\js\jquery-doc.js")
+'''
+
 try:
 	os.mkdir(targetdir+"\style")
 	print(targetdir+"\style"+"创建完成")

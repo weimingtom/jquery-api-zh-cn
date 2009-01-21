@@ -17,8 +17,6 @@
 						</xsl:for-each>)</xsl:if>
 			</title>
 			<link type="text/css" rel="stylesheet" rev="stylesheet" href="style/style.css" media="all" />
-			<script type="text/javascript" src="js/jquery-1.2.6.pack.js"></script>
-			<script type="text/javascript" src="js/jquery-doc.js"></script>
 		</head>
 		<body id="method">
 		<div  id="content">
