@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-<title>[selector1][selector2][selectorN]</title>
+<title>first-child</title>
 <meta name="keywords" content="jQuery 1.2 API Reference,Visual jQuery 1.2,jQuery doc,jQuery API,jQuery,jQuery 1.2 API 参考文档中文版,中文版" />
 <meta name="description" content="jQuery 1.2 API 文档中文版，提供最新版 jQuery 开发帮助。" />
 <link rel="stylesheet" type="text/css" href="../../style/jqueryapi.css" />
@@ -29,33 +29,44 @@
 <hr style="color:#595959;" />
 
 <div class="content">
-				<h1>[selector1][selector2][selectorN]</h1>
-				<div class="desc">复合属性选择器，需要同时满足多个条件时使用。</div><hr />
-				<div class="desc">Matches elements that have the specified attribute and it contains a certain value.</div>
+				<h1>:nth-child(index/even/odd/equation)</h1>
+				<div class="desc"><div>匹配其父元素下的第N个子或奇偶元素</div> <div class="longdesc"> ':eq(index)' 只匹配一个元素，而这个将为每一个父元素匹配子元素。:nth-child从1开始的，而:eq()是从0算起的！
+				<p>可以使用:<br/>nth-child(even)<br/>
+	:nth-child(odd)<br/>
+	:nth-child(3n)<br/>
+	:nth-child(2)<br/>
+	:nth-child(3n+1)<br/>
+	:nth-child(3n+2)</p>
+</div><hr /><div>Matches the nth-child of its parent.</div> <div class="longdesc">While ':eq(index)' matches only a single element, this matches more then one: One for each parent. The specified index is one-indexed, in contrast to&nbsp;:eq() which starst at zero.</div>
+</div>
 				<h2>返回值</h2>
 				<p class="indent">Array&lt;Element&gt;</p>
 				<h2>参数</h2>
-				<p class="indent"><strong>selector1 </strong>(Selector) : 属性选择器</p>
-				<p class="indent"><strong>selector2 </strong>(Selector) : 另一个属性选择器，用以进一步缩小范围</p>
-				<p class="indent"><strong>selectorN </strong>(Selector) : 任意多个属性选择器</p>
+				<p class="indent"><strong>index </strong>(Number) : 要匹配元素的序号，从1开始</p>
 				<h2>示例</h2>
 				<p class="indent">
-					找到所有含有 id 属性，并且它的 name 属性是以 man 结尾的 
+					在每个 ul 查找第 2 个li
 				</p>
 				<p class="indent"><strong>HTML 代码:</strong></p>
 				<div class="code">
-					&lt;input id="man-news" name="man-news" /&gt;<br/>
-&lt;input name="milkman" /&gt;<br/>
-&lt;input id="letterman" name="new-letterman" /&gt;<br/>
-&lt;input name="newmilk" /&gt; 
+					&lt;ul&gt;<br/>
+&nbsp; &lt;li&gt;John&lt;/li&gt;<br/>
+&nbsp; &lt;li&gt;Karl&lt;/li&gt;<br/>
+&nbsp; &lt;li&gt;Brandon&lt;/li&gt;<br/>
+&lt;/ul&gt;<br/>
+&lt;ul&gt;<br/>
+&nbsp; &lt;li&gt;Glen&lt;/li&gt;<br/>
+&nbsp; &lt;li&gt;Tane&lt;/li&gt;<br/>
+&nbsp; &lt;li&gt;Ralph&lt;/li&gt;<br/>
+&lt;/ul&gt; 
 				</div>
 				<p class="indent"><strong>jQuery 代码:</strong></p>
 				<div class="code">
-					$("input[id][name$='man']") 
+					$("ul li:nth-child(2)") 
 				</div>
 				<p class="indent"><strong>结果:</strong></p>
 				<div class="code">
-					[ &lt;input id="letterman" name="new-letterman" /&gt; ] 
+					[ &lt;li&gt;Karl&lt;/li&gt;, &nbsp; &lt;li&gt;Tane&lt;/li&gt; ] 
 				</div>
 			</div>
 
