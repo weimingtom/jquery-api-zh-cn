@@ -16,6 +16,7 @@ jQuery(function($) {
 		return false;
 	});
 	$("#sidebar ul ul li h2").click(function(){
+		$("#content").empty();
 		$(this).parent().clone().children().appendTo("#content");
 	});
 	/*
