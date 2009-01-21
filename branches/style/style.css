@@ -110,11 +110,14 @@ hr{
 	display:block;
 	background: #fff;
 	font-size: 12px;
+	text-align: left;
 }
 #sidebar h2{
+	padding: 4px;
 	cursor:pointer;
 	background: rgb(219,229,241);
 	font-size: 14px;
+	text-align: center;
 }
 #sidebar h2:hover{
 	color:white;
