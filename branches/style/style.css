@@ -70,9 +70,11 @@ a:hover{
 	padding-left: 20px;
 	padding-bottom:20px;
 }
-#content{
+#docs #content{
 	position:absolute;
 	right:0px;
+}
+#content{
 	width:680px;
 	padding-left: 20px;
 	padding-bottom:20px;
