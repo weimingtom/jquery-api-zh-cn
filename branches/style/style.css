@@ -64,14 +64,14 @@ a:hover{
 }
 #sidebar{
 	float:left;
-	width:200px;
+	width:239px;
 	border-right: 1px dashed #ccc;
 	padding-left: 20px;
 	padding-bottom:20px;
 }
 #content{
 	float:left;
-	width:710px;
+	width:680px;
 	padding-left: 20px;
 	padding-bottom:20px;
 	/*IE 6 HACK START*/
@@ -101,6 +101,18 @@ hr{
 #sidebar{
 	font-size: 14px;
 }
+#sidebar ul ul,#sidebar ul ul li *{
+	display:none;
+}
+#sidebar ul ul li h2{
+	display:block;
+	cursor:pointer;
+}
+#sidebar ul ul li h2:hover{
+	color:white;
+	background: rgb(79,129,189);
+}
+
 #content ul li{
 	margin-left: 15px;
 	list-style: disc;

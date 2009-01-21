@@ -11,11 +11,14 @@
  */
 
 jQuery(function($) {
-	$("#sidebar ul ul").hide();
 	$("#sidebar>ul>li>a").click(function(){
 		$(this).next().toggle();
 		return false;
 	});
+	$("#sidebar ul ul li h2").click(function(){
+		$(this).parent().clone().children().appendTo("#content");
+	});
+	/*
 	$("#sidebar>ul ul a").click(function(){
 		$("#content").load(this.href.replace(/#/," #"));
 		return false;
@@ -25,6 +28,7 @@ jQuery(function($) {
 	}).ajaxError(function(event, XMLHttpRequest, ajaxOptions, thrownError) {
 		this.innerHTML="错误代码:" + XMLHttpRequest.status + "<br />加载"+ajaxOptions.url+"失败";
 	});
+	*/
 	if($.browser.mozilla){
 		jQuery(document).ready(function(){
 			$('.longdesc,.desc:not(:has(.longdesc))').each(function(){

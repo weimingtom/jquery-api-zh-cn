@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<?xml-stylesheet type='text/xsl' href='style/style.xsl'?>
+<?xml-stylesheet type='text/xsl' href='style/singlestyle.xsl'?>
 <docs version="1.3">
   <cat name="核心">
     <subcat name="jQuery 核心函数">
