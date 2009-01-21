@@ -1,6 +1,7 @@
-2009-01-21 20:23:38 +0800
-* #4 关于1.3版的日期（感谢liushuang630）
-* #5 die（）的标题误为toggle（）（感谢dadao5.com）
+﻿2009-01-21 20:23:38 +0800
+* #4 关于1.3版的日期 (感谢liushuang630)
+* #5 die()的标题误为toggle() (感谢dadao5.com)
+* queue([name],callback) queue([name],queue)少参数 (感谢Horatio)
 
 2009-01-19 00:00:10 +0800
 + offsetParent()
