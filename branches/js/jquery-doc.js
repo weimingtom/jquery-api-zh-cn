@@ -25,7 +25,11 @@ jQuery(function($) {
 	}).ajaxError(function(event, XMLHttpRequest, ajaxOptions, thrownError) {
 		this.innerHTML="错误代码:" + XMLHttpRequest.status + "<br />加载"+ajaxOptions.url+"失败";
 	});
-/*	setInterval(function() {
-		$("#sidebar>ul ul a").eq(0).click();
-	},1000);*/
+	if($.browser.mozilla){
+		jQuery(document).ready(function(){
+			$('.longdesc,.desc:not(:has(.longdesc))').each(function(){
+				$(this).html($(this).text());
+			});
+		});
+	}
 });

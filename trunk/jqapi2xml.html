@@ -21,114 +21,132 @@
 			var menuitem=$(xml).find(".menuitem");
 			menuitem.each(function(i,e) {
 				//大类插入根节点
-				docs.appendChild(<cat value={e.innerHTML}/>);
-				//获取函数名
-				var functionitem=$(e).next().find(".functionitem");
-				functionitem.each(function(j,e) {
-					//函数内容
-					var content=$(e).next()
-					//将函数插入大类节点
-					docs.cat[i].appendChild(
-						<method
-							type={content.find("h2:contains(返回值)").next().text()}
-							short=""
-							name={e.innerHTML.replace(/\(.*?\)/,"")}
-						/>
-					);
-					//函数说明
-					var longdesc=(content.find(".longdesc")
-									.html()||"")
-										.replace(/<br *?\/?>/gi,"")
-										.replace(/<\/p><p>/gi,"\n\n")
-										.replace(/<\/?p>|\t+/gi,"");
-					if (longdesc) {
-						docs.cat[i].method[j].desc='<![CDATA['+longdesc+']]>';
-					}
-					//参数
-					var params=content.find("h2:contains(参数)");
-					if (params[0]) {
-						do {
-							params=params.next()
-							docs.cat[i].method[j].appendChild(
-								<params
-									name={params.find("strong").text().replace(/^\s*([^\s]*)\s*$/,"$1")}
-									type={params.text().replace(/^.*?\((.*?)\).*?$/,"$1")
-											.replace(/</g,"&lt;").replace(/>/g,"&gt;")}
-								>
-									<desc>{params.html().replace(/^<strong>.*?<\/strong>\s*?\([^)]*?\)\s*?(:|：)\s*?/,"")}</desc>	
-								</params>
-							);
-						} while (params.next()[0]&&params.next()[0].nodeName!="H2");
-					}
-					//示例
-					var examples=content.find("h2:contains(示例)");
-					if (examples[0]) {
-						do {
-							examples=examples.next();
-							if (examples[0].nodeName=="P" && !/^<strong>.*?<\/strong>$/.test(examples.html())) {
-								var example=<examples>
-												<desc>{'<![CDATA['+examples.html().replace(/\t+/g,"")+']]>'}</desc>
-											</examples>;
-								var before=examples.nextAll(":contains(HTML 代码)");
-								if (before[0]) {
-									before=before.eq(0).next();
-									example.appendChild(
-										<before>
-											{'<![CDATA['+before.html()
-												.replace(/<br *?\/?>/gi,"")
-												.replace(/<\/?pre>|\t+/gi,"")+']]>'}
-										</before>
-									);
+				docs.appendChild(<cat name={e.innerHTML}/>);
+				var categoryitem=$(e).next().find(".categoryitem");
+				categoryitem.each(function(j,e) {
+					docs.cat[i].appendChild(<subcat name={$(e).text()}/>)
+				
+					//获取函数名
+					var functionitem=$(e).next().find(".functionitem");
+					functionitem.each(function(k,e) {
+						//函数内容
+						var content=$(e).next()
+						//将函数插入大类节点
+						var method=<method
+								name={e.innerHTML.replace(/\(.*?\)/,"")}
+								type={content.find("h2:contains(返回值)").next().text()}
+							/>;
+						//函数说明
+						var longdesc=(content.find(".longdesc")
+										.html()||"").replace(/\n?\t+/g,"");
+						if (longdesc) {
+							method.desc='<![CDATA['+longdesc+']]>';
+						}
+						//参数
+						var params=content.find("h2:contains(参数)");
+						if (params[0]) {
+							do {
+								params=params.next()
+								var param=<param
+										name={params.find("strong").text().replace(/^\s*([^\s]*)\s*$/,"$1")}
+										type={params.text().replace(/^.*?\((.*?)\).*?$/,"$1")
+												.replace(/</g,"&lt;").replace(/>/g,"&gt;")}
+									>
+										<desc>{params.html().replace(/^<strong>.*?<\/strong>\s*?\([^)]*?\)\s*?(:|：)\s*?/,"").replace(/<br *?\/?>/gi,"")}</desc>	
+									</param>
+								if (/可选/.test(params.text())) {
+									param.@optional=true;
 								}
-								var code=examples.nextAll(":contains(jQuery 代码)");
-								if (code[0]) {
-									code=code.eq(0).next();
-									example.appendChild(
-										<code>
-											{'<![CDATA['+code.html()
-												.replace(/<br *?\/?>/gi,"")
-												.replace(/<\/?pre>|\t+/gi,"")+']]>'}
-										</code>
-									);
+								method.appendChild(param);
+							} while (params.next()[0]&&params.next()[0].nodeName!="H2");
+						}
+						//选项
+						var options=content.find("h2:contains(选项)");
+						if (options[0]) {
+							do {
+								options=options.next()
+								method.appendChild(
+									<option
+										name={options.find("strong").text().replace(/^\s*([^\s]*)\s*$/,"$1")}
+										type={options.text().replace(/^.*?\((.*?)\).*?$/,"$1")
+												.replace(/</g,"&lt;").replace(/>/g,"&gt;")}
+									>
+										<desc>{options.html().replace(/^<strong>.*?<\/strong>\s*?\([^)]*?\)\s*?(:|：)\s*?/,"").replace(/<br *?\/?>/gi,"")}</desc>	
+									</option>
+								);
+							} while (options.next()[0]&&options.next()[0].nodeName!="H2");
+						}
+						//示例
+						var examples=content.find("h2:contains(示例)");
+						if (examples[0]) {
+							do {
+								examples=examples.next();
+								if (examples[0].nodeName=="P" && !/^<strong>.*?<\/strong>$/.test(examples.html())) {
+									var example=<example>
+													<desc>{'<![CDATA['+examples.html().replace(/<br *?\/?>/gi,"").replace(/\t+/g,"")+']]>'}</desc>
+												</example>;
+									var before=examples.nextAll(":contains(HTML 代码)");
+									if (before[0]) {
+										before=before.eq(0).next();
+										example.appendChild(
+											<before>
+												{'<![CDATA['+before.html()
+													.replace(/<br *?\/?>/gi,"")
+													.replace(/<\/?pre>|\t+/gi,"")+']]>'}
+											</before>
+										);
+									}
+									var code=examples.nextAll(":contains(jQuery 代码)");
+									if (code[0]) {
+										code=code.eq(0).next();
+										example.appendChild(
+											<code>
+												{'<![CDATA['+code.html()
+													.replace(/<br *?\/?>/gi,"")
+													.replace(/<\/?pre>|\t+/gi,"")+']]>'}
+											</code>
+										);
+									}
+									var result=examples.nextAll(":contains(结果)");
+									if (result[0]) {
+										result=result.eq(0).next();
+										example.appendChild(
+											<result>
+												{'<![CDATA['+result.html()
+													.replace(/<br *?\/?>/gi,"")
+													.replace(/<\/?pre>|\t+/gi,"")+']]>'}
+											</result>
+										);
+									}
+									method.appendChild(example);
 								}
-								var result=examples.nextAll(":contains(结果)");
-								if (result[0]) {
-									result=result.eq(0).next();
-									example.appendChild(
-										<result>
-											{'<![CDATA['+result.html()
-												.replace(/<br *?\/?>/gi,"")
-												.replace(/<\/?pre>|\t+/gi,"")+']]>'}
-										</result>
-									);
-								}
-								docs.cat[i].method[j].appendChild(example);
-							}
-						} while (examples.next()[0]);
-					}
+							} while (examples.next()[0]);
+						}
 
-					//TODO:英文说明
-					var desc=content.find(".desc");
-					if (desc.length==2) {
-						docs.cat[i].method[j].@short=desc.eq(0).children().remove(".longdesc").end().text();
-					}else {
-						docs.cat[i].method[j].@short=desc.children(":not(.longdesc)").filter(function() {
-							return /[\u4e00-\u9fa5]/.test(this.innerHTML)
-						}).text();
-					}
-					//var desc=content.find(".desc").remove(".longdesc");
+						//TODO:英文说明
+						var desc=content.find(".desc");
+						if (desc.length==2) {
+							method.@short=desc.eq(0).children().remove(".longdesc").end().text();
+						}else {
+							method.@short=desc.children(":not(.longdesc)").filter(function() {
+								return /[\u4e00-\u9fa5]/.test(this.innerHTML)
+							}).text();
+						}
+						docs.cat[i].subcat[j].appendChild(method);
+					});
 				});
 			});
 			//输出生成的docs
-			$("#xml").text(docs.toString()
+			$("#xml").text(docs.toXMLString()
 							.replace(/&amp;(lt|gt|nbsp|amp)/g,"&$1")
 							.replace(/&nbsp;/g," ")
 							.replace(/&lt;/g,"<")
 							.replace(/&gt;/g,">")
 							.replace(/(<!\[CDATA\[)\n/g,"$1")
 							.replace(/\n(\]\]>)/g,"$1")
-							//.replace(/(type=".*?)<([^>]+)>(.*?)"/,"$1&lt;$2&gt;$3\"")
-							.replace(/ " /g,"\" ")
+							.replace(/(type=".*?)<([^>]+)>(.*?)"/g,"$1&lt;$2&gt;$3\"")
+							.replace(/&#xA;|&#x9;/g,"")
+							.replace(/ ">/g,"\">")
 							);
 			//console.log(docs.replace(/&amp;(lt;|gt;)/g,"&$1"));
 		});
