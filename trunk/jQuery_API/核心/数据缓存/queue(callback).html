@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-<title>get()</title>
+<title>queue(callback)</title>
 <meta name="keywords" content="jQuery 1.2 API Reference,Visual jQuery 1.2,jQuery doc,jQuery API,jQuery,jQuery 1.2 API 参考文档中文版,中文版" />
 <meta name="description" content="jQuery 1.2 API 文档中文版，提供最新版 jQuery 开发帮助。" />
 <link rel="stylesheet" type="text/css" href="../../style/jqueryapi.css" />
@@ -29,26 +29,47 @@
 <hr style="color:#595959;" />
 
 <div class="content">
-				<h1>get()</h1>
-				<div class="desc"><div>取得所有匹配的 DOM 元素集合。</div> <div class="longdesc"><p>这是取得所有匹配元素的一种向后兼容的方式（不同于jQuery对象，而实际上是元素数组）。</p><p>如果你想要直接操作 DOM 对象而不是 jQuery 对象，这个函数非常有用。</p></div><hr />
-				<div>Access all matched DOM elements.</div> <div class="longdesc">This serves as a backwards-compatible way of accessing all matched elements (other than the jQuery object itself, which is, in fact, an array of elements). It is useful if you need to operate on the DOM elements themselves instead of using built-in jQuery functions.</div></div>
+				<h1>queue(callback)</h1>
+				<div class="desc">在匹配的元素的队列最后添加一个函数</div><hr />
+				<div class="desc">Adds a new function, to be executed, onto the end of the queue of all matched elements.</div>
 				<h2>返回值</h2>
-				<p class="indent">Array&lt;Element&gt;</p>
+				<p class="indent">jQuery</p>
+				<h2>参数</h2>
+				<p class="indent"><strong>name </strong>(String) :队列名，默认为fx </p>
+				<p class="indent"><strong>callback </strong>(Function) : 要添加进队列的函数</p>
 				<h2>示例</h2>
 				<p class="indent">
-					选择文档中所有图像作为元素数组，并用数组内建的 reverse 方法将数组反向。
+					插入一个自定义函数
+					如果函数执行后要继续队列，则执行 jQuery(this).dequeue();
 				</p>
 				<p class="indent"><strong>HTML 代码:</strong></p>
-				<div class="code">
-					&lt;img src="test1.jpg"/&gt; &lt;img src="test2.jpg"/&gt; 
+				<div class="code"><pre>
+  &lt;style&gt;
+  div { margin:3px; width:40px; height:40px;
+        position:absolute; left:0px; top:30px; 
+        background:green; display:none; }
+  div.newcolor { background:blue; }
+  &lt;/style&gt;
+  Click here...
+  &lt;div&gt;&lt;/div&gt;</pre>		
 				</div>
 				<p class="indent"><strong>jQuery 代码:</strong></p>
-				<div class="code">
-					$("img").get().reverse(); 
-				</div>
-				<p class="indent"><strong>结果:</strong></p>
-				<div class="code">
-				  [ &lt;img src="test2.jpg"/&gt; &lt;img src="test1.jpg"/&gt; ]
+				<div class="code"><pre>
+$(document.body).click(function () {
+      $("div").show("slow");
+      $("div").animate({left:'+=200'},2000);
+      $("div").queue(function () {
+          $(this).addClass("newcolor");
+          $(this).dequeue();
+      });
+      $("div").animate({left:'-=200'},500);
+      $("div").queue(function () {
+          $(this).removeClass("newcolor");
+          $(this).dequeue();
+      });
+      $("div").slideUp();
+});
+</pre>
 				</div>
 			</div>
 

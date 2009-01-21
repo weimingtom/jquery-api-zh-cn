@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-<title>get()</title>
+<title>length</title>
 <meta name="keywords" content="jQuery 1.2 API Reference,Visual jQuery 1.2,jQuery doc,jQuery API,jQuery,jQuery 1.2 API 参考文档中文版,中文版" />
 <meta name="description" content="jQuery 1.2 API 文档中文版，提供最新版 jQuery 开发帮助。" />
 <link rel="stylesheet" type="text/css" href="../../style/jqueryapi.css" />
@@ -29,27 +29,30 @@
 <hr style="color:#595959;" />
 
 <div class="content">
-				<h1>get()</h1>
-				<div class="desc"><div>取得所有匹配的 DOM 元素集合。</div> <div class="longdesc"><p>这是取得所有匹配元素的一种向后兼容的方式（不同于jQuery对象，而实际上是元素数组）。</p><p>如果你想要直接操作 DOM 对象而不是 jQuery 对象，这个函数非常有用。</p></div><hr />
-				<div>Access all matched DOM elements.</div> <div class="longdesc">This serves as a backwards-compatible way of accessing all matched elements (other than the jQuery object itself, which is, in fact, an array of elements). It is useful if you need to operate on the DOM elements themselves instead of using built-in jQuery functions.</div></div>
+				<h1>selector</h1>
+				<div class="desc"><div>jQuery 1.3新增。返回传给jQuery()的原始选择器。</div> <div class="longdesc">换句话说，就是返回你用什么选择器来找到这个元素的。可以与<span title="Core/context">context</span>一起使用，用于精确检测选择器查询情况。这两个属性对插件开发人员很有用。</div><hr /><div>New in jQuery 1.3 A selector representing selector originally passed to jQuery().</div> <div class="longdesc">Should be used in conjunction with <span title="Core/context">context</span> to determine the exact query used. These two properties are mostly useful to plugin developers.</div></div>
 				<h2>返回值</h2>
-				<p class="indent">Array&lt;Element&gt;</p>
+				<p class="indent">Striing</p>
 				<h2>示例</h2>
 				<p class="indent">
-					选择文档中所有图像作为元素数组，并用数组内建的 reverse 方法将数组反向。
+					确定查询的选择器
 				</p>
-				<p class="indent"><strong>HTML 代码:</strong></p>
-				<div class="code">
-					&lt;img src="test1.jpg"/&gt; &lt;img src="test2.jpg"/&gt; 
-				</div>
+
 				<p class="indent"><strong>jQuery 代码:</strong></p>
 				<div class="code">
-					$("img").get().reverse(); 
+$("ul")<br />
+&nbsp;&nbsp;.append("&lt;li&gt;" + $("ul").selector + "&lt;/li&gt;")<br />
+&nbsp;&nbsp;.append("&lt;li&gt;" + $("ul li").selector + "&lt;/li&gt;")<br />
+&nbsp;&nbsp;.append("&lt;li&gt;" + $("div#foo ul:not([class])").selector + "&lt;/li&gt;");<br />
+
 				</div>
 				<p class="indent"><strong>结果:</strong></p>
 				<div class="code">
-				  [ &lt;img src="test2.jpg"/&gt; &lt;img src="test1.jpg"/&gt; ]
+ul<br />
+ul li<br />
+div#foo ul:not([class])<br />
 				</div>
+
 			</div>
 
 </body>
