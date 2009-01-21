@@ -12,7 +12,7 @@
 
 jQuery(function($) {
 	$("#sidebar>h2").click(function(){
-		$(this).next().toggle();
+		$(this).next().toggle().siblings("ul").hide();
 		return false;
 	});
 	$("#sidebar ul ul li h2").click(function(){
