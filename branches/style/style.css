@@ -95,7 +95,7 @@ hr{
 #sidebar{
 	font-size: 14px;
 }
-#sidebar ul,#sidebar ul ul li *{
+#sidebar ul,#sidebar ul ul li div,#sidebar ul ul li h3{
 	display:none;
 }
 #sidebar ul ul{
@@ -118,7 +118,9 @@ hr{
 	color:white;
 	background: rgb(79,129,189);
 }
-
+#sidebar h2:hover em{
+	color:#ddd;
+}
 #content ul li{
 	margin-left: 15px;
 	list-style: disc;
@@ -169,4 +171,10 @@ hr{
 	padding: 10px;
 	border: 1px dashed rgb(79,129,189);
 	display:block;
+}
+em.optional{
+	color: #999;
+}
+#content h2 em.optional{
+	color:#eee;
 }

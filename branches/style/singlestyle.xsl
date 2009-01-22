@@ -42,9 +42,14 @@
 		<li>
 			<h2><xsl:value-of select="@name"/>
 				<xsl:if test="param">(<xsl:for-each select="param">
-					<xsl:if test="@optional">[</xsl:if>
-					<xsl:value-of select="@name"/>
-					<xsl:if test="@optional">]</xsl:if>
+					<xsl:choose>
+						<xsl:when test="@optional">
+							<em class="optional">[<xsl:value-of select="@name"/>]</em>
+						</xsl:when>
+						<xsl:otherwise>
+							<xsl:value-of select="@name"/>
+						</xsl:otherwise>
+					</xsl:choose>
 					<xsl:if test="position() != last()">, </xsl:if>
 				</xsl:for-each>)</xsl:if>
 			</h2>
@@ -52,7 +57,7 @@
 			<div class="desc">
 				<p><xsl:value-of select="@short"/></p>
 				<div class="longdesc">
-					<xsl:value-of select="desc" disable-output-escaping="yes"/>
+					<p><xsl:value-of select="desc" disable-output-escaping="yes"/></p>
 				</div>
 			</div>
 			<xsl:if test="param">
@@ -60,11 +65,14 @@
 				<div>
 					<xsl:for-each select="param">
 						<h4>
-							<strong><xsl:value-of select="@name"/></strong>
+							<strong><xsl:value-of select="@name"/><xsl:if test="@optional"> <em> (可选)</em></xsl:if></strong>
 							<span><xsl:value-of select="@type"/></span>
-							<em>默认值：'original'</em>
+							<xsl:if test="@default"><em>默认值：'<xsl:value-of select="@default"/>'</em></xsl:if>
 						</h4>
-						<p><xsl:value-of select="desc"/></p>
+						<p>
+							
+							<xsl:value-of select="desc"/>
+						</p>
 					</xsl:for-each>
 				</div>
 			</xsl:if>
@@ -75,7 +83,7 @@
 						<h4>
 							<strong><xsl:value-of select="@name"/></strong>
 							<span><xsl:value-of select="@type"/></span>
-							<xsl:if test="@original"><em>默认值：'original'</em></xsl:if>
+							<xsl:if test="@default"><em>默认值：'<xsl:value-of select="@default"/>'</em></xsl:if>
 						</h4>
 						<p><xsl:value-of select="desc" disable-output-escaping="yes"/></p>
 						<xsl:if test="code">
