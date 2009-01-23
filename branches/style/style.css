@@ -19,7 +19,7 @@ body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,th,td,*{
 	color:#333;
 	font-size: 12px;
 	text-align: left;
-	vertical-align: middle;
+	vertical-align:baseline;
 	font-weight: normal;
 	line-height: 18px;
 }
