@@ -166,7 +166,7 @@ hr{
 #content .longdesc{
 	margin-top: 5px;
 }
-#content code{
+#content pre{
 	margin: 10px;
 	padding: 10px;
 	border: 1px dashed rgb(79,129,189);
