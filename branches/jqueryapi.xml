@@ -1596,7 +1596,7 @@ jQuery("div &gt; p").hide();</result>
           <desc>要切换的CSS类名</desc>
         </params>
         <params name="switch" type="Boolean">
-          <desc>用于决定是否切换class的布尔值。</desc>
+          <desc>用于决定元素是否包含class的布尔值。</desc>
         </params>
         <example>
           <desc>每点击三下加上一次 'selected' 类</desc>
@@ -3323,6 +3323,9 @@ keyup</longdesc>
       <function name="toggle" type="jQuery">
         <desc>根据switch参数切换元素的可见状态（ture为可见，false为隐藏）。</desc>
         <longdesc>如果switch设为true，则调用show()方法来显示匹配的元素，如果switch设为false则调用hide()来隐藏元素。</longdesc>
+        <params name="switch" type="Boolean">
+          <desc>用于确定显示/隐藏的开关</desc>
+        </params>
         <example>
           <desc>切换所有段落的可见状态。</desc>
           <html>&lt;p&gt;Hello&lt;/p&gt;&lt;p style="display: none"&gt;Hello Again&lt;/p&gt;</html>
