@@ -21,10 +21,10 @@
 			var menuitem=$(xml).find(".menuitem");
 			menuitem.each(function(i,e) {
 				//大类插入根节点
-				docs.appendChild(<cat name={e.innerHTML}/>);
+				docs.appendChild(<cat value={e.innerHTML}/>);
 				var categoryitem=$(e).next().find(".categoryitem");
 				categoryitem.each(function(j,e) {
-					docs.cat[i].appendChild(<subcat name={$(e).text()}/>)
+					docs.cat[i].appendChild(<subcat value={$(e).text()}/>)
 				
 					//获取函数名
 					var functionitem=$(e).next().find(".functionitem");
@@ -32,28 +32,37 @@
 						//函数内容
 						var content=$(e).next()
 						//将函数插入大类节点
-						var method=<method
+						var method=<function
 								name={e.innerHTML.replace(/\(.*?\)/,"")}
 								type={content.find("h2:contains(返回值)").next().text()}
 							/>;
-						//函数说明
+						//函数长说明
 						var longdesc=(content.find(".longdesc")
-										.html()||"").replace(/\n?\t+/g,"");
+										.html()||"").replace(/<\/p><p>/g,"\n\n").replace(/<\/?p>/g,"").replace(/\n?\t+/g,"");
+						//短说明
+						var desc=content.find(".desc");
+						if (desc.length==2) {
+							method.desc=desc.eq(0).children().remove(".longdesc").end().text();
+						}else {
+							method.desc=desc.children(":not(.longdesc)").filter(function() {
+								return /[\u4e00-\u9fa5]/.test(this.innerHTML)
+							}).text();
+						}
 						if (longdesc) {
-							method.desc='<![CDATA['+longdesc+']]>';
+							method.longdesc=longdesc;
 						}
 						//参数
 						var params=content.find("h2:contains(参数)");
 						if (params[0]) {
 							do {
 								params=params.next()
-								var param=<param
+								var param=<params
 										name={params.find("strong").text().replace(/^\s*([^\s]*)\s*$/,"$1")}
 										type={params.text().replace(/^.*?\((.*?)\).*?$/,"$1")
 												.replace(/</g,"&lt;").replace(/>/g,"&gt;")}
 									>
 										<desc>{params.html().replace(/^<strong>.*?<\/strong>\s*?\([^)]*?\)\s*?(:|：)\s*?/,"").replace(/<br *?\/?>/gi,"")}</desc>	
-									</param>
+									</params>
 								if (/可选/.test(params.text())) {
 									param.@optional=true;
 								}
@@ -83,17 +92,17 @@
 								examples=examples.next();
 								if (examples[0].nodeName=="P" && !/^<strong>.*?<\/strong>$/.test(examples.html())) {
 									var example=<example>
-													<desc>{'<![CDATA['+examples.html().replace(/<br *?\/?>/gi,"").replace(/\t+/g,"")+']]>'}</desc>
+													<desc>{examples.html().replace(/<br *?\/?>/gi,"").replace(/\t+/g,"")}</desc>
 												</example>;
 									var before=examples.nextAll(":contains(HTML 代码)");
 									if (before[0]) {
 										before=before.eq(0).next();
 										example.appendChild(
-											<before>
-												{'<![CDATA['+before.html()
+											<html>
+												{before.html()
 													.replace(/<br *?\/?>/gi,"")
-													.replace(/<\/?pre>|\t+/gi,"")+']]>'}
-											</before>
+													.replace(/<\/?pre>|\t+/gi,"")}
+											</html>
 										);
 									}
 									var code=examples.nextAll(":contains(jQuery 代码)");
@@ -101,9 +110,9 @@
 										code=code.eq(0).next();
 										example.appendChild(
 											<code>
-												{'<![CDATA['+code.html()
+												{code.html()
 													.replace(/<br *?\/?>/gi,"")
-													.replace(/<\/?pre>|\t+/gi,"")+']]>'}
+													.replace(/<\/?pre>|\t+/gi,"")}
 											</code>
 										);
 									}
@@ -112,9 +121,9 @@
 										result=result.eq(0).next();
 										example.appendChild(
 											<result>
-												{'<![CDATA['+result.html()
+												{result.html()
 													.replace(/<br *?\/?>/gi,"")
-													.replace(/<\/?pre>|\t+/gi,"")+']]>'}
+													.replace(/<\/?pre>|\t+/gi,"")}
 											</result>
 										);
 									}
@@ -123,15 +132,6 @@
 							} while (examples.next()[0]);
 						}
 
-						//TODO:英文说明
-						var desc=content.find(".desc");
-						if (desc.length==2) {
-							method.@short=desc.eq(0).children().remove(".longdesc").end().text();
-						}else {
-							method.@short=desc.children(":not(.longdesc)").filter(function() {
-								return /[\u4e00-\u9fa5]/.test(this.innerHTML)
-							}).text();
-						}
 						docs.cat[i].subcat[j].appendChild(method);
 					});
 				});
@@ -140,8 +140,8 @@
 			$("#xml").text(docs.toXMLString()
 							.replace(/&amp;(lt|gt|nbsp|amp)/g,"&$1")
 							.replace(/&nbsp;/g," ")
-							.replace(/&lt;/g,"<")
-							.replace(/&gt;/g,">")
+							//.replace(/&lt;/g,"<")
+							//.replace(/&gt;/g,">")
 							.replace(/(<!\[CDATA\[)\n/g,"$1")
 							.replace(/\n(\]\]>)/g,"$1")
 							.replace(/(type=".*?)<([^>]+)>(.*?)"/g,"$1&lt;$2&gt;$3\"")
