@@ -65,7 +65,7 @@
 			<div class="desc">
 				<p><xsl:value-of select="desc"/></p>
 				<div class="longdesc">
-					<p><xsl:value-of select="longdesc" disable-output-escaping="yes"/></p>
+					<pre><xsl:value-of select="longdesc"/></pre>
 				</div>
 			</div>
 			<xsl:if test="params">

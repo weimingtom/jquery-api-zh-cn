@@ -17,7 +17,17 @@ jQuery(function($) {
 	});
 	$("#sidebar ul ul li h2").click(function(){
 		$("#content").empty().css("top",$(document).scrollTop());
-		$(this).parent().clone().children().appendTo("#content");
+		$(this).parent().clone().children()
+			.find('.longdesc,.desc:not(:has(.longdesc))').each(function(){
+				alert($(this).children("pre").html())
+				$(this).html("<p>"
+					+ $(this).children("pre").html()
+						.replace(/\n\s*\n/g,"</p><p>")
+						.replace(/&lt;/g,"<")
+						.replace(/&gt;/g,">")
+						.replace(/'''(.*?)'''/g,"<strong>$1</strong>")
+					+"</p>");
+			}).end().appendTo("#content");
 	});
 	/*
 	$("#sidebar>ul ul a").click(function(){
@@ -33,7 +43,7 @@ jQuery(function($) {
 	if($.browser.mozilla){
 		jQuery(document).ready(function(){
 			$('.longdesc,.desc:not(:has(.longdesc))').each(function(){
-				$(this).html($(this).text());
+				//$(this).html("<p>"+$(this).text()+"<p>");
 			});
 		});
 	}
