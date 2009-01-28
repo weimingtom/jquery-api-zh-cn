@@ -24,6 +24,7 @@ jQuery(function($) {
 						.replace(/\n\s*\n/g,"</p><p>")
 						.replace(/&lt;/g,"<")
 						.replace(/&gt;/g,">")
+						.replace(/&amp;/g,"&")
 						.replace(/'''(.*?)'''/g,"<strong>$1</strong>")
 					+"</p>");
 			}).end().appendTo("#content");

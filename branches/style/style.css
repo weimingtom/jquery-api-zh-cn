@@ -78,7 +78,8 @@ a:hover{
 	padding-left: 20px;
 }
 #split #content{
-	margin: 0 auto;
+	width:auto;
+	padding:0 10px;
 	float:none;
 }
 

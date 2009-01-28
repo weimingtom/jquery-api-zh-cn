@@ -60,11 +60,9 @@
 				<h3>概述</h3>
 				<div class="desc">
 					<p><xsl:value-of select="desc"/></p>
-					<xsl:if test="longdesc">
-						<div class="longdesc">
-							<pre><xsl:value-of select="longdesc"/></pre>
-						</div>
-					</xsl:if>
+					<div class="longdesc">
+						<pre><xsl:value-of select="longdesc"/></pre>
+					</div>
 				</div>
 				<xsl:if test="params">
 					<h3>参数</h3>

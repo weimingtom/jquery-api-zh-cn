@@ -46,7 +46,7 @@ text.xml
 text_val.xml
 val.xml
 val_val.xml
-val_val.xml
+val_val-1.xml
 eq_index.xml
 hasClass_class.xml
 filter_expr.xml
@@ -96,9 +96,9 @@ css_name_value.xml
 offset.xml
 position.xml
 scrollTop.xml
-scrollTop.xml
+scrollTop_val.xml
 scrollLeft.xml
-scrollLeft.xml
+scrollLeft_val.xml
 height.xml
 height_val.xml
 width.xml
@@ -209,7 +209,7 @@ lt.xml
 header.xml
 animated.xml
 contains.xml
-empty.xml
+empty-1.xml
 has.xml
 parent.xml
 hidden.xml
@@ -226,16 +226,16 @@ firstChild.xml
 lastChild.xml
 onlyChild.xml
 input.xml
-text.xml
+text-1.xml
 password.xml
 radio.xml
 checkbox.xml
-submit.xml
+submit-1.xml
 image.xml
 reset.xml
 button.xml
 file.xml
-hidden.xml
+hidden-1.xml
 enabled.xml
 disabled.xml
 checked.xml
@@ -254,7 +254,7 @@ jQuery.boxModel.xml
 style\style.css
 style\style.xsl
 js\jquery-1.2.6.pack.js
-js\jquery-doc.js
+js\jquery-doc-split.js
 
 [INFOTYPES]
 
