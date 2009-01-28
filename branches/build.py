@@ -32,8 +32,11 @@ except:
 shutil.copyfile('style\style.css', targetdir+"\style\style.css")
 shutil.copyfile('style\style.xsl', targetdir+"\style\style.xsl")
 
-print("生成xml")
+print("开始生成xml")
+i=0
 def write2file(node,method,fname=""):
+	global i
+	i+=1
 	filename="jqapixml\\"+(method+fname)+".xml"
 	if os.path.isfile(filename):
 		filename="jqapixml\\"+(method+fname)+"-1.xml"
@@ -42,7 +45,6 @@ def write2file(node,method,fname=""):
 	xm.writelines("<?xml-stylesheet type='text/xsl' href='style/style.xsl'?>")
 	xm.writelines(node.toxml())
 	xm.close()
-	print(filename)
 
 for node in xmldoc.getElementsByTagName("function"):
 	method=node.getAttribute("name");
@@ -59,3 +61,5 @@ for node in xmldoc.getElementsByTagName("selector"):
 for node in xmldoc.getElementsByTagName("property"):
 	method=node.getAttribute("name");
 	write2file(node,method)
+
+print("生成xml结束，共生成"+str(i)+"个xml文件。")

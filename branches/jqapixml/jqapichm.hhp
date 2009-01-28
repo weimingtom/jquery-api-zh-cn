@@ -2,7 +2,7 @@
 Compatibility=1.1 or later
 Compiled file=jqapichm.chm
 Contents file=jqapichm.hhc
-Default topic=aboutDoc1.3.xml
+Default topic=bugAndUpdate.xml
 Display compile progress=No
 Full-text search=Yes
 Index file=jqapichm.hhk

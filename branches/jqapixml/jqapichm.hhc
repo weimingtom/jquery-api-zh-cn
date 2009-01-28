@@ -9,14 +9,6 @@
 </OBJECT>
 <UL>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="关于">
-		<param name="Local" value="aboutDoc1.3.xml">
-		</OBJECT>
-	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="关于CHM">
-		<param name="Local" value="aboutDoc1.3.xml">
-		</OBJECT>
-	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="核心">
 		</OBJECT>
 	<UL>
@@ -1266,11 +1258,11 @@
 			<param name="Name" value="关于jQuery 1.2 版翻译">
 			<param name="Local" value="aboutDoc1.2.xml">
 			</OBJECT>
-		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="提交bug及获取更新">
-			<param name="Local" value="bugAndUpdate.xml">
-			</OBJECT>
 	</UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="提交bug及获取更新">
+		<param name="Local" value="bugAndUpdate.xml">
+		</OBJECT>
 </UL>
 </BODY></HTML>
 
