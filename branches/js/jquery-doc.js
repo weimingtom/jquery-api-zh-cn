@@ -19,7 +19,6 @@ jQuery(function($) {
 		$("#content").empty().css("top",$(document).scrollTop());
 		$(this).parent().clone().children()
 			.find('.longdesc,.desc:not(:has(.longdesc))').each(function(){
-				alert($(this).children("pre").html())
 				$(this).html("<p>"
 					+ $(this).children("pre").html()
 						.replace(/\n\s*\n/g,"</p><p>")
