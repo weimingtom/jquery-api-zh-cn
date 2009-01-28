@@ -4999,7 +4999,7 @@ $("input").focus(function(){
 			<div class="functionitem">unbind(type,data)</div>
 			<div class="content">
 				<h1>unbind([type],[data])</h1>
-				<div class="desc"><div>bind()的反向操作，从每一个匹配的元素中删除绑定的事件。</div> <div class="longdesc"><p>如果没有参数，则删除所有绑定的事件。</p><p>你可以将你用bind()注册的自定义事件取消绑定。</p><p>I如果提供了事件类型作为参数，则只删除该类型的绑定事件。</p><p>如果把在绑定时传递的处理函数作为第二个参数，则只有这个特定的事件处理函数会被删除。</p></div></div><hr />
+				<div class="desc"><div>bind()的反向操作，从每一个匹配的元素中删除绑定的事件。</div> <div class="longdesc"><p>如果没有参数，则删除所有绑定的事件。</p><p>你可以将你用bind()注册的自定义事件取消绑定。</p><p>如果提供了事件类型作为参数，则只删除该类型的绑定事件。</p><p>如果把在绑定时传递的处理函数作为第二个参数，则只有这个特定的事件处理函数会被删除。</p></div></div><hr />
 				<div class="desc"><div>This does the opposite of bind, it removes bound events from each of the matched elements.</div> <div class="longdesc"><p>Without any arguments, all bound events are removed.</p><p>You can also unbind custom events registered with bind.</p><p>If the type is provided, all bound events of that type are removed.</p><p>If the function that was passed to bind is provided as the second argument, only that specific event handler is removed.</p></div></div>
 				<h2>返回值</h2>
 				<p class="indent">jQuery</p>
@@ -5768,7 +5768,7 @@ If the function that was passed to live is provided as the second argument, only
 				<p class="indent">jQuery</p>
 				<h2>参数</h2>
 				<p class="indent"><strong>speed </strong>(String,Number) :三种预定速度之一的字符串("slow", "normal", or "fast")或表示动画时长的毫秒数值(如：1000) </p>
-				<p class="indent"><strong>callback </strong>(FunctionFunction) : (Optional) 在动画完成时执行的函数，每个元素执行一次。</p>
+				<p class="indent"><strong>callback </strong>(Function) : (可选) 在动画完成时执行的函数，每个元素执行一次。</p>
 				<h2>示例</h2>
 				<p class="indent">
 					用600毫秒的时间将段落缓慢的隐藏
@@ -5848,7 +5848,7 @@ If the function that was passed to live is provided as the second argument, only
 				<p class="indent">jQuery</p>
 				<h2>参数</h2>
 				<p class="indent"><strong>speed </strong>(String,Number) :三种预定速度之一的字符串("slow", "normal", or "fast")或表示动画时长的毫秒数值(如：1000) </p>
-				<p class="indent"><strong>callback </strong>(FunctionFunction) : (Optional) 在动画完成时执行的函数，每个元素执行一次。</p>
+				<p class="indent"><strong>callback </strong>(Function) : (可选) 在动画完成时执行的函数，每个元素执行一次。</p>
 				<h2>示例</h2>
 				<p class="indent">
 					用600毫秒的时间将段落缓慢的切换显示状态
@@ -7335,7 +7335,7 @@ First
 					<div id="update"></div>
 					<script type="text/javascript">
 					<!--
-						var curVer="090124";
+						var curVer="090128";
 						$("#checkUpdate").click(function(){
 							$('<script src="http://jquery-api-zh-cn.googlecode.com/svn/trunk/update.js" type="text/javascript"><script>').appendTo("head")
 						});
