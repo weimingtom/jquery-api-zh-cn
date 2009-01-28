@@ -15,7 +15,7 @@
           <desc>用来查找的字符串</desc>
         </params>
         <params name="context" type="Element, jQuery" optional="true">
-          <desc>(可选) 作为待查找的 DOM 元素集、文档或 jQuery 对象。</desc>
+          <desc>作为待查找的 DOM 元素集、文档或 jQuery 对象。</desc>
         </params>
         <example>
           <desc>找到所有 p 元素，并且这些元素都必须是 div 元素的子元素。</desc>
@@ -39,7 +39,7 @@
           <desc>用于动态创建DOM元素的HTML标记字符串</desc>
         </params>
         <params name="ownerDocument" type="Document" optional="true">
-          <desc>可选，创建DOM元素所在的文档</desc>
+          <desc>创建DOM元素所在的文档</desc>
         </params>
         <example>
           <desc>动态创建一个 div 元素（以及其中的所有内容），并将它追加到 body 元素中。在这个函数的内部，是通过临时创建一个元素，并将这个元素的 innerHTML 属性设置为给定的标记字符串，来实现标记到 DOM 元素转换的。所以，这个函数既有灵活性，也有局限性。</desc>
@@ -470,7 +470,7 @@ jQuery.max(4,5); // =&gt; 5</result>
 
 在运行这个函数后，就只能使用jQuery变量访问jQuery对象。例如，在要用到$("div p")的地方，就必须换成jQuery("div p")。
 
-&lt;strong&gt;注意:&lt;/strong&gt;这个函数必须在你导入jQuery文件之后，并且在导入另一个导致冲突的库&lt;strong&gt;之前&lt;/strong&gt;使用。当然也应当在其他冲突的库被使用之前，除非jQuery是最后一个导入的。</longdesc>
+'''注意:'''这个函数必须在你导入jQuery文件之后，并且在导入另一个导致冲突的库'''之前'''使用。当然也应当在其他冲突的库被使用之前，除非jQuery是最后一个导入的。</longdesc>
         <example>
           <desc>将$引用的对象映射回原始的对象。</desc>
           <code>jQuery.noConflict();
@@ -500,7 +500,7 @@ $("content").style.display = 'none';</code>
       </function>
       <function name="jQuery.noConflict" type="jQuery">
         <desc>将$和jQuery的控制权都交还给原来的库。用之前请考虑清楚!</desc>
-        <longdesc>这是相对于简单的 &lt;strong&gt;noConflict&lt;/strong&gt; 方法更极端的版本，因为这将完全重新定义jQuery。这通常用于一种极端的情况，比如你想要将jQuery嵌入一个高度冲突的环境。&lt;strong&gt;注意:&lt;/strong&gt;调用此方法后极有可能导致插件失效。</longdesc>
+        <longdesc>这是相对于简单的 '''noConflict''' 方法更极端的版本，因为这将完全重新定义jQuery。这通常用于一种极端的情况，比如你想要将jQuery嵌入一个高度冲突的环境。'''注意:'''调用此方法后极有可能导致插件失效。</longdesc>
         <params name="extreme" type="Boolean">
           <desc>传入 true 来允许彻底将jQuery变量还原</desc>
         </params>
@@ -598,7 +598,7 @@ jQuery("div &gt; p").hide();</result>
           <desc>另一个有效的选择器</desc>
         </params>
         <params name="selectorN" type="Selector" optional="true">
-          <desc>(可选) 任意多个有效选择器</desc>
+          <desc>任意多个有效选择器</desc>
         </params>
         <example>
           <desc>找到匹配任意一个类的元素。</desc>
@@ -1563,7 +1563,7 @@ jQuery("div &gt; p").hide();</result>
       <function name="removeClass" type="jQuery">
         <desc>从所有匹配的元素中删除全部或者指定的类。</desc>
         <params name="class" type="String" optional="true">
-          <desc>(可选) 一个或多个要删除的CSS类名，请用空格分开</desc>
+          <desc>一个或多个要删除的CSS类名，请用空格分开</desc>
         </params>
         <example>
           <desc>从匹配的元素中删除 'selected' 类</desc>
@@ -1674,7 +1674,7 @@ jQuery("div &gt; p").hide();</result>
         </example>
       </function>
       <function name="val" type="jQuery">
-        <desc/>
+        <desc>check,select,radio等都能使用为之赋值</desc>
         <params name="val" type="Array&lt;String&gt;">
           <desc>用于 check/select 的值</desc>
         </params>
@@ -1771,7 +1771,7 @@ $("input").val(["check2", "radio1"]);</code>
       </function>
       <function name="is" type="Boolean">
         <desc>用一个表达式来检查当前选择的元素集合，如果其中至少有一个元素符合这个给定的表达式就返回true。</desc>
-        <longdesc>如果没有元素符合，或者表达式无效，都返回'false'。 &lt;strong&gt;注意：&lt;/strong&gt;在jQuery 1.3中对所有表达式提供了支持。先前版本中如果提供了复杂的表达式，比如层级选择器（比如 + , ~ 和 &gt; ）始终会返回true</longdesc>
+        <longdesc>如果没有元素符合，或者表达式无效，都返回'false'。 '''注意：'''在jQuery 1.3中对所有表达式提供了支持。先前版本中如果提供了复杂的表达式，比如层级选择器（比如 + , ~ 和 &gt; ）始终会返回true</longdesc>
         <params name="expr" type="String">
           <desc>用于筛选的表达式</desc>
         </params>
@@ -1821,7 +1821,7 @@ $("input").val(["check2", "radio1"]);</code>
           <desc>开始选取子集的位置。第一个元素是0.如果是负数，则可以从集合的尾部开始选起。</desc>
         </params>
         <params name="end" type="Integer" optional="true">
-          <desc>(可选) 结束选取自己的位置，如果不指定，则就是本身的结尾。</desc>
+          <desc>结束选取自己的位置，如果不指定，则就是本身的结尾。</desc>
         </params>
         <example>
           <desc>选择第一个p元素</desc>
@@ -1884,7 +1884,7 @@ $("input").val(["check2", "radio1"]);</code>
         <desc>取得一个包含匹配的元素集合中每一个元素的所有子元素的元素集合。</desc>
         <longdesc>可以通过可选的表达式来过滤所匹配的子元素。注意：parents()将查找所有祖辈元素，而children()只考虑子元素而不考虑所有后代元素。</longdesc>
         <params name="expr" type="String" optional="true">
-          <desc>(可选) 用以过滤子元素的表达式</desc>
+          <desc>用以过滤子元素的表达式</desc>
         </params>
         <example>
           <desc>查找DIV中的每个子元素。</desc>
@@ -1905,7 +1905,7 @@ $("input").val(["check2", "radio1"]);</code>
 
 closest对于处理事件委派非常有用。</longdesc>
         <params name="expr" type="String" optional="true">
-          <desc>(可选) 用以过滤元素的表达式</desc>
+          <desc>用以过滤元素的表达式</desc>
         </params>
         <example>
           <desc>展示如何使用clostest来完成事件委派。</desc>
@@ -1950,7 +1950,7 @@ closest对于处理事件委派非常有用。</longdesc>
         <desc>取得一个包含匹配的元素集合中每一个元素紧邻的后面同辈元素的元素集合。</desc>
         <longdesc>这个函数只返回后面那个紧邻的同辈元素，而不是后面所有的同辈元素（可以使用nextAll）。可以用一个可选的表达式进行筛选。</longdesc>
         <params name="expr" type="String" optional="true">
-          <desc>(可选) 用于筛选的表达式</desc>
+          <desc>用于筛选的表达式</desc>
         </params>
         <example>
           <desc>找到每个段落的后面紧邻的同辈元素。</desc>
@@ -2004,7 +2004,7 @@ closest对于处理事件委派非常有用。</longdesc>
       <function name="parents" type="jQuery">
         <desc>取得一个包含着所有匹配元素的祖先元素的元素集合（不包含根元素）。可以通过一个可选的表达式进行筛选。</desc>
         <params name="expr" type="String" optional="true">
-          <desc>(可选) 用于筛选祖先元素的表达式</desc>
+          <desc>用于筛选祖先元素的表达式</desc>
         </params>
         <example>
           <desc>找到每个span元素的所有祖先元素。</desc>
@@ -2020,7 +2020,7 @@ closest对于处理事件委派非常有用。</longdesc>
         <desc>取得一个包含匹配的元素集合中每一个元素紧邻的前一个同辈元素的元素集合。</desc>
         <longdesc>可以用一个可选的表达式进行筛选。只有紧邻的同辈元素会被匹配到，而不是前面所有的同辈元素。</longdesc>
         <params name="expr" type="String" optional="true">
-          <desc>(可选) 用于筛选前一个同辈元素的表达式</desc>
+          <desc>用于筛选前一个同辈元素的表达式</desc>
         </params>
         <example>
           <desc>找到每个段落紧邻的前一个同辈元素。</desc>
@@ -2039,7 +2039,7 @@ closest对于处理事件委派非常有用。</longdesc>
         <desc>查找当前元素之前所有的同辈元素</desc>
         <longdesc>可以用表达式过滤。</longdesc>
         <params name="expr" type="String" optional="true">
-          <desc>(可选) 用于过滤的表达式</desc>
+          <desc>用于过滤的表达式</desc>
         </params>
         <example>
           <desc>给最后一个之前的所有div加上一个类</desc>
@@ -2051,7 +2051,7 @@ closest对于处理事件委派非常有用。</longdesc>
       <function name="siblings" type="jQuery">
         <desc>取得一个包含匹配的元素集合中每一个元素的所有唯一同辈元素的元素集合。可以用可选的表达式进行筛选。</desc>
         <params name="expr" type="String" optional="true">
-          <desc>(可选) 用于筛选同辈元素的表达式</desc>
+          <desc>用于筛选同辈元素的表达式</desc>
         </params>
         <example>
           <desc>找到每个div的所有同辈元素。</desc>
@@ -2075,7 +2075,10 @@ closest对于处理事件委派非常有用。</longdesc>
           <desc>选取所有div以及内部的p，并加上border类</desc>
           <html>&lt;div&gt;&lt;p&gt;First Paragraph&lt;/p&gt;&lt;p&gt;Second Paragraph&lt;/p&gt;&lt;/div&gt;</html>
           <code>$("div").find("p").andSelf().addClass("border");</code>
-          <result>&lt;div class="border"&gt;&lt;p class="border"&gt;First Paragraph&lt;/p&gt;&lt;p class="border"&gt;Second Paragraph&lt;/p&gt;&lt;/div&gt;</result>
+          <result>&lt;div class="border"&gt;
+    &lt;p class="border"&gt;First Paragraph&lt;/p&gt;
+    &lt;p class="border"&gt;Second Paragraph&lt;/p&gt;
+&lt;/div&gt;</result>
         </example>
       </function>
       <function name="end" type="jQuery">
@@ -2357,7 +2360,7 @@ closest对于处理事件委派非常有用。</longdesc>
         <desc>从DOM中删除所有匹配的元素。</desc>
         <longdesc>这个方法不会把匹配的元素从jQuery对象中删除，因而可以在将来再使用这些匹配的元素。</longdesc>
         <params name="expr" type="String" optional="true">
-          <desc>(可选) 用于筛选元素的jQuery表达式</desc>
+          <desc>用于筛选元素的jQuery表达式</desc>
         </params>
         <example>
           <desc>从DOM中把所有段落删除</desc>
@@ -2643,7 +2646,7 @@ $("p:last").text( "outerWidth:" + p.outerWidth() + " , outerWidth(true):" + p.ou
           <desc>事件类型</desc>
         </params>
         <params name="data" type="Object" optional="true">
-          <desc>(可选) 作为event.data属性值传递给事件对象的额外数据对象</desc>
+          <desc>作为event.data属性值传递给事件对象的额外数据对象</desc>
         </params>
         <params name="fn" type="Function">
           <desc>绑定到每个匹配元素的事件上面的处理函数</desc>
@@ -2687,7 +2690,7 @@ $("p").bind("click", {foo: "bar"}, handler)</code>
           <desc>事件类型</desc>
         </params>
         <params name="data" type="Object" optional="true">
-          <desc>(可选) 作为event.data属性值传递给事件对象的额外数据对象</desc>
+          <desc>作为event.data属性值传递给事件对象的额外数据对象</desc>
         </params>
         <params name="fn" type="Function">
           <desc>绑定到每个匹配元素的事件上面的处理函数</desc>
@@ -2709,7 +2712,7 @@ $("p").bind("click", {foo: "bar"}, handler)</code>
 
 jQuery也支持 &lt;a href="http://docs.jquery.com/Namespaced_Events"&gt;命名空间事件&lt;/a&gt;。这允许你触发或者解除绑定一组特定的事件处理函数，而无需一一个指定。你可以在事件类型后面加上感叹号 ! 来只触发那些没有命名空间的事件处理函数。
 
-&lt;strong&gt;jQuery 1.3中新增：&lt;/strong&gt;
+'''jQuery 1.3中新增：'''
 
 所有触发的事件现在会冒泡到DOM树上了。举例来说，如果你在一个段落p上触发一个事件，他首先会在这个元素上触发，其次到父元素，在到父元素的父元素，直到触发到document对象。这个事件对象有一个 .target 属性指向最开始触发这个事件的元素。你可以用 stopPropagation() 来阻止事件冒泡，或者在事件处理函数中返回false即可。
 
@@ -2721,7 +2724,7 @@ jQuery也支持 &lt;a href="http://docs.jquery.com/Namespaced_Events"&gt;命名�
 
 * 你可以使用jQuery.Event对象。可以将数据放进这个对象，并且这个对象可以被触发的事件处理函数获取到。
 
-* 最后，你可以传递一个带有数据的字面量对象。他将被复制到真正的jQuery.Event对象上去。 注意在这种情况下你&lt;strong&gt;必须&lt;/strong&gt;指定一个 &lt;em&gt;type&lt;/em&gt; 属性。</longdesc>
+* 最后，你可以传递一个带有数据的字面量对象。他将被复制到真正的jQuery.Event对象上去。 注意在这种情况下你'''必须'''指定一个 &lt;em&gt;type&lt;/em&gt; 属性。</longdesc>
         <params name="type" type="String,Event,Object">
           <desc>一个事件对象或者要触发的事件类型</desc>
         </params>
@@ -2749,9 +2752,13 @@ $("p").trigger("myEvent", ["Hello","World!"]);</code>
       </function>
       <function name="triggerHandler" type="jQuery">
         <desc>这个特别的方法将会触发指定的事件类型上所有绑定的处理函数。但不会执行浏览器默认动作，也不会产生事件冒泡。</desc>
-        <longdesc>这个方法的行为表现与trigger类似，但有以下三个主要区别： * 第一，他不会触发浏览器默认事件。
+        <longdesc>这个方法的行为表现与trigger类似，但有以下三个主要区别： 
+		
+* 第一，他不会触发浏览器默认事件。
 
-* 第二，只触发jQuery对象集合中第一个元素的事件处理函数。* 第三，这个方法的返回的是事件处理函数的返回值，而不是据有可链性的jQuery对象。此外，如果最开始的jQuery对象集合为空，则这个方法返回 undefined 。</longdesc>
+* 第二，只触发jQuery对象集合中第一个元素的事件处理函数。
+
+* 第三，这个方法的返回的是事件处理函数的返回值，而不是据有可链性的jQuery对象。此外，如果最开始的jQuery对象集合为空，则这个方法返回 undefined 。</longdesc>
         <params name="type" type="String">
           <desc>要触发的事件类型</desc>
         </params>
@@ -2780,14 +2787,14 @@ $("input").focus(function(){
 
 你可以将你用bind()注册的自定义事件取消绑定。
 
-I如果提供了事件类型作为参数，则只删除该类型的绑定事件。
+如果提供了事件类型作为参数，则只删除该类型的绑定事件。
 
 如果把在绑定时传递的处理函数作为第二个参数，则只有这个特定的事件处理函数会被删除。</longdesc>
         <params name="type" type="String" optional="true">
-          <desc>(可选) 事件类型</desc>
+          <desc>事件类型</desc>
         </params>
         <params name="data" type="Function" optional="true">
-          <desc>(可选) 要从每个匹配元素的事件中反绑定的事件处理函数</desc>
+          <desc>要从每个匹配元素的事件中反绑定的事件处理函数</desc>
         </params>
         <example>
           <desc>把所有段落的所有事件取消绑定</desc>
@@ -2841,10 +2848,10 @@ $("p").unbind("click", foo); // ... 再也不会被触发 foo</code>
 
 如果也指定了第二个参数function,则只移出指定的事件处理函数。</longdesc>
         <params name="type" type="String" optional="true">
-          <desc>可选，要解除绑定的live事件</desc>
+          <desc>要解除绑定的live事件</desc>
         </params>
         <params name="fn" type="Function" optional="true">
-          <desc>可选，要解除绑定的特定处理函数</desc>
+          <desc>要解除绑定的特定处理函数</desc>
         </params>
         <example>
           <desc>给按钮解除click事件</desc>
@@ -2890,7 +2897,7 @@ $("p").unbind("click", foo); // ... 再也不会被触发 foo</code>
         <params name="fn2" type="Function">
           <desc>第二数次点击时要执行的函数。</desc>
         </params>
-        <params name="fn3,fn4,..." type="Function">
+        <params name="fn3, fn4, ..." type="Function" optional="true">
           <desc>更多次点击时要执行的函数。</desc>
         </params>
         <example>
@@ -3126,7 +3133,7 @@ keyup</longdesc>
         <desc>在每一个匹配元素的load事件中绑定一个处理函数。</desc>
         <longdesc>如果绑定给window对象，则会在所有内容加载后触发，包括窗口，框架，对象和图像。如果绑定在元素上，则当元素的内容加载完毕后触发。
 
-&lt;strong&gt;注意:&lt;/strong&gt;只有当在这个元素完全加载完之前绑定load的处理函数,才会在他加载完后触发。如果之后再绑定就永远不会触发了。所以&lt;strong&gt;不要&lt;/strong&gt;在$(document).ready()里绑定load事件，因为jQuery会在所有DOM加载完成后再绑定load事件。</longdesc>
+'''注意:'''只有当在这个元素完全加载完之前绑定load的处理函数,才会在他加载完后触发。如果之后再绑定就永远不会触发了。所以'''不要'''在$(document).ready()里绑定load事件，因为jQuery会在所有DOM加载完成后再绑定load事件。</longdesc>
         <params name="fn" type="Function">
           <desc>在每一个匹配元素的load事件中绑定的处理函数。</desc>
         </params>
@@ -3259,8 +3266,8 @@ keyup</longdesc>
         <params name="speed" type="String,Number">
           <desc>三种预定速度之一的字符串("slow", "normal", or "fast")或表示动画时长的毫秒数值(如：1000)</desc>
         </params>
-        <params name="callback" type="Function">
-          <desc>(Optional) 在动画完成时执行的函数，每个元素执行一次。</desc>
+        <params name="callback" type="Function" optional="true">
+          <desc>在动画完成时执行的函数，每个元素执行一次。</desc>
         </params>
         <example>
           <desc>用缓慢的动画将隐藏的段落显示出来，历时600毫秒。</desc>
@@ -3296,8 +3303,8 @@ keyup</longdesc>
         <params name="speed" type="String,Number">
           <desc>三种预定速度之一的字符串("slow", "normal", or "fast")或表示动画时长的毫秒数值(如：1000)</desc>
         </params>
-        <params name="callback" type="FunctionFunction">
-          <desc>(Optional) 在动画完成时执行的函数，每个元素执行一次。</desc>
+        <params name="callback" type="Function" optional="true">
+          <desc>在动画完成时执行的函数，每个元素执行一次。</desc>
         </params>
         <example>
           <desc>用600毫秒的时间将段落缓慢的隐藏</desc>
@@ -3342,8 +3349,8 @@ keyup</longdesc>
         <params name="speed" type="String,Number">
           <desc>三种预定速度之一的字符串("slow", "normal", or "fast")或表示动画时长的毫秒数值(如：1000)</desc>
         </params>
-        <params name="callback" type="FunctionFunction">
-          <desc>(Optional) 在动画完成时执行的函数，每个元素执行一次。</desc>
+        <params name="callback" type="Function" optional="true">
+          <desc>在动画完成时执行的函数，每个元素执行一次。</desc>
         </params>
         <example>
           <desc>用600毫秒的时间将段落缓慢的切换显示状态</desc>
@@ -3365,7 +3372,7 @@ keyup</longdesc>
           <desc>三种预定速度之一的字符串("slow", "normal", or "fast")或表示动画时长的毫秒数值(如：1000)</desc>
         </params>
         <params name="callback" type="FunctionFunction" optional="true">
-          <desc>(可选) 在动画完成时执行的函数</desc>
+          <desc>在动画完成时执行的函数</desc>
         </params>
         <example>
           <desc>用600毫秒缓慢的将段落滑下</desc>
@@ -3385,7 +3392,7 @@ keyup</longdesc>
           <desc>三种预定速度之一的字符串("slow", "normal", or "fast")或表示动画时长的毫秒数值(如：1000)</desc>
         </params>
         <params name="callback" type="Function" optional="true">
-          <desc>(可选) 在动画完成时执行的函数</desc>
+          <desc>在动画完成时执行的函数</desc>
         </params>
         <example>
           <desc>用600毫秒缓慢的将段落滑上</desc>
@@ -3405,7 +3412,7 @@ keyup</longdesc>
           <desc>三种预定速度之一的字符串("slow", "normal", or "fast")或表示动画时长的毫秒数值(如：1000)</desc>
         </params>
         <params name="callback" type="Function" optional="true">
-          <desc>(可选) 在动画完成时执行的函数</desc>
+          <desc>在动画完成时执行的函数</desc>
         </params>
         <example>
           <desc>用600毫秒缓慢的将段落滑上或滑下</desc>
@@ -3427,7 +3434,7 @@ keyup</longdesc>
           <desc>三种预定速度之一的字符串("slow", "normal", or "fast")或表示动画时长的毫秒数值(如：1000)</desc>
         </params>
         <params name="callback" type="Function" optional="true">
-          <desc>(Optional) (可选) 在动画完成时执行的函数</desc>
+          <desc>(Optional) 在动画完成时执行的函数</desc>
         </params>
         <example>
           <desc>用600毫秒缓慢的将段落淡入</desc>
@@ -3447,7 +3454,7 @@ keyup</longdesc>
           <desc>三种预定速度之一的字符串("slow", "normal", or "fast")或表示动画时长的毫秒数值(如：1000)</desc>
         </params>
         <params name="callback" type="Function" optional="true">
-          <desc>(可选) 在动画完成时执行的函数</desc>
+          <desc>在动画完成时执行的函数</desc>
         </params>
         <example>
           <desc>用600毫秒缓慢的将段落淡出</desc>
@@ -3470,7 +3477,7 @@ keyup</longdesc>
           <desc>要调整到的不透明度值(0到1之间的数字).</desc>
         </params>
         <params name="callback" type="Function" optional="true">
-          <desc>(可选) 在动画完成时执行的函数</desc>
+          <desc>在动画完成时执行的函数</desc>
         </params>
         <example>
           <desc>用600毫秒缓慢的将段落的透明度调整到0.66，大约2/3的可见度</desc>
@@ -3498,13 +3505,13 @@ jQuery 1.3中，如果duration设为0则直接完成动画。而在以前版本�
           <desc>一组包含作为动画属性和终值的样式属性和及其值的集合</desc>
         </params>
         <params name="duration" type="String,Number" optional="true">
-          <desc>(可选) 三种预定速度之一的字符串("slow", "normal", or "fast")或表示动画时长的毫秒数值(如：1000)</desc>
+          <desc>三种预定速度之一的字符串("slow", "normal", or "fast")或表示动画时长的毫秒数值(如：1000)</desc>
         </params>
         <params name="easing" type="String" optional="true">
-          <desc>(可选) 要使用的擦除效果的名称(需要插件支持).默认jQuery提供"linear" 和 "swing".</desc>
+          <desc>要使用的擦除效果的名称(需要插件支持).默认jQuery提供"linear" 和 "swing".</desc>
         </params>
         <params name="callback" type="Function" optional="true">
-          <desc>(可选) 在动画完成时执行的函数</desc>
+          <desc>在动画完成时执行的函数</desc>
         </params>
         <example>
           <desc>点击按钮后div元素的几个不同属性一同变化</desc>
@@ -3636,10 +3643,10 @@ $("#go2").click(function(){
         <desc>停止所有在指定元素上正在运行的动画。</desc>
         <longdesc>如果队列中有等待执行的动画(并且clearQueue没有设为true)，他们将被马上执行</longdesc>
         <params name="clearQueue" type="Boolean" optional="true">
-          <desc>可选，如果设置成true，则清空队列。可以立即结束动画。</desc>
+          <desc>如果设置成true，则清空队列。可以立即结束动画。</desc>
         </params>
         <params name="gotoEnd" type="Boolean" optional="true">
-          <desc>可选，让当前正在执行的动画立即完成，并且重设show和hide的原始样式，调用回调函数等。</desc>
+          <desc>让当前正在执行的动画立即完成，并且重设show和hide的原始样式，调用回调函数等。</desc>
         </params>
         <example>
           <desc>点击Go之后开始动画,点Stop之后会在当前位置停下来</desc>
@@ -3686,9 +3693,9 @@ $("#stop").click(function(){
 
 $.ajax() 只有一个参数：参数 key/value 对象，包含各配置及回调函数信息。详细参数选项见下。
 
-&lt;strong&gt;注意：&lt;/strong&gt; 如果你指定了 dataType 选项，请确保服务器返回正确的 MIME 信息，(如 xml 返回 "text/xml")。错误的 MIME 类型可能导致不可预知的错误。见 &lt;a href="http://docs.jquery.com/Specifying_the_Data_Type_for_AJAX_Requests" title="Specifying the Data Type for AJAX Requests"&gt;Specifying the Data Type for AJAX Requests&lt;/a&gt; 。
+'''注意：''' 如果你指定了 dataType 选项，请确保服务器返回正确的 MIME 信息，(如 xml 返回 "text/xml")。错误的 MIME 类型可能导致不可预知的错误。见 &lt;a href="http://docs.jquery.com/Specifying_the_Data_Type_for_AJAX_Requests" title="Specifying the Data Type for AJAX Requests"&gt;Specifying the Data Type for AJAX Requests&lt;/a&gt; 。
 
-&lt;strong&gt;注意：&lt;/strong&gt;如果dataType设置为"script"，那么在远程请求时(不在同一个域下)，所有POST请求都将转为GET请求。(因为将使用DOM的script标签来加载)
+'''注意：'''如果dataType设置为"script"，那么在远程请求时(不在同一个域下)，所有POST请求都将转为GET请求。(因为将使用DOM的script标签来加载)
 
 jQuery 1.2 中，您可以跨域加载 JSON 数据，使用时需将数据类型设置为 &lt;a href="http://bob.pythonmac.org/archives/2005/12/05/remote-json-jsonp/" class="external text" title="http://bob.pythonmac.org/archives/2005/12/05/remote-json-jsonp/"&gt;JSONP&lt;/a&gt;。使用 &lt;a href="http://bob.pythonmac.org/archives/2005/12/05/remote-json-jsonp/" class="external text" title="http://bob.pythonmac.org/archives/2005/12/05/remote-json-jsonp/"&gt;JSONP&lt;/a&gt; 形式调用函数时，如 "myurl?callback=?" jQuery 将自动替换 ? 为正确的函数名，以执行回调函数。数据类型设置为 "jsonp" 时，jQuery 将自动调用回调函数。</longdesc>
         <params name="options" type="可选" optional="true">
@@ -3730,7 +3737,7 @@ jQuery 1.2 中，您可以跨域加载 JSON 数据，使用时需将数据类型
             &lt;p&gt;预期服务器返回的数据类型。如果不指定，jQuery 将自动根据 HTTP 包 MIME 信息返回 responseXML 或 responseText，并作为回调函数参数传递，可用值: &lt;/p&gt;
             &lt;p&gt;"xml": 返回 XML 文档，可用 jQuery 处理。&lt;/p&gt;
             &lt;p&gt;"html": 返回纯文本 HTML 信息；包含的script标签会在插入dom时执行。&lt;/p&gt;
-            &lt;p&gt;"script": 返回纯文本 JavaScript 代码。不会自动缓存结果。除非设置了"cache"参数。&lt;strong&gt;注意：&lt;/strong&gt;在远程请求时(不在同一个域下)，所有POST请求都将转为GET请求。(因为将使用DOM的script标签来加载)&lt;/p&gt;
+            &lt;p&gt;"script": 返回纯文本 JavaScript 代码。不会自动缓存结果。除非设置了"cache"参数。'''注意：'''在远程请求时(不在同一个域下)，所有POST请求都将转为GET请求。(因为将使用DOM的script标签来加载)&lt;/p&gt;
             &lt;p&gt;"json": 返回 JSON 数据 。&lt;/p&gt;
             &lt;p&gt;"jsonp": &lt;a href="http://bob.pythonmac.org/archives/2005/12/05/remote-json-jsonp/" class="external text" title="http://bob.pythonmac.org/archives/2005/12/05/remote-json-jsonp/"&gt;JSONP&lt;/a&gt; 格式。使用 &lt;a href="http://bob.pythonmac.org/archives/2005/12/05/remote-json-jsonp/" class="external text" title="http://bob.pythonmac.org/archives/2005/12/05/remote-json-jsonp/"&gt;JSONP&lt;/a&gt; 形式调用函数时，如 "myurl?callback=?" jQuery 将自动替换 ? 为正确的函数名，以执行回调函数。&lt;/p&gt;
             &lt;p&gt;"text": 返回纯文本字符串&lt;/p&gt;
@@ -3838,10 +3845,10 @@ jQuery 1.2 中，您可以跨域加载 JSON 数据，使用时需将数据类型
           <desc>待装入 HTML 网页网址。</desc>
         </params>
         <params name="data" type="Map,String" optional="true">
-          <desc>(可选) 发送至服务器的 key/value 数据。在jQuery 1.3中也可以接受一个字符串了。</desc>
+          <desc>发送至服务器的 key/value 数据。在jQuery 1.3中也可以接受一个字符串了。</desc>
         </params>
         <params name="callback" type="Callback" optional="true">
-          <desc>(可选) 载入成功时回调函数。</desc>
+          <desc>载入成功时回调函数。</desc>
         </params>
         <example>
           <desc>加载文章侧边栏导航部分至一个无序列表。</desc>
@@ -3867,13 +3874,13 @@ jQuery 1.2 中，您可以跨域加载 JSON 数据，使用时需将数据类型
           <desc>待载入页面的URL地址</desc>
         </params>
         <params name="data" type="Map" optional="true">
-          <desc>(可选) 待发送 Key/value 参数。</desc>
+          <desc>待发送 Key/value 参数。</desc>
         </params>
         <params name="callback" type="Function" optional="true">
-          <desc>(可选) 载入成功时回调函数。</desc>
+          <desc>载入成功时回调函数。</desc>
         </params>
         <params name="type" type="String" optional="true">
-          <desc>(可选) 返回内容格式，xml, html, script, json, text, _default。</desc>
+          <desc>返回内容格式，xml, html, script, json, text, _default。</desc>
         </params>
         <example>
           <desc>请求 test.php 网页，忽略返回值。</desc>
@@ -3904,10 +3911,10 @@ jQuery 1.2 中，您可以跨域加载 JSON 数据，使用时需将数据类型
           <desc>发送请求地址。</desc>
         </params>
         <params name="data" type="Map" optional="true">
-          <desc>(可选) 待发送 Key/value 参数。</desc>
+          <desc>待发送 Key/value 参数。</desc>
         </params>
         <params name="callback" type="Function" optional="true">
-          <desc>(可选) 载入成功时回调函数。</desc>
+          <desc>载入成功时回调函数。</desc>
         </params>
         <example>
           <desc>从 Flickr JSONP API 载入 4 张最新的关于猫的图片。</desc>
@@ -3939,7 +3946,7 @@ jQuery 1.2 中，您可以跨域加载 JSON 数据，使用时需将数据类型
           <desc>待载入 JS 文件地址。</desc>
         </params>
         <params name="callback" type="Function" optional="true">
-          <desc>(可选) 成功载入后回调函数。</desc>
+          <desc>成功载入后回调函数。</desc>
         </params>
         <example>
           <desc>载入 &lt;a title="http://jquery.com/plugins/project/color" class="external text" href="http://jquery.com/plugins/project/color"&gt;jQuery 官方颜色动画插件&lt;/a&gt; 成功后绑定颜色变化动画。</desc>
@@ -3970,13 +3977,13 @@ jQuery 1.2 中，您可以跨域加载 JSON 数据，使用时需将数据类型
           <desc>发送请求地址。</desc>
         </params>
         <params name="data" type="Map" optional="true">
-          <desc>(可选) 待发送 Key/value 参数。</desc>
+          <desc>待发送 Key/value 参数。</desc>
         </params>
         <params name="callback" type="Function" optional="true">
-          <desc>(可选) 发送成功时回调函数。</desc>
+          <desc>发送成功时回调函数。</desc>
         </params>
         <params name="type" type="String" optional="true">
-          <desc>(可选) 返回内容格式，xml, html, script, json, text, _default。</desc>
+          <desc>返回内容格式，xml, html, script, json, text, _default。</desc>
         </params>
       </function>
     </subcat>
@@ -3998,13 +4005,11 @@ jQuery 1.2 中，您可以跨域加载 JSON 数据，使用时需将数据类型
         <desc>AJAX 请求发生错误时执行函数。Ajax 事件。</desc>
         <longdesc>XMLHttpRequest 对象和设置作为参数传递给回调函数。捕捉到的错误可作为最后一个参数传递。</longdesc>
         <params name="callback" type="Function">
-          <desc>待执行函数</desc>
-        </params>
-        <params name="" type="function (event, XMLHttpRequest, ajaxOptions, thrownError) {      // thrownError 只有当异常发生时才会被传递      this; // 监听的 dom 元素}">
-          <desc>function (event, XMLHttpRequest, ajaxOptions, thrownError) {
+          <desc>待执行函数
+&lt;pre&gt;function (event, XMLHttpRequest, ajaxOptions, thrownError) {
       // thrownError 只有当异常发生时才会被传递
       this; // 监听的 dom 元素
-}</desc>
+}&lt;/pre&gt;</desc>
         </params>
         <example>
           <desc>AJAX 请求失败时显示信息。</desc>
@@ -4138,7 +4143,29 @@ jQuery.each( fields, function(i, field){
         <desc>jQuery 1.3 新增。一组用于展示不同浏览器各自特性和bug的属性集合。</desc>
         <longdesc>jQuery提供了一系列属性，你也可以自由增加你自己的属性。其中许多属性是很低级的，所以很难说他们能否在日新月异的发展中一直保持有效，但这这些主要用于插件和内核开发者。
 
-所有这些支持的属性值都通过特性检测来实现，而不是用任何浏览器检测。以下有一些非常棒的资源用于解释这些特性检测是如何工作的：&lt;ul&gt;&lt;li&gt;http://peter.michaux.ca/articles/feature-detection-state-of-the-art-browser-scripting&lt;/li&gt;&lt;li&gt;http://yura.thinkweb2.com/cft/&lt;/li&gt;&lt;li&gt;http://www.jibbering.com/faq/faq_notes/not_browser_detect.html&lt;/li&gt;&lt;/ul&gt;jQuery.support主要包括以下测试：&lt;strong&gt;boxModel&lt;/strong&gt;: 如果这个页面和浏览器是以W3C CSS盒式模型来渲染的，则等于true。通常在IE 6和IE 7的怪癖模式中这个值是false。在document准备就绪前，这个值是null。&lt;strong&gt;cssFloat&lt;/strong&gt;: 如果用cssFloat来访问CSS的float的值，则返回true。目前在IE中会返回false,他用styleFloat代替。&lt;strong&gt;hrefNormalized&lt;/strong&gt;: 如果浏览器从getAttribute("href")返回的是原封不动的结果，则返回true。在IE中会返回false，因为他的URLs已经常规化了。&lt;strong&gt;htmlSerialize&lt;/strong&gt;: 如果浏览器通过innerHTML插入链接元素的时候会序列化这些链接，则返回true，目前IE中返回false。&lt;strong&gt;leadingWhitespace&lt;/strong&gt;: 如果在使用innerHTML的时候浏览器会保持前导空白字符，则返回true，目前在IE 6-8中返回false。&lt;strong&gt;noCloneEvent&lt;/strong&gt;: 如果浏览器在克隆元素的时候不会连同事件处理函数一起复制，则返回true，目前在IE中返回false。&lt;strong&gt;objectAll&lt;/strong&gt;: 如果在某个元素对象上执行getElementsByTagName("*")会返回所有子孙元素，则为true，目前在IE 7中为false。&lt;strong&gt;opacity&lt;/strong&gt;: 如果浏览器能适当解释透明度样式属性，则返回true，目前在IE中返回false，因为他用alpha滤镜代替。&lt;strong&gt;scriptEval&lt;/strong&gt;: 使用 appendChild/createTextNode 方法插入脚本代码时，浏览器是否执行脚步，目前在IE中返回false，IE使用 .text 方法插入脚本代码以执行。&lt;strong&gt;style&lt;/strong&gt;: 如果getAttribute("style")返回元素的行内样式，则为true。目前IE中为false，因为他用cssText代替。&lt;strong&gt;tbody&lt;/strong&gt;: 如果浏览器允许table元素不包含tbody元素，则返回true。目前在IE中会返回false，他会自动插入缺失的tbody。</longdesc>
+所有这些支持的属性值都通过特性检测来实现，而不是用任何浏览器检测。以下有一些非常棒的资源用于解释这些特性检测是如何工作的：&lt;ul&gt;&lt;li&gt;http://peter.michaux.ca/articles/feature-detection-state-of-the-art-browser-scripting&lt;/li&gt;&lt;li&gt;http://yura.thinkweb2.com/cft/&lt;/li&gt;&lt;li&gt;http://www.jibbering.com/faq/faq_notes/not_browser_detect.html&lt;/li&gt;&lt;/ul&gt;jQuery.support主要包括以下测试：
+
+'''boxModel''': 如果这个页面和浏览器是以W3C CSS盒式模型来渲染的，则等于true。通常在IE 6和IE 7的怪癖模式中这个值是false。在document准备就绪前，这个值是null。
+
+'''cssFloat''': 如果用cssFloat来访问CSS的float的值，则返回true。目前在IE中会返回false,他用styleFloat代替。
+
+'''hrefNormalized''': 如果浏览器从getAttribute("href")返回的是原封不动的结果，则返回true。在IE中会返回false，因为他的URLs已经常规化了。
+
+'''htmlSerialize''': 如果浏览器通过innerHTML插入链接元素的时候会序列化这些链接，则返回true，目前IE中返回false。
+
+'''leadingWhitespace''': 如果在使用innerHTML的时候浏览器会保持前导空白字符，则返回true，目前在IE 6-8中返回false。
+
+'''noCloneEvent''': 如果浏览器在克隆元素的时候不会连同事件处理函数一起复制，则返回true，目前在IE中返回false。
+
+'''objectAll''': 如果在某个元素对象上执行getElementsByTagName("*")会返回所有子孙元素，则为true，目前在IE 7中为false。
+
+'''opacity''': 如果浏览器能适当解释透明度样式属性，则返回true，目前在IE中返回false，因为他用alpha滤镜代替。
+
+'''scriptEval''': 使用 appendChild/createTextNode 方法插入脚本代码时，浏览器是否执行脚步，目前在IE中返回false，IE使用 .text 方法插入脚本代码以执行。
+
+'''style''': 如果getAttribute("style")返回元素的行内样式，则为true。目前IE中为false，因为他用cssText代替。
+
+'''tbody''': 如果浏览器允许table元素不包含tbody元素，则返回true。目前在IE中会返回false，他会自动插入缺失的tbody。</longdesc>
         <example>
           <desc>检测浏览器是否支持盒式模型</desc>
           <code>jQuery.support.boxModel</code>
@@ -4197,7 +4224,7 @@ jQuery.each( fields, function(i, field){
           <desc>需要例遍的对象或数组。</desc>
         </params>
         <params name="callback" type="Function" optional="true">
-          <desc>(可选) 每个成员/元素执行的回调函数。</desc>
+          <desc>每个成员/元素执行的回调函数。</desc>
         </params>
         <example>
           <desc>例遍数组，同时使用元素索引和内容。</desc>
@@ -4222,7 +4249,7 @@ jQuery.each( fields, function(i, field){
           <desc>待合并到第一个对象的对象。</desc>
         </params>
         <params name="objectN" type="Object" optional="true">
-          <desc>(可选) 待合并到第一个对象的对象。</desc>
+          <desc>待合并到第一个对象的对象。</desc>
         </params>
         <example>
           <desc>合并 settings 和 options，修改并返回 settings。</desc>
@@ -4251,7 +4278,7 @@ empty == { validate: true, limit: 5, name: "bar" }</result>
           <desc>此函数将处理数组每个元素。第一个参数为当前元素，第二个参数而元素索引值。此函数应返回一个布尔值。另外，此函数可设置为一个字符串，当设置为字符串时，将视为“lambda-form”（缩写形式？），其中 a 代表数组元素，i 代表元素索引值。如“a &gt; 0”代表“function(a){ return a &gt; 0; }”。</desc>
         </params>
         <params name="invert" type="Boolean" optional="true">
-          <desc>(可选) 如果 "invert" 为 false 或为设置，则函数返回数组中由过滤函数返回 true 的元素，当"invert" 为 true，则返回过滤函数中返回 false 的元素集。</desc>
+          <desc>如果 "invert" 为 false 或为设置，则函数返回数组中由过滤函数返回 true 的元素，当"invert" 为 true，则返回过滤函数中返回 false 的元素集。</desc>
         </params>
         <example>
           <desc>过滤数组中小于 0 的元素。</desc>
@@ -4373,7 +4400,7 @@ var objs = [
             "function"
           ];
         jQuery.each(objs, function (i) {
-        var isFunc = &lt;strong&gt;jQuery.isFunction&lt;/strong&gt;(objs[i]);
+        var isFunc = jQuery.isFunction(objs[i]);
         $("span:eq( " + i + ")").text(isFunc);
       });</code>
           <result>[ true,false,false,true,false ]</result>
