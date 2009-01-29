@@ -3704,7 +3704,7 @@ $.ajax() 只有一个参数：参数 key/value 对象，包含各配置及回调
 '''注意：'''如果dataType设置为"script"，那么在远程请求时(不在同一个域下)，所有POST请求都将转为GET请求。(因为将使用DOM的script标签来加载)
 
 jQuery 1.2 中，您可以跨域加载 JSON 数据，使用时需将数据类型设置为 &lt;a href="http://bob.pythonmac.org/archives/2005/12/05/remote-json-jsonp/" class="external text" title="http://bob.pythonmac.org/archives/2005/12/05/remote-json-jsonp/"&gt;JSONP&lt;/a&gt;。使用 &lt;a href="http://bob.pythonmac.org/archives/2005/12/05/remote-json-jsonp/" class="external text" title="http://bob.pythonmac.org/archives/2005/12/05/remote-json-jsonp/"&gt;JSONP&lt;/a&gt; 形式调用函数时，如 "myurl?callback=?" jQuery 将自动替换 ? 为正确的函数名，以执行回调函数。数据类型设置为 "jsonp" 时，jQuery 将自动调用回调函数。</longdesc>
-        <params name="options" type="可选" optional="true">
+        <params name="options" type="Object" optional="true">
           <desc>AJAX 请求设置。所有选项都是可选的。</desc>
         </params>
         <option name="async" type="Boolean">
@@ -4079,7 +4079,7 @@ jQuery 1.2 中，您可以跨域加载 JSON 数据，使用时需将数据类型
       <function name="jQuery.ajaxSetup" return="jQuery">
         <desc>设置全局 AJAX 默认选项。</desc>
         <longdesc>参数见 '$.ajax' 说明。</longdesc>
-        <params name="options" type="可选" optional="true">
+        <params name="options" type="Object" optional="true">
           <desc>选项设置。所有设置项均为可选设置。.</desc>
         </params>
         <example>
