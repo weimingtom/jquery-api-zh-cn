@@ -1,7 +1,7 @@
 from xml.dom import minidom
 import codecs,os,shutil
 xmldoc = minidom.parse('jqueryapi.xml')
-targetdir="jqapixml"
+targetdir="build"
 print("正在创建"+targetdir)
 try:
 	os.mkdir(targetdir)
@@ -31,6 +31,13 @@ except:
 	print(targetdir+"\style"+"已被创建")
 shutil.copyfile('style\style.css', targetdir+"\style\style.css")
 shutil.copyfile('style\style.xsl', targetdir+"\style\style.xsl")
+
+
+shutil.copyfile('xml2chm\cheatsheet.html', targetdir+"\cheatsheet.html")
+shutil.copyfile('xml2chm\jqapichm.hhc', targetdir+"\jqapichm.hhc")
+shutil.copyfile('xml2chm\jqapichm.hhk', targetdir+"\jqapichm.hhk")
+shutil.copyfile('xml2chm\jqapichm.hhp', targetdir+"\jqapichm.hhp")
+
 
 print("开始生成xml")
 i=0
