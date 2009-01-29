@@ -2,17 +2,17 @@ from xml.dom import minidom
 import codecs,os,shutil
 xmldoc = minidom.parse('jqueryapi.xml')
 targetdir="build"
+hhc="C:\Program Files\HTML Help Workshop\hhc.exe"
 print("正在创建"+targetdir)
+
+if os.path.exists(targetdir):
+	print("正在删除现有的"+targetdir)
+	shutil.rmtree(targetdir)
 try:
 	os.mkdir(targetdir)
 	print(targetdir+"创建完成")
 except:
-	print(targetdir+"已被创建，正在清空xml文件")
-	paths = os.listdir( targetdir )
-	for path in paths:
-		filePath = os.path.join( targetdir, path )
-		if filePath[-4:].lower() == ".xml".lower():
-			os.remove( filePath )
+	print("创建"+targetdir+"发生异常")
 
 
 try:
@@ -21,7 +21,9 @@ try:
 except:
 	print(targetdir+"\js"+"已被创建")
 shutil.copyfile('js\jquery-1.2.6.pack.js', targetdir+"\js\jquery-1.2.6.pack.js")
+print(targetdir+"\js\jquery-1.2.6.pack.js"+"复制完成")
 shutil.copyfile('js\jquery-doc-split.js', targetdir+"\js\jquery-doc-split.js")
+print(targetdir+"\js\jquery-doc-split.js"+"复制完成")
 
 
 try:
@@ -30,13 +32,16 @@ try:
 except:
 	print(targetdir+"\style"+"已被创建")
 shutil.copyfile('style\style.css', targetdir+"\style\style.css")
+print(targetdir+"\style\style.css"+"复制完成")
 shutil.copyfile('style\style.xsl', targetdir+"\style\style.xsl")
+print(targetdir+"\style\style.xsl"+"复制完成")
 
-
-shutil.copyfile('xml2chm\cheatsheet.html', targetdir+"\cheatsheet.html")
-shutil.copyfile('xml2chm\jqapichm.hhc', targetdir+"\jqapichm.hhc")
-shutil.copyfile('xml2chm\jqapichm.hhk', targetdir+"\jqapichm.hhk")
-shutil.copyfile('xml2chm\jqapichm.hhp', targetdir+"\jqapichm.hhp")
+paths = os.listdir( 'xml2chm' )
+for path in paths:
+	if path[-4:].lower() != ".svn".lower():
+		filePath = os.path.join( targetdir, path )
+		shutil.copyfile(os.path.join( 'xml2chm', path ), filePath)
+		print(filePath+"复制完成")
 
 
 print("开始生成xml")
@@ -44,9 +49,9 @@ i=0
 def write2file(node,method,fname=""):
 	global i
 	i+=1
-	filename="jqapixml\\"+(method+fname)+".xml"
+	filename=targetdir+"\\"+(method+fname)+".xml"
 	if os.path.isfile(filename):
-		filename="jqapixml\\"+(method+fname)+"-1.xml"
+		filename=targetdir+"\\"+(method+fname)+"-1.xml"
 	xm=codecs.open(filename,"w","utf-8")
 	xm.writelines("<?xml version='1.0' encoding='utf-8'?>")
 	xm.writelines("<?xml-stylesheet type='text/xsl' href='style/style.xsl'?>")
@@ -70,3 +75,9 @@ for node in xmldoc.getElementsByTagName("property"):
 	write2file(node,method)
 
 print("生成xml结束，共生成"+str(i)+"个xml文件。")
+
+print("正在生成chm文件")
+
+if os.path.exists(hhc):
+	os.spawnl(os.P_WAIT,hhc,"hhc",os.path.join(targetdir,"jqapichm.hhp"))
+os.system("pause")
