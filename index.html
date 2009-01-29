@@ -7190,13 +7190,35 @@ First
 					jQuery.inArray("David", arr);&nbsp;&nbsp;//-1<br />
 				</div>
 			</div>
+			<div class="functionitem">jQuery.merge(first, second)</div>
+			<div class="content">
+				<h1>jQuery.unique(array)</h1>
+				<div class="desc">合并两个数组。返回的结果会修改第一个数组的内容——第一个数组的元素后面跟着第二个数组的元素。要去除重复项，请使用$.unique()</div>
+				<h2>返回值</h2>
+				<p class="indent">Array</p>
+				<h2>参数</h2>
+				<p class="indent"><strong>first </strong>(Array) : 第一个待处理数组，会改变其中的元素。</p>
+				<p class="indent"><strong>second </strong>(Array) : 第二个待处理数组，不会改变其中的元素。</p>
+				<h2>示例</h2>
+				<p class="indent">
+					合并两个数组到第一个数组上。
+				</p>
+				<p class="indent"><strong>jQuery 代码:</strong></p>
+				<div class="code">
+					$.merge( [0,1,2], [2,3,4] )
+				</div>
+				<p class="indent"><strong>结果:</strong></p>
+				<div class="code">
+					[0,1,2,2,3,4]
+				</div>
+			</div>
 			<div class="functionitem">jQuery.unique(array)</div>
 			<div class="content">
 				<h1>jQuery.unique(array)</h1>
 				<div class="desc">删除数组中重复元素。</div><hr />
 				<div class="desc">Remove all duplicate elements from an array of elements.</div>
 				<h2>返回值</h2>
-				<p class="indent">jQuery</p>
+				<p class="indent">Array</p>
 				<h2>参数</h2>
 				<p class="indent"><strong>array </strong>(Array) : 待处理数组。</p>
 				<h2>示例</h2>
@@ -7281,7 +7303,7 @@ First
 				<div>Remove the whitespace from the beginning and end of a string.</div>
 				</div>
 				<h2>返回值</h2>
-				<p class="indent">jQuery</p>
+				<p class="indent">String</p>
 				<h2>参数</h2>
 				<p class="indent"><strong>str </strong>(String) : 需要处理的字符串</p>
 				<h2>示例</h2>
@@ -7295,6 +7317,33 @@ First
 				<p class="indent"><strong>结果:</strong></p>
 				<div class="code">
 					"hello, how are you?"
+				</div>
+			</div>
+		</div>
+		<div class="categoryitem">URL</div>
+		<div class="category">
+			<div class="functionitem">jQuery.param(obj)</div>
+			<div class="content">
+				<h1>jQuery.param(obj)</h1>
+				<div class="desc"><div>将表单元素数组或者对象序列化。是.serialize()的核心方法。</div><hr />
+				</div>
+				<h2>返回值</h2>
+				<p class="indent">String</p>
+				<h2>参数</h2>
+				<p class="indent"><strong>obj </strong>(Array&lt;Elements>, jQuery, Object) : 数组或jQuery对象会按照name/value对进行序列化，普通对象按照key/value对进行序列化。</p>
+				<h2>示例</h2>
+				<p class="indent">
+					按照key/value对序列化普通对象。
+				</p>
+				<p class="indent"><strong>jQuery 代码:</strong></p>
+				<div class="code">
+    var params = { width:1680, height:1050 }; <br />
+    var str = jQuery.param(params); <br />
+    $("#results").text(str);<br />
+				</div>
+				<p class="indent"><strong>结果:</strong></p>
+				<div class="code">
+					width=1680&amp;height=1050
 				</div>
 			</div>
 		</div>
