@@ -37,8 +37,8 @@
 			<div>
 				<xsl:attribute name="rel"><xsl:value-of select="@name"/></xsl:attribute>
 				<h2>
-					<xsl:if test="@type">
-						<span>返回值:<xsl:value-of select="@type"/></span>
+					<xsl:if test="@return">
+						<span>返回值:<xsl:value-of select="@return"/></span>
 					</xsl:if>
 					<xsl:if test="self::function">
 						<xsl:value-of select="@name"/>(<xsl:for-each select="params">

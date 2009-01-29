@@ -4,7 +4,7 @@
 <docs version="1.3">
   <cat value="核心">
     <subcat value="jQuery 核心函数">
-      <function name="jQuery" type="jQuery">
+      <function name="jQuery" return="jQuery">
         <desc>这个函数接收一个包含 CSS 选择器的字符串，然后用这个字符串去匹配一组元素。</desc>
         <longdesc>jQuery 的核心功能都是通过这个函数实现的。 jQuery中的一切都基于这个函数，或者说都是在以某种方式使用这个函数。这个函数最基本的用法就是向它传递一个表达式（通常由 CSS 选择器组成），然后根据这个表达式来查找所有匹配的元素。
 
@@ -32,7 +32,7 @@
           <code>$("div", xml.responseXML);</code>
         </example>
       </function>
-      <function name="jQuery" type="jQuery">
+      <function name="jQuery" return="jQuery">
         <desc>根据提供的原始 HTML 标记字符串，动态创建由 jQuery 对象包装的 DOM 元素。</desc>
         <longdesc>你可以传递一个手写的 HTML 字符串，或者由某些模板引擎或插件创建的字符串，也可以是通过 AJAX 加载过来的字符串。但是在你创建 input 元素的时会有限制，可以参考第二个示例。当然这个字符串可以包含斜杠 (比如一个图像地址)，还有反斜杠。当你创建单个元素时，请使用闭合标签或 XHTML 格式。例如，创建一个 span ，可以用 <![CDATA[$("&lt;span/&gt;") 或 $("&lt;span&gt;&lt;/span&gt;") ，但不推荐 $("&lt;span&gt;")。]]>在jQuery 中，这个语法等同于$(document.createElement("span")) 。</longdesc>
         <params name="html" type="String">
@@ -53,7 +53,7 @@ $("&lt;input&gt;").attr("type", "checkbox");
 $("&lt;input type='checkbox'&gt;");</code>
         </example>
       </function>
-      <function name="jQuery" type="jQuery">
+      <function name="jQuery" return="jQuery">
         <desc>将一个或多个DOM元素转化为jQuery对象。</desc>
         <longdesc>这个函数也可以接收XML文档和Window对象（虽然它们不是DOM元素）作为有效的参数。</longdesc>
         <params name="elements" type="Element, Array&lt;Element&gt;">
@@ -68,7 +68,7 @@ $("&lt;input type='checkbox'&gt;");</code>
           <code>$(myForm.elements).hide()</code>
         </example>
       </function>
-      <function name="jQuery" type="jQuery">
+      <function name="jQuery" return="jQuery">
         <desc>$(document).ready()的简写。</desc>
         <longdesc>允许你绑定一个在DOM文档载入完成后执行的函数。这个函数的作用如同$(document).ready()一样，只不过用这个函数时，需要把页面中所有需要在 DOM 加载完成时执行的$()操作符都包装到其中来。从技术上来说，这个函数是可链接的－－但真正以这种方式链接的情况并不多。
 
@@ -91,7 +91,7 @@ $("&lt;input type='checkbox'&gt;");</code>
       </function>
     </subcat>
     <subcat value="jQuery 对象访问">
-      <function name="each" type="jQuery">
+      <function name="each" return="jQuery">
         <desc>以每一个匹配的元素作为上下文来执行一个函数。</desc>
         <longdesc>意味着，每次执行传递进来的函数时，函数中的this关键字都指向一个不同的DOM元素（每次都是一个不同的匹配元素）。而且，在每次执行函数时，都会给函数传递一个表示作为执行环境的元素在匹配的元素集合中所处位置的数字值作为参数（从零开始的整形）。 返回 'false' 将停止循环 (就像在普通的循环中使用 'break')。返回 'true' 跳至下一个循环(就像在普通的循环中使用'continue')。</longdesc>
         <params name="callback" type="Function">
@@ -149,7 +149,7 @@ $("div").each(function (index, domEle) {
 });</code>
         </example>
       </function>
-      <function name="size" type="Number">
+      <function name="size" return="Number">
         <desc>jQuery 对象中元素的个数。</desc>
         <longdesc>这个函数的返回值与 jQuery 对象的'&lt;span title="Core/length"&gt;length&lt;/span&gt;' 属性一致。</longdesc>
         <example>
@@ -159,7 +159,7 @@ $("div").each(function (index, domEle) {
           <result>2</result>
         </example>
       </function>
-      <property name="length" type="Number">
+      <property name="length" return="Number">
         <desc>jQuery 对象中元素的个数。</desc>
         <longdesc>当前匹配的元素个数。 &lt;span title="Core/size"&gt;size&lt;/span&gt; 将返回相同的值。</longdesc>
         <example>
@@ -169,7 +169,7 @@ $("div").each(function (index, domEle) {
           <result>2</result>
         </example>
       </property>
-      <property name="selector" type="Striing">
+      <property name="selector" return="Striing">
         <desc>jQuery 1.3新增。返回传给jQuery()的原始选择器。</desc>
         <longdesc>换句话说，就是返回你用什么选择器来找到这个元素的。可以与&lt;span title="Core/context"&gt;context&lt;/span&gt;一起使用，用于精确检测选择器查询情况。这两个属性对插件开发人员很有用。</longdesc>
         <example>
@@ -183,7 +183,7 @@ ul li
 div#foo ul:not([class])</result>
         </example>
       </property>
-      <property name="context" type="HTMLElement">
+      <property name="context" return="HTMLElement">
         <desc>jQuery 1.3新增。返回传给jQuery()的原始的DOM节点内容，即jQuery()的第二个参数。如果没有指定，那么context指向当前的文档(document)。</desc>
         <longdesc>可以与&lt;span title="Core/selector"&gt;selector&lt;/span&gt;一起使用，用于精确检测选择器查询情况。这两个属性对插件开发人员很有用。</longdesc>
         <example>
@@ -195,7 +195,7 @@ div#foo ul:not([class])</result>
 BODY</result>
         </example>
       </property>
-      <function name="get" type="Array&lt;Element>">
+      <function name="get" return="Array&lt;Element>">
         <desc>取得所有匹配的 DOM 元素集合。</desc>
         <longdesc>这是取得所有匹配元素的一种向后兼容的方式（不同于jQuery对象，而实际上是元素数组）。
 
@@ -207,7 +207,7 @@ BODY</result>
           <result>[ &lt;img src="test2.jpg"/&gt; &lt;img src="test1.jpg"/&gt; ]</result>
         </example>
       </function>
-      <function name="get" type="Element">
+      <function name="get" return="Element">
         <desc>取得其中一个匹配的元素。 num表示取得第几个匹配的元素。</desc>
         <longdesc>这能够让你选择一个实际的DOM 元素并且对他直接操作，而不是通过 jQuery 函数。$(this).get(0)与$(this)[0]等价。</longdesc>
         <params name="index" type="Number">
@@ -220,7 +220,7 @@ BODY</result>
           <result>[ &lt;img src="test1.jpg"/&gt; ]</result>
         </example>
       </function>
-      <function name="index" type="Number">
+      <function name="index" return="Number">
         <desc>搜索与参数表示的对象匹配的元素，并返回相应元素的索引值。</desc>
         <longdesc>如果找到了匹配的元素，从0开始返回；如果没有找到匹配的元素，返回-1。</longdesc>
         <params name="subject" type="Element">
@@ -236,7 +236,7 @@ $("div").index($('#foo'))  // -1</code>
       </function>
     </subcat>
     <subcat value="数据缓存">
-      <function name="data" type="Any">
+      <function name="data" return="Any">
         <desc>返回元素上储存的相应名字的数据，可以用data(name, value)来设定。</desc>
         <longdesc>如果jQuery集合指向多个元素，那将只返回第一个元素的对应数据。
 
@@ -263,7 +263,7 @@ $("div").data("test").first  //16;
 $("div").data("test").last  //pizza!;</code>
         </example>
       </function>
-      <function name="data" type="Any">
+      <function name="data" return="Any">
         <desc>在元素上存放数据，同时也返回value。</desc>
         <longdesc>如果jQuery集合指向多个元素，那将在所有元素上设置对应数据。
 
@@ -278,7 +278,7 @@ $("div").data("test").last  //pizza!;</code>
           <desc>参考data(name)的示例</desc>
         </example>
       </function>
-      <function name="removeData" type="jQuery">
+      <function name="removeData" return="jQuery">
         <desc>在元素上移除存放的数据</desc>
         <longdesc>与$(...).data(name, value)函数作用相反</longdesc>
         <params name="name" type="String">
@@ -288,7 +288,7 @@ $("div").data("test").last  //pizza!;</code>
           <desc>参考data(name)的示例</desc>
         </example>
       </function>
-      <function name="queue" type="Array&lt;Function>">
+      <function name="queue" return="Array&lt;Function>">
         <desc>返回指向第一个匹配元素的队列(将是一个函数数组)</desc>
         <params name="name" type="String">
           <desc>队列名，默认为fx</desc>
@@ -322,7 +322,7 @@ function runIt() {
 runIt();</code>
         </example>
       </function>
-      <function name="queue" type="jQuery">
+      <function name="queue" return="jQuery">
         <desc>在匹配的元素的队列最后添加一个函数</desc>
         <params name="name" type="String">
           <desc>队列名，默认为fx</desc>
@@ -357,7 +357,7 @@ runIt();</code>
 });</code>
         </example>
       </function>
-      <function name="queue" type="jQuery">
+      <function name="queue" return="jQuery">
         <desc>将匹配元素的队列用新的一个队列来代替(函数数组).</desc>
         <params name="name" type="String">
           <desc>队列名，默认为fx</desc>
@@ -397,7 +397,7 @@ runIt();</code>
   });</code>
         </example>
       </function>
-      <function name="dequeue" type="jQuery">
+      <function name="dequeue" return="jQuery">
         <desc>从队列最前端移除一个队列函数，并执行他。</desc>
         <params name="name" type="String">
           <desc>队列名，默认为fx</desc>
@@ -426,7 +426,7 @@ runIt();</code>
       </function>
     </subcat>
     <subcat value="插件机制">
-      <function name="jQuery.fn.extend" type="jQuery">
+      <function name="jQuery.fn.extend" return="jQuery">
         <desc>扩展 jQuery 元素集来提供新的方法（通常用来制作插件）。</desc>
         <longdesc>查看这里&lt;a href="http://docs.jquery.com/Plugins/Authoring" title="Plugins/Authoring"&gt;Plugins/Authoring&lt;/a&gt;可以获取更多信息。</longdesc>
         <params name="object" type="Object">
@@ -446,7 +446,7 @@ runIt();</code>
 $("input[type=radio]").uncheck();</result>
         </example>
       </function>
-      <function name="jQuery.extend" type="jQuery">
+      <function name="jQuery.extend" return="jQuery">
         <desc>扩展jQuery对象本身。</desc>
         <longdesc>用来在jQuery命名空间上增加新函数。 查看 &lt;span title="Core/jQuery.fn.extend"&gt;'jQuery.fn.extend'&lt;/span&gt; 获取更多添加&lt;a href="http://docs.jquery.com/Plugins/Authoring" title="Plugins/Authoring"&gt;插件&lt;/a&gt;的信息。</longdesc>
         <params name="object" type="Object">
@@ -464,7 +464,7 @@ jQuery.max(4,5); // =&gt; 5</result>
       </function>
     </subcat>
     <subcat value="多库共存">
-      <function name="jQuery.noConflict" type="jQuery">
+      <function name="jQuery.noConflict" return="jQuery">
         <desc>运行这个函数将变量$的控制权让渡给第一个实现它的那个库。</desc>
         <longdesc>这有助于确保jQuery不会与其他库的$对象发生冲突。
 
@@ -498,7 +498,7 @@ j("div p").hide();
 $("content").style.display = 'none';</code>
         </example>
       </function>
-      <function name="jQuery.noConflict" type="jQuery">
+      <function name="jQuery.noConflict" return="jQuery">
         <desc>将$和jQuery的控制权都交还给原来的库。用之前请考虑清楚!</desc>
         <longdesc>这是相对于简单的 '''noConflict''' 方法更极端的版本，因为这将完全重新定义jQuery。这通常用于一种极端的情况，比如你想要将jQuery嵌入一个高度冲突的环境。'''注意:'''调用此方法后极有可能导致插件失效。</longdesc>
         <params name="extreme" type="Boolean">
@@ -520,7 +520,7 @@ jQuery("div &gt; p").hide();</result>
   </cat>
   <cat value="选择器">
     <subcat value="基本">
-      <selector name="id" type="Element">
+      <selector name="id" return="Element">
         <sample>#id</sample>
         <desc>根据给定的ID匹配一个元素。</desc>
         <longdesc>如果选择器中包含特殊字符，可以用两个斜杠转义。参见示例。</longdesc>
@@ -544,7 +544,7 @@ jQuery("div &gt; p").hide();</result>
 #foo\\.bar</code>
         </example>
       </selector>
-      <selector name="element" type="Array&lt;Element>">
+      <selector name="element" return="Array&lt;Element>">
         <sample>element</sample>
         <desc>根据给定的元素名匹配所有元素</desc>
         <params name="element" type="String">
@@ -559,7 +559,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;div&gt;DIV1&lt;/div&gt;, &lt;div&gt;DIV2&lt;/div&gt; ]</result>
         </example>
       </selector>
-      <selector name="class" type="Array&lt;Element>">
+      <selector name="class" return="Array&lt;Element>">
         <sample>.class</sample>
         <desc>根据给定的类匹配元素。</desc>
         <params name="class" type="String">
@@ -574,7 +574,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;div class="myClass"&gt;div class="myClass"&lt;/div&gt;, &lt;span class="myClass"&gt;span class="myClass"&lt;/span&gt; ]</result>
         </example>
       </selector>
-      <selector name="all" type="Array&lt;Element>">
+      <selector name="all" return="Array&lt;Element>">
         <sample>*</sample>
         <desc>匹配所有元素</desc>
         <longdesc>多用于结合上下文来搜索。</longdesc>
@@ -587,7 +587,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;div&gt;DIV&lt;/div&gt;, &lt;span&gt;SPAN&lt;/span&gt;, &lt;p&gt;P&lt;/p&gt; ]</result>
         </example>
       </selector>
-      <selector name="multiple" type="Array&lt;Element>">
+      <selector name="multiple" return="Array&lt;Element>">
         <sample>selector1,selector2,selectorN</sample>
         <desc>将每一个选择器匹配到的元素合并后一起返回。</desc>
         <longdesc>你可以指定任意多个选择器，并将匹配到的元素合并到一个结果内。</longdesc>
@@ -612,7 +612,7 @@ jQuery("div &gt; p").hide();</result>
       </selector>
     </subcat>
     <subcat value="层级">
-      <selector name="descendant" type="Array&lt;Element>">
+      <selector name="descendant" return="Array&lt;Element>">
         <sample>ancestor descendant</sample>
         <desc>在给定的祖先元素下匹配所有的后代元素</desc>
         <params name="ancestor" type="Selector">
@@ -636,7 +636,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;input name="name" /&gt;, &lt;input name="newsletter" /&gt; ]</result>
         </example>
       </selector>
-      <selector name="child" type="Array&lt;Element>">
+      <selector name="child" return="Array&lt;Element>">
         <sample>parent &gt; child</sample>
         <desc>在给定的父元素下匹配所有的子元素</desc>
         <params name="parent" type="Selector">
@@ -660,7 +660,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;input name="name" /&gt; ]</result>
         </example>
       </selector>
-      <selector name="next" type="Array&lt;Element>">
+      <selector name="next" return="Array&lt;Element>">
         <sample>prev + next</sample>
         <desc>匹配所有紧接在 prev 元素后的 next 元素</desc>
         <params name="prev" type="Selector">
@@ -684,7 +684,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;input name="name" /&gt;, &lt;input name="newsletter" /&gt; ]</result>
         </example>
       </selector>
-      <selector name="siblings" type="Array&lt;Element>">
+      <selector name="siblings" return="Array&lt;Element>">
         <sample>prev ~ siblings</sample>
         <desc>匹配 prev 元素之后的所有 siblings 元素</desc>
         <params name="prev" type="Selector">
@@ -710,7 +710,7 @@ jQuery("div &gt; p").hide();</result>
       </selector>
     </subcat>
     <subcat value="简单">
-      <selector name="first" type="Element">
+      <selector name="first" return="Element">
         <sample>:first</sample>
         <desc>匹配找到的第一个元素</desc>
         <example>
@@ -724,7 +724,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;tr&gt;&lt;td&gt;Header 1&lt;/td&gt;&lt;/tr&gt; ]</result>
         </example>
       </selector>
-      <selector name="last" type="Element">
+      <selector name="last" return="Element">
         <sample>:last</sample>
         <desc>匹配找到的最后一个元素</desc>
         <example>
@@ -738,7 +738,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;tr&gt;&lt;td&gt;Value 2&lt;/td&gt;&lt;/tr&gt; ]</result>
         </example>
       </selector>
-      <selector name="not" type="Array&lt;Element>">
+      <selector name="not" return="Array&lt;Element>">
         <sample>:not</sample>
         <desc>去除所有与给定选择器匹配的元素</desc>
         <longdesc>在jQuery 1.3中，已经支持复杂选择器了（例如:not(div a) 和 :not(div,a)）</longdesc>
@@ -753,7 +753,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;input name="apple" /&gt; ]</result>
         </example>
       </selector>
-      <selector name="even" type="Array&lt;Element>">
+      <selector name="even" return="Array&lt;Element>">
         <sample>:even</sample>
         <desc>匹配所有索引值为偶数的元素，从 0 开始计数</desc>
         <example>
@@ -767,7 +767,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;tr&gt;&lt;td&gt;Header 1&lt;/td&gt;&lt;/tr&gt;, &lt;tr&gt;&lt;td&gt;Value 2&lt;/td&gt;&lt;/tr&gt; ]</result>
         </example>
       </selector>
-      <selector name="odd" type="Array&lt;Element>">
+      <selector name="odd" return="Array&lt;Element>">
         <sample>:odd</sample>
         <desc>匹配所有索引值为奇数的元素，从 0 开始计数</desc>
         <example>
@@ -781,7 +781,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;tr&gt;&lt;td&gt;Value 1&lt;/td&gt;&lt;/tr&gt; ]</result>
         </example>
       </selector>
-      <selector name="eq" type="Element">
+      <selector name="eq" return="Element">
         <sample>:eq</sample>
         <desc>匹配一个给定索引值的元素</desc>
         <params name="index" type="Number">
@@ -798,7 +798,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;tr&gt;&lt;td&gt;Value 1&lt;/td&gt;&lt;/tr&gt; ]</result>
         </example>
       </selector>
-      <selector name="gt" type="Array&lt;Element>">
+      <selector name="gt" return="Array&lt;Element>">
         <sample>:gt</sample>
         <desc>匹配所有大于给定索引值的元素</desc>
         <params name="index" type="Number">
@@ -815,7 +815,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;tr&gt;&lt;td&gt;Value 1&lt;/td&gt;&lt;/tr&gt;, &lt;tr&gt;&lt;td&gt;Value 2&lt;/td&gt;&lt;/tr&gt; ]</result>
         </example>
       </selector>
-      <selector name="lt" type="Array&lt;Element>">
+      <selector name="lt" return="Array&lt;Element>">
         <sample>:lt</sample>
         <desc>匹配所有小于给定索引值的元素</desc>
         <params name="index" type="Number">
@@ -832,7 +832,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;tr&gt;&lt;td&gt;Header 1&lt;/td&gt;&lt;/tr&gt;, &lt;tr&gt;&lt;td&gt;Value 1&lt;/td&gt;&lt;/tr&gt; ]</result>
         </example>
       </selector>
-      <selector name="header" type="Array&lt;Element>">
+      <selector name="header" return="Array&lt;Element>">
         <sample>:header</sample>
         <desc>匹配如 h1, h2, h3之类的标题元素</desc>
         <example>
@@ -845,7 +845,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;h1 style="background:#EEE;"&gt;Header 1&lt;/h1&gt;, &lt;h2 style="background:#EEE;"&gt;Header 2&lt;/h2&gt; ]</result>
         </example>
       </selector>
-      <selector name="animated" type="Array&lt;Element>">
+      <selector name="animated" return="Array&lt;Element>">
         <sample>:animated</sample>
         <desc>匹配所有正在执行动画效果的元素</desc>
         <example>
@@ -858,7 +858,7 @@ jQuery("div &gt; p").hide();</result>
       </selector>
     </subcat>
     <subcat value="内容">
-      <selector name="contains" type="Array&lt;Element>">
+      <selector name="contains" return="Array&lt;Element>">
         <sample>:contains</sample>
         <desc>匹配包含给定文本的元素</desc>
         <params name="text" type="String">
@@ -874,7 +874,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;div&gt;John Resig&lt;/div&gt;, &lt;div&gt;Malcom John Sinclair&lt;/div&gt; ]</result>
         </example>
       </selector>
-      <selector name="empty" type="Array&lt;Element>">
+      <selector name="empty" return="Array&lt;Element>">
         <sample>:empty</sample>
         <desc>匹配所有不包含子元素或者文本的空元素</desc>
         <example>
@@ -887,7 +887,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;td&gt;&lt;/td&gt;, &lt;td&gt;&lt;/td&gt; ]</result>
         </example>
       </selector>
-      <selector name="has" type="Array&lt;Element>">
+      <selector name="has" return="Array&lt;Element>">
         <sample>:has</sample>
         <desc>匹配含有选择器所匹配的元素的元素</desc>
         <params name="selector" type="Selector">
@@ -901,7 +901,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;div class="test"&gt;&lt;p&gt;Hello&lt;/p&gt;&lt;/div&gt; ]</result>
         </example>
       </selector>
-      <selector name="parent" type="Array&lt;Element>">
+      <selector name="parent" return="Array&lt;Element>">
         <sample>:parent</sample>
         <desc>匹配含有子元素或者文本的元素</desc>
         <example>
@@ -916,7 +916,7 @@ jQuery("div &gt; p").hide();</result>
       </selector>
     </subcat>
     <subcat value="可见性">
-      <selector name="hidden" type="Array&lt;Element>">
+      <selector name="hidden" return="Array&lt;Element>">
         <sample>:hidden</sample>
         <desc>匹配所有的不可见元素，input 元素的 type 属性为 "hidden" 的话也会被匹配到</desc>
         <example>
@@ -929,7 +929,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;tr style="display:none"&gt;&lt;td&gt;Value 1&lt;/td&gt;&lt;/tr&gt; ]</result>
         </example>
       </selector>
-      <selector name="visible" type="Array&lt;Element>">
+      <selector name="visible" return="Array&lt;Element>">
         <sample>:visible</sample>
         <desc>匹配所有的可见元素</desc>
         <example>
@@ -944,7 +944,7 @@ jQuery("div &gt; p").hide();</result>
       </selector>
     </subcat>
     <subcat value="属性">
-      <selector name="attributeHas" type="Array&lt;Element>">
+      <selector name="attributeHas" return="Array&lt;Element>">
         <sample>[attribute]</sample>
         <desc>匹配包含给定属性的元素。注意，在jQuery 1.3中，前导的@符号已经被废除！如果想要兼容最新版本，只需要简单去掉@符号即可。</desc>
         <params name="attribute" type="String">
@@ -960,7 +960,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;div id="test2"&gt;&lt;/div&gt; ]</result>
         </example>
       </selector>
-      <selector name="attributeEquals" type="Array&lt;Element>">
+      <selector name="attributeEquals" return="Array&lt;Element>">
         <sample>[attribute=value]</sample>
         <desc>匹配给定的属性是某个特定值的元素</desc>
         <params name="attribute" type="String">
@@ -978,7 +978,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;input type="checkbox" name="newsletter" value="Hot Fuzz" checked="true" /&gt;, &lt;input type="checkbox" name="newsletter" value="Cold Fusion" checked="true" /&gt; ]</result>
         </example>
       </selector>
-      <selector name="attributeNotEqual" type="Array&lt;Element>">
+      <selector name="attributeNotEqual" return="Array&lt;Element>">
         <sample>[attribute!=value]</sample>
         <desc>匹配所有不含有指定的属性，或者属性不等于特定值的元素。</desc>
         <longdesc>此选择器等价于:not([attr=value])&lt;br&gt;要匹配含有特定属性但不等于特定值的元素，请使用[attr]:not([attr=value])</longdesc>
@@ -997,7 +997,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;input type="checkbox" name="accept" value="Evil Plans" checked="true" /&gt; ]</result>
         </example>
       </selector>
-      <selector name="attributeStartsWith" type="Array&lt;Element>">
+      <selector name="attributeStartsWith" return="Array&lt;Element>">
         <sample>[attribute^=value]</sample>
         <desc>匹配给定的属性是以某些值开始的元素</desc>
         <params name="attribute" type="String">
@@ -1015,7 +1015,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;input name="newsletter" /&gt;, &lt;input name="newsboy" /&gt; ]</result>
         </example>
       </selector>
-      <selector name="attributeEndsWith" type="Array&lt;Element>">
+      <selector name="attributeEndsWith" return="Array&lt;Element>">
         <sample>[attribute$=value]</sample>
         <desc>匹配给定的属性是以某些值结尾的元素</desc>
         <params name="attribute" type="String">
@@ -1033,7 +1033,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;input name="newsletter" /&gt;, &lt;input name="jobletter" /&gt; ]</result>
         </example>
       </selector>
-      <selector name="attributeContains" type="Array&lt;Element>">
+      <selector name="attributeContains" return="Array&lt;Element>">
         <sample>[attribute*=value]</sample>
         <desc>匹配给定的属性是以包含某些值的元素</desc>
         <params name="attribute" type="String">
@@ -1052,7 +1052,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;input name="man-news" /&gt;, &lt;input name="milkman" /&gt;, &lt;input name="letterman2" /&gt; ]</result>
         </example>
       </selector>
-      <selector name="attributeMultiple" type="Array&lt;Element>">
+      <selector name="attributeMultiple" return="Array&lt;Element>">
         <sample>[selector1][selector2][selectorN]</sample>
         <desc>复合属性选择器，需要同时满足多个条件时使用。</desc>
         <params name="selector1" type="Selector">
@@ -1076,7 +1076,7 @@ jQuery("div &gt; p").hide();</result>
       </selector>
     </subcat>
     <subcat value="子元素">
-      <selector name="nthChild" type="Array&lt;Element>">
+      <selector name="nthChild" return="Array&lt;Element>">
         <sample>:nth-child</sample>
         <desc>匹配其父元素下的第N个子或奇偶元素</desc>
         <longdesc>':eq(index)' 只匹配一个元素，而这个将为每一个父元素匹配子元素。:nth-child从1开始的，而:eq()是从0算起的！可以使用:&lt;br&gt;nth-child(even)&lt;br&gt;:nth-child(odd)&lt;br&gt;:nth-child(3n)&lt;br&gt;:nth-child(2)&lt;br&gt;:nth-child(3n+1)&lt;br&gt;:nth-child(3n+2)</longdesc>
@@ -1099,7 +1099,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;li&gt;Karl&lt;/li&gt;,   &lt;li&gt;Tane&lt;/li&gt; ]</result>
         </example>
       </selector>
-      <selector name="firstChild" type="Array&lt;Element>">
+      <selector name="firstChild" return="Array&lt;Element>">
         <sample>:first-child</sample>
         <desc>匹配第一个子元素</desc>
         <longdesc>':first' 只匹配一个元素，而此选择符将为每个父元素匹配一个子元素</longdesc>
@@ -1119,7 +1119,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;li&gt;John&lt;/li&gt;, &lt;li&gt;Glen&lt;/li&gt; ]</result>
         </example>
       </selector>
-      <selector name="lastChild" type="Array&lt;Element>">
+      <selector name="lastChild" return="Array&lt;Element>">
         <sample>:last-child</sample>
         <desc>匹配最后一个子元素</desc>
         <longdesc>':last'只匹配一个元素，而此选择符将为每个父元素匹配一个子元素</longdesc>
@@ -1139,7 +1139,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;li&gt;Brandon&lt;/li&gt;, &lt;li&gt;Ralph&lt;/li&gt; ]</result>
         </example>
       </selector>
-      <selector name="onlyChild" type="Array&lt;Element>">
+      <selector name="onlyChild" return="Array&lt;Element>">
         <sample>:only-child</sample>
         <desc>如果某个元素是父元素中唯一的子元素，那将会被匹配</desc>
         <longdesc>如果父元素中含有其他元素，那将不会被匹配。</longdesc>
@@ -1159,7 +1159,7 @@ jQuery("div &gt; p").hide();</result>
       </selector>
     </subcat>
     <subcat value="表单">
-      <selector name="input" type="Array&lt;Element>">
+      <selector name="input" return="Array&lt;Element>">
         <sample>:input</sample>
         <desc>匹配所有 input, textarea, select 和 button 元素</desc>
         <example>
@@ -1182,7 +1182,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;input type="text" /&gt;, &lt;input type="checkbox" /&gt;, &lt;input type="radio" /&gt;, &lt;input type="image" /&gt;, &lt;input type="file" /&gt;, &lt;input type="submit" /&gt;, &lt;input type="reset" /&gt;, &lt;input type="password" /&gt;, &lt;input type="button" /&gt; ]</result>
         </example>
       </selector>
-      <selector name="text" type="Array&lt;Element>">
+      <selector name="text" return="Array&lt;Element>">
         <sample>:text</sample>
         <desc>匹配所有的单行文本框</desc>
         <example>
@@ -1205,7 +1205,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;input type="text" /&gt; ]</result>
         </example>
       </selector>
-      <selector name="password" type="Array&lt;Element>">
+      <selector name="password" return="Array&lt;Element>">
         <sample>:password</sample>
         <desc>匹配所有密码框</desc>
         <example>
@@ -1228,7 +1228,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;input type="password" /&gt; ]</result>
         </example>
       </selector>
-      <selector name="radio" type="Array&lt;Element>">
+      <selector name="radio" return="Array&lt;Element>">
         <sample>:radio</sample>
         <desc>匹配所有单选按钮</desc>
         <example>
@@ -1251,7 +1251,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;input type="radio" /&gt; ]</result>
         </example>
       </selector>
-      <selector name="checkbox" type="Array&lt;Element>">
+      <selector name="checkbox" return="Array&lt;Element>">
         <sample>:checkbox</sample>
         <desc>匹配所有复选框</desc>
         <example>
@@ -1274,7 +1274,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;input type="checkbox" /&gt; ]</result>
         </example>
       </selector>
-      <selector name="submit" type="Array&lt;Element>">
+      <selector name="submit" return="Array&lt;Element>">
         <sample>:submit</sample>
         <desc>匹配所有提交按钮</desc>
         <example>
@@ -1297,7 +1297,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;input type="submit" /&gt; ]</result>
         </example>
       </selector>
-      <selector name="image" type="Array&lt;Element>">
+      <selector name="image" return="Array&lt;Element>">
         <sample>:image</sample>
         <desc>匹配所有图像域</desc>
         <example>
@@ -1320,7 +1320,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;input type="image" /&gt; ]</result>
         </example>
       </selector>
-      <selector name="reset" type="Array&lt;Element>">
+      <selector name="reset" return="Array&lt;Element>">
         <sample>:reset</sample>
         <desc>匹配所有重置按钮</desc>
         <example>
@@ -1343,7 +1343,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;input type="reset" /&gt; ]</result>
         </example>
       </selector>
-      <selector name="button" type="Array&lt;Element>">
+      <selector name="button" return="Array&lt;Element>">
         <sample>:button</sample>
         <desc>匹配所有按钮</desc>
         <example>
@@ -1366,7 +1366,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;input type="button" /&gt;,&lt;button&gt;&lt;/button&gt; ]</result>
         </example>
       </selector>
-      <selector name="file" type="Array&lt;Element>">
+      <selector name="file" return="Array&lt;Element>">
         <sample>:file</sample>
         <desc>匹配所有文件域</desc>
         <example>
@@ -1389,7 +1389,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;input type="file" /&gt; ]</result>
         </example>
       </selector>
-      <selector name="hidden" type="Array&lt;Element>">
+      <selector name="hidden" return="Array&lt;Element>">
         <sample>:hidden</sample>
         <desc>匹配所有不可见元素，或者type为hidden的元素</desc>
         <example>
@@ -1413,7 +1413,7 @@ jQuery("div &gt; p").hide();</result>
       </selector>
     </subcat>
     <subcat value="表单对象属性">
-      <selector name="enabled" type="Array&lt;Element>">
+      <selector name="enabled" return="Array&lt;Element>">
         <sample>:enabled</sample>
         <desc>匹配所有可用元素</desc>
         <example>
@@ -1426,7 +1426,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;input name="id" /&gt; ]</result>
         </example>
       </selector>
-      <selector name="disabled" type="Array&lt;Element>">
+      <selector name="disabled" return="Array&lt;Element>">
         <sample>:disabled</sample>
         <desc>匹配所有不可用元素</desc>
         <example>
@@ -1439,7 +1439,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;input name="email" disabled="disabled" /&gt; ]</result>
         </example>
       </selector>
-      <selector name="checked" type="Array&lt;Element>">
+      <selector name="checked" return="Array&lt;Element>">
         <sample>:checked</sample>
         <desc>匹配所有选中的被选中元素(复选框、单选框等，不包括select中的option)</desc>
         <example>
@@ -1453,7 +1453,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;input type="checkbox" name="newsletter" checked="checked" value="Daily" /&gt;, &lt;input type="checkbox" name="newsletter" checked="checked" value="Monthly" /&gt; ]</result>
         </example>
       </selector>
-      <selector name="selected" type="Array&lt;Element>">
+      <selector name="selected" return="Array&lt;Element>">
         <sample>:selected</sample>
         <desc>匹配所有选中的option元素</desc>
         <example>
@@ -1471,7 +1471,7 @@ jQuery("div &gt; p").hide();</result>
   </cat>
   <cat value="属性">
     <subcat value="属性">
-      <function name="attr" type="Object">
+      <function name="attr" return="Object">
         <desc>取得第一个匹配元素的属性值。通过这个方法可以方便地从第一个匹配元素中获取一个属性的值。如果元素没有相应属性，则返回 undefined 。</desc>
         <params name="name" type="String">
           <desc>属性名称</desc>
@@ -1483,7 +1483,7 @@ jQuery("div &gt; p").hide();</result>
           <result>test.jpg</result>
         </example>
       </function>
-      <function name="attr" type="jQuery">
+      <function name="attr" return="jQuery">
         <desc>将一个“名/值”形式的对象设置为所有匹配元素的属性。</desc>
         <longdesc>这是一种在所有匹配元素中批量设置很多属性的最佳方式。 注意，如果你要设置对象的class属性，你必须使用'className' 作为属性名。或者你可以直接使用.addClass( class ) 和 .removeClass( class ).</longdesc>
         <params name="properties" type="Map">
@@ -1496,7 +1496,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;img src= "test.jpg"  alt:="Test Image" /&gt; ]</result>
         </example>
       </function>
-      <function name="attr" type="jQuery">
+      <function name="attr" return="jQuery">
         <desc>为所有匹配的元素设置一个属性值。</desc>
         <params name="key" type="String">
           <desc>属性名称</desc>
@@ -1512,7 +1512,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;img src= "test.jpg" /&gt; , &lt;img src= "test.jpg" /&gt; ]</result>
         </example>
       </function>
-      <function name="attr" type="jQuery">
+      <function name="attr" return="jQuery">
         <desc>为所有匹配的元素设置一个计算的属性值。</desc>
         <longdesc>不提供值，而是提供一个函数，由这个函数计算的值作为属性值。</longdesc>
         <params name="key" type="String">
@@ -1528,7 +1528,7 @@ jQuery("div &gt; p").hide();</result>
           <result>&lt;img src="test.jpg" title="test.jpg" /&gt;</result>
         </example>
       </function>
-      <function name="removeAttr" type="jQuery">
+      <function name="removeAttr" return="jQuery">
         <desc>从每一个匹配的元素中删除一个属性</desc>
         <params name="name" type="String">
           <desc>要删除的属性名</desc>
@@ -1542,7 +1542,7 @@ jQuery("div &gt; p").hide();</result>
       </function>
     </subcat>
     <subcat value="CSS 类">
-      <function name="addClass" type="jQuery">
+      <function name="addClass" return="jQuery">
         <desc>为每个匹配的元素添加指定的类名。</desc>
         <params name="class" type="String">
           <desc>一个或多个要添加到元素中的CSS类名，请用空格分开</desc>
@@ -1560,7 +1560,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;p class="selected highlight"&gt;Hello&lt;/p&gt; ]</result>
         </example>
       </function>
-      <function name="removeClass" type="jQuery">
+      <function name="removeClass" return="jQuery">
         <desc>从所有匹配的元素中删除全部或者指定的类。</desc>
         <params name="class" type="String" optional="true">
           <desc>一个或多个要删除的CSS类名，请用空格分开</desc>
@@ -1578,7 +1578,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;p&gt;Hello&lt;/p&gt; ]</result>
         </example>
       </function>
-      <function name="toggleClass" type="jQuery">
+      <function name="toggleClass" return="jQuery">
         <desc>如果存在（不存在）就删除（添加）一个类。</desc>
         <params name="class" type="String">
           <desc>CSS类名</desc>
@@ -1590,7 +1590,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;p class="selected"&gt;Hello&lt;/p&gt;, &lt;p&gt;Hello Again&lt;/p&gt; ]</result>
         </example>
       </function>
-      <function name="toggleClass" type="jQuery">
+      <function name="toggleClass" return="jQuery">
         <desc>如果开关switch参数为true则加上对应的class，否则就删除。</desc>
         <params name="class" type="String">
           <desc>要切换的CSS类名</desc>
@@ -1609,10 +1609,10 @@ jQuery("div &gt; p").hide();</result>
       </function>
     </subcat>
     <subcat value="HTML代码">
-      <function name="html" type="String">
+      <function name="html" return="String">
         <desc>取得第一个匹配元素的html内容。这个函数不能用于XML文档。但可以用于XHTML文档。</desc>
       </function>
-      <function name="html" type="jQuery">
+      <function name="html" return="jQuery">
         <desc>设置每一个匹配元素的html内容。这个函数不能用于XML文档。但可以用于XHTML文档。</desc>
         <params name="val" type="String">
           <desc>用于设定HTML内容的值</desc>
@@ -1620,11 +1620,11 @@ jQuery("div &gt; p").hide();</result>
       </function>
     </subcat>
     <subcat value="文本">
-      <function name="text" type="String">
+      <function name="text" return="String">
         <desc>取得所有匹配元素的内容。</desc>
         <longdesc>结果是由所有匹配元素包含的文本内容组合起来的文本。这个方法对HTML和XML文档都有效。</longdesc>
       </function>
-      <function name="text" type="jQuery">
+      <function name="text" return="jQuery">
         <desc>设置所有匹配元素的文本内容</desc>
         <longdesc>与 html() 类似, 但将编码 HTML (将 "&lt;" 和 "&gt;" 替换成相应的HTML实体).</longdesc>
         <params name="val" type="String">
@@ -1633,7 +1633,7 @@ jQuery("div &gt; p").hide();</result>
       </function>
     </subcat>
     <subcat value="值">
-      <function name="val" type="String,Array">
+      <function name="val" return="String,Array">
         <desc>获得第一个匹配元素的当前值。</desc>
         <longdesc>在 jQuery 1.2 中,可以返回任意元素的值了。包括select。如果多选，将返回一个数组，其包含所选的值。</longdesc>
         <example>
@@ -1661,7 +1661,7 @@ jQuery("div &gt; p").hide();</result>
           <result>some text</result>
         </example>
       </function>
-      <function name="val" type="jQuery">
+      <function name="val" return="jQuery">
         <desc>设置每一个匹配元素的值。</desc>
         <longdesc>在 jQuery 1.2, 这也可以为select元件赋值</longdesc>
         <params name="val" type="String">
@@ -1673,7 +1673,7 @@ jQuery("div &gt; p").hide();</result>
           <code>$("input").val("hello world!");</code>
         </example>
       </function>
-      <function name="val" type="jQuery">
+      <function name="val" return="jQuery">
         <desc>check,select,radio等都能使用为之赋值</desc>
         <params name="val" type="Array&lt;String&gt;">
           <desc>用于 check/select 的值</desc>
@@ -1702,7 +1702,7 @@ $("input").val(["check2", "radio1"]);</code>
   </cat>
   <cat value="筛选">
     <subcat value="过滤">
-      <function name="eq" type="jQuery">
+      <function name="eq" return="jQuery">
         <desc>获取第N个元素</desc>
         <longdesc>这个元素的位置是从0算起。</longdesc>
         <params name="index" type="Integer">
@@ -1715,7 +1715,7 @@ $("input").val(["check2", "radio1"]);</code>
           <result>[ &lt;p&gt; So is this&lt;/p&gt; ]</result>
         </example>
       </function>
-      <function name="hasClass" type="Boolean">
+      <function name="hasClass" return="Boolean">
         <desc>检查当前的元素是否含有某个特定的类，如果有，则返回true。</desc>
         <longdesc>这其实就是 is("." + class)。</longdesc>
         <params name="class" type="String">
@@ -1735,7 +1735,7 @@ $("input").val(["check2", "radio1"]);</code>
 });</code>
         </example>
       </function>
-      <function name="filter" type="jQuery">
+      <function name="filter" return="jQuery">
         <desc>筛选出与指定表达式匹配的元素集合。</desc>
         <longdesc>这个方法用于缩小匹配的范围。用逗号分隔多个表达式</longdesc>
         <params name="expr" type="Expression">
@@ -1754,7 +1754,7 @@ $("input").val(["check2", "radio1"]);</code>
           <result>[ &lt;p&gt;Hello&lt;/p&gt;, &lt;p class="selected"&gt;And Again&lt;/p&gt; ]</result>
         </example>
       </function>
-      <function name="filter" type="jQuery">
+      <function name="filter" return="jQuery">
         <desc>筛选出与指定函数返回值匹配的元素集合</desc>
         <longdesc>这个函数内部将对每个对象计算一次 (正如 '$.each'). 如果调用的函数返回false则这个元素被删除，否则就会保留。</longdesc>
         <params name="fn" type="Function">
@@ -1769,7 +1769,7 @@ $("input").val(["check2", "radio1"]);</code>
           <result>[ &lt;p&gt;How are you?&lt;/p&gt; ]</result>
         </example>
       </function>
-      <function name="is" type="Boolean">
+      <function name="is" return="Boolean">
         <desc>用一个表达式来检查当前选择的元素集合，如果其中至少有一个元素符合这个给定的表达式就返回true。</desc>
         <longdesc>如果没有元素符合，或者表达式无效，都返回'false'。 '''注意：'''在jQuery 1.3中对所有表达式提供了支持。先前版本中如果提供了复杂的表达式，比如层级选择器（比如 + , ~ 和 &gt; ）始终会返回true</longdesc>
         <params name="expr" type="String">
@@ -1782,7 +1782,7 @@ $("input").val(["check2", "radio1"]);</code>
           <result>true</result>
         </example>
       </function>
-      <function name="map" type="jQuery">
+      <function name="map" return="jQuery">
         <desc>将一组元素转换成其他数组（不论是否是元素数组）</desc>
         <longdesc>你可以用这个函数来建立一个列表，不论是值、属性还是CSS样式，或者其他特别形式。这都可以用'$.map()'来方便的建立。</longdesc>
         <params name="callback" type="Function">
@@ -1802,7 +1802,7 @@ $("input").val(["check2", "radio1"]);</code>
           <result>[ &lt;p&gt;John, password, http://ejohn.org/&lt;/p&gt; ]</result>
         </example>
       </function>
-      <function name="not" type="jQuery">
+      <function name="not" return="jQuery">
         <desc>删除与指定表达式匹配的元素</desc>
         <params name="expr" type="String, DOMElement, Array&lt;DOMElement&gt;">
           <desc>一个表达式、一个元素或者一组元素</desc>
@@ -1814,7 +1814,7 @@ $("input").val(["check2", "radio1"]);</code>
           <result>[ &lt;p&gt;Hello&lt;/p&gt; ]</result>
         </example>
       </function>
-      <function name="slice" type="jQuery">
+      <function name="slice" return="jQuery">
         <desc>选取一个匹配的子集</desc>
         <longdesc>与原来的slice方法类似</longdesc>
         <params name="start" type="Integer">
@@ -1856,7 +1856,7 @@ $("input").val(["check2", "radio1"]);</code>
       </function>
     </subcat>
     <subcat value="查找">
-      <function name="add" type="jQuery">
+      <function name="add" return="jQuery">
         <desc>把与表达式匹配的元素添加到jQuery对象中。这个函数可以用于连接分别与两个表达式匹配的元素结果集。</desc>
         <params name="expr" type="String, DOMElement, Array&lt;DOMElement&gt;">
           <desc>用于匹配元素并添加的表达式字符串，或者用于动态生成的HTML代码，如果是一个字符串数组则返回多个元素</desc>
@@ -1880,7 +1880,7 @@ $("input").val(["check2", "radio1"]);</code>
           <result>[ &lt;p&gt;Hello&lt;/p&gt;, &lt;p&gt;&lt;span id="a"&gt;Hello Again&lt;/span&gt;&lt;/p&gt;, &lt;span id="a"&gt;Hello Again&lt;/span&gt; ]</result>
         </example>
       </function>
-      <function name="children" type="jQuery">
+      <function name="children" return="jQuery">
         <desc>取得一个包含匹配的元素集合中每一个元素的所有子元素的元素集合。</desc>
         <longdesc>可以通过可选的表达式来过滤所匹配的子元素。注意：parents()将查找所有祖辈元素，而children()只考虑子元素而不考虑所有后代元素。</longdesc>
         <params name="expr" type="String" optional="true">
@@ -1899,7 +1899,7 @@ $("input").val(["check2", "radio1"]);</code>
           <result>[ &lt;p class="selected"&gt;Hello Again&lt;/p&gt; ]</result>
         </example>
       </function>
-      <function name="closest" type="jQuery">
+      <function name="closest" return="jQuery">
         <desc>jQuery 1.3新增。从元素本身开始，逐级向上级元素匹配，并返回最先匹配的元素。</desc>
         <longdesc>closest会首先检查当前元素是否匹配，如果匹配则直接返回元素本身。如果不匹配则向上查找父元素，一层一层往上，直到找到匹配选择器的元素。如果什么都没找到则返回一个空的jQuery对象。
 
@@ -1918,7 +1918,7 @@ closest对于处理事件委派非常有用。</longdesc>
 });</code>
         </example>
       </function>
-      <function name="contents" type="jQuery">
+      <function name="contents" return="jQuery">
         <desc>查找匹配元素内部所有的子节点（包括文本节点）。如果元素是一个iframe，则查找文档内容</desc>
         <example>
           <desc>查找所有文本节点并加粗</desc>
@@ -1933,7 +1933,7 @@ closest对于处理事件委派非常有用。</longdesc>
   .append("I'm in an iframe!");</code>
         </example>
       </function>
-      <function name="find" type="jQuery">
+      <function name="find" return="jQuery">
         <desc>搜索所有与指定表达式匹配的元素。这个函数是找出正在处理的元素的后代元素的好方法。</desc>
         <longdesc>所有搜索都依靠jQuery表达式来完成。这个表达式可以使用CSS1-3的选择器语法来写。</longdesc>
         <params name="expr" type="String">
@@ -1946,7 +1946,7 @@ closest对于处理事件委派非常有用。</longdesc>
           <result>[ &lt;span&gt;Hello&lt;/span&gt; ]</result>
         </example>
       </function>
-      <function name="next" type="jQuery">
+      <function name="next" return="jQuery">
         <desc>取得一个包含匹配的元素集合中每一个元素紧邻的后面同辈元素的元素集合。</desc>
         <longdesc>这个函数只返回后面那个紧邻的同辈元素，而不是后面所有的同辈元素（可以使用nextAll）。可以用一个可选的表达式进行筛选。</longdesc>
         <params name="expr" type="String" optional="true">
@@ -1965,7 +1965,7 @@ closest对于处理事件委派非常有用。</longdesc>
           <result>[ &lt;p class="selected"&gt;Hello Again&lt;/p&gt; ]</result>
         </example>
       </function>
-      <function name="nextAll" type="jQuery">
+      <function name="nextAll" return="jQuery">
         <desc>查找当前元素之后所有的同辈元素。</desc>
         <longdesc>可以用表达式过滤</longdesc>
         <params name="expr" type="String" optional="true">
@@ -1978,11 +1978,11 @@ closest对于处理事件委派非常有用。</longdesc>
           <result>[ &lt;div class="after"&gt;&lt;/div&gt;, &lt;div class="after"&gt;&lt;/div&gt;, &lt;div class="after"&gt;&lt;/div&gt; ]</result>
         </example>
       </function>
-      <function name="offsetParent" type="jQuery">
+      <function name="offsetParent" return="jQuery">
         <desc>返回第一个匹配元素用于定位的父节点。</desc>
         <longdesc>这返回父元素中第一个其position设为relative或者absolute的元素。此方法仅对可见元素有效。</longdesc>
       </function>
-      <function name="parent" type="jQuery">
+      <function name="parent" return="jQuery">
         <desc>取得一个包含着所有匹配元素的唯一父元素的元素集合。</desc>
         <longdesc>你可以使用可选的表达式来筛选。</longdesc>
         <params name="expr" type="String" optional="true">
@@ -2001,7 +2001,7 @@ closest对于处理事件委派非常有用。</longdesc>
           <result>[ &lt;div class="selected"&gt;&lt;p&gt;Hello Again&lt;/p&gt;&lt;/div&gt; ]</result>
         </example>
       </function>
-      <function name="parents" type="jQuery">
+      <function name="parents" return="jQuery">
         <desc>取得一个包含着所有匹配元素的祖先元素的元素集合（不包含根元素）。可以通过一个可选的表达式进行筛选。</desc>
         <params name="expr" type="String" optional="true">
           <desc>用于筛选祖先元素的表达式</desc>
@@ -2016,7 +2016,7 @@ closest对于处理事件委派非常有用。</longdesc>
           <code>$("span").parents("p")</code>
         </example>
       </function>
-      <function name="prev" type="jQuery">
+      <function name="prev" return="jQuery">
         <desc>取得一个包含匹配的元素集合中每一个元素紧邻的前一个同辈元素的元素集合。</desc>
         <longdesc>可以用一个可选的表达式进行筛选。只有紧邻的同辈元素会被匹配到，而不是前面所有的同辈元素。</longdesc>
         <params name="expr" type="String" optional="true">
@@ -2035,7 +2035,7 @@ closest对于处理事件委派非常有用。</longdesc>
           <result>[ &lt;p class="selected"&gt;Hello Again&lt;/p&gt; ]</result>
         </example>
       </function>
-      <function name="prevAll" type="jQuery">
+      <function name="prevAll" return="jQuery">
         <desc>查找当前元素之前所有的同辈元素</desc>
         <longdesc>可以用表达式过滤。</longdesc>
         <params name="expr" type="String" optional="true">
@@ -2048,7 +2048,7 @@ closest对于处理事件委派非常有用。</longdesc>
           <result>[ &lt;div class="before"&gt;&lt;/div&gt;, &lt;div class="before"&gt;&lt;/div&gt;, &lt;div class="before"&gt;&lt;/div&gt; ]</result>
         </example>
       </function>
-      <function name="siblings" type="jQuery">
+      <function name="siblings" return="jQuery">
         <desc>取得一个包含匹配的元素集合中每一个元素的所有唯一同辈元素的元素集合。可以用可选的表达式进行筛选。</desc>
         <params name="expr" type="String" optional="true">
           <desc>用于筛选同辈元素的表达式</desc>
@@ -2068,7 +2068,7 @@ closest对于处理事件委派非常有用。</longdesc>
       </function>
     </subcat>
     <subcat value="串联">
-      <function name="andSelf" type="jQuery">
+      <function name="andSelf" return="jQuery">
         <desc>加入先前所选的加入当前元素中</desc>
         <longdesc>对于筛选或查找后的元素，要加入先前所选元素时将会很有用。</longdesc>
         <example>
@@ -2081,7 +2081,7 @@ closest对于处理事件委派非常有用。</longdesc>
 &lt;/div&gt;</result>
         </example>
       </function>
-      <function name="end" type="jQuery">
+      <function name="end" return="jQuery">
         <desc>回到最近的一个"破坏性"操作之前。即，将匹配的元素列表变为前一次的状态。</desc>
         <longdesc>如果之前没有破坏性操作，则返回一个空集。所谓的"破坏性"就是指任何改变所匹配的jQuery元素的操作。这包括在 Traversing 中任何返回一个jQuery对象的函数--'add', 'andSelf', 'children', 'filter', 'find', 'map', 'next', 'nextAll', 'not', 'parent', 'parents', 'prev', 'prevAll', 'siblings' and 'slice'--再加上 Manipulation 中的 'clone'。</longdesc>
         <example>
@@ -2095,7 +2095,7 @@ closest对于处理事件委派非常有用。</longdesc>
   </cat>
   <cat value="文档处理">
     <subcat value="内部插入">
-      <function name="append" type="jQuery">
+      <function name="append" return="jQuery">
         <desc>向每个匹配的元素内部追加内容。</desc>
         <longdesc>这个操作与对指定的元素执行appendChild方法，将它们添加到文档中的情况类似。</longdesc>
         <params name="content" type="String, Element, jQuery">
@@ -2108,7 +2108,7 @@ closest对于处理事件委派非常有用。</longdesc>
           <result>[ &lt;p&gt;I would like to say: &lt;b&gt;Hello&lt;/b&gt;&lt;/p&gt; ]</result>
         </example>
       </function>
-      <function name="appendTo" type="jQuery">
+      <function name="appendTo" return="jQuery">
         <desc>把所有匹配的元素追加到另一个、指定的元素元素集合中。</desc>
         <longdesc>实际上，使用这个方法是颠倒了常规的$(A).append(B)的操作，即不是把B追加到A中，而是把A追加到B中。</longdesc>
         <params name="content" type="String">
@@ -2121,7 +2121,7 @@ closest对于处理事件委派非常有用。</longdesc>
           <result>&lt;div id="foo"&gt;&lt;p&gt;I would like to say: &lt;/p&gt;&lt;/div&gt;</result>
         </example>
       </function>
-      <function name="prepend" type="jQuery">
+      <function name="prepend" return="jQuery">
         <desc>向每个匹配的元素内部前置内容。</desc>
         <longdesc>这是向所有匹配元素内部的开始处插入内容的最佳方式。</longdesc>
         <params name="content" type="String, Element, jQuery">
@@ -2152,7 +2152,7 @@ closest对于处理事件委派非常有用。</longdesc>
           <result>&lt;p&gt;&lt;b&gt;Hello&lt;/b&gt;I would like to say: &lt;/p&gt;</result>
         </example>
       </function>
-      <function name="prependTo" type="jQuery">
+      <function name="prependTo" return="jQuery">
         <desc>把所有匹配的元素前置到另一个、指定的元素元素集合中。</desc>
         <longdesc>实际上，使用这个方法是颠倒了常规的$(A).prepend(B)的操作，即不是把B前置到A中，而是把A前置到B中。</longdesc>
         <params name="content" type="String">
@@ -2167,7 +2167,7 @@ closest对于处理事件委派非常有用。</longdesc>
       </function>
     </subcat>
     <subcat value="外部插入">
-      <function name="after" type="jQuery">
+      <function name="after" return="jQuery">
         <desc>在每个匹配的元素之后插入内容。</desc>
         <params name="content" type="String, Element, jQuery">
           <desc>插入到每个目标后的内容</desc>
@@ -2191,7 +2191,7 @@ closest对于处理事件委派非常有用。</longdesc>
           <result>&lt;p&gt;I would like to say: &lt;/p&gt;&lt;b&gt;Hello&lt;/b&gt;</result>
         </example>
       </function>
-      <function name="before" type="jQuery">
+      <function name="before" return="jQuery">
         <desc>在每个匹配的元素之前插入内容。</desc>
         <params name="content" type="String, Element, jQuery">
           <desc>插入到每个目标前的内容</desc>
@@ -2215,7 +2215,7 @@ closest对于处理事件委派非常有用。</longdesc>
           <result>&lt;b&gt;Hello&lt;/b&gt;&lt;p&gt;I would like to say: &lt;/p&gt;</result>
         </example>
       </function>
-      <function name="insertAfter" type="jQuery">
+      <function name="insertAfter" return="jQuery">
         <desc>把所有匹配的元素插入到另一个、指定的元素元素集合的后面。</desc>
         <longdesc>实际上，使用这个方法是颠倒了常规的$(A).after(B)的操作，即不是把B插入到A后面，而是把A插入到B后面。</longdesc>
         <params name="content" type="String">
@@ -2228,7 +2228,7 @@ closest对于处理事件委派非常有用。</longdesc>
           <result>&lt;div id="foo"&gt;Hello&lt;/div&gt;&lt;p&gt;I would like to say: &lt;/p&gt;</result>
         </example>
       </function>
-      <function name="insertBefore" type="jQuery">
+      <function name="insertBefore" return="jQuery">
         <desc>把所有匹配的元素插入到另一个、指定的元素元素集合的前面。</desc>
         <longdesc>实际上，使用这个方法是颠倒了常规的$(A).before(B)的操作，即不是把B插入到A前面，而是把A插入到B前面。</longdesc>
         <params name="content" type="String">
@@ -2243,7 +2243,7 @@ closest对于处理事件委派非常有用。</longdesc>
       </function>
     </subcat>
     <subcat value="包裹">
-      <function name="wrap" type="jQuery">
+      <function name="wrap" return="jQuery">
         <desc>把所有匹配的元素用其他元素的结构化标记包裹起来。</desc>
         <longdesc>这种包装对于在文档中插入额外的结构化标记最有用，而且它不会破坏原始文档的语义品质。这个函数的原理是检查提供的第一个元素（它是由所提供的HTML标记代码动态生成的），并在它的代码结构中找到最上层的祖先元素－－这个祖先元素就是包裹元素。当HTML标记代码中的元素包含文本时无法使用这个函数。因此，如果要添加文本应该在包裹完成之后再行添加。</longdesc>
         <params name="html" type="String">
@@ -2256,7 +2256,7 @@ closest对于处理事件委派非常有用。</longdesc>
           <result>&lt;div class="wrap"&gt;&lt;p&gt;Test Paragraph.&lt;/p&gt;&lt;/div&gt;</result>
         </example>
       </function>
-      <function name="wrap" type="jQuery">
+      <function name="wrap" return="jQuery">
         <desc>把所有匹配的元素用其他元素的结构化标记包装起来。</desc>
         <params name="elem" type="Element">
           <desc>用于包装目标元素的DOM元素</desc>
@@ -2268,7 +2268,7 @@ closest对于处理事件委派非常有用。</longdesc>
           <result>&lt;div id="content"&gt;&lt;p&gt;Test Paragraph.&lt;/p&gt;&lt;/div&gt;&lt;div id="content"&gt;&lt;/div&gt;</result>
         </example>
       </function>
-      <function name="wrapAll" type="jQuery">
+      <function name="wrapAll" return="jQuery">
         <desc>将所有匹配的元素用单个元素包裹起来</desc>
         <longdesc>这于 '.wrap()'&lt;a href="http://docs.jquery.com/Manipulation/wrap" title="Manipulation/wrap"&gt;&lt;/a&gt; 是不同的，'.wrap()'为每一个匹配的元素都包裹一次。这种包装对于在文档中插入额外的结构化标记最有用，而且它不会破坏原始文档的语义品质。这个函数的原理是检查提供的第一个元素并在它的代码结构中找到最上层的祖先元素－－这个祖先元素就是包装元素。</longdesc>
         <params name="html" type="String">
@@ -2281,7 +2281,7 @@ closest对于处理事件委派非常有用。</longdesc>
           <result>&lt;div&gt;&lt;p&gt;Hello&lt;/p&gt;&lt;p&gt;cruel&lt;/p&gt;&lt;p&gt;World&lt;/p&gt;&lt;/div&gt;</result>
         </example>
       </function>
-      <function name="wrapAll" type="jQuery">
+      <function name="wrapAll" return="jQuery">
         <desc>将所有匹配的元素用单个元素包裹起来</desc>
         <longdesc>这于 '.wrap()'&lt;a href="http://docs.jquery.com/Manipulation/wrap" title="Manipulation/wrap"&gt;&lt;/a&gt; 是不同的，'.wrap()'为每一个匹配的元素都包裹一次。</longdesc>
         <params name="elem" type="Element">
@@ -2294,7 +2294,7 @@ closest对于处理事件委派非常有用。</longdesc>
           <result>&lt;div&gt;&lt;p&gt;Hello&lt;/p&gt;&lt;p&gt;cruel&lt;/p&gt;&lt;p&gt;World&lt;/p&gt;&lt;/div&gt;</result>
         </example>
       </function>
-      <function name="wrapInner" type="jQuery">
+      <function name="wrapInner" return="jQuery">
         <desc>将每一个匹配的元素的子内容(包括文本节点)用一个HTML结构包裹起来</desc>
         <longdesc>这个函数的原理是检查提供的第一个元素（它是由所提供的HTML标记代码动态生成的），并在它的代码结构中找到最上层的祖先元素－－这个祖先元素就是包装元素。</longdesc>
         <params name="html" type="String">
@@ -2307,7 +2307,7 @@ closest对于处理事件委派非常有用。</longdesc>
           <result>&lt;p&gt;&lt;b&gt;Hello&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;cruel&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;World&lt;/b&gt;&lt;/p&gt;</result>
         </example>
       </function>
-      <function name="wrapInner" type="jQuery">
+      <function name="wrapInner" return="jQuery">
         <desc>将每一个匹配的元素的子内容(包括文本节点)用DOM元素包裹起来</desc>
         <params name="elem" type="Element">
           <desc>用于包装目标元素的DOM元素</desc>
@@ -2321,7 +2321,7 @@ closest对于处理事件委派非常有用。</longdesc>
       </function>
     </subcat>
     <subcat value="替换">
-      <function name="replaceWith" type="jQuery">
+      <function name="replaceWith" return="jQuery">
         <desc>将所有匹配的元素替换成指定的HTML或DOM元素。</desc>
         <params name="content" type="String, Element, jQuery">
           <desc>用于将匹配元素替换掉的内容</desc>
@@ -2333,7 +2333,7 @@ closest对于处理事件委派非常有用。</longdesc>
           <result>&lt;b&gt;Paragraph. &lt;/b&gt;&lt;b&gt;Paragraph. &lt;/b&gt;&lt;b&gt;Paragraph. &lt;/b&gt;</result>
         </example>
       </function>
-      <function name="replaceAll" type="jQuery">
+      <function name="replaceAll" return="jQuery">
         <desc>用匹配的元素替换掉所有 selector匹配到的元素。</desc>
         <params name="selector" type="选择器">
           <desc>用于查找所要被替换的元素</desc>
@@ -2347,7 +2347,7 @@ closest对于处理事件委派非常有用。</longdesc>
       </function>
     </subcat>
     <subcat value="删除">
-      <function name="empty" type="jQuery">
+      <function name="empty" return="jQuery">
         <desc>删除匹配的元素集合中所有的子节点。</desc>
         <example>
           <desc>把所有段落的子元素（包括文本节点）删除</desc>
@@ -2356,7 +2356,7 @@ closest对于处理事件委派非常有用。</longdesc>
           <result>&lt;p&gt;&lt;/p&gt;</result>
         </example>
       </function>
-      <function name="remove" type="jQuery">
+      <function name="remove" return="jQuery">
         <desc>从DOM中删除所有匹配的元素。</desc>
         <longdesc>这个方法不会把匹配的元素从jQuery对象中删除，因而可以在将来再使用这些匹配的元素。</longdesc>
         <params name="expr" type="String" optional="true">
@@ -2377,7 +2377,7 @@ closest对于处理事件委派非常有用。</longdesc>
       </function>
     </subcat>
     <subcat value="复制">
-      <function name="clone" type="jQuery">
+      <function name="clone" return="jQuery">
         <desc>克隆匹配的DOM元素并且选中这些克隆的副本。</desc>
         <longdesc>在想把DOM文档中元素的副本添加到其他位置时这个函数非常有用。</longdesc>
         <example>
@@ -2387,7 +2387,7 @@ closest对于处理事件委派非常有用。</longdesc>
           <result>&lt;b&gt;Hello&lt;/b&gt;&lt;p&gt;&lt;b&gt;Hello&lt;/b&gt;, how are you?&lt;/p&gt;</result>
         </example>
       </function>
-      <function name="clone" type="jQuery">
+      <function name="clone" return="jQuery">
         <desc>元素以及其所有的事件处理并且选中这些克隆的副本</desc>
         <longdesc>在想把DOM文档中元素的副本添加到其他位置时这个函数非常有用。</longdesc>
         <params name="true" type="Boolean">
@@ -2405,7 +2405,7 @@ closest对于处理事件委派非常有用。</longdesc>
   </cat>
   <cat value="CSS">
     <subcat value="CSS">
-      <function name="css" type="String">
+      <function name="css" return="String">
         <desc>访问第一个匹配元素的样式属性。</desc>
         <params name="name" type="String">
           <desc>要访问的属性名称</desc>
@@ -2415,7 +2415,7 @@ closest对于处理事件委派非常有用。</longdesc>
           <code>$("p").css("color");</code>
         </example>
       </function>
-      <function name="css" type="jQuery">
+      <function name="css" return="jQuery">
         <desc>把一个“名/值对”对象设置为所有匹配元素的样式属性。</desc>
         <longdesc>这是一种在所有匹配的元素上设置大量样式属性的最佳方式。</longdesc>
         <params name="properties" type="Map">
@@ -2430,7 +2430,7 @@ closest对于处理事件委派非常有用。</longdesc>
           <code>$("p").css({ "margin-left": "10px", "background-color": "blue" });</code>
         </example>
       </function>
-      <function name="css" type="jQuery">
+      <function name="css" return="jQuery">
         <desc>在所有匹配的元素中，设置一个样式属性的值。</desc>
         <longdesc>数字将自动转化为像素值</longdesc>
         <params name="name" type="value">
@@ -2446,7 +2446,7 @@ closest对于处理事件委派非常有用。</longdesc>
       </function>
     </subcat>
     <subcat value="位置">
-      <function name="offset" type="Object{top,left}">
+      <function name="offset" return="Object{top,left}">
         <desc>获取匹配元素在当前视口的相对偏移。</desc>
         <longdesc>返回的对象包含两个整形属性：top 和 left。此方法只对可见元素有效。</longdesc>
         <example>
@@ -2458,7 +2458,7 @@ p.html( "left: " + offset.left + ", top: " + offset.top );</code>
           <result>&lt;p&gt;Hello&lt;/p&gt;&lt;p&gt;left: 0, top: 35&lt;/p&gt;</result>
         </example>
       </function>
-      <function name="position" type="Object{top,left}">
+      <function name="position" return="Object{top,left}">
         <desc>获取匹配元素相对父元素的偏移。</desc>
         <longdesc>返回的对象包含两个整形属性：top 和 left。为精确计算结果，请在补白、边框和填充属性上使用像素单位。此方法只对可见元素有效。</longdesc>
         <example>
@@ -2470,7 +2470,7 @@ $("p:last").html( "left: " + position.left + ", top: " + position.top );</code>
           <result>&lt;p&gt;Hello&lt;/p&gt;&lt;p&gt;left: 15, top: 15&lt;/p&gt;</result>
         </example>
       </function>
-      <function name="scrollTop" type="Integer">
+      <function name="scrollTop" return="Integer">
         <desc>获取匹配元素相对滚动条顶部的偏移。</desc>
         <longdesc>此方法对可见和隐藏元素均有效。</longdesc>
         <example>
@@ -2481,7 +2481,7 @@ $("p:last").text( "scrollTop:" + p.scrollTop() );</code>
           <result>&lt;p&gt;Hello&lt;/p&gt;&lt;p&gt;scrollTop: 0&lt;/p&gt;</result>
         </example>
       </function>
-      <function name="scrollTop" type="jQuery">
+      <function name="scrollTop" return="jQuery">
         <desc>传递参数值时，设置垂直滚动条顶部偏移为该值。</desc>
         <longdesc>此方法对可见和隐藏元素均有效。</longdesc>
         <params name="val" type="String, Number">
@@ -2492,7 +2492,7 @@ $("p:last").text( "scrollTop:" + p.scrollTop() );</code>
           <code>$("div.demo").scrollTop(300);</code>
         </example>
       </function>
-      <function name="scrollLeft" type="Integer">
+      <function name="scrollLeft" return="Integer">
         <desc>获取匹配元素相对滚动条左侧的偏移。</desc>
         <longdesc>此方法对可见和隐藏元素均有效。</longdesc>
         <example>
@@ -2503,7 +2503,7 @@ $("p:last").text( "scrollLeft:" + p.scrollLeft() );</code>
           <result>&lt;p&gt;Hello&lt;/p&gt;&lt;p&gt;scrollLeft: 0&lt;/p&gt;</result>
         </example>
       </function>
-      <function name="scrollLeft" type="jQuery">
+      <function name="scrollLeft" return="jQuery">
         <desc>传递参数值时，设置水平滚动条左侧偏移为该值。</desc>
         <longdesc>此方法对可见和隐藏元素均有效。</longdesc>
         <params name="val" type="String, Number">
@@ -2516,7 +2516,7 @@ $("p:last").text( "scrollLeft:" + p.scrollLeft() );</code>
       </function>
     </subcat>
     <subcat value="尺寸">
-      <function name="height" type="Integer">
+      <function name="height" return="Integer">
         <desc>取得第一个匹配元素当前计算的高度值（px）。</desc>
         <longdesc>在 jQuery 1.2 以后可以用来获取 window 和 document 的高</longdesc>
         <example>
@@ -2528,7 +2528,7 @@ $("p:last").text( "scrollLeft:" + p.scrollLeft() );</code>
           <code>$(document).height();</code>
         </example>
       </function>
-      <function name="height" type="jQuery">
+      <function name="height" return="jQuery">
         <desc>为每个匹配的元素设置CSS高度(hidth)属性的值。如果没有明确指定单位（如：em或%），使用px。</desc>
         <longdesc>如果没有明确指定单位（如：em或%），使用px。</longdesc>
         <params name="val" type="String, Number">
@@ -2539,7 +2539,7 @@ $("p:last").text( "scrollLeft:" + p.scrollLeft() );</code>
           <code>$("p").height(20);</code>
         </example>
       </function>
-      <function name="width" type="Integer">
+      <function name="width" return="Integer">
         <desc>取得第一个匹配元素当前计算的宽度值（px）。</desc>
         <longdesc>在 jQuery 1.2 以后可以用来获取 window 和 document 的宽</longdesc>
         <example>
@@ -2551,7 +2551,7 @@ $("p:last").text( "scrollLeft:" + p.scrollLeft() );</code>
           <code>$(window).width();</code>
         </example>
       </function>
-      <function name="width" type="jQuery">
+      <function name="width" return="jQuery">
         <desc>为每个匹配的元素设置CSS宽度(width)属性的值。</desc>
         <longdesc>如果没有明确指定单位（如：em或%），使用px。</longdesc>
         <params name="val" type="String, Number">
@@ -2562,7 +2562,7 @@ $("p:last").text( "scrollLeft:" + p.scrollLeft() );</code>
           <code>$("p").width(20);</code>
         </example>
       </function>
-      <function name="innerHeight" type="Integer">
+      <function name="innerHeight" return="Integer">
         <desc>获取第一个匹配元素内部区域高度（包括补白、不包括边框）。</desc>
         <longdesc>此方法对可见和隐藏元素均有效。</longdesc>
         <example>
@@ -2573,7 +2573,7 @@ $("p:last").text( "innerHeight:" + p.innerHeight() );</code>
           <result>&lt;p&gt;Hello&lt;/p&gt;&lt;p&gt;innerHeight: 16&lt;/p&gt;</result>
         </example>
       </function>
-      <function name="innerWidth" type="Integer">
+      <function name="innerWidth" return="Integer">
         <desc>获取第一个匹配元素内部区域宽度（包括补白、不包括边框）。</desc>
         <longdesc>此方法对可见和隐藏元素均有效。</longdesc>
         <example>
@@ -2584,7 +2584,7 @@ $("p:last").text( "innerWidth:" + p.innerWidth() );</code>
           <result>&lt;p&gt;Hello&lt;/p&gt;&lt;p&gt;innerWidth: 40&lt;/p&gt;</result>
         </example>
       </function>
-      <function name="outerHeight" type="Integer">
+      <function name="outerHeight" return="Integer">
         <desc>获取第一个匹配元素外部高度（默认包括补白和边框）。</desc>
         <longdesc>此方法对可见和隐藏元素均有效。</longdesc>
         <params name="options" type="Boolean">
@@ -2598,7 +2598,7 @@ $("p:last").text( "outerHeight:" + p.outerHeight() + " , outerHeight(true):" + p
           <result>&lt;p&gt;Hello&lt;/p&gt;&lt;p&gt;outerHeight: 35 , outerHeight(true):55&lt;/p&gt;</result>
         </example>
       </function>
-      <function name="outerWidth" type="Integer">
+      <function name="outerWidth" return="Integer">
         <desc>获取第一个匹配元素外部宽度（默认包括补白和边框）。</desc>
         <longdesc>此方法对可见和隐藏元素均有效。</longdesc>
         <params name="options" type="Boolean">
@@ -2616,7 +2616,7 @@ $("p:last").text( "outerWidth:" + p.outerWidth() + " , outerWidth(true):" + p.ou
   </cat>
   <cat value="事件">
     <subcat value="页面载入">
-      <function name="ready" type="jQuery">
+      <function name="ready" return="jQuery">
         <desc>当DOM载入就绪可以查询及操纵时绑定一个要执行的函数。</desc>
         <longdesc>这是事件模块中最重要的一个函数，因为它可以极大地提高web应用程序的响应速度。
 
@@ -2645,7 +2645,7 @@ $("p:last").text( "outerWidth:" + p.outerWidth() + " , outerWidth(true):" + p.ou
       </function>
     </subcat>
     <subcat value="事件处理">
-      <function name="bind" type="jQuery">
+      <function name="bind" return="jQuery">
         <desc>为每一个匹配元素的特定事件（像click）绑定一个事件处理器函数。</desc>
         <longdesc>这个事件处理函数会接收到一个事件对象，可以通过它来阻止（浏览器）默认的行为。如果既想取消默认的行为，又想阻止事件起泡，这个事件处理函数必须返回false。多数情况下，可以把事件处理器函数定义为匿名函数（见示例一）。在不可能定义匿名函数的情况下，可以传递一个可选的数据对象作为第二个参数（而事件处理器函数则作为第三个参数），见示例二。</longdesc>
         <params name="type" type="String">
@@ -2687,7 +2687,7 @@ $("p").bind("click", {foo: "bar"}, handler)</code>
 });</code>
         </example>
       </function>
-      <function name="one" type="jQuery">
+      <function name="one" return="jQuery">
         <desc>为每一个匹配元素的特定事件（像click）绑定一个一次性的事件处理函数。</desc>
         <longdesc>在每个对象上，这个事件处理函数只会被执行一次。其他规则与bind()函数相同。这个事件处理函数会接收到一个事件对象，可以通过它来阻止（浏览器）默认的行为。如果既想取消默认的行为，又想阻止事件起泡，这个事件处理函数必须返回false。
 
@@ -2708,7 +2708,7 @@ $("p").bind("click", {foo: "bar"}, handler)</code>
 });</code>
         </example>
       </function>
-      <function name="trigger" type="jQuery">
+      <function name="trigger" return="jQuery">
         <desc>在每一个匹配的元素上触发某类事件。</desc>
         <longdesc>这个函数也会导致浏览器同名的默认行为的执行。比如，如果用trigger()触发一个'submit'，则同样会导致浏览器提交表单。如果要阻止这种默认行为，应返回false。
 
@@ -2756,7 +2756,7 @@ jQuery也支持 &lt;a href="http://docs.jquery.com/Namespaced_Events"&gt;命名�
 $("p").trigger("myEvent", ["Hello","World!"]);</code>
         </example>
       </function>
-      <function name="triggerHandler" type="jQuery">
+      <function name="triggerHandler" return="jQuery">
         <desc>这个特别的方法将会触发指定的事件类型上所有绑定的处理函数。但不会执行浏览器默认动作，也不会产生事件冒泡。</desc>
         <longdesc>这个方法的行为表现与trigger类似，但有以下三个主要区别： 
 		
@@ -2787,7 +2787,7 @@ $("input").focus(function(){
 });</code>
         </example>
       </function>
-      <function name="unbind" type="jQuery">
+      <function name="unbind" return="jQuery">
         <desc>bind()的反向操作，从每一个匹配的元素中删除绑定的事件。</desc>
         <longdesc>如果没有参数，则删除所有绑定的事件。
 
@@ -2823,7 +2823,7 @@ $("p").unbind("click", foo); // ... 再也不会被触发 foo</code>
       </function>
     </subcat>
     <subcat value="事件委派">
-      <function name="live" type="jQuery">
+      <function name="live" return="jQuery">
         <desc>jQuery 1.3中新增的方法。给所有当前以及将来会匹配的元素绑定一个事件处理函数（比如click事件）。也能绑定自定义事件。</desc>
         <longdesc>目前支持 click, dblclick, mousedown, mouseup, mousemove, mouseover, mouseout, keydown, keypress, keyup。 &lt;br&gt;还不支持 blur, focus, mouseenter, mouseleave, change, submit &lt;br&gt;与bind()不同的是，live()一次只能绑定一个事件。
 
@@ -2844,7 +2844,7 @@ $("p").unbind("click", foo); // ... 再也不会被触发 foo</code>
 });</code>
         </example>
       </function>
-      <function name="die" type="jQuery">
+      <function name="die" return="jQuery">
         <desc>jQuery 1.3新增。此方法与live正好完全相反。</desc>
         <longdesc>如果不带参数，则所有绑定的live事件都会被移除。
 
@@ -2871,7 +2871,7 @@ $("p").unbind("click", foo); // ... 再也不会被触发 foo</code>
       </function>
     </subcat>
     <subcat value="事件切换">
-      <function name="hover" type="jQuery">
+      <function name="hover" return="jQuery">
         <desc>一个模仿悬停事件（鼠标移动到一个对象上面及移出这个对象）的方法。这是一个自定义的方法，它为频繁使用的任务提供了一种“保持在其中”的状态。</desc>
         <longdesc>当鼠标移动到一个匹配的元素上面时，会触发指定的第一个函数。当鼠标移出这个元素时，会触发指定的第二个函数。而且，会伴随着对鼠标是否仍然处在特定元素中的检测（例如，处在div中的图像），如果是，则会继续保持“悬停”状态，而不触发移出事件（修正了使用mouseout事件的一个常见错误）。</longdesc>
         <params name="over" type="Function">
@@ -2892,7 +2892,7 @@ $("p").unbind("click", foo); // ... 再也不会被触发 foo</code>
 );</code>
         </example>
       </function>
-      <function name="toggle" type="jQuery">
+      <function name="toggle" return="jQuery">
         <desc>每次点击后依次调用函数。</desc>
         <longdesc>如果点击了一个匹配的元素，则触发指定的第一个函数，当再次点击同一元素时，则触发指定的第二个函数，如果有更多函数，则再次触发，直到最后一个。随后的每次点击都重复对这几个函数的轮番调用。
 
@@ -2946,7 +2946,7 @@ $("p").unbind("click", foo); // ... 再也不会被触发 foo</code>
       </function>
     </subcat>
     <subcat value="事件">
-      <function name="blur" type="jQuery">
+      <function name="blur" return="jQuery">
         <desc>触发每一个匹配元素的blur事件。</desc>
         <longdesc>这个函数会调用执行绑定到blur事件的所有函数，包括浏览器的默认行为。可以通过返回false来防止触发浏览器的默认行为。blur事件会在元素失去焦点的时候触发，既可以是鼠标行为，也可以是按tab键离开的</longdesc>
         <example>
@@ -2954,7 +2954,7 @@ $("p").unbind("click", foo); // ... 再也不会被触发 foo</code>
           <code>$("p").blur();</code>
         </example>
       </function>
-      <function name="blur" type="jQuery">
+      <function name="blur" return="jQuery">
         <desc>在每一个匹配元素的blur事件中绑定一个处理函数。</desc>
         <longdesc>blur事件会在元素失去焦点的时候触发，既可以是鼠标行为，也可以是按tab键离开的</longdesc>
         <params name="fn" type="Function">
@@ -2965,11 +2965,11 @@ $("p").unbind("click", foo); // ... 再也不会被触发 foo</code>
           <code>$("p").blur( function () { alert("Hello World!"); } );</code>
         </example>
       </function>
-      <function name="change" type="jQuery">
+      <function name="change" return="jQuery">
         <desc>触发每个匹配元素的change事件</desc>
         <longdesc>这个函数会调用执行绑定到change事件的所有函数，包括浏览器的默认行为。可以通过在某个绑定的函数中返回false来防止触发浏览器的默认行为。change事件会在元素失去焦点的时候触发，也会当其值在获得焦点后改变时触发。</longdesc>
       </function>
-      <function name="change" type="jQuery">
+      <function name="change" return="jQuery">
         <desc>在每一个匹配元素的change事件中绑定一个处理函数。</desc>
         <longdesc>change事件会在元素失去焦点的时候触发，也会当其值在获得焦点后改变时触发。</longdesc>
         <params name="fn" type="Function">
@@ -2982,7 +2982,7 @@ $("p").unbind("click", foo); // ... 再也不会被触发 foo</code>
 });</code>
         </example>
       </function>
-      <function name="click" type="jQuery">
+      <function name="click" return="jQuery">
         <desc>触发每一个匹配元素的click事件。</desc>
         <longdesc>这个函数会调用执行绑定到click事件的所有函数。</longdesc>
         <example>
@@ -2990,7 +2990,7 @@ $("p").unbind("click", foo); // ... 再也不会被触发 foo</code>
           <code>$("p").click();</code>
         </example>
       </function>
-      <function name="click" type="jQuery">
+      <function name="click" return="jQuery">
         <desc>在每一个匹配元素的click事件中绑定一个处理函数。</desc>
         <longdesc>点击事件会在你的指针设备的按钮在元素上单击时触发。单击的定义是在屏幕的同一点触发了mousedown和mouseup.几个事件触发的顺序是：mousedownmouseupclick</longdesc>
         <params name="fn" type="Function">
@@ -3001,11 +3001,11 @@ $("p").unbind("click", foo); // ... 再也不会被触发 foo</code>
           <code>$("p").click( function () { $(this).hide(); });</code>
         </example>
       </function>
-      <function name="dblclick" type="jQuery">
+      <function name="dblclick" return="jQuery">
         <desc>触发每一个匹配元素的dbclick事件。</desc>
         <longdesc>这个函数会调用执行绑定到dblclick事件的所有函数，包括浏览器的默认行为。可以通过在某个绑定的函数中返回false来防止触发浏览器的默认行为。dblclick事件会在元素的同一点双击时触发。</longdesc>
       </function>
-      <function name="dblclick" type="jQuery">
+      <function name="dblclick" return="jQuery">
         <desc>在每一个匹配元素的dblclick事件中绑定一个处理函数。</desc>
         <longdesc>的那个在某个元素上双击的时候就会触发dblclick事件</longdesc>
         <params name="fn" type="Function">
@@ -3016,11 +3016,11 @@ $("p").unbind("click", foo); // ... 再也不会被触发 foo</code>
           <code>$("p").dblclick( function () { alert("Hello World!"); });</code>
         </example>
       </function>
-      <function name="error" type="jQuery">
+      <function name="error" return="jQuery">
         <desc>这个函数会调用执行绑定到error事件的所有函数，包括浏览器的默认行为。可以通过在某个绑定的函数中返回false来防止触发浏览器的默认行为。</desc>
         <longdesc>This causes all of the functions that have been bound to that error event to be executed, and calls the browser's default error action on the matching element(s). This default action can be prevented by returning false from one of the functions bound to the error event. The error event usually fires when an element loses focus either via the pointing device or by tabbing navigation.</longdesc>
       </function>
-      <function name="error" type="jQuery">
+      <function name="error" return="jQuery">
         <desc>在每一个匹配元素的error事件中绑定一个处理函数。</desc>
         <longdesc>对于error事件，没有一个公众的标准。在大多数浏览器中，当页面的JavaScript发生错误时，window对象会触发error事件;当图像的src属性无效时，比如文件不存在或者图像数据错误时，也会触发图像对象的error事件。
 
@@ -3063,7 +3063,7 @@ $("p").unbind("click", foo); // ... 再也不会被触发 foo</code>
 });</code>
         </example>
       </function>
-      <function name="focus" type="jQuery">
+      <function name="focus" return="jQuery">
         <desc>触发每一个匹配元素的focus事件。</desc>
         <longdesc>这将触发所有绑定的focus函数，注意，某些对象不支持focus方法。</longdesc>
         <example>
@@ -3073,7 +3073,7 @@ $("p").unbind("click", foo); // ... 再也不会被触发 foo</code>
 });</code>
         </example>
       </function>
-      <function name="focus" type="jQuery">
+      <function name="focus" return="jQuery">
         <desc>在每一个匹配元素的focus事件中绑定一个处理函数。</desc>
         <longdesc>focus事件可以通过鼠标点击或者键盘上的TAB导航触发</longdesc>
         <params name="fn" type="Function">
@@ -3086,11 +3086,11 @@ $("p").unbind("click", foo); // ... 再也不会被触发 foo</code>
 });</code>
         </example>
       </function>
-      <function name="keydown" type="jQuery">
+      <function name="keydown" return="jQuery">
         <desc>触发每一个匹配元素的keydown事件</desc>
         <longdesc>这个函数会调用执行绑定到keydown事件的所有函数，包括浏览器的默认行为。可以通过在某个绑定的函数中返回false来防止触发浏览器的默认行为。keydown事件会在键盘按下时触发。</longdesc>
       </function>
-      <function name="keydown" type="jQuery">
+      <function name="keydown" return="jQuery">
         <desc>在每一个匹配元素的keydown事件中绑定一个处理函数。</desc>
         <longdesc>keydown事件会在键盘按下时触发。</longdesc>
         <params name="fn" type="Function">
@@ -3109,11 +3109,11 @@ $("p").unbind("click", foo); // ... 再也不会被触发 foo</code>
 });</code>
         </example>
       </function>
-      <function name="keypress" type="jQuery">
+      <function name="keypress" return="jQuery">
         <desc>触发每一个匹配元素的keypress事件</desc>
         <longdesc>T这个函数会调用执行绑定到keydown事件的所有函数，包括浏览器的默认行为。可以通过在某个绑定的函数中返回false来防止触发浏览器的默认行为。keydown事件会在键盘按下时触发</longdesc>
       </function>
-      <function name="keypress" type="jQuery">
+      <function name="keypress" return="jQuery">
         <desc>在每一个匹配元素的keypress事件中绑定一个处理函数。</desc>
         <longdesc>keypress事件会在敲击按键时触发。 敲击按键的定义为按下并抬起同一个按键。这几个事件发生的顺序是:keydown
 
@@ -3124,18 +3124,18 @@ keyup</longdesc>
           <desc>在每一个匹配元素的keypress事件中绑定的处理函数。</desc>
         </params>
       </function>
-      <function name="keyup" type="jQuery">
+      <function name="keyup" return="jQuery">
         <desc>触发每一个匹配元素的keyup事件</desc>
         <longdesc>这个函数会调用执行绑定到keyup事件的所有函数，包括浏览器的默认行为。可以通过在某个绑定的函数中返回false来防止触发浏览器的默认行为。keyup事件会在按键释放时触发。</longdesc>
       </function>
-      <function name="keyup" type="jQuery">
+      <function name="keyup" return="jQuery">
         <desc>在每一个匹配元素的keyup事件中绑定一个处理函数。</desc>
         <longdesc>keyup 事件会在键盘按下时触发。</longdesc>
         <params name="fn" type="Function">
           <desc>在每一个匹配元素的keyup事件中绑定的处理函数。</desc>
         </params>
       </function>
-      <function name="load" type="jQuery">
+      <function name="load" return="jQuery">
         <desc>在每一个匹配元素的load事件中绑定一个处理函数。</desc>
         <longdesc>如果绑定给window对象，则会在所有内容加载后触发，包括窗口，框架，对象和图像。如果绑定在元素上，则当元素的内容加载完毕后触发。
 
@@ -3144,42 +3144,42 @@ keyup</longdesc>
           <desc>在每一个匹配元素的load事件中绑定的处理函数。</desc>
         </params>
       </function>
-      <function name="mousedown" type="jQuery">
+      <function name="mousedown" return="jQuery">
         <desc>在每一个匹配元素的mousedown事件中绑定一个处理函数。</desc>
         <longdesc>mousedown事件在鼠标在元素上点击后会触发</longdesc>
         <params name="fn" type="Function">
           <desc>在每一个匹配元素的mousedown事件中绑定的处理函数。</desc>
         </params>
       </function>
-      <function name="mousemove" type="jQuery">
+      <function name="mousemove" return="jQuery">
         <desc>在每一个匹配元素的mousemove事件中绑定一个处理函数。</desc>
         <longdesc>mousemove 事件通过鼠标在元素上移动来触发。事件处理函数会被传递一个变量——事件对象，其.clientX 和 .clientY 属性代表鼠标的坐标</longdesc>
         <params name="fn" type="Function">
           <desc>在每一个匹配元素的mousemove事件中绑定的处理函数。</desc>
         </params>
       </function>
-      <function name="mouseout" type="jQuery">
+      <function name="mouseout" return="jQuery">
         <desc>在每一个匹配元素的mouseout事件中绑定一个处理函数。</desc>
         <longdesc>mouseout事件在鼠标从元素上离开后会触发</longdesc>
         <params name="fn" type="Function">
           <desc>在每一个匹配元素的mouseout事件中绑定的处理函数。</desc>
         </params>
       </function>
-      <function name="mouseover" type="jQuery">
+      <function name="mouseover" return="jQuery">
         <desc>在每一个匹配元素的mouseover事件中绑定一个处理函数。</desc>
         <longdesc>mouseover事件会在鼠标移入对象时触发</longdesc>
         <params name="fn" type="Function">
           <desc>在每一个匹配元素的mouseover事件中绑定的处理函数。</desc>
         </params>
       </function>
-      <function name="mouseup" type="jQuery">
+      <function name="mouseup" return="jQuery">
         <desc>在每一个匹配元素的mouseup事件中绑定一个处理函数。</desc>
         <longdesc>mouseup事件会在鼠标点击对象释放时</longdesc>
         <params name="fn" type="Function">
           <desc>在每一个匹配元素的mouseup事件中绑定的处理函数。</desc>
         </params>
       </function>
-      <function name="resize" type="jQuery">
+      <function name="resize" return="jQuery">
         <desc>在每一个匹配元素的resize事件中绑定一个处理函数。</desc>
         <longdesc>当文档窗口改变大小时触发</longdesc>
         <params name="fn" type="Function">
@@ -3192,7 +3192,7 @@ keyup</longdesc>
 });</code>
         </example>
       </function>
-      <function name="scroll" type="jQuery">
+      <function name="scroll" return="jQuery">
         <desc>在每一个匹配元素的scroll事件中绑定一个处理函数。</desc>
         <longdesc>当滚动条发生变化时触发</longdesc>
         <params name="fn" type="Function">
@@ -3203,7 +3203,7 @@ keyup</longdesc>
           <code>$(window).scroll( function() { /* ...do something... */ } );</code>
         </example>
       </function>
-      <function name="select" type="jQuery">
+      <function name="select" return="jQuery">
         <desc>触发每一个匹配元素的select事件</desc>
         <longdesc>这个函数会调用执行绑定到select事件的所有函数，包括浏览器的默认行为。可以通过在某个绑定的函数中返回false来防止触发浏览器的默认行为。</longdesc>
         <example>
@@ -3211,7 +3211,7 @@ keyup</longdesc>
           <code>$("input").select();</code>
         </example>
       </function>
-      <function name="select" type="jQuery">
+      <function name="select" return="jQuery">
         <desc>在每一个匹配元素的select事件中绑定一个处理函数。</desc>
         <longdesc>当用户在文本框(包括input和textarea)中选中某段文本时会触发select事件。</longdesc>
         <params name="fn" type="Function">
@@ -3222,7 +3222,7 @@ keyup</longdesc>
           <code>$(":text").select( function () { /* ...do something... */ } );</code>
         </example>
       </function>
-      <function name="submit" type="jQuery">
+      <function name="submit" return="jQuery">
         <desc>触发每一个匹配元素的submit事件。</desc>
         <longdesc>这个函数会调用执行绑定到submit事件的所有函数，包括浏览器的默认行为。可以通过在某个绑定的函数中返回false来防止触发浏览器的默认行为。</longdesc>
         <example>
@@ -3230,7 +3230,7 @@ keyup</longdesc>
           <code>$("form:first").submit();</code>
         </example>
       </function>
-      <function name="submit" type="jQuery">
+      <function name="submit" return="jQuery">
         <desc>在每一个匹配元素的submit事件中绑定一个处理函数。</desc>
         <longdesc>submit事件将会在表单提交时触发</longdesc>
         <params name="fn" type="Function">
@@ -3243,7 +3243,7 @@ keyup</longdesc>
 } );</code>
         </example>
       </function>
-      <function name="unload" type="jQuery">
+      <function name="unload" return="jQuery">
         <desc>在每一个匹配元素的unload事件中绑定一个处理函数。</desc>
         <params name="fn" type="Function">
           <desc>在每一个匹配元素的unload事件中绑定的处理函数。</desc>
@@ -3257,7 +3257,7 @@ keyup</longdesc>
   </cat>
   <cat value="效果">
     <subcat value="基本">
-      <function name="show" type="jQuery">
+      <function name="show" return="jQuery">
         <desc>显示隐藏的匹配元素。</desc>
         <longdesc>这个就是 'show( speed, [callback] )' 无动画的版本。如果选择的元素是可见的，这个方法将不会改变任何东西。无论这个元素是通过hide()方法隐藏的还是在CSS里设置了display:none;，这个方法都将有效。</longdesc>
         <example>
@@ -3266,7 +3266,7 @@ keyup</longdesc>
           <code>$("p").show()</code>
         </example>
       </function>
-      <function name="show" type="jQuery">
+      <function name="show" return="jQuery">
         <desc>以优雅的动画显示所有匹配的元素，并在显示完成后可选地触发一个回调函数。</desc>
         <longdesc>可以根据指定的速度动态地改变每个匹配元素的高度、宽度和不透明度。在jQuery 1.3中，padding和margin也会有动画，效果更流畅。</longdesc>
         <params name="speed" type="String,Number">
@@ -3295,7 +3295,7 @@ keyup</longdesc>
  });</code>
         </example>
       </function>
-      <function name="hide" type="jQuery">
+      <function name="hide" return="jQuery">
         <desc>隐藏显示的元素</desc>
         <longdesc>这个就是 'hide( speed, [callback] )' 的无动画版。如果选择的元素是隐藏的，这个方法将不会改变任何东西。</longdesc>
         <example>
@@ -3303,7 +3303,7 @@ keyup</longdesc>
           <code>$("p").hide()</code>
         </example>
       </function>
-      <function name="hide" type="jQuery">
+      <function name="hide" return="jQuery">
         <desc>以优雅的动画隐藏所有匹配的元素，并在显示完成后可选地触发一个回调函数。</desc>
         <longdesc>可以根据指定的速度动态地改变每个匹配元素的高度、宽度和不透明度。在jQuery 1.3中，padding和margin也会有动画，效果更流畅。</longdesc>
         <params name="speed" type="String,Number">
@@ -3323,7 +3323,7 @@ keyup</longdesc>
  });</code>
         </example>
       </function>
-      <function name="toggle" type="jQuery">
+      <function name="toggle" return="jQuery">
         <desc>切换元素的可见状态。</desc>
         <longdesc>如果元素是可见的，切换为隐藏的；如果元素是隐藏的，切换为可见的。</longdesc>
         <example>
@@ -3333,7 +3333,7 @@ keyup</longdesc>
           <result>&lt;p tyle="display: none"&gt;Hello&lt;/p&gt;&lt;p style="display: block"&gt;Hello Again&lt;/p&gt;</result>
         </example>
       </function>
-      <function name="toggle" type="jQuery">
+      <function name="toggle" return="jQuery">
         <desc>根据switch参数切换元素的可见状态（ture为可见，false为隐藏）。</desc>
         <longdesc>如果switch设为true，则调用show()方法来显示匹配的元素，如果switch设为false则调用hide()来隐藏元素。</longdesc>
         <params name="switch" type="Boolean">
@@ -3349,7 +3349,7 @@ keyup</longdesc>
           <result>&lt;p tyle="display: none"&gt;Hello&lt;/p&gt;&lt;p style="display: block"&gt;Hello Again&lt;/p&gt;</result>
         </example>
       </function>
-      <function name="toggle" type="jQuery">
+      <function name="toggle" return="jQuery">
         <desc>以优雅的动画切换所有匹配的元素，并在显示完成后可选地触发一个回调函数。</desc>
         <longdesc>可以根据指定的速度动态地改变每个匹配元素的高度、宽度和不透明度。在jQuery 1.3中，padding和margin也会有动画，效果更流畅。</longdesc>
         <params name="speed" type="String,Number">
@@ -3371,7 +3371,7 @@ keyup</longdesc>
       </function>
     </subcat>
     <subcat value="滑动">
-      <function name="slideDown" type="jQuery">
+      <function name="slideDown" return="jQuery">
         <desc>通过高度变化（向下增大）来动态地显示所有匹配的元素，在显示完成后可选地触发一个回调函数。</desc>
         <longdesc>这个动画效果只调整元素的高度，可以使匹配的元素以“滑动”的方式显示出来。在jQuery 1.3中，上下的padding和margin也会有动画，效果更流畅。</longdesc>
         <params name="speed" type="String,Number">
@@ -3391,7 +3391,7 @@ keyup</longdesc>
  });</code>
         </example>
       </function>
-      <function name="slideUp" type="jQuery">
+      <function name="slideUp" return="jQuery">
         <desc>通过高度变化（向上减小）来动态地隐藏所有匹配的元素，在隐藏完成后可选地触发一个回调函数。</desc>
         <longdesc>这个动画效果只调整元素的高度，可以使匹配的元素以“滑动”的方式隐藏起来。在jQuery 1.3中，上下的padding和margin也会有动画，效果更流畅。</longdesc>
         <params name="speed" type="String,Number">
@@ -3411,7 +3411,7 @@ keyup</longdesc>
  });</code>
         </example>
       </function>
-      <function name="slideToggle" type="jQuery">
+      <function name="slideToggle" return="jQuery">
         <desc>通过高度变化来切换所有匹配元素的可见性，并在切换完成后可选地触发一个回调函数。</desc>
         <longdesc>这个动画效果只调整元素的高度，可以使匹配的元素以“滑动”的方式隐藏或显示。在jQuery 1.3中，上下的padding和margin也会有动画，效果更流畅。</longdesc>
         <params name="speed" type="String,Number">
@@ -3433,7 +3433,7 @@ keyup</longdesc>
       </function>
     </subcat>
     <subcat value="淡入淡出">
-      <function name="fadeIn" type="jQuery">
+      <function name="fadeIn" return="jQuery">
         <desc>通过不透明度的变化来实现所有匹配元素的淡入效果，并在动画完成后可选地触发一个回调函数。</desc>
         <longdesc>这个动画只调整元素的不透明度，也就是说所有匹配的元素的高度和宽度不会发生变化。</longdesc>
         <params name="speed" type="String,Number">
@@ -3453,7 +3453,7 @@ keyup</longdesc>
  });</code>
         </example>
       </function>
-      <function name="fadeOut" type="jQuery">
+      <function name="fadeOut" return="jQuery">
         <desc>通过不透明度的变化来实现所有匹配元素的淡出效果，并在动画完成后可选地触发一个回调函数。</desc>
         <longdesc>这个动画只调整元素的不透明度，也就是说所有匹配的元素的高度和宽度不会发生变化。</longdesc>
         <params name="speed" type="String,Number">
@@ -3473,7 +3473,7 @@ keyup</longdesc>
  });</code>
         </example>
       </function>
-      <function name="fadeTo" type="jQuery">
+      <function name="fadeTo" return="jQuery">
         <desc>把所有匹配元素的不透明度以渐进方式调整到指定的不透明度，并在动画完成后可选地触发一个回调函数。</desc>
         <longdesc>这个动画只调整元素的不透明度，也就是说所有匹配的元素的高度和宽度不会发生变化。</longdesc>
         <params name="speed" type="String,Number">
@@ -3498,7 +3498,7 @@ keyup</longdesc>
       </function>
     </subcat>
     <subcat value="自定义">
-      <function name="animate" type="jQuery">
+      <function name="animate" return="jQuery">
         <desc>用于创建自定义动画的函数。</desc>
         <longdesc>这个函数的关键在于指定动画形式及结果样式属性对象。这个对象中每个属性都表示一个可以变化的样式属性（如“height”、“top”或“opacity”）。注意：所有指定的属性必须用骆驼形式，比如用marginLeft代替margin-left. 
 
@@ -3564,7 +3564,7 @@ $("#left").click(function(){
  }, "slow", "easein");</code>
         </example>
       </function>
-      <function name="animate" type="jQuery">
+      <function name="animate" return="jQuery">
         <desc>用于创建自定义动画的函数。</desc>
         <longdesc>这个函数的关键在于指定动画形式及结果样式属性对象。这个对象中每个属性都表示一个可以变化的样式属性（如“height”、“top”或“opacity”）。注意：所有指定的属性必须用骆驼形式，比如用marginLeft代替margin-left. 
 
@@ -3645,7 +3645,7 @@ $("#go2").click(function(){
  }, { duration: "slow", easing: "easein" });</code>
         </example>
       </function>
-      <function name="stop" type="jQuery">
+      <function name="stop" return="jQuery">
         <desc>停止所有在指定元素上正在运行的动画。</desc>
         <longdesc>如果队列中有等待执行的动画(并且clearQueue没有设为true)，他们将被马上执行</longdesc>
         <params name="clearQueue" type="Boolean" optional="true">
@@ -3672,7 +3672,7 @@ $("#stop").click(function(){
       </function>
     </subcat>
     <subcat value="设置">
-      <property name="jQuery.fx.off" type="Boolean">
+      <property name="jQuery.fx.off" return="Boolean">
         <desc>关闭页面上所有的动画。</desc>
         <longdesc>把这个属性设置为true可以立即关闭所有动画(所有效果会立即执行完毕)。有些情况下可能需要这样，比如：
 
@@ -3693,7 +3693,7 @@ $("#stop").click(function(){
   </cat>
   <cat value="Ajax">
     <subcat value="Ajax 请求">
-      <function name="jQuery.ajax" type="XMLHttpRequest">
+      <function name="jQuery.ajax" return="XMLHttpRequest">
         <desc>通过 HTTP 请求加载远程数据。</desc>
         <longdesc>jQuery 底层 AJAX 实现。简单易用的高层实现见 $.get, $.post 等。$.ajax() 返回其创建的 XMLHttpRequest 对象。大多数情况下你无需直接操作该对象，但特殊情况下可用于手动终止请求。
 
@@ -3844,7 +3844,7 @@ jQuery 1.2 中，您可以跨域加载 JSON 数据，使用时需将数据类型
  });</code>
         </example>
       </function>
-      <function name="load" type="jQuery">
+      <function name="load" return="jQuery">
         <desc>载入远程 HTML 文件代码并插入至 DOM 中。</desc>
         <longdesc>默认使用 GET 方式 - 传递附加参数时自动转换为 POST 方式。jQuery 1.2 中，可以指定选择符，来筛选载入的 HTML 文档，DOM 中将仅插入筛选出的 HTML 代码。语法形如 "url #some &gt; selector"。请查看示例。</longdesc>
         <params name="url" type="String">
@@ -3873,7 +3873,7 @@ jQuery 1.2 中，您可以跨域加载 JSON 数据，使用时需将数据类型
  });</code>
         </example>
       </function>
-      <function name="jQuery.get" type="XMLHttpRequest">
+      <function name="jQuery.get" return="XMLHttpRequest">
         <desc>通过远程 HTTP GET 请求载入信息。</desc>
         <longdesc>这是一个简单的 GET 请求功能以取代复杂 $.ajax 。请求成功时可调用回调函数。如果需要在出错时执行函数，请使用 $.ajax。</longdesc>
         <params name="url" type="String">
@@ -3910,7 +3910,7 @@ jQuery 1.2 中，您可以跨域加载 JSON 数据，使用时需将数据类型
   });</code>
         </example>
       </function>
-      <function name="jQuery.getJSON" type="XMLHttpRequest">
+      <function name="jQuery.getJSON" return="XMLHttpRequest">
         <desc>通过 HTTP GET 请求载入 JSON 数据。</desc>
         <longdesc>在 jQuery 1.2 中，您可以通过使用&lt;a href="http://bob.pythonmac.org/archives/2005/12/05/remote-json-jsonp/" class="external text" title="http://bob.pythonmac.org/archives/2005/12/05/remote-json-jsonp/"&gt;JSONP&lt;/a&gt; 形式的回调函数来加载其他网域的JSON数据，如 "myurl?callback=?"。jQuery 将自动替换 ? 为正确的函数名，以执行回调函数。  注意：此行以后的代码将在这个回调函数执行前执行。</longdesc>
         <params name="url" type="String">
@@ -3945,7 +3945,7 @@ jQuery 1.2 中，您可以跨域加载 JSON 数据，使用时需将数据类型
 });</code>
         </example>
       </function>
-      <function name="jQuery.getScript" type="XMLHttpRequest">
+      <function name="jQuery.getScript" return="XMLHttpRequest">
         <desc>通过 HTTP GET 请求载入并执行一个 JavaScript 文件。</desc>
         <longdesc>jQuery 1.2 版本之前，getScript 只能调用同域 JS 文件。 1.2中，您可以跨域调用 JavaScript 文件。注意：Safari 2 或更早的版本不能在全局作用域中同步执行脚本。如果通过 getScript 加入脚本，请加入延时函数。</longdesc>
         <params name="url" type="String">
@@ -3976,7 +3976,7 @@ jQuery 1.2 中，您可以跨域加载 JSON 数据，使用时需将数据类型
 });</code>
         </example>
       </function>
-      <function name="jQuery.post" type="XMLHttpRequest">
+      <function name="jQuery.post" return="XMLHttpRequest">
         <desc>通过远程 HTTP POST 请求载入信息。</desc>
         <longdesc>这是一个简单的 POST 请求功能以取代复杂 $.ajax 。请求成功时可调用回调函数。如果需要在出错时执行函数，请使用 $.ajax。</longdesc>
         <params name="url" type="String">
@@ -3994,7 +3994,7 @@ jQuery 1.2 中，您可以跨域加载 JSON 数据，使用时需将数据类型
       </function>
     </subcat>
     <subcat value="Ajax 事件">
-      <function name="ajaxComplete" type="jQuery">
+      <function name="ajaxComplete" return="jQuery">
         <desc>AJAX 请求完成时执行函数。Ajax 事件。</desc>
         <longdesc>XMLHttpRequest 对象和设置作为参数传递给回调函数。</longdesc>
         <params name="callback" type="Function">
@@ -4007,7 +4007,7 @@ jQuery 1.2 中，您可以跨域加载 JSON 数据，使用时需将数据类型
  });</code>
         </example>
       </function>
-      <function name="ajaxError" type="jQuery">
+      <function name="ajaxError" return="jQuery">
         <desc>AJAX 请求发生错误时执行函数。Ajax 事件。</desc>
         <longdesc>XMLHttpRequest 对象和设置作为参数传递给回调函数。捕捉到的错误可作为最后一个参数传递。</longdesc>
         <params name="callback" type="Function">
@@ -4024,7 +4024,7 @@ jQuery 1.2 中，您可以跨域加载 JSON 数据，使用时需将数据类型
 });</code>
         </example>
       </function>
-      <function name="ajaxSend" type="jQuery">
+      <function name="ajaxSend" return="jQuery">
         <desc>AJAX 请求发送前执行函数。Ajax 事件。</desc>
         <longdesc>XMLHttpRequest 对象和设置作为参数传递给回调函数。</longdesc>
         <params name="callback" type="Function">
@@ -4037,7 +4037,7 @@ jQuery 1.2 中，您可以跨域加载 JSON 数据，使用时需将数据类型
  });</code>
         </example>
       </function>
-      <function name="ajaxStart" type="jQuery">
+      <function name="ajaxStart" return="jQuery">
         <desc>AJAX 请求开始时执行函数。Ajax 事件。</desc>
         <params name="callback" type="Function">
           <desc>待执行函数</desc>
@@ -4049,7 +4049,7 @@ jQuery 1.2 中，您可以跨域加载 JSON 数据，使用时需将数据类型
  });</code>
         </example>
       </function>
-      <function name="ajaxStop" type="jQuery">
+      <function name="ajaxStop" return="jQuery">
         <desc>AJAX 请求结束时执行函数。Ajax 事件。</desc>
         <params name="callback" type="Function">
           <desc>待执行函数</desc>
@@ -4061,7 +4061,7 @@ jQuery 1.2 中，您可以跨域加载 JSON 数据，使用时需将数据类型
  });</code>
         </example>
       </function>
-      <function name="ajaxSuccess" type="jQuery">
+      <function name="ajaxSuccess" return="jQuery">
         <desc>AJAX 请求成功时执行函数。Ajax 事件。</desc>
         <longdesc>XMLHttpRequest 对象和设置作为参数传递给回调函数。</longdesc>
         <params name="callback" type="Function">
@@ -4076,7 +4076,7 @@ jQuery 1.2 中，您可以跨域加载 JSON 数据，使用时需将数据类型
       </function>
     </subcat>
     <subcat value="其它">
-      <function name="jQuery.ajaxSetup" type="jQuery">
+      <function name="jQuery.ajaxSetup" return="jQuery">
         <desc>设置全局 AJAX 默认选项。</desc>
         <longdesc>参数见 '$.ajax' 说明。</longdesc>
         <params name="options" type="可选" optional="true">
@@ -4092,7 +4092,7 @@ jQuery 1.2 中，您可以跨域加载 JSON 数据，使用时需将数据类型
 $.ajax({ data: myData });</code>
         </example>
       </function>
-      <function name="serialize" type="jQuery">
+      <function name="serialize" return="jQuery">
         <desc>序列表表格内容为字符串。</desc>
         <example>
           <desc>序列表表格内容为字符串，用于 Ajax 请求。</desc>
@@ -4115,7 +4115,7 @@ $.ajax({ data: myData });</code>
           <code>$("#results").append( "&lt;tt&gt;" + $("form").serialize() + "&lt;/tt&gt;" );</code>
         </example>
       </function>
-      <function name="serializeArray" type="jQuery">
+      <function name="serializeArray" return="jQuery">
         <desc>序列化表格元素 (类似 '.serialize()' 方法) 返回 JSON 数据结构数据。</desc>
         <example>
           <desc>取得表单内容并插入到网页中。</desc>
@@ -4145,7 +4145,7 @@ jQuery.each( fields, function(i, field){
   </cat>
   <cat value="工具">
     <subcat value="浏览器">
-      <property name="jQuery.support" type="Boolean">
+      <property name="jQuery.support" return="Boolean">
         <desc>jQuery 1.3 新增。一组用于展示不同浏览器各自特性和bug的属性集合。</desc>
         <longdesc>jQuery提供了一系列属性，你也可以自由增加你自己的属性。其中许多属性是很低级的，所以很难说他们能否在日新月异的发展中一直保持有效，但这这些主要用于插件和内核开发者。
 
@@ -4177,7 +4177,7 @@ jQuery.each( fields, function(i, field){
           <code>jQuery.support.boxModel</code>
         </example>
       </property>
-      <property name="jQuery.browser" type="Map">
+      <property name="jQuery.browser" return="Map">
         <desc>浏览器内核标识。依据 navigator.userAgent 判断。</desc>
         <longdesc>可用值:  safari 
 
@@ -4199,7 +4199,7 @@ jQuery.each( fields, function(i, field){
 }</code>
         </example>
       </property>
-      <property name="jQuery.browser.version" type="String">
+      <property name="jQuery.browser.version" return="String">
         <desc>浏览器渲染引擎版本号。</desc>
         <longdesc>典型结果:  Internet Explorer: 6.0, 7.0 
 
@@ -4214,7 +4214,7 @@ jQuery.each( fields, function(i, field){
  alert( $.browser.version );</code>
         </example>
       </property>
-      <property name="jQuery.boxModel" type="Boolean">
+      <property name="jQuery.boxModel" return="Boolean">
         <desc>当前页面中浏览器是否使用标准盒模型渲染页面。 建议使用 jQuery.support.boxModel 代替。W3C CSS 盒模型.</desc>
         <example>
           <desc>在 Internet Explorer 怪癖模式（QuirksMode）中返回 False。</desc>
@@ -4223,7 +4223,7 @@ jQuery.each( fields, function(i, field){
       </property>
     </subcat>
     <subcat value="数组和对象操作">
-      <function name="jQuery.each" type="Object">
+      <function name="jQuery.each" return="Object">
         <desc>通用例遍方法，可用于例遍对象和数组。</desc>
         <longdesc>不同于例遍 jQuery 对象的 $().each() 方法，此方法可用于例遍任何对象。回调函数拥有两个参数：第一个为对象的成员或数组的索引，第二个为对应变量或内容。如果需要退出 each 循环可使回调函数返回 false，其它返回值将被忽略。</longdesc>
         <params name="object" type="Object">
@@ -4245,7 +4245,7 @@ jQuery.each( fields, function(i, field){
 });</code>
         </example>
       </function>
-      <function name="jQuery.extend" type="Object">
+      <function name="jQuery.extend" return="Object">
         <desc>用一个或多个其他对象来扩展一个对象，返回被扩展的对象。</desc>
         <longdesc>用于简化继承。</longdesc>
         <params name="target" type="Object">
@@ -4274,7 +4274,7 @@ var settings = jQuery.extend(empty, defaults, options);</code>
 empty == { validate: true, limit: 5, name: "bar" }</result>
         </example>
       </function>
-      <function name="jQuery.grep" type="Array">
+      <function name="jQuery.grep" return="Array">
         <desc>使用过滤函数过滤数组元素。</desc>
         <longdesc>此函数至少传递两个参数：待过滤数组和过滤函数。过滤函数必须返回 true 以保留元素或 false 以删除元素。</longdesc>
         <params name="array" type="Array">
@@ -4301,7 +4301,7 @@ empty == { validate: true, limit: 5, name: "bar" }</result>
           <result>[0]</result>
         </example>
       </function>
-      <function name="jQuery.makeArray" type="Array">
+      <function name="jQuery.makeArray" return="Array">
         <desc>将类数组对象转换为数组对象。</desc>
         <longdesc>类数组对象有 length 属性，其成员索引为 0 至 length - 1。实际中此函数在 jQuery 中将自动使用而无需特意转换。</longdesc>
         <params name="obj" type="Object">
@@ -4318,7 +4318,7 @@ Second
 First</result>
         </example>
       </function>
-      <function name="jQuery.map" type="Array">
+      <function name="jQuery.map" return="Array">
         <desc>将一个数组中的元素转换到另一个数组中。</desc>
         <longdesc>作为参数的转换函数会为每个数组元素调用，而且会给这个转换函数传递一个表示被转换的元素作为参数。转换函数可以返回转换后的值、null（删除数组中的项目）或一个包含值的数组，并扩展至原始数组中。</longdesc>
         <params name="array" type="Array">
@@ -4349,7 +4349,7 @@ First</result>
           <result>[0, 1, 1, 2, 2, 3]</result>
         </example>
       </function>
-      <function name="jQuery.inArray" type="jQuery">
+      <function name="jQuery.inArray" return="jQuery">
         <desc>确定第一个参数在数组中的位置(如果没有找到则返回 -1 )。</desc>
         <params name="value" type="Any">
           <desc>用于在数组中查找是否存在</desc>
@@ -4365,7 +4365,7 @@ jQuery.inArray(4, arr);  //0
 jQuery.inArray("David", arr);  //-1</code>
         </example>
       </function>
-      <function name="jQuery.unique" type="jQuery">
+      <function name="jQuery.unique" return="jQuery">
         <desc>删除数组中重复元素。</desc>
         <params name="array" type="Array">
           <desc>待处理数组。</desc>
@@ -4378,7 +4378,7 @@ jQuery.inArray("David", arr);  //-1</code>
       </function>
     </subcat>
     <subcat value="测试操作">
-      <function name="jQuery.isArray" type="Boolean">
+      <function name="jQuery.isArray" return="Boolean">
         <desc>jQuery 1.3 新增。测试对象是否为数组。</desc>
         <params name="obj" type="Object">
           <desc>用于测试是否为数组的对象</desc>
@@ -4389,7 +4389,7 @@ jQuery.inArray("David", arr);  //-1</code>
           <result>&lt;b&gt;true&lt;/b&gt;</result>
         </example>
       </function>
-      <function name="jQuery.isFunction" type="Boolean">
+      <function name="jQuery.isFunction" return="Boolean">
         <desc>测试对象是否为函数。</desc>
         <params name="obj" type="Object">
           <desc>用于测试是否为函数的对象</desc>
@@ -4414,7 +4414,7 @@ var objs = [
       </function>
     </subcat>
     <subcat value="字符串操作">
-      <function name="jQuery.trim" type="jQuery">
+      <function name="jQuery.trim" return="jQuery">
         <desc>去掉字符串起始和结尾的空格。</desc>
         <params name="str" type="String">
           <desc>需要处理的字符串</desc>
