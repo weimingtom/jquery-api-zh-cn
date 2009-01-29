@@ -1,3 +1,7 @@
+2009-01-29 15:06:40 +0800
++ 工具里新增merge和param两个函数
+* unique和trim的返回值有误
+
 2009-01-28 16:46:25 +0800
 * bind的说明里多了个I
 * hide,toggle的callback参数类型为FunctionFunction
