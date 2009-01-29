@@ -4460,6 +4460,10 @@ var objs = [
   </cat>
   <cat value="关于">
     <subcat value="关于翻译">
+      <selector name="aboutXMLDoc">
+        <sample>关于jQuery XML文档及翻译</sample>
+        <longdesc><![CDATA[jQuery 文档XML文件内英文及代码部分版权归原官方wiki所有，中文部分分属<a href="http://www.cn-cuckoo.com/">为之漫笔</a>, <a href="http://shawphy.com">Shawphy</a> and <a href="http://cloudream.name">Cloudream</a>所有。欢迎转载、替换其他XSL样式或其他形式的转载，但必须保证XML文件原样转载，保留署名以及不可用于商业用途。本文档仅供参考，出于方便学习的目的而分发。使用者必须自行承担风险，因使用此文档造成的任何损失或者潜在的损失，译者均不为其负责。]]></longdesc>
+      </selector>
       <selector name="aboutDoc1.3">
         <sample>关于jQuery 1.3 版翻译</sample>
         <longdesc><![CDATA[jQuery 1.3自从2009年1月14日发布后，后引来了各界的关注。我们也随即投入到翻译文档的工作中来。经过4天的努力，终于完工了。这个版本更新了不少东西，具体还请看<a href="changelog.txt">changelog</a>。感谢Cloudream的热情帮忙。这个版本还加入了检查更新的功能。如果有需要的同学可轻松查看是否有更新的中文文档(chm版中的检查更新也将同步升级)。-- <a href="http://shawphy.com">Shawphy</a>]]> 写于2009年1月18日</longdesc>
