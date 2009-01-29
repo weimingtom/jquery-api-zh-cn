@@ -113,7 +113,7 @@
 				<param name="Local" value="jQuery.fn.extend_object.xml">
 				</OBJECT>
 			<LI> <OBJECT type="text/sitemap">
-				<param name="Name" value="jQuery.fn.extend(object)">
+				<param name="Name" value="jQuery.extend(object)">
 				<param name="Local" value="jQuery.extend_object.xml">
 				</OBJECT>
 		</UL>

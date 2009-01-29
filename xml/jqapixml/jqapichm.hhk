@@ -83,19 +83,19 @@
 		<param name="Local" value="dequeue_name.xml">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="jQuery.fn.extend(object)">
+		<param name="Name" value="fn.extend(object)">
 		<param name="Local" value="jQuery.fn.extend_object.xml">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="jQuery.fn.extend(object)">
+		<param name="Name" value="extend(object)">
 		<param name="Local" value="jQuery.extend_object.xml">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="jQuery.noConflict()">
+		<param name="Name" value="noConflict()">
 		<param name="Local" value="jQuery.noConflict.xml">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="jQuery.noConflict(extreme)">
+		<param name="Name" value="noConflict(extreme)">
 		<param name="Local" value="jQuery.noConflict_extreme.xml">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
@@ -835,11 +835,11 @@
 		<param name="Local" value="stop_clearQueue_gotoEnd.xml">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="jQuery.fx.off">
+		<param name="Name" value="fx.off">
 		<param name="Local" value="jQuery.fx.off.xml">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="jQuery.ajax([options])">
+		<param name="Name" value="ajax([options])">
 		<param name="Local" value="jQuery.ajax_options.xml">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
@@ -847,19 +847,19 @@
 		<param name="Local" value="load_url_data_callback.xml">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="jQuery.get(url, [data], [callback], [type])">
+		<param name="Name" value="get(url, [data], [callback], [type])">
 		<param name="Local" value="jQuery.get_url_data_callback_type.xml">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="jQuery.getJSON(url, [data], [callback])">
+		<param name="Name" value="getJSON(url, [data], [callback])">
 		<param name="Local" value="jQuery.getJSON_url_data_callback.xml">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="jQuery.getScript(url, [callback])">
+		<param name="Name" value="getScript(url, [callback])">
 		<param name="Local" value="jQuery.getScript_url_callback.xml">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="jQuery.post(url, [data], [callback], [type])">
+		<param name="Name" value="post(url, [data], [callback], [type])">
 		<param name="Local" value="jQuery.post_url_data_callback_type.xml">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
@@ -887,7 +887,7 @@
 		<param name="Local" value="ajaxSuccess_callback.xml">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="jQuery.ajaxSetup([options])">
+		<param name="Name" value="ajaxSetup([options])">
 		<param name="Local" value="jQuery.ajaxSetup_options.xml">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
@@ -899,67 +899,67 @@
 		<param name="Local" value="serializeArray.xml">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="jQuery.support">
+		<param name="Name" value="support">
 		<param name="Local" value="jQuery.support.xml">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="jQuery.browser">
+		<param name="Name" value="browser">
 		<param name="Local" value="jQuery.browser.xml">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="jQuery.browser.version">
+		<param name="Name" value="browser.version">
 		<param name="Local" value="jQuery.browser.version.xml">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="jQuery.boxModel">
+		<param name="Name" value="boxModel">
 		<param name="Local" value="jQuery.boxModel.xml">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="jQuery.each(object, [callback])">
+		<param name="Name" value="each(object, [callback])">
 		<param name="Local" value="jQuery.each_object_callback.xml">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="jQuery.extend(target, object1, [objectN])">
+		<param name="Name" value="extend(target, object1, [objectN])">
 		<param name="Local" value="jQuery.extend_target_object1_objectN.xml">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="jQuery.grep(array, callback, [invert])">
+		<param name="Name" value="grep(array, callback, [invert])">
 		<param name="Local" value="jQuery.grep_array_callback_invert.xml">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="jQuery.makeArray(obj)">
+		<param name="Name" value="makeArray(obj)">
 		<param name="Local" value="jQuery.makeArray_obj.xml">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="jQuery.map(array, callback)">
+		<param name="Name" value="map(array, callback)">
 		<param name="Local" value="jQuery.map_array_callback.xml">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="jQuery.inArray(value, array)">
+		<param name="Name" value="inArray(value, array)">
 		<param name="Local" value="jQuery.inArray_value_array.xml">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="jQuery.merge(first, second)">
+		<param name="Name" value="merge(first, second)">
 		<param name="Local" value="jQuery.merge_first_second.xml">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="jQuery.unique(array)">
+		<param name="Name" value="unique(array)">
 		<param name="Local" value="jQuery.unique_array.xml">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="jQuery.isArray(obj)">
+		<param name="Name" value="isArray(obj)">
 		<param name="Local" value="jQuery.isArray_obj.xml">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="jQuery.isFunction(obj)">
+		<param name="Name" value="isFunction(obj)">
 		<param name="Local" value="jQuery.isFunction_obj.xml">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="jQuery.trim(str)">
+		<param name="Name" value="trim(str)">
 		<param name="Local" value="jQuery.trim_str.xml">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="jQuery.param(obj)">
+		<param name="Name" value="param(obj)">
 		<param name="Local" value="jQuery.param_obj.xml">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
