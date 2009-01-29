@@ -1220,6 +1220,10 @@
 				<param name="Local" value="jQuery.inArray_value_array.xml">
 				</OBJECT>
 			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="jQuery.merge(first, second)">
+				<param name="Local" value="jQuery.merge_first_second.xml">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
 				<param name="Name" value="jQuery.unique(array)">
 				<param name="Local" value="jQuery.unique_array.xml">
 				</OBJECT>
@@ -1245,6 +1249,15 @@
 				<param name="Name" value="jQuery.trim(str)">
 				<param name="Local" value="jQuery.trim_str.xml">
 				</OBJECT>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="×Ö·û´®²Ù×÷">
+			</OBJECT>
+		<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="jQuery.param(obj)">
+			<param name="Local" value="jQuery.param_obj.xml">
+			</OBJECT>
 		</UL>
 	</UL>
 	<LI> <OBJECT type="text/sitemap">

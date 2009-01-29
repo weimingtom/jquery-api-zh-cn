@@ -185,10 +185,12 @@ jQuery.grep_array_callback_invert.xml
 jQuery.makeArray_obj.xml
 jQuery.map_array_callback.xml
 jQuery.inArray_value_array.xml
+jQuery.merge_first_second.xml
 jQuery.unique_array.xml
 jQuery.isArray_obj.xml
 jQuery.isFunction_obj.xml
 jQuery.trim_str.xml
+jQuery.param_obj.xml
 id.xml
 element.xml
 class.xml
