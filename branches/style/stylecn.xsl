@@ -43,6 +43,9 @@
 	<xsl:template match="function|selector|property">
 		<li>
 			<h2>
+				<xsl:if test="@type">
+					<span>返回值:<xsl:value-of select="@type"/></span>
+				</xsl:if>
 				<xsl:if test="self::function">
 					<xsl:value-of select="@name"/>(<xsl:for-each select="params">
 						<xsl:choose>
