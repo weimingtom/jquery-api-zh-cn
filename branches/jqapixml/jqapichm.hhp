@@ -2,7 +2,7 @@
 Compatibility=1.1 or later
 Compiled file=jqapichm.chm
 Contents file=jqapichm.hhc
-Default topic=bugAndUpdate.xml
+Default topic=cheatsheet.html
 Display compile progress=No
 Full-text search=Yes
 Index file=jqapichm.hhk
@@ -255,6 +255,7 @@ style\style.css
 style\style.xsl
 js\jquery-1.2.6.pack.js
 js\jquery-doc-split.js
+cheatsheet.html
 
 [INFOTYPES]
 

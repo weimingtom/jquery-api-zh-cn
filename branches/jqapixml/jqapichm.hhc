@@ -4,10 +4,11 @@
 <meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
 <!-- Sitemap 1.0 -->
 </HEAD><BODY>
-<OBJECT type="text/site properties">
-	<param name="ImageType" value="Folder">
-</OBJECT>
 <UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="速查表">
+		<param name="Local" value="cheatsheet.html">
+		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="核心">
 		</OBJECT>
@@ -1258,11 +1259,11 @@
 			<param name="Name" value="关于jQuery 1.2 版翻译">
 			<param name="Local" value="aboutDoc1.2.xml">
 			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="提交bug及获取更新">
+			<param name="Local" value="bugAndUpdate.xml">
+			</OBJECT>
 	</UL>
-	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="提交bug及获取更新">
-		<param name="Local" value="bugAndUpdate.xml">
-		</OBJECT>
 </UL>
 </BODY></HTML>
 
