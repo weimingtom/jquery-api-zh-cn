@@ -1265,6 +1265,10 @@
 		</OBJECT>
 	<UL>
 		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="关于jQuery 中文文档">
+			<param name="Local" value="aboutXMLDoc.xml">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="关于jQuery 1.3 版翻译">
 			<param name="Local" value="aboutDoc1.3.xml">
 			</OBJECT>
