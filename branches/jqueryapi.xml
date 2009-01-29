@@ -183,7 +183,7 @@ ul li
 div#foo ul:not([class])</result>
         </example>
       </property>
-      <property name="context" return="HTMLElement">
+      <property name="context" return="Element">
         <desc>jQuery 1.3新增。返回传给jQuery()的原始的DOM节点内容，即jQuery()的第二个参数。如果没有指定，那么context指向当前的文档(document)。</desc>
         <longdesc>可以与&lt;span title="Core/selector"&gt;selector&lt;/span&gt;一起使用，用于精确检测选择器查询情况。这两个属性对插件开发人员很有用。</longdesc>
         <example>
@@ -520,7 +520,7 @@ jQuery("div &gt; p").hide();</result>
   </cat>
   <cat value="选择器">
     <subcat value="基本">
-      <selector name="id" return="Element">
+      <selector name="id" return="Array&lt;Element>">
         <sample>#id</sample>
         <desc>根据给定的ID匹配一个元素。</desc>
         <longdesc>如果选择器中包含特殊字符，可以用两个斜杠转义。参见示例。</longdesc>
@@ -544,7 +544,7 @@ jQuery("div &gt; p").hide();</result>
 #foo\\.bar</code>
         </example>
       </selector>
-      <selector name="element" return="Array&lt;Element>">
+      <selector name="element" return="Array&lt;Element(s)>">
         <sample>element</sample>
         <desc>根据给定的元素名匹配所有元素</desc>
         <params name="element" type="String">
@@ -559,7 +559,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;div&gt;DIV1&lt;/div&gt;, &lt;div&gt;DIV2&lt;/div&gt; ]</result>
         </example>
       </selector>
-      <selector name="class" return="Array&lt;Element>">
+      <selector name="class" return="Array&lt;Element(s)>">
         <sample>.class</sample>
         <desc>根据给定的类匹配元素。</desc>
         <params name="class" type="String">
@@ -574,7 +574,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;div class="myClass"&gt;div class="myClass"&lt;/div&gt;, &lt;span class="myClass"&gt;span class="myClass"&lt;/span&gt; ]</result>
         </example>
       </selector>
-      <selector name="all" return="Array&lt;Element>">
+      <selector name="all" return="Array&lt;Element(s)>">
         <sample>*</sample>
         <desc>匹配所有元素</desc>
         <longdesc>多用于结合上下文来搜索。</longdesc>
@@ -587,7 +587,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;div&gt;DIV&lt;/div&gt;, &lt;span&gt;SPAN&lt;/span&gt;, &lt;p&gt;P&lt;/p&gt; ]</result>
         </example>
       </selector>
-      <selector name="multiple" return="Array&lt;Element>">
+      <selector name="multiple" return="Array&lt;Element(s)>">
         <sample>selector1,selector2,selectorN</sample>
         <desc>将每一个选择器匹配到的元素合并后一起返回。</desc>
         <longdesc>你可以指定任意多个选择器，并将匹配到的元素合并到一个结果内。</longdesc>
@@ -612,7 +612,7 @@ jQuery("div &gt; p").hide();</result>
       </selector>
     </subcat>
     <subcat value="层级">
-      <selector name="descendant" return="Array&lt;Element>">
+      <selector name="descendant" return="Array&lt;Element(s)>">
         <sample>ancestor descendant</sample>
         <desc>在给定的祖先元素下匹配所有的后代元素</desc>
         <params name="ancestor" type="Selector">
@@ -636,7 +636,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;input name="name" /&gt;, &lt;input name="newsletter" /&gt; ]</result>
         </example>
       </selector>
-      <selector name="child" return="Array&lt;Element>">
+      <selector name="child" return="Array&lt;Element(s)>">
         <sample>parent &gt; child</sample>
         <desc>在给定的父元素下匹配所有的子元素</desc>
         <params name="parent" type="Selector">
@@ -660,7 +660,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;input name="name" /&gt; ]</result>
         </example>
       </selector>
-      <selector name="next" return="Array&lt;Element>">
+      <selector name="next" return="Array&lt;Element(s)>">
         <sample>prev + next</sample>
         <desc>匹配所有紧接在 prev 元素后的 next 元素</desc>
         <params name="prev" type="Selector">
@@ -684,7 +684,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;input name="name" /&gt;, &lt;input name="newsletter" /&gt; ]</result>
         </example>
       </selector>
-      <selector name="siblings" return="Array&lt;Element>">
+      <selector name="siblings" return="Array&lt;Element(s)>">
         <sample>prev ~ siblings</sample>
         <desc>匹配 prev 元素之后的所有 siblings 元素</desc>
         <params name="prev" type="Selector">
@@ -710,7 +710,7 @@ jQuery("div &gt; p").hide();</result>
       </selector>
     </subcat>
     <subcat value="简单">
-      <selector name="first" return="Element">
+      <selector name="first" return="Array&lt;Element>">
         <sample>:first</sample>
         <desc>匹配找到的第一个元素</desc>
         <example>
@@ -724,7 +724,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;tr&gt;&lt;td&gt;Header 1&lt;/td&gt;&lt;/tr&gt; ]</result>
         </example>
       </selector>
-      <selector name="last" return="Element">
+      <selector name="last" return="Array&lt;Element>">
         <sample>:last</sample>
         <desc>匹配找到的最后一个元素</desc>
         <example>
@@ -738,7 +738,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;tr&gt;&lt;td&gt;Value 2&lt;/td&gt;&lt;/tr&gt; ]</result>
         </example>
       </selector>
-      <selector name="not" return="Array&lt;Element>">
+      <selector name="not" return="Array&lt;Element(s)>">
         <sample>:not</sample>
         <desc>去除所有与给定选择器匹配的元素</desc>
         <longdesc>在jQuery 1.3中，已经支持复杂选择器了（例如:not(div a) 和 :not(div,a)）</longdesc>
@@ -753,7 +753,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;input name="apple" /&gt; ]</result>
         </example>
       </selector>
-      <selector name="even" return="Array&lt;Element>">
+      <selector name="even" return="Array&lt;Element(s)>">
         <sample>:even</sample>
         <desc>匹配所有索引值为偶数的元素，从 0 开始计数</desc>
         <example>
@@ -767,7 +767,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;tr&gt;&lt;td&gt;Header 1&lt;/td&gt;&lt;/tr&gt;, &lt;tr&gt;&lt;td&gt;Value 2&lt;/td&gt;&lt;/tr&gt; ]</result>
         </example>
       </selector>
-      <selector name="odd" return="Array&lt;Element>">
+      <selector name="odd" return="Array&lt;Element(s)>">
         <sample>:odd</sample>
         <desc>匹配所有索引值为奇数的元素，从 0 开始计数</desc>
         <example>
@@ -781,7 +781,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;tr&gt;&lt;td&gt;Value 1&lt;/td&gt;&lt;/tr&gt; ]</result>
         </example>
       </selector>
-      <selector name="eq" return="Element">
+      <selector name="eq" return="Array&lt;Element>">
         <sample>:eq</sample>
         <desc>匹配一个给定索引值的元素</desc>
         <params name="index" type="Number">
@@ -798,7 +798,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;tr&gt;&lt;td&gt;Value 1&lt;/td&gt;&lt;/tr&gt; ]</result>
         </example>
       </selector>
-      <selector name="gt" return="Array&lt;Element>">
+      <selector name="gt" return="Array&lt;Element(s)>">
         <sample>:gt</sample>
         <desc>匹配所有大于给定索引值的元素</desc>
         <params name="index" type="Number">
@@ -815,7 +815,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;tr&gt;&lt;td&gt;Value 1&lt;/td&gt;&lt;/tr&gt;, &lt;tr&gt;&lt;td&gt;Value 2&lt;/td&gt;&lt;/tr&gt; ]</result>
         </example>
       </selector>
-      <selector name="lt" return="Array&lt;Element>">
+      <selector name="lt" return="Array&lt;Element(s)>">
         <sample>:lt</sample>
         <desc>匹配所有小于给定索引值的元素</desc>
         <params name="index" type="Number">
@@ -832,7 +832,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;tr&gt;&lt;td&gt;Header 1&lt;/td&gt;&lt;/tr&gt;, &lt;tr&gt;&lt;td&gt;Value 1&lt;/td&gt;&lt;/tr&gt; ]</result>
         </example>
       </selector>
-      <selector name="header" return="Array&lt;Element>">
+      <selector name="header" return="Array&lt;Element(s)>">
         <sample>:header</sample>
         <desc>匹配如 h1, h2, h3之类的标题元素</desc>
         <example>
@@ -845,7 +845,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;h1 style="background:#EEE;"&gt;Header 1&lt;/h1&gt;, &lt;h2 style="background:#EEE;"&gt;Header 2&lt;/h2&gt; ]</result>
         </example>
       </selector>
-      <selector name="animated" return="Array&lt;Element>">
+      <selector name="animated" return="Array&lt;Element(s)>">
         <sample>:animated</sample>
         <desc>匹配所有正在执行动画效果的元素</desc>
         <example>
@@ -858,7 +858,7 @@ jQuery("div &gt; p").hide();</result>
       </selector>
     </subcat>
     <subcat value="内容">
-      <selector name="contains" return="Array&lt;Element>">
+      <selector name="contains" return="Array&lt;Element(s)>">
         <sample>:contains</sample>
         <desc>匹配包含给定文本的元素</desc>
         <params name="text" type="String">
@@ -874,7 +874,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;div&gt;John Resig&lt;/div&gt;, &lt;div&gt;Malcom John Sinclair&lt;/div&gt; ]</result>
         </example>
       </selector>
-      <selector name="empty" return="Array&lt;Element>">
+      <selector name="empty" return="Array&lt;Element(s)>">
         <sample>:empty</sample>
         <desc>匹配所有不包含子元素或者文本的空元素</desc>
         <example>
@@ -887,7 +887,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;td&gt;&lt;/td&gt;, &lt;td&gt;&lt;/td&gt; ]</result>
         </example>
       </selector>
-      <selector name="has" return="Array&lt;Element>">
+      <selector name="has" return="Array&lt;Element(s)>">
         <sample>:has</sample>
         <desc>匹配含有选择器所匹配的元素的元素</desc>
         <params name="selector" type="Selector">
@@ -901,7 +901,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;div class="test"&gt;&lt;p&gt;Hello&lt;/p&gt;&lt;/div&gt; ]</result>
         </example>
       </selector>
-      <selector name="parent" return="Array&lt;Element>">
+      <selector name="parent" return="Array&lt;Element(s)>">
         <sample>:parent</sample>
         <desc>匹配含有子元素或者文本的元素</desc>
         <example>
@@ -916,7 +916,7 @@ jQuery("div &gt; p").hide();</result>
       </selector>
     </subcat>
     <subcat value="可见性">
-      <selector name="hidden" return="Array&lt;Element>">
+      <selector name="hidden" return="Array&lt;Element(s)>">
         <sample>:hidden</sample>
         <desc>匹配所有的不可见元素，input 元素的 type 属性为 "hidden" 的话也会被匹配到</desc>
         <example>
@@ -929,7 +929,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;tr style="display:none"&gt;&lt;td&gt;Value 1&lt;/td&gt;&lt;/tr&gt; ]</result>
         </example>
       </selector>
-      <selector name="visible" return="Array&lt;Element>">
+      <selector name="visible" return="Array&lt;Element(s)>">
         <sample>:visible</sample>
         <desc>匹配所有的可见元素</desc>
         <example>
@@ -944,7 +944,7 @@ jQuery("div &gt; p").hide();</result>
       </selector>
     </subcat>
     <subcat value="属性">
-      <selector name="attributeHas" return="Array&lt;Element>">
+      <selector name="attributeHas" return="Array&lt;Element(s)>">
         <sample>[attribute]</sample>
         <desc>匹配包含给定属性的元素。注意，在jQuery 1.3中，前导的@符号已经被废除！如果想要兼容最新版本，只需要简单去掉@符号即可。</desc>
         <params name="attribute" type="String">
@@ -960,7 +960,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;div id="test2"&gt;&lt;/div&gt; ]</result>
         </example>
       </selector>
-      <selector name="attributeEquals" return="Array&lt;Element>">
+      <selector name="attributeEquals" return="Array&lt;Element(s)>">
         <sample>[attribute=value]</sample>
         <desc>匹配给定的属性是某个特定值的元素</desc>
         <params name="attribute" type="String">
@@ -978,7 +978,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;input type="checkbox" name="newsletter" value="Hot Fuzz" checked="true" /&gt;, &lt;input type="checkbox" name="newsletter" value="Cold Fusion" checked="true" /&gt; ]</result>
         </example>
       </selector>
-      <selector name="attributeNotEqual" return="Array&lt;Element>">
+      <selector name="attributeNotEqual" return="Array&lt;Element(s)>">
         <sample>[attribute!=value]</sample>
         <desc>匹配所有不含有指定的属性，或者属性不等于特定值的元素。</desc>
         <longdesc>此选择器等价于:not([attr=value])&lt;br&gt;要匹配含有特定属性但不等于特定值的元素，请使用[attr]:not([attr=value])</longdesc>
@@ -997,7 +997,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;input type="checkbox" name="accept" value="Evil Plans" checked="true" /&gt; ]</result>
         </example>
       </selector>
-      <selector name="attributeStartsWith" return="Array&lt;Element>">
+      <selector name="attributeStartsWith" return="Array&lt;Element(s)>">
         <sample>[attribute^=value]</sample>
         <desc>匹配给定的属性是以某些值开始的元素</desc>
         <params name="attribute" type="String">
@@ -1015,7 +1015,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;input name="newsletter" /&gt;, &lt;input name="newsboy" /&gt; ]</result>
         </example>
       </selector>
-      <selector name="attributeEndsWith" return="Array&lt;Element>">
+      <selector name="attributeEndsWith" return="Array&lt;Element(s)>">
         <sample>[attribute$=value]</sample>
         <desc>匹配给定的属性是以某些值结尾的元素</desc>
         <params name="attribute" type="String">
@@ -1033,7 +1033,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;input name="newsletter" /&gt;, &lt;input name="jobletter" /&gt; ]</result>
         </example>
       </selector>
-      <selector name="attributeContains" return="Array&lt;Element>">
+      <selector name="attributeContains" return="Array&lt;Element(s)>">
         <sample>[attribute*=value]</sample>
         <desc>匹配给定的属性是以包含某些值的元素</desc>
         <params name="attribute" type="String">
@@ -1052,7 +1052,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;input name="man-news" /&gt;, &lt;input name="milkman" /&gt;, &lt;input name="letterman2" /&gt; ]</result>
         </example>
       </selector>
-      <selector name="attributeMultiple" return="Array&lt;Element>">
+      <selector name="attributeMultiple" return="Array&lt;Element(s)>">
         <sample>[selector1][selector2][selectorN]</sample>
         <desc>复合属性选择器，需要同时满足多个条件时使用。</desc>
         <params name="selector1" type="Selector">
@@ -1076,7 +1076,7 @@ jQuery("div &gt; p").hide();</result>
       </selector>
     </subcat>
     <subcat value="子元素">
-      <selector name="nthChild" return="Array&lt;Element>">
+      <selector name="nthChild" return="Array&lt;Element(s)>">
         <sample>:nth-child</sample>
         <desc>匹配其父元素下的第N个子或奇偶元素</desc>
         <longdesc>':eq(index)' 只匹配一个元素，而这个将为每一个父元素匹配子元素。:nth-child从1开始的，而:eq()是从0算起的！可以使用:&lt;br&gt;nth-child(even)&lt;br&gt;:nth-child(odd)&lt;br&gt;:nth-child(3n)&lt;br&gt;:nth-child(2)&lt;br&gt;:nth-child(3n+1)&lt;br&gt;:nth-child(3n+2)</longdesc>
@@ -1099,7 +1099,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;li&gt;Karl&lt;/li&gt;,   &lt;li&gt;Tane&lt;/li&gt; ]</result>
         </example>
       </selector>
-      <selector name="firstChild" return="Array&lt;Element>">
+      <selector name="firstChild" return="Array&lt;Element(s)>">
         <sample>:first-child</sample>
         <desc>匹配第一个子元素</desc>
         <longdesc>':first' 只匹配一个元素，而此选择符将为每个父元素匹配一个子元素</longdesc>
@@ -1119,7 +1119,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;li&gt;John&lt;/li&gt;, &lt;li&gt;Glen&lt;/li&gt; ]</result>
         </example>
       </selector>
-      <selector name="lastChild" return="Array&lt;Element>">
+      <selector name="lastChild" return="Array&lt;Element(s)>">
         <sample>:last-child</sample>
         <desc>匹配最后一个子元素</desc>
         <longdesc>':last'只匹配一个元素，而此选择符将为每个父元素匹配一个子元素</longdesc>
@@ -1139,7 +1139,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;li&gt;Brandon&lt;/li&gt;, &lt;li&gt;Ralph&lt;/li&gt; ]</result>
         </example>
       </selector>
-      <selector name="onlyChild" return="Array&lt;Element>">
+      <selector name="onlyChild" return="Array&lt;Element(s)>">
         <sample>:only-child</sample>
         <desc>如果某个元素是父元素中唯一的子元素，那将会被匹配</desc>
         <longdesc>如果父元素中含有其他元素，那将不会被匹配。</longdesc>
@@ -1159,7 +1159,7 @@ jQuery("div &gt; p").hide();</result>
       </selector>
     </subcat>
     <subcat value="表单">
-      <selector name="input" return="Array&lt;Element>">
+      <selector name="input" return="Array&lt;Element(s)>">
         <sample>:input</sample>
         <desc>匹配所有 input, textarea, select 和 button 元素</desc>
         <example>
@@ -1182,7 +1182,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;input type="text" /&gt;, &lt;input type="checkbox" /&gt;, &lt;input type="radio" /&gt;, &lt;input type="image" /&gt;, &lt;input type="file" /&gt;, &lt;input type="submit" /&gt;, &lt;input type="reset" /&gt;, &lt;input type="password" /&gt;, &lt;input type="button" /&gt; ]</result>
         </example>
       </selector>
-      <selector name="text" return="Array&lt;Element>">
+      <selector name="text" return="Array&lt;Element(s)>">
         <sample>:text</sample>
         <desc>匹配所有的单行文本框</desc>
         <example>
@@ -1205,7 +1205,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;input type="text" /&gt; ]</result>
         </example>
       </selector>
-      <selector name="password" return="Array&lt;Element>">
+      <selector name="password" return="Array&lt;Element(s)>">
         <sample>:password</sample>
         <desc>匹配所有密码框</desc>
         <example>
@@ -1228,7 +1228,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;input type="password" /&gt; ]</result>
         </example>
       </selector>
-      <selector name="radio" return="Array&lt;Element>">
+      <selector name="radio" return="Array&lt;Element(s)>">
         <sample>:radio</sample>
         <desc>匹配所有单选按钮</desc>
         <example>
@@ -1251,7 +1251,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;input type="radio" /&gt; ]</result>
         </example>
       </selector>
-      <selector name="checkbox" return="Array&lt;Element>">
+      <selector name="checkbox" return="Array&lt;Element(s)>">
         <sample>:checkbox</sample>
         <desc>匹配所有复选框</desc>
         <example>
@@ -1274,7 +1274,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;input type="checkbox" /&gt; ]</result>
         </example>
       </selector>
-      <selector name="submit" return="Array&lt;Element>">
+      <selector name="submit" return="Array&lt;Element(s)>">
         <sample>:submit</sample>
         <desc>匹配所有提交按钮</desc>
         <example>
@@ -1297,7 +1297,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;input type="submit" /&gt; ]</result>
         </example>
       </selector>
-      <selector name="image" return="Array&lt;Element>">
+      <selector name="image" return="Array&lt;Element(s)>">
         <sample>:image</sample>
         <desc>匹配所有图像域</desc>
         <example>
@@ -1320,7 +1320,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;input type="image" /&gt; ]</result>
         </example>
       </selector>
-      <selector name="reset" return="Array&lt;Element>">
+      <selector name="reset" return="Array&lt;Element(s)>">
         <sample>:reset</sample>
         <desc>匹配所有重置按钮</desc>
         <example>
@@ -1343,7 +1343,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;input type="reset" /&gt; ]</result>
         </example>
       </selector>
-      <selector name="button" return="Array&lt;Element>">
+      <selector name="button" return="Array&lt;Element(s)>">
         <sample>:button</sample>
         <desc>匹配所有按钮</desc>
         <example>
@@ -1366,7 +1366,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;input type="button" /&gt;,&lt;button&gt;&lt;/button&gt; ]</result>
         </example>
       </selector>
-      <selector name="file" return="Array&lt;Element>">
+      <selector name="file" return="Array&lt;Element(s)>">
         <sample>:file</sample>
         <desc>匹配所有文件域</desc>
         <example>
@@ -1389,7 +1389,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;input type="file" /&gt; ]</result>
         </example>
       </selector>
-      <selector name="hidden" return="Array&lt;Element>">
+      <selector name="hidden" return="Array&lt;Element(s)>">
         <sample>:hidden</sample>
         <desc>匹配所有不可见元素，或者type为hidden的元素</desc>
         <example>
@@ -1413,7 +1413,7 @@ jQuery("div &gt; p").hide();</result>
       </selector>
     </subcat>
     <subcat value="表单对象属性">
-      <selector name="enabled" return="Array&lt;Element>">
+      <selector name="enabled" return="Array&lt;Element(s)>">
         <sample>:enabled</sample>
         <desc>匹配所有可用元素</desc>
         <example>
@@ -1426,7 +1426,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;input name="id" /&gt; ]</result>
         </example>
       </selector>
-      <selector name="disabled" return="Array&lt;Element>">
+      <selector name="disabled" return="Array&lt;Element(s)>">
         <sample>:disabled</sample>
         <desc>匹配所有不可用元素</desc>
         <example>
@@ -1439,7 +1439,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;input name="email" disabled="disabled" /&gt; ]</result>
         </example>
       </selector>
-      <selector name="checked" return="Array&lt;Element>">
+      <selector name="checked" return="Array&lt;Element(s)>">
         <sample>:checked</sample>
         <desc>匹配所有选中的被选中元素(复选框、单选框等，不包括select中的option)</desc>
         <example>
@@ -1453,7 +1453,7 @@ jQuery("div &gt; p").hide();</result>
           <result>[ &lt;input type="checkbox" name="newsletter" checked="checked" value="Daily" /&gt;, &lt;input type="checkbox" name="newsletter" checked="checked" value="Monthly" /&gt; ]</result>
         </example>
       </selector>
-      <selector name="selected" return="Array&lt;Element>">
+      <selector name="selected" return="Array&lt;Element(s)>">
         <sample>:selected</sample>
         <desc>匹配所有选中的option元素</desc>
         <example>
@@ -4092,7 +4092,7 @@ jQuery 1.2 中，您可以跨域加载 JSON 数据，使用时需将数据类型
 $.ajax({ data: myData });</code>
         </example>
       </function>
-      <function name="serialize" return="jQuery">
+      <function name="serialize" return="String">
         <desc>序列表表格内容为字符串。</desc>
         <example>
           <desc>序列表表格内容为字符串，用于 Ajax 请求。</desc>
@@ -4115,7 +4115,7 @@ $.ajax({ data: myData });</code>
           <code>$("#results").append( "&lt;tt&gt;" + $("form").serialize() + "&lt;/tt&gt;" );</code>
         </example>
       </function>
-      <function name="serializeArray" return="jQuery">
+      <function name="serializeArray" return="Array&lt;Object>">
         <desc>序列化表格元素 (类似 '.serialize()' 方法) 返回 JSON 数据结构数据。</desc>
         <example>
           <desc>取得表单内容并插入到网页中。</desc>
@@ -4145,7 +4145,7 @@ jQuery.each( fields, function(i, field){
   </cat>
   <cat value="工具">
     <subcat value="浏览器">
-      <property name="jQuery.support" return="Boolean">
+      <property name="jQuery.support" return="Object">
         <desc>jQuery 1.3 新增。一组用于展示不同浏览器各自特性和bug的属性集合。</desc>
         <longdesc>jQuery提供了一系列属性，你也可以自由增加你自己的属性。其中许多属性是很低级的，所以很难说他们能否在日新月异的发展中一直保持有效，但这这些主要用于插件和内核开发者。
 
@@ -4349,8 +4349,8 @@ First</result>
           <result>[0, 1, 1, 2, 2, 3]</result>
         </example>
       </function>
-      <function name="jQuery.inArray" return="jQuery">
-        <desc>确定第一个参数在数组中的位置(如果没有找到则返回 -1 )。</desc>
+      <function name="jQuery.inArray" return="Number">
+        <desc>确定第一个参数在数组中的位置，从0开始计数(如果没有找到则返回 -1 )。</desc>
         <params name="value" type="Any">
           <desc>用于在数组中查找是否存在</desc>
         </params>
@@ -4358,15 +4358,30 @@ First</result>
           <desc>待处理数组。</desc>
         </params>
         <example>
-          <desc>删除重复 div 标签。</desc>
+          <desc>查看对应元素的位置</desc>
           <code>var arr = [ 4, "Pete", 8, "John" ];
 jQuery.inArray("John", arr);  //3
 jQuery.inArray(4, arr);  //0
 jQuery.inArray("David", arr);  //-1</code>
         </example>
       </function>
-      <function name="jQuery.unique" return="jQuery">
-        <desc>删除数组中重复元素。</desc>
+      <function name="jQuery.merge" return="Array">
+        <desc>合并两个数组</desc>
+        <longdesc>返回的结果会修改第一个数组的内容——第一个数组的元素后面跟着第二个数组的元素。要去除重复项，请使用$.unique()</longdesc>
+        <params name="first" type="Array">
+          <desc>第一个待处理数组，会改变其中的元素。</desc>
+        </params>
+        <params name="second" type="Array">
+          <desc>第二个待处理数组，不会改变其中的元素。</desc>
+        </params>
+        <example>
+          <desc>合并两个数组到第一个数组上。</desc>
+          <code>$.merge( [0,1,2], [2,3,4] )</code>
+          <result>[0,1,2,2,3,4]</result>
+        </example>
+      </function>
+      <function name="jQuery.unique" return="Array">
+        <desc>删除数组中重复元素。只处理删除DOM元素数组，而不能处理字符串或者数字数组。</desc>
         <params name="array" type="Array">
           <desc>待处理数组。</desc>
         </params>
@@ -4414,7 +4429,7 @@ var objs = [
       </function>
     </subcat>
     <subcat value="字符串操作">
-      <function name="jQuery.trim" return="jQuery">
+      <function name="jQuery.trim" return="String">
         <desc>去掉字符串起始和结尾的空格。</desc>
         <params name="str" type="String">
           <desc>需要处理的字符串</desc>
@@ -4423,6 +4438,22 @@ var objs = [
           <desc>去掉字符串起始和结尾的空格。</desc>
           <code>$.trim("  hello, how are you?  ");</code>
           <result>"hello, how are you?"</result>
+        </example>
+      </function>
+    </subcat>
+    <subcat value="URL">
+      <function name="jQuery.param" return="String">
+        <desc>将表单元素数组或者对象序列化。是.serialize()的核心方法。</desc>
+        <params name="obj" type="Array&lt;Elements>, jQuery, Object">
+          <desc>数组或jQuery对象会按照name/value对进行序列化，普通对象按照key/value对进行序列化。</desc>
+        </params>
+        <example>
+          <desc>按照key/value对序列化普通对象。</desc>
+          <code>
+    var params = { width:1680, height:1050 };
+    var str = jQuery.param(params);
+    $("#results").text(str);</code>
+          <result>width=1680&amp;height=1050</result>
         </example>
       </function>
     </subcat>
