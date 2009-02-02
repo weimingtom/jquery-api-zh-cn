@@ -1771,7 +1771,9 @@ $("input").val(["check2", "radio1"]);</code>
       </function>
       <function name="is" return="Boolean">
         <desc>用一个表达式来检查当前选择的元素集合，如果其中至少有一个元素符合这个给定的表达式就返回true。</desc>
-        <longdesc>如果没有元素符合，或者表达式无效，都返回'false'。 '''注意：'''在jQuery 1.3中对所有表达式提供了支持。先前版本中如果提供了复杂的表达式，比如层级选择器（比如 + , ~ 和 &gt; ）始终会返回true</longdesc>
+        <longdesc>如果没有元素符合，或者表达式无效，都返回'false'。
+
+'''注意：'''在jQuery 1.3中才对所有表达式提供了支持。在先前版本中，如果提供了复杂的表达式，比如层级选择器（比如 + , ~ 和 &gt; ），始终会返回true</longdesc>
         <params name="expr" type="String">
           <desc>用于筛选的表达式</desc>
         </params>
@@ -2587,8 +2589,8 @@ $("p:last").text( "innerWidth:" + p.innerWidth() );</code>
       <function name="outerHeight" return="Integer">
         <desc>获取第一个匹配元素外部高度（默认包括补白和边框）。</desc>
         <longdesc>此方法对可见和隐藏元素均有效。</longdesc>
-        <params name="options" type="Boolean">
-          <desc>(false) 设置为 true 时，计算边距在内。</desc>
+        <params name="options" type="Boolean" default="false">
+          <desc>设置为 true 时，计算边距在内。</desc>
         </params>
         <example>
           <desc>获取第一段落外部高度。</desc>
@@ -2601,8 +2603,8 @@ $("p:last").text( "outerHeight:" + p.outerHeight() + " , outerHeight(true):" + p
       <function name="outerWidth" return="Integer">
         <desc>获取第一个匹配元素外部宽度（默认包括补白和边框）。</desc>
         <longdesc>此方法对可见和隐藏元素均有效。</longdesc>
-        <params name="options" type="Boolean">
-          <desc>(false) 设置为 true 时，计算边距在内。</desc>
+        <params name="options" type="Boolean" default="false">
+          <desc>设置为 true 时，计算边距在内。</desc>
         </params>
         <example>
           <desc>获取第一段落外部宽度。</desc>
@@ -4178,7 +4180,7 @@ jQuery.each( fields, function(i, field){
         </example>
       </property>
       <property name="jQuery.browser" return="Map">
-        <desc>浏览器内核标识。依据 navigator.userAgent 判断。</desc>
+        <desc>在jQuery 1.3总不建议使用。浏览器内核标识。依据 navigator.userAgent 判断。</desc>
         <longdesc>可用值:  safari 
 
  opera 
@@ -4200,7 +4202,7 @@ jQuery.each( fields, function(i, field){
         </example>
       </property>
       <property name="jQuery.browser.version" return="String">
-        <desc>浏览器渲染引擎版本号。</desc>
+        <desc>在jQuery 1.3总不建议使用。浏览器渲染引擎版本号。</desc>
         <longdesc>典型结果:  Internet Explorer: 6.0, 7.0 
 
  Mozilla/Firefox/Flock/Camino: 1.7.12, 1.8.1.3 
@@ -4215,7 +4217,7 @@ jQuery.each( fields, function(i, field){
         </example>
       </property>
       <property name="jQuery.boxModel" return="Boolean">
-        <desc>当前页面中浏览器是否使用标准盒模型渲染页面。 建议使用 jQuery.support.boxModel 代替。W3C CSS 盒模型.</desc>
+        <desc>在jQuery 1.3总不建议使用。当前页面中浏览器是否使用标准盒模型渲染页面。 建议使用 jQuery.support.boxModel 代替。W3C CSS 盒模型.</desc>
         <example>
           <desc>在 Internet Explorer 怪癖模式（QuirksMode）中返回 False。</desc>
           <code>$.boxModel</code>
@@ -4406,6 +4408,7 @@ jQuery.inArray("David", arr);  //-1</code>
       </function>
       <function name="jQuery.isFunction" return="Boolean">
         <desc>测试对象是否为函数。</desc>
+        <longdesc>'''注意：'''jQuery 1.3以后，在IE浏览器里，浏览器提供的函数比如'alert'还有 DOM 元素的方法比如 'getAttribute' 将不认为是函数</longdesc>
         <params name="obj" type="Object">
           <desc>用于测试是否为函数的对象</desc>
         </params>
