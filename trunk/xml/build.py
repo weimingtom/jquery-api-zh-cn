@@ -80,4 +80,28 @@ print("正在生成chm文件")
 
 if os.path.exists(hhc):
 	os.spawnl(os.P_WAIT,hhc,"hhc",os.path.join(targetdir,"jqapichm.hhp"))
+
+if os.path.exists("dist"):
+	print("正在删除现有的dist")
+	shutil.rmtree("dist")
+try:
+	os.mkdir("dist")
+	os.mkdir("dist\\chm")
+	os.mkdir("dist\\xml")
+	os.mkdir("dist\\xml\\style")
+	os.mkdir("dist\\xml\\js")
+	print("dist创建完成")
+except:
+	print("创建dist发生异常")
+
+shutil.copyfile('build\jqapichm.chm', 'dist\chm\jqapichm.chm')
+print("jqapichm.chm复制完成")
+
+shutil.copyfile('jqueryapi.xml', r'dist\xml\jqueryapi.xml')
+shutil.copyfile(r'js\jquery-1.2.6.pack.js', r'dist\xml\js\jquery-1.2.6.pack.js')
+shutil.copyfile(r'js\jquery-doc.js', r'dist\xml\js\jquery-doc.js')
+shutil.copyfile(r'style\style.css', r'dist\xml\style\style.css')
+shutil.copyfile(r'style\stylecn.xsl', r'dist\xml\style\stylecn.xsl')
+
+
 os.system("pause")
