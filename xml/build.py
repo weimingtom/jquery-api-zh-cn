@@ -95,13 +95,16 @@ except:
 	print("创建dist发生异常")
 
 shutil.copyfile('build\jqapichm.chm', 'dist\chm\jqapichm.chm')
-print("jqapichm.chm复制完成")
+print("chm发布完成")
 
 shutil.copyfile('jqueryapi.xml', r'dist\xml\jqueryapi.xml')
 shutil.copyfile(r'js\jquery-1.2.6.pack.js', r'dist\xml\js\jquery-1.2.6.pack.js')
 shutil.copyfile(r'js\jquery-doc.js', r'dist\xml\js\jquery-doc.js')
 shutil.copyfile(r'style\style.css', r'dist\xml\style\style.css')
 shutil.copyfile(r'style\stylecn.xsl', r'dist\xml\style\stylecn.xsl')
+print("xml发布完成")
+
+print("你可以在dist文件夹下找到对应的发布版本。")
 
 
 os.system("pause")
