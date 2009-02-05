@@ -16,11 +16,6 @@ document.writeln("	<a href=\"http:\/\/dl.getdropbox.com/u/81097/jQueryAPI_CHM.CH
 	
 function updataTime(){
 	
-document.writeln("2008-07-30 23:49:35 +0800");
-document.writeln("* nextAll翻译细微优化");
-document.writeln("");
-document.writeln("2008-07-27 23:26:19 +0800");
-document.writeln("* :checked中翻译错误");
 document.writeln("* :selected细微调整");
 document.writeln("- :selected中重复示例代码");
 document.writeln("+ jQuery.ajax中增加dataFilter参数");
@@ -85,7 +80,7 @@ document.writeln("stop()				代码注释翻译");
 	}
 	
 function checkVersion(num){
-	var newNum = 800809;
+	var newNum = 900205;
 	var z=/^\d{6}$/;
 	if(z.test(num)){
 		if(num == newNum){
@@ -99,4 +94,4 @@ function checkVersion(num){
 		alert("请输入正确的版本号");
 	}
 }
-if(confirm("现在最新版本号是800809现在就下载?")){window.location.href="https://dl.getdropbox.com/u/81097/jQueryAPI_CHM.CHM"} 
+if(confirm("现在最新版本号是900205现在就下载?")){window.location.href="https://dl.getdropbox.com/u/81097/jQueryAPI_CHM.CHM"} 

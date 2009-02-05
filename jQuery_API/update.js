@@ -1,5 +1,5 @@
 function checkVersion(num){
-	var newNum = 800809;
+	var newNum = 900205;
 	var z=/^\d{6}$/;
 	if(z.test(num)){
 		if(num == newNum){
