@@ -1171,7 +1171,7 @@
 		</OBJECT>
 	<UL>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="ä¯ÀÀÆ÷">
+			<param name="Name" value="ä¯ÀÀÆ÷¼°ÌØÐÔ¼ì²â">
 			</OBJECT>
 		<UL>
 			<LI> <OBJECT type="text/sitemap">
@@ -1200,8 +1200,8 @@
 				<param name="Local" value="jQuery.each_object_callback.xml">
 				</OBJECT>
 			<LI> <OBJECT type="text/sitemap">
-				<param name="Name" value="jQuery.extend(target, object1, [objectN])">
-				<param name="Local" value="jQuery.extend_target_object1_objectN.xml">
+				<param name="Name" value="jQuery.extend([deep], target, object1, [objectN])">
+				<param name="Local" value="jQuery.extend_deep_target_object1_objectN.xml">
 				</OBJECT>
 			<LI> <OBJECT type="text/sitemap">
 				<param name="Name" value="jQuery.grep(array, callback, [invert])">

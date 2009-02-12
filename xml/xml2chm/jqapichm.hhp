@@ -180,7 +180,7 @@ jQuery.ajaxSetup_options.xml
 serialize.xml
 serializeArray.xml
 jQuery.each_object_callback.xml
-jQuery.extend_target_object1_objectN.xml
+jQuery.extend_deep_target_object1_objectN.xml
 jQuery.grep_array_callback_invert.xml
 jQuery.makeArray_obj.xml
 jQuery.map_array_callback.xml
