@@ -920,7 +920,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="extend(target, object1, [objectN])">
-		<param name="Local" value="jQuery.extend_target_object1_objectN.xml">
+		<param name="Local" value="jQuery.extend_deep_target_object1_objectN.xml">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="grep(array, callback, [invert])">
