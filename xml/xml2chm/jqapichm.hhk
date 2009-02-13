@@ -982,5 +982,9 @@
 		<param name="Name" value="ËÙ²é±í">
 		<param name="Local" value="cheatsheet.html">
 		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="changelog">
+		<param name="Local" value="changelog.txt">
+		</OBJECT>
 </UL>
 </BODY></HTML>

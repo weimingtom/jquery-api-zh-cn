@@ -35,6 +35,8 @@ shutil.copyfile('style\style.css', targetdir+"\style\style.css")
 print(targetdir+"\style\style.css"+"复制完成")
 shutil.copyfile('style\style.xsl', targetdir+"\style\style.xsl")
 print(targetdir+"\style\style.xsl"+"复制完成")
+shutil.copyfile('changelog.txt', targetdir+"\changelog.txt")
+print(targetdir+"\changelog.txt"+"复制完成")
 
 paths = os.listdir( 'xml2chm' )
 for path in paths:
