@@ -1280,6 +1280,10 @@
 			<param name="Name" value="提交bug及获取更新">
 			<param name="Local" value="bugAndUpdate.xml">
 			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="changelog">
+			<param name="Local" value="changelog.txt">
+			</OBJECT>
 	</UL>
 </UL>
 </BODY></HTML>

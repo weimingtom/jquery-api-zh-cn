@@ -1,4 +1,4 @@
-var newVer="090129";
+var newVer="090214";
 if (parseInt(curVer,10)<parseInt(newVer,10)) {
 	if (confirm("当前版本 "+curVer+"\n发现新版 "+newVer+"\n\n是否下载？")) {
 		window.location.href="http://code.google.com/p/jquery-api-zh-cn/downloads/list";
