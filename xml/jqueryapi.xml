@@ -2833,7 +2833,7 @@ $("p").unbind("click", foo); // ... 再也不会被触发 foo</code>
 
 .live()与流行的liveQuery插件很像，但有以下几个主要区别：&lt;ul&gt;&lt;li&gt;.live 目前只支持所有事件的子集，支持列表参考上面的说明。&lt;/li&gt;&lt;li&gt;.live 不支持liveQuery提供的“无事件”样式的回调函数。.live只能绑定事件处理函数。&lt;/li&gt;&lt;li&gt;.live 没有"setup"和"cleanup"的过程。因为所有的事件是委派而不是直接绑定在元素上的。&lt;/li&gt;&lt;/ul&gt;要移除用live绑定的事件，请用die方法</longdesc>
         <params name="type" type="String">
-          <desc>一个或多个用空格分隔的事件名</desc>
+          <desc>事件类型</desc>
         </params>
         <params name="fn" type="Function">
           <desc>欲绑定的事件处理函数</desc>
@@ -3019,8 +3019,8 @@ $("p").unbind("click", foo); // ... 再也不会被触发 foo</code>
         </example>
       </function>
       <function name="error" return="jQuery">
-        <desc>这个函数会调用执行绑定到error事件的所有函数，包括浏览器的默认行为。可以通过在某个绑定的函数中返回false来防止触发浏览器的默认行为。</desc>
-        <longdesc>This causes all of the functions that have been bound to that error event to be executed, and calls the browser's default error action on the matching element(s). This default action can be prevented by returning false from one of the functions bound to the error event. The error event usually fires when an element loses focus either via the pointing device or by tabbing navigation.</longdesc>
+        <desc>触发每一个匹配元素的error事件。</desc>
+        <longdesc>这个函数会调用所有绑定到error事件上的函数，包括在对应元素上的浏览器默认行为。可以通过在某个绑定的函数中返回false来防止触发浏览器的默认行为。error事件通常可以在元素由于点击或者tab导航失去焦点时触发。</longdesc>
       </function>
       <function name="error" return="jQuery">
         <desc>在每一个匹配元素的error事件中绑定一个处理函数。</desc>
