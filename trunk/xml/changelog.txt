@@ -1,3 +1,6 @@
+2009-02-21 17:17:04 +0800
+* jQuery.support.scriptEval: 脚步->脚本 (感谢zzguo28)
+
 2009-02-16 23:41:07 +0800
 * live的type参数说明
 * error的说明
