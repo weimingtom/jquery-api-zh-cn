@@ -96,10 +96,12 @@ try:
 except:
 	print("创建dist发生异常")
 
-shutil.copyfile('build\jqapichm.chm', 'dist\chm\jqapichm.chm')
+shutil.copyfile(r'build\jqapichm.chm', r'dist\chm\jqapichm.chm')
+shutil.copyfile(r'xml2chm\fixxml.reg', r'dist\chm\fixxml.reg')
+shutil.copyfile(r'xml2chm\readme.txt', r'dist\chm\readme.txt')
 print("chm发布完成")
 
-shutil.copyfile('jqueryapi.xml', r'dist\xml\jqueryapi.xml')
+shutil.copyfile(r'jqueryapi.xml', r'dist\xml\jqueryapi.xml')
 shutil.copyfile(r'js\jquery-1.2.6.pack.js', r'dist\xml\js\jquery-1.2.6.pack.js')
 shutil.copyfile(r'js\jquery-doc.js', r'dist\xml\js\jquery-doc.js')
 shutil.copyfile(r'style\style.css', r'dist\xml\style\style.css')
