@@ -8,9 +8,9 @@
         <desc>这个函数接收一个包含 CSS 选择器的字符串，然后用这个字符串去匹配一组元素。</desc>
         <longdesc>jQuery 的核心功能都是通过这个函数实现的。 jQuery中的一切都基于这个函数，或者说都是在以某种方式使用这个函数。这个函数最基本的用法就是向它传递一个表达式（通常由 CSS 选择器组成），然后根据这个表达式来查找所有匹配的元素。
 
-默认情况下, 如果没有指定context参数，$()将在当前的 HTML 文档中查找 DOM 元素；如果指定了 context 参数，如一个 DOM 元素集或 jQuery 对象，那就会在这个 context 中查找。
+默认情况下, 如果没有指定context参数，$()将在当前的 HTML document中查找 DOM 元素；如果指定了 context 参数，如一个 DOM 元素集或 jQuery 对象，那就会在这个 context 中查找。在jQuery 1.3.2以后，其返回的元素顺序等同于在context中出现的先后顺序。
 
-参考 Selectors 获取更多用于 expression 参数的 CSS 语法的信息。</longdesc>
+参考文档中 选择器 部分获取更多用于 expression 参数的 CSS 语法的信息。</longdesc>
         <params name="expression" type="String">
           <desc>用来查找的字符串</desc>
         </params>
@@ -2111,16 +2111,32 @@ closest对于处理事件委派非常有用。</longdesc>
         </example>
       </function>
       <function name="appendTo" return="jQuery">
-        <desc>把所有匹配的元素追加到另一个、指定的元素元素集合中。</desc>
-        <longdesc>实际上，使用这个方法是颠倒了常规的$(A).append(B)的操作，即不是把B追加到A中，而是把A追加到B中。</longdesc>
+        <desc>把所有匹配的元素追加到另一个指定的元素元素集合中。</desc>
+        <longdesc>实际上，使用这个方法是颠倒了常规的$(A).append(B)的操作，即不是把B追加到A中，而是把A追加到B中。
+		
+		在jQuery 1.3.2中，appendTo, prependTo, insertBefore, insertAfter, 和 replaceAll这个几个方法成为一个破坏性操作，返回值是所有被追加的内容，而不仅仅是先前所选中的元素。所以，要选择先前选中的元素，需要使用end()方法，参见例二。</longdesc>
         <params name="content" type="String">
           <desc>用于被追加的内容</desc>
         </params>
         <example>
           <desc>把所有段落追加到ID值为foo的元素中。</desc>
-          <html>&lt;p&gt;I would like to say: &lt;/p&gt;&lt;div id="foo"&gt;&lt;/div&gt;</html>
-          <code>$("p").appendTo("#foo");</code>
-          <result>&lt;div id="foo"&gt;&lt;p&gt;I would like to say: &lt;/p&gt;&lt;/div&gt;</result>
+          <html>&lt;p&gt;I would like to say: &lt;/p&gt;
+&lt;div&gt;&lt;/div&gt;&lt;div&gt;&lt;/div&gt;</html>
+          <code>$("p").appendTo("div");</code>
+          <result>&lt;div&gt;&lt;p&gt;I would like to say: &lt;/p&gt;&lt;/div&gt;
+&lt;div&gt;&lt;p&gt;I would like to say: &lt;/p&gt;&lt;/div&gt;</result>
+        </example>
+        <example>
+          <desc>新建段落追加div中并加上一个class</desc>
+          <html>&lt;div&gt;&lt;/div&gt;&lt;div&gt;&lt;/div&gt;</html>
+          <code> $("&lt;p/&gt;")
+   .appendTo("div")
+   .addClass("test")
+   .end()
+   .addClass("test2");</code>
+          <result>&lt;div&gt;&lt;p class="test test2"&gt;&lt;/p&gt;&lt;/div&gt;<br />
+&lt;div&gt;&lt;p class="test"&gt;&lt;/p&gt;&lt;/div&gt;<br />
+</result>
         </example>
       </function>
       <function name="prepend" return="jQuery">
@@ -2156,7 +2172,9 @@ closest对于处理事件委派非常有用。</longdesc>
       </function>
       <function name="prependTo" return="jQuery">
         <desc>把所有匹配的元素前置到另一个、指定的元素元素集合中。</desc>
-        <longdesc>实际上，使用这个方法是颠倒了常规的$(A).prepend(B)的操作，即不是把B前置到A中，而是把A前置到B中。</longdesc>
+        <longdesc>实际上，使用这个方法是颠倒了常规的$(A).prepend(B)的操作，即不是把B前置到A中，而是把A前置到B中。
+
+		在jQuery 1.3.2中，appendTo, prependTo, insertBefore, insertAfter, 和 replaceAll这个几个方法成为一个破坏性操作，要选择先前选中的元素，需要使用end()方法，参见 appendTo 方法的例二。</longdesc>
         <params name="content" type="String">
           <desc>用于匹配元素的jQuery表达式</desc>
         </params>
@@ -2219,7 +2237,9 @@ closest对于处理事件委派非常有用。</longdesc>
       </function>
       <function name="insertAfter" return="jQuery">
         <desc>把所有匹配的元素插入到另一个、指定的元素元素集合的后面。</desc>
-        <longdesc>实际上，使用这个方法是颠倒了常规的$(A).after(B)的操作，即不是把B插入到A后面，而是把A插入到B后面。</longdesc>
+        <longdesc>实际上，使用这个方法是颠倒了常规的$(A).after(B)的操作，即不是把B插入到A后面，而是把A插入到B后面。
+
+		在jQuery 1.3.2中，appendTo, prependTo, insertBefore, insertAfter, 和 replaceAll这个几个方法成为一个破坏性操作，要选择先前选中的元素，需要使用end()方法，参见 appendTo 方法的例二。</longdesc>
         <params name="content" type="String">
           <desc>用于匹配元素的jQuery表达式</desc>
         </params>
@@ -2232,7 +2252,9 @@ closest对于处理事件委派非常有用。</longdesc>
       </function>
       <function name="insertBefore" return="jQuery">
         <desc>把所有匹配的元素插入到另一个、指定的元素元素集合的前面。</desc>
-        <longdesc>实际上，使用这个方法是颠倒了常规的$(A).before(B)的操作，即不是把B插入到A前面，而是把A插入到B前面。</longdesc>
+        <longdesc>实际上，使用这个方法是颠倒了常规的$(A).before(B)的操作，即不是把B插入到A前面，而是把A插入到B前面。
+
+		在jQuery 1.3.2中，appendTo, prependTo, insertBefore, insertAfter, 和 replaceAll这个几个方法成为一个破坏性操作，要选择先前选中的元素，需要使用end()方法，参见 appendTo 方法的例二。</longdesc>
         <params name="content" type="String">
           <desc>用于匹配元素的jQuery表达式</desc>
         </params>
@@ -2337,6 +2359,7 @@ closest对于处理事件委派非常有用。</longdesc>
       </function>
       <function name="replaceAll" return="jQuery">
         <desc>用匹配的元素替换掉所有 selector匹配到的元素。</desc>
+		<longdesc>在jQuery 1.3.2中，appendTo, prependTo, insertBefore, insertAfter, 和 replaceAll这个几个方法成为一个破坏性操作，要选择先前选中的元素，需要使用end()方法，参见 appendTo 方法的例二。</longdesc>
         <params name="selector" type="选择器">
           <desc>用于查找所要被替换的元素</desc>
         </params>
@@ -2827,11 +2850,20 @@ $("p").unbind("click", foo); // ... 再也不会被触发 foo</code>
     <subcat value="事件委派">
       <function name="live" return="jQuery">
         <desc>jQuery 1.3中新增的方法。给所有当前以及将来会匹配的元素绑定一个事件处理函数（比如click事件）。也能绑定自定义事件。</desc>
-        <longdesc>目前支持 click, dblclick, mousedown, mouseup, mousemove, mouseover, mouseout, keydown, keypress, keyup。 &lt;br&gt;还不支持 blur, focus, mouseenter, mouseleave, change, submit &lt;br&gt;与bind()不同的是，live()一次只能绑定一个事件。
+        <longdesc>'''目前支持''' click, dblclick, mousedown, mouseup, mousemove, mouseover, mouseout, keydown, keypress, keyup。 
 
-这个方法跟传统的bind很像，区别在于用live来绑定事件会给所有当前以及将来在页面上的元素绑定事件(使用委派的方式)。比如说，如果你给页面上所有的li用live绑定了click事件。那么当在以后增加一个li到这个页面时，对于这个新增加的li，其click事件依然可用。而无需重新给这种新增加的元素绑定事件。
+'''还不支持''' blur, focus, mouseenter, mouseleave, change, submit 
 
-.live()与流行的liveQuery插件很像，但有以下几个主要区别：&lt;ul&gt;&lt;li&gt;.live 目前只支持所有事件的子集，支持列表参考上面的说明。&lt;/li&gt;&lt;li&gt;.live 不支持liveQuery提供的“无事件”样式的回调函数。.live只能绑定事件处理函数。&lt;/li&gt;&lt;li&gt;.live 没有"setup"和"cleanup"的过程。因为所有的事件是委派而不是直接绑定在元素上的。&lt;/li&gt;&lt;/ul&gt;要移除用live绑定的事件，请用die方法</longdesc>
+与bind()不同的是，live()一次只能绑定一个事件。
+
+这个方法跟传统的bind很像，但还是有一些重要区别：
+
+&lt;ul&gt;&lt;li&gt;用live来绑定事件会给所有当前以及将来在页面上的元素绑定事件(使用委派的方式)。比如说，如果你给页面上所有的li用live绑定了click事件。那么当在以后增加一个li到这个页面时，对于这个新增加的li，其click事件依然可用。而无需重新给这种新增加的元素绑定事件。&lt;/li&gt;&lt;li&gt;live 事件冒泡的行为与传统的方式不同，因此也不能完全支持stopPropagation 或 stopImmediatePropagation 阻止冒泡，但部分支持。如果内外元素都用live事件绑定，则可以通过return false来阻止冒泡。如果外部父元素是普通事件，而内部子元素是live事件，则无法通过return false来阻止冒泡。详见例二。&lt;/li&gt;&lt;li&gt;目前live事件只能支持使用选择器选择的元素。比如说，$("li a").live(...) 可以使用，但$("a", someElement).live(...) 或者 $("a").parent().live(...) 是无效的。&lt;/li&gt;&lt;/ul&gt;
+
+.live()与流行的liveQuery插件很像，但有以下几个主要区别：&lt;ul&gt;&lt;li&gt;.live 目前只支持所有事件的子集，支持列表参考上面的说明。&lt;/li&gt;&lt;li&gt;.live 不支持liveQuery提供的“无事件”样式的回调函数。.live只能绑定事件处理函数。&lt;/li&gt;&lt;li&gt;.live 没有"setup"和"cleanup"的过程。因为所有的事件是委派而不是直接绑定在元素上的。&lt;/li&gt;&lt;/ul&gt;
+
+要移除用live绑定的事件，请用die方法
+</longdesc>
         <params name="type" type="String">
           <desc>事件类型</desc>
         </params>
@@ -2844,6 +2876,23 @@ $("p").unbind("click", foo); // ... 再也不会被触发 foo</code>
           <code>$("p").live("click", function(){
     $(this).after("&lt;p&gt;Another paragraph!&lt;/p&gt;");
 });</code>
+        </example>
+        <example>
+          <desc>阻止事件冒泡</desc>
+          <html>&lt;ul&gt;
+    &lt;li&gt;&lt;b&gt;Google&lt;/b&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;b&gt;Yahoo&lt;/b&gt;&lt;/li&gt;
+&lt;/ul&gt;</html>
+          <code>$("li").live("click", function(){
+    $(this).addClass("active"); //live事件可以被阻止冒泡
+}).eq(0).bind("click", function(){
+    $(this).addClass("active"); //普通的click事件是无法阻止冒泡的
+});
+$("li b").live("click", function(){
+    $(this).addClass("active");
+    return false;  //阻止冒泡及阻止浏览器默认行为
+});
+</code>
         </example>
       </function>
       <function name="die" return="jQuery">
@@ -4497,7 +4546,7 @@ var objs = [
       <selector name="bugAndUpdate">
         <sample>提交bug及获取更新</sample>
         <longdesc><![CDATA[<p>如果大家使用过程中发现了什么翻译错误，可以找到项目地址 <br /><a href="http://code.google.com/p/jquery-api-zh-cn/issues/list">http://code.google.com/p/jquery-api-zh-cn/issues/list</a><br />来反馈。  </p><h3>版本信息： </h3><p> $Rev$ <br /> $Author$ <br /> $Date$</p><p>changelog: <a href="changelog.txt">changelog.txt</a></p><h3>检查更新： </h3><div id="update">
-						<button id="checkUpdate" onclick="window.curVer='090214';$('<script src=\'http://jquery-api-zh-cn.googlecode.com/svn/trunk/update.js?'+(+new Date)+'\' type=\'text/javascript\'></script>').appendTo('head');">检查更新</button>
+						<button id="checkUpdate" onclick="window.curVer='090221';$('<script src=\'http://jquery-api-zh-cn.googlecode.com/svn/trunk/update.js?'+(+new Date)+'\' type=\'text/javascript\'></script>').appendTo('head');">检查更新</button>
 					</div>
 ]]></longdesc>
       </selector>

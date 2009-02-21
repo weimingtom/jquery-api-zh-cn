@@ -1,5 +1,9 @@
 2009-02-21 17:17:04 +0800
 * jQuery.support.scriptEval: 脚步->脚本 (感谢zzguo28)
+* jQuery(expression, [context])  在jQuery 1.3.2以后，其返回的元素顺序等同于在context中出现的先后顺序。 
+* live方法说明和示例
+* appendTo 示例
+* prependTo, insertBefore, insertAfter, replaceAll 说明
 
 2009-02-16 23:41:07 +0800
 * live的type参数说明
