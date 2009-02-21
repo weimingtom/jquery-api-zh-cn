@@ -4179,7 +4179,7 @@ jQuery.each( fields, function(i, field){
 
 '''opacity''': 如果浏览器能适当解释透明度样式属性，则返回true，目前在IE中返回false，因为他用alpha滤镜代替。
 
-'''scriptEval''': 使用 appendChild/createTextNode 方法插入脚本代码时，浏览器是否执行脚步，目前在IE中返回false，IE使用 .text 方法插入脚本代码以执行。
+'''scriptEval''': 使用 appendChild/createTextNode 方法插入脚本代码时，浏览器是否执行脚本，目前在IE中返回false，IE使用 .text 方法插入脚本代码以执行。
 
 '''style''': 如果getAttribute("style")返回元素的行内样式，则为true。目前IE中为false，因为他用cssText代替。
 
