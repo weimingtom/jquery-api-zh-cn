@@ -410,14 +410,14 @@ BODY<br />
 					[ &lt;img src="test1.jpg"/&gt; ]
 				</div>
 			</div>
-			<div class="functionitem">index(subject)</div>
+			<div class="functionitem">index([subject])</div>
 			<div class="content">
 				<h1>index(subject)</h1>
-				<div class="desc"><div>搜索与参数表示的对象匹配的元素，并返回相应元素的索引值。</div> <div class="longdesc">如果找到了匹配的元素，从0开始返回；如果没有找到匹配的元素，返回-1。</div><hr /><div>Searches every matched element for the object and returns the index of the element, if found, starting with zero.</div> <div class="longdesc">Returns -1 if the object wasn't found.</div></div>
+				<div class="desc"><div>搜索与参数表示的对象匹配的元素，并返回相应元素的索引值。</div> <div class="longdesc">如果找到了匹配的元素，从0开始返回；如果没有找到匹配的元素，返回-1。未传递参数时，返回当前元素在同级元素中的索引值。</div><hr /><div>Searches every matched element for the object and returns the index of the element, if found, starting with zero.</div> <div class="longdesc">Returns -1 if the object wasn't found.</div></div>
 				<h2>返回值</h2>
 				<p class="indent">Number</p>
 				<h2>参数</h2>
-				<p class="indent"><strong>subject </strong>(Element) : 要搜索的对象</p>
+				<p class="indent"><strong>subject </strong>(Element, Selector) : 要搜索的对象</p>
 				<h2>示例</h2>
 				<p class="indent">
 					返回ID值为foobar的元素的索引值。 
@@ -2666,10 +2666,34 @@ jQuery("div &gt; p").hide();
 					[ &lt;p&gt;Hello&lt;/p&gt; ] 
 				</div>
 			</div>
+			<div class="functionitem">toggleClass()</div>
+			<div class="content">
+				<h1>toggleClass(class)</h1>
+				<div class="desc">删除或恢复全部CSS类名。</div><hr />
+				<div class="desc">Deletes or restores all class on the elements.</div>
+				<h2>返回值</h2>
+				<p class="indent">jQuery</p>
+				<h2>示例</h2>
+				<p class="indent">
+				  删除存在类名。
+				</p>
+				<p class="indent"><strong>HTML 代码:</strong></p>
+				<div class="code">
+					&lt;p&gt;Hello&lt;/p&gt;&lt;p class="selected"&gt;Hello Again&lt;/p&gt; 
+				</div>
+				<p class="indent"><strong>jQuery 代码:</strong></p>
+				<div class="code">
+					$("p").toggleClass(); 
+				</div>
+				<p class="indent"><strong>结果:</strong></p>
+				<div class="code">
+					[ &lt;p&gt;Hello&lt;/p&gt;, &lt;p&gt;Hello Again&lt;/p&gt; ] 
+				</div>
+			</div>
 			<div class="functionitem">toggleClass(class)</div>
 			<div class="content">
 				<h1>toggleClass(class)</h1>
-				<div class="desc">如果存在（不存在）就删除（添加）一个类。</div><hr />
+				<div class="desc">如果存在指定CSS类名，就删除该类名；反之则添加该类名。可用空格分隔多个类名。</div><hr />
 				<div class="desc">Adds the specified class if it is not present, removes the specified class if it is present.</div>
 				<h2>返回值</h2>
 				<p class="indent">jQuery</p>
@@ -2695,7 +2719,7 @@ jQuery("div &gt; p").hide();
 			<div class="functionitem">toggleClass( class, switch )</div>
 			<div class="content">
 				<h1>toggleClass( class, switch )</h1>
-				<div class="desc">如果开关switch参数为true则加上对应的class，否则就删除。</div><hr />
+				<div class="desc">如果开关 switch 参数为 true 则添加CSS类名，false 则删除。可用空格分隔多个类名。</div><hr />
 				<div class="desc">Adds the specified class if it is not present, removes the specified class if it is present.</div>
 				<h2>返回值</h2>
 				<p class="indent">jQuery</p>
@@ -3366,7 +3390,7 @@ $(document).bind("click", function (e) {<br />
 			<div class="functionitem">contents()</div>
 			<div class="content">
 				<h1>contents()</h1>
-				<div class="desc">查找匹配元素内部所有的子节点（包括文本节点）。如果元素是一个iframe，则查找文档内容</div>  <hr />
+				<div class="desc">查找匹配元素内部所有的子节点（包括文本节点）。如果元素是一个iframe，则返回iframe document对象。</div>  <hr />
 				<div class="desc">Find all the child nodes inside the matched elements (including text nodes), or the content document, if the element is an iframe.</div>  
 				<h2>返回值</h2>
 				<p class="indent">jQuery</p>
@@ -3388,7 +3412,7 @@ $(document).bind("click", function (e) {<br />
 				</div>
 				<hr />
 				<p class="indent">
-					往一个空框架中加些内容
+					向框架网页中添加内容
 				</p>
 				<p class="indent"><strong>HTML 代码:</strong></p>
 				<div class="code">
@@ -5039,10 +5063,10 @@ $("p").unbind("click", foo); // ... 再也不会被触发 foo <br/>
 		</div>
 		<div class="categoryitem">事件委派</div>
 		<div class="category">
-			<div class="functionitem">live( type, fn )</div>
+			<div class="functionitem">live( type, [config], fn )</div>
 			<div class="content">
-				<h1>live( type, fn )</h1>
-				<div class="desc"><div>jQuery 1.3中新增的方法。给所有当前以及将来会匹配的元素绑定一个事件处理函数（比如click事件）。也能绑定自定义事件。</div> <div class="longdesc"><p>目前支持 click, dblclick, mousedown, mouseup, mousemove, mouseover, mouseout, keydown, keypress, keyup。 <br />还不支持 blur, focus, mouseenter, mouseleave, change, submit <br />与bind()不同的是，live()一次只能绑定一个事件。</p><p>这个方法跟传统的bind很像，区别在于用live来绑定事件会给所有当前以及将来在页面上的元素绑定事件(使用委派的方式)。比如说，如果你给页面上所有的li用live绑定了click事件。那么当在以后增加一个li到这个页面时，对于这个新增加的li，其click事件依然可用。而无需重新给这种新增加的元素绑定事件。</p><p>.live()与流行的liveQuery插件很像，但有以下几个主要区别：</p><ul>
+				<h1>live( type, [config], fn )</h1>
+				<div class="desc"><div>jQuery 1.3中新增的方法。给所有当前以及将来会匹配的元素绑定一个事件处理函数（比如click事件）。也能绑定自定义事件。</div> <div class="longdesc"><p>目前支持 click, dblclick, mousedown, mouseup, mousemove, mouseover, mouseout, keydown, keypress, keyup。 <br />不支持 blur, focus, mouseenter, mouseleave, change, submit <br />与bind()不同的是，live()一次只能绑定一个事件。</p><p>这个方法跟传统的bind很像，区别在于用live来绑定事件会给所有当前以及将来在页面上的元素绑定事件(使用委派的方式)。比如说，如果你给页面上所有的li用live绑定了click事件。那么当在以后增加一个li到这个页面时，对于这个新增加的li，其click事件依然可用。而无需重新给这种新增加的元素绑定事件。</p><p>.live()与流行的liveQuery插件很像，但有以下几个主要区别：</p><ul>
 					<li>.live 目前只支持所有事件的子集，支持列表参考上面的说明。</li>
 					<li>.live 不支持liveQuery提供的“无事件”样式的回调函数。.live只能绑定事件处理函数。</li>
 					<li>.live 没有"setup"和"cleanup"的过程。因为所有的事件是委派而不是直接绑定在元素上的。</li>
@@ -5063,6 +5087,7 @@ To remove a live event you should use the die method.</div></div>
 				<p class="indent">jQuery</p>
 				<h2>参数</h2>
 				<p class="indent"><strong>type </strong>(String) : 一个或多个用空格分隔的事件名</p>
+				<p class="indent"><strong>config </strong>(Object) : 预设参数</p>
 				<p class="indent"><strong>fn </strong>(Function) : 欲绑定的事件处理函数</p>
 				<h2>示例</h2>
 				<p class="indent">
@@ -5112,10 +5137,10 @@ If the function that was passed to live is provided as the second argument, only
 		</div>
 		<div class="categoryitem">事件切换</div>
 		<div class="category">
-			<div class="functionitem">hover(over,out)</div>
+			<div class="functionitem">hover(over, [out])</div>
 			<div class="content">
-				<h1>hover(over,out)</h1>
-				<div class="desc"><div>一个模仿悬停事件（鼠标移动到一个对象上面及移出这个对象）的方法。这是一个自定义的方法，它为频繁使用的任务提供了一种“保持在其中”的状态。</div> <div class="longdesc">当鼠标移动到一个匹配的元素上面时，会触发指定的第一个函数。当鼠标移出这个元素时，会触发指定的第二个函数。而且，会伴随着对鼠标是否仍然处在特定元素中的检测（例如，处在div中的图像），如果是，则会继续保持“悬停”状态，而不触发移出事件（修正了使用mouseout事件的一个常见错误）。</div></div><hr />
+				<h1>hover(over, [out])</h1>
+				<div class="desc"><div>一个模仿悬停事件（鼠标移动到一个对象上面及移出这个对象）的方法。这是一个自定义的方法，它为频繁使用的任务提供了一种“保持在其中”的状态。</div> <div class="longdesc">当鼠标移动到一个匹配的元素上面时，会触发指定的第一个函数。当鼠标移出这个元素时，会触发指定的第二个函数。而且，会伴随着对鼠标是否仍然处在特定元素中的检测（例如，处在div中的图像），如果是，则会继续保持“悬停”状态，而不触发移出事件（修正了使用mouseout事件的一个常见错误）。仅传递一个函数作为参数时，移入和移出均触发该函数。</div></div><hr />
 				<div class="desc"><div>Simulates hovering (moving the mouse on, and off, an object). This is a custom method which provides an 'in' to a frequent task.</div> <div class="longdesc">Whenever the mouse cursor is moved over a matched element, the first specified function is fired. Whenever the mouse moves off of the element, the second specified function fires. Additionally, checks are in place to see if the mouse is still within the specified element itself (for example, an image inside of a div), and if it is, it will continue to 'hover', and not move out (a common error in using a mouseout event handler).</div></div>
 				<h2>返回值</h2>
 				<p class="indent">jQuery</p>
