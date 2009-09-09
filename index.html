@@ -2979,36 +2979,6 @@ $("p").eq(1)
 				</div>
 
 			</div>
-			<div class="functionitem">hasClass(class)</div>
-			<div class="content">
-				<h1>hasClass(class)</h1>
-				<div class="desc"><div>检查当前的元素是否含有某个特定的类，如果有，则返回true。</div> <div class="longdesc">这其实就是 is("." + class)。</div></div><hr />
-				<div class="desc"><div>Checks the current selection against a class and returns true, if at least one element of the selection has the given class.</div> <div class="longdesc">This is an alternative to is("." + class).</div></div>
-				<h2>返回值</h2>
-				<p class="indent">Boolean</p>
-				<h2>参数</h2>
-				<p class="indent"><strong>class </strong>(String) : 用于匹配的类名</p>
-				<h2>示例</h2>
-				<p class="indent">
-					给包含有某个类的元素进行一个动画。
-				</p>
-				<p class="indent"><strong>HTML 代码:</strong></p>
-				<div class="code">
-					&lt;div class="protected"&gt;&lt;/div&gt;&lt;div&gt;&lt;/div&gt; 
-				</div>
-				<p class="indent"><strong>jQuery 代码:</strong></p>
-				<div class="code">
-					$("div").click(function(){<br/>
-&nbsp; if ( $(this).hasClass("protected") )<br/>
-&nbsp;&nbsp;&nbsp; $(this)<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .animate({ left: -10 })<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .animate({ left: 10 })<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .animate({ left: -10 })<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .animate({ left: 10 })<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .animate({ left: 0 });<br/>
-});
-				</div>
-			</div>
 			<div class="functionitem">filter(expr)</div>
 			<div class="content">
 				<h1>filter(expr)</h1>
@@ -3077,6 +3047,54 @@ $("p").eq(1)
 				<p class="indent"><strong>结果:</strong></p>
 				<div class="code">
 					[ &lt;p&gt;How are you?&lt;/p&gt; ] 
+				</div>
+			</div>
+			<div class="functionitem">first()</div>
+			<div class="content">
+				<h1>first()</h1>
+				<div class="desc"><div>返回第一个元素。</div> <div class="longdesc">相当于 eq(0)。</div></div><hr />
+				<div class="desc"><div>Return the first element.</div> <div class="longdesc">This is an alternative to eq(0).</div></div>
+				<h2>返回值</h2>
+				<p class="indent">jQuery</p>
+				<h2>示例</h2>
+				<p class="indent">
+					返回第一个元素。
+				</p>
+				<p class="indent"><strong>HTML 代码:</strong></p>
+				<div class="code">
+					&lt;p&gt; This is just a test.&lt;/p&gt; &lt;p&gt; So is this&lt;/p&gt; 
+				</div>
+				<p class="indent"><strong>jQuery 代码:</strong></p>
+				<div class="code">
+$("p").first()
+				</div>
+				<p class="indent"><strong>结果:</strong></p>
+				<div class="code">
+					[ &lt;p&gt; This is just a test.&lt;/p&gt; ]
+				</div>
+			</div>
+			<div class="functionitem">last()</div>
+			<div class="content">
+				<h1>last()</h1>
+				<div class="desc"><div>返回最后一个元素。</div> <div class="longdesc">相当于 eq(-1)。</div></div><hr />
+				<div class="desc"><div>Return the last element.</div> <div class="longdesc">This is an alternative to eq(-1).</div></div>
+				<h2>返回值</h2>
+				<p class="indent">jQuery</p>
+				<h2>示例</h2>
+				<p class="indent">
+					返回第一个元素。
+				</p>
+				<p class="indent"><strong>HTML 代码:</strong></p>
+				<div class="code">
+					&lt;p&gt; This is just a test.&lt;/p&gt; &lt;p&gt; So is this&lt;/p&gt; 
+				</div>
+				<p class="indent"><strong>jQuery 代码:</strong></p>
+				<div class="code">
+$("p").last()
+				</div>
+				<p class="indent"><strong>结果:</strong></p>
+				<div class="code">
+					[ &lt;p&gt; So is this&lt;/p&gt; ]
 				</div>
 			</div>
 			<div class="functionitem">is(expr)</div>
@@ -3149,7 +3167,7 @@ $("p").eq(1)
 				<p class="indent"><strong>expr </strong>(String, DOMElement, Array&lt;DOMElement&gt;) : 一个表达式、一个元素或者一组元素</p>
 				<h2>示例</h2>
 				<p class="indent">
-					从p元素中删除带有 select 的ID的元素
+					从p元素中删除带有 select ID的元素
 				</p>
 				<p class="indent"><strong>HTML 代码:</strong></p>
 				<div class="code">
@@ -3167,12 +3185,12 @@ $("p").eq(1)
 			<div class="functionitem">slice(start,end)</div>
 			<div class="content">
 				<h1>slice(start,[end])</h1>
-				<div class="desc"><div>选取一个匹配的子集</div> <div class="longdesc">与原来的slice方法类似</div></div><hr />
+				<div class="desc"><div>选取一个匹配的子集</div> <div class="longdesc">与数组slice方法类似</div></div><hr />
 				<div class="desc"><div>Selects a subset of the matched elements.</div> <div class="longdesc">Behaves exactly like the built-in Array slice method.</div></div>
 				<h2>返回值</h2>
 				<p class="indent">jQuery</p>
 				<h2>参数</h2>
-				<p class="indent"><strong>start </strong>(Integer) :开始选取子集的位置。第一个元素是0.如果是负数，则可以从集合的尾部开始选起。</p>
+				<p class="indent"><strong>start </strong>(Integer) :开始选取子集的位置。第一个元素是0，如果是负数，则可以从集合的尾部开始选起。</p>
 				<p class="indent"><strong>end </strong>(Integer) : (可选) 结束选取自己的位置，如果不指定，则就是本身的结尾。</p>
 				<h2>示例</h2>
 				<p class="indent">
