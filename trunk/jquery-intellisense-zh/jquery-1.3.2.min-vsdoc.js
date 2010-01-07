@@ -12,6 +12,10 @@
 经本人整合、校对与增加新版帮助文档，供免费学习与个人使用，若有商业需求请联系作者。
 更深的蓝， QQ621394 E-mail:topskill@gmail.com
 
+2010-01-07:
+修正： 修改了一处导致语法提示无法工作的BUG。
+增加：同时发布 GBK 和 UTF-8 版本，供不同环境使用。
+
 2009-12-21:
 增加：insertAfter,insertBefore,prependTo,live,die 的翻译。
 增加：innerHeight, innerWidth, outerHeight and outerWidth 的翻译。
@@ -1029,7 +1033,7 @@ function now(){
 	return +new Date;
 }
 
-jQuery.extend = jQuery.fn.extend = function(target, prop1, propN) {
+jQuery.extend = jQuery.fn.extend = function(_target, _prop1, _propN) {
 	///	<summary>
 	///		用一个或多个其他对象来扩展一个对象，返回被扩展的对象。
 	///		用于简化继承。
@@ -1037,13 +1041,13 @@ jQuery.extend = jQuery.fn.extend = function(target, prop1, propN) {
 	///		var settings = jQuery.extend({}, defaults, options);
 	///		Part of JavaScript
 	///	</summary>
-	///	<param name="target" type="Object">
+	///	<param name="_target" type="Object">
 	///		 待修改对象。
 	///	</param>
-	///	<param name="prop1" type="Object">
+	///	<param name="_prop1" type="Object">
 	///		 待合并到第一个对象的对象。
 	///	</param>
-	///	<param name="propN" type="Object" optional="true" parameterArray="true">
+	///	<param name="_propN" type="Object" optional="true" parameterArray="true">
 	///		 (可选) 待合并到第一个对象的对象。
 	///	</param>
 	///	<returns type="Object" />
@@ -1204,8 +1208,8 @@ jQuery.extend({
 		///		意味着，每次执行传递进来的函数时，
 		///		函数中的this关键字都指向一个不同的DOM元素（每次都是一个不同的匹配元素）。
 		///		而且，在每次执行函数时，都会给函数传递一个表示作为执行环境的元素在匹配的元素集合中所处位置的数字值作为参数（从零开始的整形）。
-		///		返回 'false' 将停止循环 (就像在普通的循环中使用 'break')。
-		///		返回 'true' 跳至下一个循环(就像在普通的循环中使用'continue')。
+		///		返回 false 将停止循环 (就像在普通的循环中使用 break)。
+		///		返回 true 跳至下一个循环(就像在普通的循环中使用 continue)。
 		///		Part of JavaScript
 		///	</summary>
 		///	<param name="object" type="Object">
@@ -1866,12 +1870,12 @@ jQuery.browser = {
 // }, function(name, fn){
 // 	jQuery.fn[ name ] = function( selector ) {
 // 		///	<summary>
-		///		取得一个包含着所有匹配元素的唯一父元素的元素集合。
-		///		你可以使用可选的表达式来筛选。
-		///		Part of DOM/Traversing
+//		///		取得一个包含着所有匹配元素的唯一父元素的元素集合。
+//		///		你可以使用可选的表达式来筛选。
+//		///		Part of DOM/Traversing
 // 		///	</summary>
 // 		///	<param name="selector" type="String" optional="true">
-		///		 (可选)用来筛选的表达式
+//		///		 (可选)用来筛选的表达式
 // 		///	</param>
 // 		///	<returns type="jQuery" />
 //
