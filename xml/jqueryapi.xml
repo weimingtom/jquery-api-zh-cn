@@ -54,6 +54,38 @@ $("&lt;input type='checkbox'&gt;");</code>
         </example>
       </function>
       <function name="jQuery" return="jQuery">
+        <desc>根据提供的原始 HTML 标记字符串，动态创建由 jQuery 对象包装的 DOM 元素。同时设置一系列的属性、事件等。</desc>
+        <params name="html" type="String">
+          <desc>用于动态创建DOM元素的HTML标记字符串</desc>
+        </params>
+        <params name="props " type="Map">
+          <desc>用于附加到新创建元素上的属性、事件和方法</desc>
+        </params>
+        <example>
+          <desc>动态创建一个 div 元素（以及其中的所有内容），并将它追加到 body 元素中。在这个函数的内部，是通过临时创建一个元素，并将这个元素的 innerHTML 属性设置为给定的标记字符串，来实现标记到 DOM 元素转换的。所以，这个函数既有灵活性，也有局限性。</desc>
+          <code><![CDATA[$("<div>", {
+  "class": "test",
+  text: "Click me!",
+  click: function(){
+    $(this).toggleClass("test");
+  }
+}).appendTo("body");]]></code>
+        </example>
+        <example>
+          <desc>创建一个 &lt;input&gt; 元素，同时设定 type 属性、属性值，以及一些事件。</desc>
+          <code><![CDATA[$("<input>", {
+  type: "text",
+  val: "Test",
+  focusin: function() {
+    $(this).addClass("active");
+  },
+  focusout: function() {
+    $(this).removeClass("active");
+  }
+}).appendTo("form");]]></code>
+        </example>
+      </function>
+      <function name="jQuery" return="jQuery">
         <desc>将一个或多个DOM元素转化为jQuery对象。</desc>
         <longdesc>这个函数也可以接收XML文档和Window对象（虽然它们不是DOM元素）作为有效的参数。</longdesc>
         <params name="elements" type="Element, Array&lt;Element&gt;">
@@ -67,6 +99,10 @@ $("&lt;input type='checkbox'&gt;");</code>
           <desc>隐藏一个表单中所有元素。</desc>
           <code>$(myForm.elements).hide()</code>
         </example>
+      </function>
+      <function name="jQuery" return="jQuery">
+        <desc>返回一个空的jQuery对象。</desc>
+        <longdesc>jQuery 1.4中，如果不提供任何参数，则返回一个空jQuery对象。在先前版本中，这会返回一个包含document节点的对象。</longdesc>
       </function>
       <function name="jQuery" return="jQuery">
         <desc>$(document).ready()的简写。</desc>
@@ -221,17 +257,31 @@ BODY</result>
         </example>
       </function>
       <function name="index" return="Number">
-        <desc>搜索与参数表示的对象匹配的元素，并返回相应元素的索引值。</desc>
-        <longdesc>如果找到了匹配的元素，从0开始返回；如果没有找到匹配的元素，返回-1。</longdesc>
-        <params name="subject" type="Element">
+        <desc>搜索匹配的元素，并返回相应元素的索引值，从0开始计数。</desc>
+        <longdesc>如果不给 .index() 方法传递参数，那么返回值就是这个jQuery对象集合中第一个元素相对于其同辈元素的位置。
+		
+			如果参数是一组DOM元素或者jQuery对象，那么返回值就是传递的元素相对于原先集合的位置。
+		
+		如果参数是一个选择器，那么返回值就是原先元素相对于选择器匹配元素中的位置。如果找不到匹配的元素，则返回-1。
+		
+		具体请参考示例。
+		</longdesc>
+        <params name="subject" type="Selector,Element" optional="true">
           <desc>要搜索的对象</desc>
         </params>
         <example>
-          <desc>返回ID值为foobar的元素的索引值。</desc>
-          <html>&lt;div id="foobar"&gt;&lt;div&gt;&lt;/div&gt;&lt;div id="foo"&gt;&lt;/div&gt;&lt;/div&gt;</html>
-          <code>$("div").index($('#foobar')[0])  // 0
-$("div").index($('#foo')[0])  // 2
-$("div").index($('#foo'))  // -1</code>
+          <desc>查找元素的索引值</desc>
+          <html>&lt;ul&gt;
+  &lt;li id=&quot;foo&quot;&gt;foo&lt;/li&gt;
+  &lt;li id=&quot;bar&quot;&gt;bar&lt;/li&gt;
+  &lt;li id=&quot;baz&quot;&gt;baz&lt;/li&gt;
+&lt;/ul&gt;</html>
+          <code>$('li').index(document.getElementById('bar')); //1，传递一个DOM对象，返回这个对象在原先集合中的索引位置
+$('li').index($('#bar')); //1，传递一个jQuery对象
+$('li').index($('li:gt(0)')); //1，传递一组jQuery对象，返回这个对象中第一个元素在原先集合中的索引位置
+$('#bar').index('li'); //1，传递一个选择器，返回#bar在所有li中的做引位置
+$('#bar').index(); //1，不传递参数，返回这个元素在同辈中的索引位置。
+		  </code>
         </example>
       </function>
     </subcat>
@@ -1580,7 +1630,7 @@ jQuery("div &gt; p").hide();</result>
       <function name="addClass" return="jQuery">
         <desc>为每个匹配的元素添加指定的类名。</desc>
         <params name="function(index, class)" type="Function">
-          <desc>此函数必须返回一个或多个空格分隔的class名。接受两个参数，index参数为对象在这个集合中的索引值，class参数为这个对象原先的class属性值，以数组的形式传递给这个函数。</desc>
+          <desc>此函数必须返回一个或多个空格分隔的class名。接受两个参数，index参数为对象在这个集合中的索引值，class参数为这个对象原先的class属性值。</desc>
         </params>
         <example>
           <desc>给li加上不同的class</desc>
@@ -1646,6 +1696,12 @@ jQuery("div &gt; p").hide();</result>
         <desc>设置每一个匹配元素的html内容。这个函数不能用于XML文档。但可以用于XHTML文档。</desc>
         <params name="val" type="String">
           <desc>用于设定HTML内容的值</desc>
+        </params>
+      </function>
+      <function name="html" return="jQuery">
+        <desc>设置每一个匹配元素的html内容。这个函数不能用于XML文档。但可以用于XHTML文档。</desc>
+        <params name="function(index, html)" type="Function">
+          <desc>此函数返回一个HTML字符串。接受两个参数，index为元素在集合中的索引位置，html为原先的HTML值。</desc>
         </params>
       </function>
     </subcat>
@@ -1834,6 +1890,28 @@ $("input").val(["check2", "radio1"]);</code>
           <result>[ &lt;p&gt;John, password, http://ejohn.org/&lt;/p&gt; ]</result>
         </example>
       </function>
+      <function name="has" return="jQuery">
+        <desc>保留包含特定后代的元素，去掉那些不含有指定后代的元素。</desc>
+        <longdesc>.has()方法将会从给定的jQuery对象中重新创建一组匹配的对象。提供的选择器会一一测试原先那些对象的后代，含有匹配后代的对象将得以保留。</longdesc>
+        <params name="expr" type="String, DOMElement, Array&lt;DOMElement&gt;">
+          <desc>一个表达式、一个元素或者一组元素</desc>
+        </params>
+        <example>
+          <desc>给含有ul的li加上背景色</desc>
+          <html>&lt;ul&gt;
+  &lt;li&gt;list item 1&lt;/li&gt;
+  &lt;li&gt;list item 2
+    &lt;ul&gt;
+      &lt;li&gt;list item 2-a&lt;/li&gt;
+      &lt;li&gt;list item 2-b&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;list item 3&lt;/li&gt;
+  &lt;li&gt;list item 4&lt;/li&gt;
+&lt;/ul&gt;</html>
+          <code>$('li').has('ul').css('background-color', 'red');</code>
+        </example>
+      </function>
       <function name="not" return="jQuery">
         <desc>删除与指定表达式匹配的元素</desc>
         <params name="expr" type="String, DOMElement, Array&lt;DOMElement&gt;">
@@ -1919,7 +1997,7 @@ $("input").val(["check2", "radio1"]);</code>
       <function name="children" return="jQuery">
         <desc>取得一个包含匹配的元素集合中每一个元素的所有子元素的元素集合。</desc>
         <longdesc>可以通过可选的表达式来过滤所匹配的子元素。注意：parents()将查找所有祖辈元素，而children()只考虑子元素而不考虑所有后代元素。</longdesc>
-        <params name="expr" type="String" optional="true">
+        <params name="selector" type="String" optional="true">
           <desc>用以过滤子元素的表达式</desc>
         </params>
         <example>
@@ -1984,7 +2062,7 @@ $("input").val(["check2", "radio1"]);</code>
       <function name="find" return="jQuery">
         <desc>搜索所有与指定表达式匹配的元素。这个函数是找出正在处理的元素的后代元素的好方法。</desc>
         <longdesc>所有搜索都依靠jQuery表达式来完成。这个表达式可以使用CSS1-3的选择器语法来写。</longdesc>
-        <params name="expr" type="String">
+        <params name="selector" type="String">
           <desc>用于查找的表达式</desc>
         </params>
         <example>
@@ -1997,7 +2075,7 @@ $("input").val(["check2", "radio1"]);</code>
       <function name="next" return="jQuery">
         <desc>取得一个包含匹配的元素集合中每一个元素紧邻的后面同辈元素的元素集合。</desc>
         <longdesc>这个函数只返回后面那个紧邻的同辈元素，而不是后面所有的同辈元素（可以使用nextAll）。可以用一个可选的表达式进行筛选。</longdesc>
-        <params name="expr" type="String" optional="true">
+        <params name="selector" type="String" optional="true">
           <desc>用于筛选的表达式</desc>
         </params>
         <example>
@@ -2016,7 +2094,7 @@ $("input").val(["check2", "radio1"]);</code>
       <function name="nextAll" return="jQuery">
         <desc>查找当前元素之后所有的同辈元素。</desc>
         <longdesc>可以用表达式过滤</longdesc>
-        <params name="expr" type="String" optional="true">
+        <params name="selector" type="String" optional="true">
           <desc>(可选)用来过滤的表达式</desc>
         </params>
         <example>
@@ -2026,6 +2104,35 @@ $("input").val(["check2", "radio1"]);</code>
           <result>[ &lt;div class="after"&gt;&lt;/div&gt;, &lt;div class="after"&gt;&lt;/div&gt;, &lt;div class="after"&gt;&lt;/div&gt; ]</result>
         </example>
       </function>
+      <function name="nextUntil" return="jQuery">
+        <desc>查找当前元素之后所有的同辈元素，直到遇到匹配的那个元素为止。</desc>
+        <longdesc>如果提供的jQuery代表了一组DOM元素，.nextUntil()方法也能让我们找遍所有元素所在的DOM树，直到遇到了一个跟提供的参数匹配的元素的时候才会停下来。这个新jQuery对象里包含了下面所有找到的同辈元素，但不包括那个选择器匹配到的元素。
+		
+		如果没有选择器匹配到，或者没有提供参数，那么跟在后面的所有同辈元素都会被选中。这就跟用没有提供参数的 .nextAll()效果一样。</longdesc>
+        <params name="selector" type="String" optional="true">
+          <desc>(可选)用来过滤的表达式</desc>
+        </params>
+        <example>
+          <desc>给#term-2后面直到dt前的元素加上红色背景</desc>
+          <html>&lt;dl&gt;
+  &lt;dt&gt;term 1&lt;/dt&gt;
+  &lt;dd&gt;definition 1-a&lt;/dd&gt;
+  &lt;dd&gt;definition 1-b&lt;/dd&gt;
+  &lt;dd&gt;definition 1-c&lt;/dd&gt;
+  &lt;dd&gt;definition 1-d&lt;/dd&gt;
+
+  &lt;dt id=&quot;term-2&quot;&gt;term 2&lt;/dt&gt;
+  &lt;dd&gt;definition 2-a&lt;/dd&gt;
+  &lt;dd&gt;definition 2-b&lt;/dd&gt;
+  &lt;dd&gt;definition 2-c&lt;/dd&gt;
+
+  &lt;dt&gt;term 3&lt;/dt&gt;
+  &lt;dd&gt;definition 3-a&lt;/dd&gt;
+  &lt;dd&gt;definition 3-b&lt;/dd&gt;
+&lt;/dl&gt;</html>
+          <code>$('#term-2').nextUntil('dt').css('background-color', 'red');</code>
+        </example>
+      </function>
       <function name="offsetParent" return="jQuery">
         <desc>返回第一个匹配元素用于定位的父节点。</desc>
         <longdesc>这返回父元素中第一个其position设为relative或者absolute的元素。此方法仅对可见元素有效。</longdesc>
@@ -2033,7 +2140,7 @@ $("input").val(["check2", "radio1"]);</code>
       <function name="parent" return="jQuery">
         <desc>取得一个包含着所有匹配元素的唯一父元素的元素集合。</desc>
         <longdesc>你可以使用可选的表达式来筛选。</longdesc>
-        <params name="expr" type="String" optional="true">
+        <params name="selector" type="String" optional="true">
           <desc>(可选)用来筛选的表达式</desc>
         </params>
         <example>
@@ -2051,7 +2158,7 @@ $("input").val(["check2", "radio1"]);</code>
       </function>
       <function name="parents" return="jQuery">
         <desc>取得一个包含着所有匹配元素的祖先元素的元素集合（不包含根元素）。可以通过一个可选的表达式进行筛选。</desc>
-        <params name="expr" type="String" optional="true">
+        <params name="selector" type="String" optional="true">
           <desc>用于筛选祖先元素的表达式</desc>
         </params>
         <example>
@@ -2064,10 +2171,41 @@ $("input").val(["check2", "radio1"]);</code>
           <code>$("span").parents("p")</code>
         </example>
       </function>
+      <function name="parentsUntil" return="jQuery">
+        <desc>查找当前元素的所有的父辈元素，直到遇到匹配的那个元素为止。</desc>
+        <longdesc>如果提供的jQuery代表了一组DOM元素，.parentsUntil()方法也能让我们找遍所有元素的祖先元素，直到遇到了一个跟提供的参数匹配的元素的时候才会停下来。这个返回的jQuery对象里包含了下面所有找到的父辈元素，但不包括那个选择器匹配到的元素。
+		
+		</longdesc>
+        <params name="selector" type="String" optional="true">
+          <desc>用于筛选祖先元素的表达式</desc>
+        </params>
+        <example>
+          <desc>查找item-a的祖先，但不包括level-1</desc>
+          <html>&lt;ul class=&quot;level-1&quot;&gt;
+  &lt;li class=&quot;item-i&quot;&gt;I&lt;/li&gt;
+  &lt;li class=&quot;item-ii&quot;&gt;II
+    &lt;ul class=&quot;level-2&quot;&gt;
+      &lt;li class=&quot;item-a&quot;&gt;A&lt;/li&gt;
+      &lt;li class=&quot;item-b&quot;&gt;B
+        &lt;ul class=&quot;level-3&quot;&gt;
+          &lt;li class=&quot;item-1&quot;&gt;1&lt;/li&gt;
+          &lt;li class=&quot;item-2&quot;&gt;2&lt;/li&gt;
+          &lt;li class=&quot;item-3&quot;&gt;3&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li class=&quot;item-c&quot;&gt;C&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;item-iii&quot;&gt;III&lt;/li&gt;
+&lt;/ul&gt;</html>
+          <code>$('li.item-a').parentsUntil('.level-1')
+    .css('background-color', 'red');</code>
+        </example>
+      </function>
       <function name="prev" return="jQuery">
         <desc>取得一个包含匹配的元素集合中每一个元素紧邻的前一个同辈元素的元素集合。</desc>
         <longdesc>可以用一个可选的表达式进行筛选。只有紧邻的同辈元素会被匹配到，而不是前面所有的同辈元素。</longdesc>
-        <params name="expr" type="String" optional="true">
+        <params name="selector" type="String" optional="true">
           <desc>用于筛选前一个同辈元素的表达式</desc>
         </params>
         <example>
@@ -2086,7 +2224,7 @@ $("input").val(["check2", "radio1"]);</code>
       <function name="prevAll" return="jQuery">
         <desc>查找当前元素之前所有的同辈元素</desc>
         <longdesc>可以用表达式过滤。</longdesc>
-        <params name="expr" type="String" optional="true">
+        <params name="selector" type="String" optional="true">
           <desc>用于过滤的表达式</desc>
         </params>
         <example>
@@ -2096,9 +2234,38 @@ $("input").val(["check2", "radio1"]);</code>
           <result>[ &lt;div class="before"&gt;&lt;/div&gt;, &lt;div class="before"&gt;&lt;/div&gt;, &lt;div class="before"&gt;&lt;/div&gt; ]</result>
         </example>
       </function>
+      <function name="prevUntil" return="jQuery">
+        <desc>查找当前元素之前所有的同辈元素，直到遇到匹配的那个元素为止。</desc>
+        <longdesc>如果提供的jQuery代表了一组DOM元素，.prevUntil()方法也能让我们找遍所有元素所在的DOM树，直到遇到了一个跟提供的参数匹配的元素的时候才会停下来。这个新jQuery对象里包含了前面所有找到的同辈元素，但不包括那个选择器匹配到的元素。
+		
+		如果没有选择器匹配到，或者没有提供参数，那么排在前面的所有同辈元素都会被选中。这就跟用没有提供参数的 .prevAll()效果一样。</longdesc>
+        <params name="selector" type="String" optional="true">
+          <desc>(可选)用来过滤的表达式</desc>
+        </params>
+        <example>
+          <desc>给#term-2前面直到dt前的元素加上红色背景</desc>
+          <html>&lt;dl&gt;
+  &lt;dt&gt;term 1&lt;/dt&gt;
+  &lt;dd&gt;definition 1-a&lt;/dd&gt;
+  &lt;dd&gt;definition 1-b&lt;/dd&gt;
+  &lt;dd&gt;definition 1-c&lt;/dd&gt;
+  &lt;dd&gt;definition 1-d&lt;/dd&gt;
+
+  &lt;dt id=&quot;term-2&quot;&gt;term 2&lt;/dt&gt;
+  &lt;dd&gt;definition 2-a&lt;/dd&gt;
+  &lt;dd&gt;definition 2-b&lt;/dd&gt;
+  &lt;dd&gt;definition 2-c&lt;/dd&gt;
+
+  &lt;dt&gt;term 3&lt;/dt&gt;
+  &lt;dd&gt;definition 3-a&lt;/dd&gt;
+  &lt;dd&gt;definition 3-b&lt;/dd&gt;
+&lt;/dl&gt;</html>
+          <code>$('#term-2').prevUntil('dt').css('background-color', 'red');</code>
+        </example>
+      </function>
       <function name="siblings" return="jQuery">
         <desc>取得一个包含匹配的元素集合中每一个元素的所有唯一同辈元素的元素集合。可以用可选的表达式进行筛选。</desc>
-        <params name="expr" type="String" optional="true">
+        <params name="selector" type="String" optional="true">
           <desc>用于筛选同辈元素的表达式</desc>
         </params>
         <example>
@@ -4629,6 +4796,10 @@ jQuery.inArray("David", arr);  //-1</code>
           <result>[&lt;div&gt;, &lt;div&gt;, ...]</result>
         </example>
       </function>
+      <property name="jQuery.noop" return="Array">
+        <desc>一个空函数</desc>
+		<longdesc>当你仅仅想要传递一个空函数的时候，就用他吧。这对一些插件作者很有用，当插件提供了一个可选的回调函数接口，那么如果调用的时候没有传递这个回调函数，就用jQuery.noop来代替执行。</longdesc>
+      </property>
     </subcat>
     <subcat value="测试操作">
       <function name="jQuery.contains" return="Boolean">
@@ -4680,6 +4851,29 @@ var objs = [
           <result>[ true,false,false,true,false ]</result>
         </example>
       </function>
+      <function name="jQuery.isEmptyObject" return="Boolean">
+        <desc>jQuery 1.4 新增。测试对象是否是空对象（不包含任何属性）。</desc>
+		<longdesc>jQuery 1.4 中，这个方法既检测对象本身的属性，也检测从原型继承的属性（因此没有使用hasOwnProperty）。</longdesc>
+        <params name="obj" type="Object">
+          <desc>用于测试是否为空对象</desc>
+        </params>
+        <example>
+          <desc>测试是否为空对象</desc>
+          <code>jQuery.isEmptyObject({}) // true
+jQuery.isEmptyObject({ foo: "bar" }) // false</code>
+        </example>
+      </function>
+      <function name="jQuery.isPlainObject" return="Boolean">
+        <desc>jQuery 1.4 新增。测试对象是否是纯粹的对象（通过 "{}" 或者 "new Object" 创建的）。</desc>
+        <params name="obj" type="Object">
+          <desc>用于测试是否为纯粹的对象</desc>
+        </params>
+        <example>
+          <desc>测试是否为纯粹的对象</desc>
+          <code>jQuery.isPlainObject({}) // true
+jQuery.isPlainObject("test") // false</code>
+        </example>
+      </function>
     </subcat>
     <subcat value="字符串操作">
       <function name="jQuery.trim" return="String">
@@ -4697,8 +4891,18 @@ var objs = [
     <subcat value="URL">
       <function name="jQuery.param" return="String">
         <desc>将表单元素数组或者对象序列化。是.serialize()的核心方法。</desc>
+		<longdesc>在jQuery 1.3中，如果传递的参数是一个函数，那么用.param()会得到这个函数的返回值，而不是把这个函数作为一个字符串来返回。
+		
+		在jQuery 1.4中，.param()会深度递归一个对象来满足现在脚本语言和框架，比如PHP， Ruby on Rails等。你可以通过jQuery.ajaxSettings.traditional = true; 来全局得禁用这个功能。
+		
+		注意：因为有些框架在解析序列化数字的时候能力有限，所以当传递一些含有嵌套对象、数组的对象作为参数时，请务必小心！
+		
+		在jQuery 1.4中，HTML5的input元素也会被序列化。</longdesc>
         <params name="obj" type="Array&lt;Elements>, jQuery, Object">
           <desc>数组或jQuery对象会按照name/value对进行序列化，普通对象按照key/value对进行序列化。</desc>
+        </params>
+        <params name="traditional" type="Boolean" optional="True">
+          <desc>是否使用传统的方式浅层序列化。</desc>
         </params>
         <example>
           <desc>按照key/value对序列化普通对象。</desc>
@@ -4707,6 +4911,33 @@ var objs = [
     var str = jQuery.param(params);
     $("#results").text(str);</code>
           <result>width=1680&amp;height=1050</result>
+        </example>
+        <example>
+          <desc>对比两种序列化方式</desc>
+          <code><![CDATA[var myObject = {
+  a: {
+    one: 1, 
+    two: 2, 
+    three: 3
+  }, 
+  b: [1,2,3]
+};
+var recursiveEncoded = $.param(myObject);
+var recursiveDecoded = decodeURIComponent($.param(myObject));
+
+alert(recursiveEncoded);
+alert(recursiveDecoded);
+//a%5Bone%5D=1&a%5Btwo%5D=2&a%5Bthree%5D=3&b%5B%5D=1&b%5B%5D=2&b%5B%5D=3
+//a[one]=1&a[two]=2&a[three]=3&b[]=1&b[]=2&b[]=3
+
+var shallowEncoded = $.param(myObject, true);
+var shallowDecoded = decodeURIComponent(shallowEncoded);
+
+alert(shallowEncoded);
+alert(shallowDecoded);
+//a=%5Bobject+Object%5D&b=1&b=2&b=3
+//a=[object+Object]&b=1&b=2&b=3
+]]></code>
         </example>
       </function>
     </subcat>
