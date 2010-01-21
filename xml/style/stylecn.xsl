@@ -8,7 +8,7 @@
 		<html xmlns="http://www.w3.org/1999/xhtml">
 		<head>
 			<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-			<title>jQuery 1.3 中文文档 </title>
+			<title>jQuery <xsl:value-of select="@version"/> 中文文档 </title>
 			<link type="text/css" rel="stylesheet" rev="stylesheet" href="style/style.css" media="all" />
 			<script type="text/javascript" src="js/jquery-1.2.6.pack.js"></script>
 			<script type="text/javascript" src="js/jquery-doc.js"></script>
