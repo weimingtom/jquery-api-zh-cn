@@ -129,7 +129,7 @@ $("&lt;input type='checkbox'&gt;");</code>
     <subcat value="jQuery 对象访问">
       <function name="each" return="jQuery">
         <desc>以每一个匹配的元素作为上下文来执行一个函数。</desc>
-        <longdesc>意味着，每次执行传递进来的函数时，函数中的this关键字都指向一个不同的DOM元素（每次都是一个不同的匹配元素）。而且，在每次执行函数时，都会给函数传递一个表示作为执行环境的元素在匹配的元素集合中所处位置的数字值作为参数（从零开始的整形）。 返回 'false' 将停止循环 (就像在普通的循环中使用 'break')。返回 'true' 跳至下一个循环(就像在普通的循环中使用'continue')。</longdesc>
+        <longdesc>意味着，每次执行传递进来的函数时，函数中的this关键字都指向一个不同的DOM元素（每次都是一个不同的匹配元素）。而且，在每次执行函数时，都会给函数传递一个表示作为执行环境的元素在匹配的元素集合中所处位置的数字值作为参数（从零开始的整型）。 返回 'false' 将停止循环 (就像在普通的循环中使用 'break')。返回 'true' 跳至下一个循环(就像在普通的循环中使用'continue')。</longdesc>
         <params name="callback" type="Function">
           <desc>对于每个匹配的元素所要执行的函数</desc>
         </params>
@@ -1015,7 +1015,7 @@ jQuery("div &gt; p").hide();</result>
   &lt;tr&gt;&lt;td&gt;Value 2&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;
 &lt;/table&gt;</html>
           <code>$("td:parent")</code>
-          <result>[ &lt;td&gt;Value 1&lt;/td&gt;, &lt;td&gt;Value 1&lt;/td&gt; ]</result>
+          <result>[ &lt;td&gt;Value 1&lt;/td&gt;, &lt;td&gt;Value 2&lt;/td&gt; ]</result>
         </example>
       </selector>
     </subcat>
@@ -2920,7 +2920,7 @@ $("input").val(["check2", "radio1"]);</code>
     <subcat value="位置">
       <function name="offset" return="Object{top,left}">
         <desc>获取匹配元素在当前视口的相对偏移。</desc>
-        <longdesc>返回的对象包含两个整形属性：top 和 left。此方法只对可见元素有效。</longdesc>
+        <longdesc>返回的对象包含两个整型属性：top 和 left。此方法只对可见元素有效。</longdesc>
         <example>
           <desc>获取第二段的偏移</desc>
           <html>&lt;p&gt;Hello&lt;/p&gt;&lt;p&gt;2nd Paragraph&lt;/p&gt;</html>
@@ -2944,7 +2944,7 @@ p.html( "left: " + offset.left + ", top: " + offset.top );</code>
       </function>
       <function name="position" return="Object{top,left}">
         <desc>获取匹配元素相对父元素的偏移。</desc>
-        <longdesc>返回的对象包含两个整形属性：top 和 left。为精确计算结果，请在补白、边框和填充属性上使用像素单位。此方法只对可见元素有效。</longdesc>
+        <longdesc>返回的对象包含两个整型属性：top 和 left。为精确计算结果，请在补白、边框和填充属性上使用像素单位。此方法只对可见元素有效。</longdesc>
         <example>
           <desc>获取第一段的偏移</desc>
           <html>&lt;p&gt;Hello&lt;/p&gt;&lt;p&gt;2nd Paragraph&lt;/p&gt;</html>
@@ -3300,7 +3300,7 @@ $("input").focus(function(){
         <params name="type" type="String" optional="true">
           <desc>事件类型</desc>
         </params>
-        <params name="data" type="Function" optional="true">
+        <params name="fn" type="Function" optional="true">
           <desc>要从每个匹配元素的事件中反绑定的事件处理函数</desc>
         </params>
         <example>
@@ -3529,7 +3529,7 @@ $("li b").live("click", function(){
         </example>
       </function>
       <function name="dblclick" return="jQuery">
-        <desc>触发每一个匹配元素的dbclick事件。</desc>
+        <desc>触发每一个匹配元素的dblclick事件。</desc>
         <longdesc>这个函数会调用执行绑定到dblclick事件的所有函数，包括浏览器的默认行为。可以通过在某个绑定的函数中返回false来防止触发浏览器的默认行为。dblclick事件会在元素的同一点双击时触发。</longdesc>
       </function>
       <function name="dblclick" return="jQuery">
@@ -4833,7 +4833,7 @@ jQuery.each( fields, function(i, field){
 		
 		如果第一个参数设置为true，则jQuery返回一个深层次的副本，递归地复制找到的任何对象。否则的话，副本会与原对象共享结构。
 		
-		为定义的属性将不会被复制，然而从对象的原型继承的属性将会被复制。</longdesc>
+		未定义的属性将不会被复制，然而从对象的原型继承的属性将会被复制。</longdesc>
         <params name="deep" type="Object" optional="true">
           <desc>如果设为true，则递归合并。</desc>
         </params>
@@ -4855,7 +4855,7 @@ jQuery.extend(settings, options);</code>
         </example>
         <example>
           <desc>合并 defaults 和 options, 不修改 defaults。</desc>
-          <code>var empty = {}
+          <code>var empty = {};
 var defaults = { validate: false, limit: 5, name: "foo" };
 var options = { validate: true, name: "bar" };
 var settings = jQuery.extend(empty, defaults, options);</code>
