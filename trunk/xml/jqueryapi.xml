@@ -290,8 +290,10 @@ $('#bar').index(); //1，不传递参数，返回这个元素在同辈中的索�
         <desc>返回元素上储存的相应名字的数据，可以用data(name, value)来设定。</desc>
         <longdesc>如果jQuery集合指向多个元素，那将只返回第一个元素的对应数据。
 
-这个函数可以用于在一个元素上存取数据而避免了循环引用的风险。jQuery.data是1.2.3版的新功能。你可以在很多地方使用这个函数，另外jQuery UI里经常使用这个函数。</longdesc>
-        <params name="name" type="String">
+这个函数可以用于在一个元素上存取数据而避免了循环引用的风险。jQuery.data是1.2.3版的新功能。你可以在很多地方使用这个函数，另外jQuery UI里经常使用这个函数。
+
+如果不带任何参数，则会把所有数据作为一个JavaScript对象来返回。</longdesc>
+        <params name="name" type="String" optional="true">
           <desc>存储的数据名</desc>
         </params>
         <example>
@@ -382,6 +384,41 @@ function runIt() {
 runIt();</code>
         </example>
       </function>
+      <function name="jQuery.data" return="jQuery">
+        <desc>在元素上存放数据,返回jQuery对象。</desc>
+        <longdesc>注意：这是一个底层方法。你应当使用.data()来代替。</longdesc>
+        <params name="element" type="String">
+          <desc>要关联数据的DOM对象</desc>
+        </params>
+        <params name="key" type="String">
+          <desc>存储的数据名</desc>
+        </params>
+        <params name="value" type="Any">
+          <desc>将要存储的任意数据</desc>
+        </params>
+        <example>
+          <code>jQuery.data(document.body, 'foo', 52);
+jQuery.data(document.body, 'bar', 'test');</code>
+        </example>
+      </function>
+      <function name="jQuery.data" return="Object">
+        <desc>查询在元素上存放的数据</desc>
+        <longdesc>如果不指定参数，则会返回元素上面存放的所有数据，以Object的形式返回。
+		
+注意：这是一个底层方法。你应当使用.data()来代替。</longdesc>
+        <params name="element" type="String" optional="true">
+          <desc>要查询数据的DOM对象</desc>
+        </params>
+        <params name="key" type="String" optional="true">
+          <desc>存储的数据名</desc>
+        </params>
+        <example>
+          <code>alert(jQuery.data( document.body, 'foo' );
+alert(jQuery.data( document.body ));</code>
+        </example>
+      </function>
+    </subcat>
+    <subcat value="队列控制">
       <function name="queue" return="jQuery">
         <desc>在匹配的元素的队列最后添加一个函数</desc>
         <params name="name" type="String">
@@ -1699,6 +1736,25 @@ jQuery("div &gt; p").hide();</result>
   });</code>
         </example>
       </function>
+      <function name="toggleClass" return="jQuery">
+        <desc>如果开关switch参数为true则加上对应的class，否则就删除。</desc>
+        <params name="function(index, class)" type="Function">
+          <desc>返回class名的一个函数，接受两个参数，index为元素在集合中的索引位置，class为原先元素的class值。</desc>
+        </params>
+        <params name="switch" type="Boolean" optional="true">
+          <desc>用于决定元素是否包含class的布尔值。</desc>
+        </params>
+        <example>
+          <desc>根据父元素来设置class属性</desc>
+          <code>$('div.foo').toggleClass(function() {
+  if ($(this).parent().is('.bar') {
+    return 'happy';
+  } else {
+    return 'sad';
+  }
+});</code>
+        </example>
+      </function>
     </subcat>
     <subcat value="HTML代码">
       <function name="html" return="String">
@@ -1780,7 +1836,7 @@ jQuery("div &gt; p").hide();</result>
       </function>
       <function name="val" return="jQuery">
         <desc>check,select,radio等都能使用为之赋值</desc>
-        <params name="val" type="Array&lt;String&gt;">
+        <params name="array" type="Array&lt;String&gt;">
           <desc>用于 check/select 的值</desc>
         </params>
         <example>
@@ -1801,6 +1857,20 @@ jQuery("div &gt; p").hide();</result>
           <code>$("#single").val("Single2");
 $("#multiple").val(["Multiple2", "Multiple3"]);
 $("input").val(["check2", "radio1"]);</code>
+        </example>
+      </function>
+      <function name="val" return="jQuery">
+        <desc>设置每一个匹配元素的值。</desc>
+        <longdesc>在 jQuery 1.2, 这也可以为select元件赋值</longdesc>
+        <params name="fn" type="Funtion">
+          <desc>一个函数，返回要设置的值。</desc>
+        </params>
+        <example>
+          <desc>设定文本框的值</desc>
+          <html>&lt;input type="text" class="items"/&gt;</html>
+          <code>$('input:text.items').val(function() {
+  return this.value + ' ' + this.className;
+});</code>
         </example>
       </function>
     </subcat>
@@ -2550,6 +2620,45 @@ $("input").val(["check2", "radio1"]);</code>
           <result>&lt;div id="content"&gt;&lt;p&gt;Test Paragraph.&lt;/p&gt;&lt;/div&gt;&lt;div id="content"&gt;&lt;/div&gt;</result>
         </example>
       </function>
+      <function name="wrap" return="jQuery">
+        <desc>把所有匹配的元素用其他元素的结构化标记包装起来。</desc>
+        <params name="fn" type="Function">
+          <desc>生成包裹结构的一个函数</desc>
+        </params>
+        <example>
+          <desc>用原先div的内容作为新div的class，并将每一个元素包裹起来</desc>
+          <html>&lt;div class=&quot;container&quot;&gt;
+  &lt;div class=&quot;inner&quot;&gt;Hello&lt;/div&gt;
+  &lt;div class=&quot;inner&quot;&gt;Goodbye&lt;/div&gt;
+&lt;/div&gt;</html>
+          <code>$('.inner').wrap(function() {
+  return '&lt;div class=&quot;' + $(this).text() + '&quot; /&gt;';
+});</code>
+          <result>&lt;div class=&quot;container&quot;&gt;
+  &lt;div class=&quot;Hello&quot;&gt;
+    &lt;div class=&quot;inner&quot;&gt;Hello&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;Goodbye&quot;&gt;
+    &lt;div class=&quot;inner&quot;&gt;Goodbye&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</result>
+        </example>
+      </function>
+      <function name="unwrap" return="jQuery">
+        <desc>这个方法将移出元素的父元素。这能快速取消 .wrap()方法的效果。匹配的元素（以及他们的同辈元素）会在DOM结构上替换他们的父元素。</desc>
+        <example>
+          <desc>用ID是"content"的div将每一个段落包裹起来</desc>
+          <html>&lt;div&gt;
+    &lt;p&gt;Hello&lt;/p&gt;
+    &lt;p&gt;cruel&lt;/p&gt;
+    &lt;p&gt;World&lt;/p&gt;
+&lt;/div&gt;</html>
+          <code> $("p").unwrap()</code>
+          <result>    &lt;p&gt;Hello&lt;/p&gt;
+    &lt;p&gt;cruel&lt;/p&gt;
+    &lt;p&gt;World&lt;/p&gt;</result>
+        </example>
+      </function>
       <function name="wrapAll" return="jQuery">
         <desc>将所有匹配的元素用单个元素包裹起来</desc>
         <longdesc>这于 '.wrap()'&lt;a href="http://docs.jquery.com/Manipulation/wrap" title="Manipulation/wrap"&gt;&lt;/a&gt; 是不同的，'.wrap()'为每一个匹配的元素都包裹一次。这种包装对于在文档中插入额外的结构化标记最有用，而且它不会破坏原始文档的语义品质。这个函数的原理是检查提供的第一个元素并在它的代码结构中找到最上层的祖先元素－－这个祖先元素就是包装元素。</longdesc>
@@ -2599,6 +2708,30 @@ $("input").val(["check2", "radio1"]);</code>
           <html>&lt;p&gt;Hello&lt;/p&gt;&lt;p&gt;cruel&lt;/p&gt;&lt;p&gt;World&lt;/p&gt;</html>
           <code>$("p").wrapInner(document.createElement("b"));</code>
           <result>&lt;p&gt;&lt;b&gt;Hello&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;cruel&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;World&lt;/b&gt;&lt;/p&gt;</result>
+        </example>
+      </function>
+      <function name="wrapInner" return="jQuery">
+        <desc>将每一个匹配的元素的子内容(包括文本节点)用DOM元素包裹起来</desc>
+        <params name="fn" type="Function">
+          <desc>生成包裹结构的一个函数</desc>
+        </params>
+        <example>
+          <desc>用原先div的内容作为新div的class，并将每一个元素包裹起来</desc>
+          <html>&lt;div class=&quot;container&quot;&gt;
+  &lt;div class=&quot;inner&quot;&gt;Hello&lt;/div&gt;
+  &lt;div class=&quot;inner&quot;&gt;Goodbye&lt;/div&gt;
+&lt;/div&gt;</html>
+          <code>$('.inner').wrapInner(function() {
+  return '&lt;div class=&quot;' + $(this).text() + '&quot; /&gt;';
+});</code>
+          <result>&lt;div class=&quot;container&quot;&gt;
+  &lt;div class=&quot;inner&quot;&gt;
+    &lt;div class=&quot;Hello&quot;&gt;Hello&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;inner&quot;&gt;
+    &lt;div class=&quot;Goodbye&quot;&gt;Goodbye&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</result>
         </example>
       </function>
     </subcat>
