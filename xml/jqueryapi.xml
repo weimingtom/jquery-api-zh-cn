@@ -1728,7 +1728,7 @@ jQuery("div &gt; p").hide();</result>
           <desc>用于决定元素是否包含class的布尔值。</desc>
         </params>
         <example>
-          <desc>每点击三下加上一次 'selected' 类</desc>
+          <desc>每点击三下加上一次 'highlight' 类</desc>
           <html>&lt;strong&gt;jQuery 代码:&lt;/strong&gt;</html>
           <code>  var count = 0;
   $("p").click(function(){
