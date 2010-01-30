@@ -85,7 +85,7 @@ a:hover{
 
 /* =Typegraphy
 -------------------------------------*/
-ul{
+ul,ol{
 	margin-left: 15px;
 }
 hr{
@@ -128,6 +128,10 @@ hr{
 #content ul li{
 	margin-left: 15px;
 	list-style: disc;
+}
+#content ol li{
+	margin-left: 15px;
+	list-style: decimal;
 }
 #content p{
 	text-indent: 24px;
