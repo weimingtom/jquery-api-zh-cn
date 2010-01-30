@@ -1882,12 +1882,43 @@ $("input").val(["check2", "radio1"]);</code>
         <longdesc>这个元素的位置是从0算起。</longdesc>
         <params name="index" type="Integer">
           <desc>元素在jQuery对象中的索引</desc>
+		  <longdesc>从jQuery 1.4 起，这个值也支持负数，比如 -2 就是获取倒数第二个元素。</longdesc>
         </params>
         <example>
           <desc>获取匹配的第二个元素</desc>
           <html>&lt;p&gt; This is just a test.&lt;/p&gt; &lt;p&gt; So is this&lt;/p&gt;</html>
           <code>$("p").eq(1)</code>
           <result>[ &lt;p&gt; So is this&lt;/p&gt; ]</result>
+        </example>
+      </function>
+      <function name="first" return="jQuery">
+        <desc>获取第一个元素</desc>
+        <example>
+          <desc>获取匹配的第一个元素</desc>
+          <html>&lt;ul&gt;
+    &lt;li&gt;list item 1&lt;/li&gt;
+    &lt;li&gt;list item 2&lt;/li&gt;
+    &lt;li&gt;list item 3&lt;/li&gt;
+    &lt;li&gt;list item 4&lt;/li&gt;
+    &lt;li&gt;list item 5&lt;/li&gt;
+&lt;/ul&gt;</html>
+          <code>$('li').first()</code>
+          <result>[ &lt;li&gt;list item 1&lt;/li&gt; ]</result>
+        </example>
+      </function>
+      <function name="last" return="jQuery">
+        <desc>获取最后个元素</desc>
+        <example>
+          <desc>获取匹配的最后个元素</desc>
+          <html>&lt;ul&gt;
+    &lt;li&gt;list item 1&lt;/li&gt;
+    &lt;li&gt;list item 2&lt;/li&gt;
+    &lt;li&gt;list item 3&lt;/li&gt;
+    &lt;li&gt;list item 4&lt;/li&gt;
+    &lt;li&gt;list item 5&lt;/li&gt;
+&lt;/ul&gt;</html>
+          <code>$('li').last()</code>
+          <result>[ &lt;li&gt;list item 5&lt;/li&gt; ]</result>
         </example>
       </function>
       <function name="hasClass" return="Boolean">
