@@ -3039,15 +3039,19 @@ $("p:last").text( "scrollLeft:" + p.scrollLeft() );</code>
           <code>$("p").height();</code>
         </example>
         <example>
-          <desc>获取文档的高</desc>
+          <desc>获取当前浏览器窗口的高度</desc>
+          <code>$(window).height();</code>
+        </example>
+        <example>
+          <desc>获取当前HTML文档高度</desc>
           <code>$(document).height();</code>
         </example>
       </function>
       <function name="height" return="jQuery">
         <desc>为每个匹配的元素设置CSS高度(hidth)属性的值。如果没有明确指定单位（如：em或%），使用px。</desc>
         <longdesc>如果没有明确指定单位（如：em或%），使用px。</longdesc>
-        <params name="val" type="String, Number">
-          <desc>设定CSS中 'height' 的值</desc>
+        <params name="val" type="String, Number, Function">
+          <desc>设定CSS中 'height' 的值，可以是字符串或者数字，还可以是一个函数，返回要设置的数值。函数接受两个参数，第一个参数是元素在原先集合中的索引位置，第二个参数为原先的高度。</desc>
         </params>
         <example>
           <desc>把所有段落的高设为 20:</desc>
@@ -3062,15 +3066,19 @@ $("p:last").text( "scrollLeft:" + p.scrollLeft() );</code>
           <code>$("p").width();</code>
         </example>
         <example>
-          <desc>获取当前窗口的宽</desc>
+          <desc>获取当前浏览器窗口的宽度</desc>
           <code>$(window).width();</code>
+        </example>
+        <example>
+          <desc>获取当前HTML文档宽度</desc>
+          <code>$(document).width();</code>
         </example>
       </function>
       <function name="width" return="jQuery">
         <desc>为每个匹配的元素设置CSS宽度(width)属性的值。</desc>
         <longdesc>如果没有明确指定单位（如：em或%），使用px。</longdesc>
-        <params name="val" type="String, Number">
-          <desc>设定 CSS 'width' 的属性值</desc>
+        <params name="val" type="String, Number, Function">
+          <desc>设定 CSS 'width' 的属性值，可以是字符串或者数字，还可以是一个函数，返回要设置的数值。函数接受两个参数，第一个参数是元素在原先集合中的索引位置，第二个参数为原先的宽度。</desc>
         </params>
         <example>
           <desc>将所有段落的宽设为 20:</desc>
