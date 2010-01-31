@@ -1,5 +1,18 @@
 from xml.dom import minidom
+from lxml import etree
 import codecs,os,shutil
+
+def XSLTransform(xml,xslt):
+    try:
+        return xslt(xml)
+    except:
+        transform=etree.XSLT(etree.parse(xslt))
+        try:
+            return transform(xml)
+        except:
+            root=etree.parse(xml)
+            return transform(root)
+        
 xmldoc = minidom.parse('jqueryapi.xml')
 targetdir="build"
 hhc="C:\Program Files\HTML Help Workshop\hhc.exe"
@@ -59,6 +72,7 @@ def write2file(node,method,fname=""):
 	xm.writelines("<?xml-stylesheet type='text/xsl' href='style/style.xsl'?>")
 	xm.writelines(node.toxml())
 	xm.close()
+	XSLTransform(filename,"style/style.xsl").write(filename[:-3]+"html")
 
 for node in xmldoc.getElementsByTagName("function"):
 	method=node.getAttribute("name");
