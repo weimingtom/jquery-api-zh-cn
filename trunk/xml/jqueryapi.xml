@@ -5127,6 +5127,26 @@ jQuery.inArray("David", arr);  //-1</code>
           <result>[&lt;div&gt;, &lt;div&gt;, ...]</result>
         </example>
       </function>
+      <function name="jQuery.parseJSON" return="String">
+        <desc>接受一个JSON字符串，返回解析后的对象。</desc>
+		<longdesc>传入一个畸形的JSON字符串会抛出一个异常。比如下面的都是畸形的JSON字符串：
+		
+&lt;ul&gt;
+	&lt;li&gt;{test: 1} （ test 没有包围双引号）&lt;/li&gt;
+	&lt;li&gt;{'test': 1} （使用了单引号而不是双引号）&lt;/li&gt;
+&lt;/ul&gt;
+
+另外，如果你什么都不传入，或者一个空字符串、null或undefined，parseJSON都会返回 null 。
+		</longdesc>
+        <params name="json" type="String">
+          <desc>要解析的JSON字符串</desc>
+        </params>
+        <example>
+          <desc>解析一个JSON字符串</desc>
+          <code>var obj = jQuery.parseJSON('{"name":"John"}');
+alert( obj.name === "John" );</code>
+        </example>
+      </function>
     </subcat>
     <subcat value="函数操作">
       <property name="jQuery.noop" return="Array">
@@ -5303,6 +5323,19 @@ alert(shallowDecoded);
 //a=%5Bobject+Object%5D&b=1&b=2&b=3
 //a=[object+Object]&b=1&b=2&b=3
 ]]></code>
+        </example>
+      </function>
+    </subcat>
+    <subcat value="插件编写">
+      <function name="jQuery.error" return="String">
+        <desc>接受一个字符串，并且直接抛出一个包含这个字符串的异常。</desc>
+		<longdesc>这个方法的主要目的是提供给插件开发人员，让他们可以重载这个方法，并以更好的方式显示错误，或者提供更多信息。</longdesc>
+        <params name="message" type="String">
+          <desc>要抛出的消息</desc>
+        </params>
+        <example>
+          <desc>重载jQuery.error，以便可以在Firebug里显示</desc>
+          <code>jQuery.error = console.error;</code>
         </example>
       </function>
     </subcat>
