@@ -46,7 +46,7 @@ text.html
 text_val.html
 val.html
 val_val.html
-val_val-1.html
+val_fn.html
 eq_index.html
 hasClass_class.html
 filter_expr.html
@@ -55,9 +55,9 @@ is_expr.html
 map_callback.html
 not_expr.html
 slice_start_end.html
-add_expr.html
+add_expr_context.html
 children_expr.html
-closest_expr.html
+closest_expr_context.html
 contents.html
 find_expr.html
 next_expr.html
@@ -112,8 +112,8 @@ bind_type_data_fn.html
 one_type_data_fn.html
 trigger_type_data.html
 triggerHandler_type_data.html
-unbind_type_data.html
-live_type_fn.html
+unbind_type_fn.html
+live_type_data_fn.html
 die_type_fn.html
 hover_over_out.html
 toggle_fn_fn2_fn3, fn4, ....html
@@ -190,7 +190,7 @@ jQuery.unique_array.html
 jQuery.isArray_obj.html
 jQuery.isFunction_obj.html
 jQuery.trim_str.html
-jQuery.param_obj.html
+jQuery.param_obj_traditional.html
 id.html
 element.html
 class.html
@@ -256,7 +256,7 @@ jQuery.browser.version.html
 jQuery.boxModel.html
 style\style.css
 style\style.xsl
-js\jquery-1.2.6.pack.js
+js\jquery.js
 js\jquery-doc-split.js
 cheatsheet.html
 changelog.txt
