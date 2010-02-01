@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="2.0">
 	<xsl:output method="html" indent="no" omit-xml-declaration="no" encoding="utf-8"
 		cdata-section-elements="" media-type="text/html"
@@ -7,7 +7,7 @@
 	<xsl:template match="function|selector|property">
 		<html xmlns="http://www.w3.org/1999/xhtml">
 		<head>
-			<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+			<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
 			<title>jQuery 中文参考 - <xsl:if test="self::function">
 					<xsl:value-of select="@name"/>(<xsl:for-each select="params">
 						<xsl:choose>
@@ -29,8 +29,10 @@
 				</xsl:if>
 			</title>
 			<link type="text/css" rel="stylesheet" rev="stylesheet" href="style/style.css" media="all" />
+			<!--
 			<script type="text/javascript" src="js/jquery-1.2.6.pack.js"></script>
 			<script type="text/javascript" src="js/jquery-doc-split.js"></script>
+			-->
 		</head>
 		<body id="split">
 		<div  id="content">
@@ -64,7 +66,7 @@
 				<div class="desc">
 					<p><xsl:value-of select="desc"/></p>
 					<div class="longdesc">
-						<pre><xsl:value-of select="longdesc"/></pre>
+						<xsl:value-of select="longdesc"/>
 					</div>
 				</div>
 				<xsl:if test="params">

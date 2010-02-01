@@ -1,7 +1,6 @@
 from xml.dom import minidom
 from lxml import etree
 import codecs,os,shutil
-
 def XSLTransform(xml,xslt):
     try:
         return xslt(xml)
@@ -72,7 +71,8 @@ def write2file(node,method,fname=""):
 	xm.writelines("<?xml-stylesheet type='text/xsl' href='style/style.xsl'?>")
 	xm.writelines(node.toxml())
 	xm.close()
-	XSLTransform(filename,"style/style.xsl").write(filename[:-3]+"html")
+	XSLTransform(filename,"style/style.xsl").write(filename[:-3]+"html",encoding="gb2312")
+	os.remove(filename)
 
 for node in xmldoc.getElementsByTagName("function"):
 	method=node.getAttribute("name");
