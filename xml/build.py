@@ -64,7 +64,7 @@ def write2file(node,method,fname=""):
 	global i
 	i+=1
 	filename=targetdir+"\\"+(method+fname)+".xml"
-	if os.path.isfile(filename):
+	if os.path.isfile(filename[:-3]+"html"):
 		filename=targetdir+"\\"+(method+fname)+"-1.xml"
 	xm=codecs.open(filename,"w","utf-8")
 	xm.writelines("<?xml version='1.0' encoding='utf-8'?>")
