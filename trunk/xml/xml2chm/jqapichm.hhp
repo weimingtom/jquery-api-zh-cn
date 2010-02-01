@@ -106,7 +106,6 @@ find_expr.html
 first-1.html
 first.html
 firstChild.html
-fixxml.reg
 focus.html
 focusin_fn.html
 focusout_fn.html
@@ -232,7 +231,6 @@ queue_name.html
 queue_name_callback.html
 queue_name_queue.html
 radio.html
-readme.txt
 ready_fn.html
 removeAttr_name.html
 removeClass_class.html
