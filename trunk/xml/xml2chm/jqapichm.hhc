@@ -26,8 +26,16 @@
 				<param name="Local" value="jQuery_html_ownerDocument.html">
 				</OBJECT>
 			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="jQuery(html, props)">
+				<param name="Local" value="jQuery_html_props.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
 				<param name="Name" value="jQuery(elements)">
 				<param name="Local" value="jQuery_elements.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="jQuery()">
+				<param name="Local" value="jQuery.html">
 				</OBJECT>
 			<LI> <OBJECT type="text/sitemap">
 				<param name="Name" value="jQuery(callback)">
@@ -67,7 +75,7 @@
 				<param name="Local" value="get_index.html">
 				</OBJECT>
 			<LI> <OBJECT type="text/sitemap">
-				<param name="Name" value="index(subject)">
+				<param name="Name" value="index([subject])">
 				<param name="Local" value="index_subject.html">
 				</OBJECT>
 		</UL>
@@ -76,7 +84,7 @@
 			</OBJECT>
 		<UL>
 			<LI> <OBJECT type="text/sitemap">
-				<param name="Name" value="data(name)">
+				<param name="Name" value="data([name])">
 				<param name="Local" value="data_name.html">
 				</OBJECT>
 			<LI> <OBJECT type="text/sitemap">
@@ -84,9 +92,26 @@
 				<param name="Local" value="data_name_value.html">
 				</OBJECT>
 			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="data(obj)">
+				<param name="Local" value="data_obj.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
 				<param name="Name" value="removeData(name)">
 				<param name="Local" value="removeData_name.html">
 				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="jQuery.data(element, key, value)">
+				<param name="Local" value="jQuery.data_element_key_ value.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="jQuery.data([element], [key])">
+				<param name="Local" value="jQuery.data_element_key.html">
+				</OBJECT>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="队列控制">
+			</OBJECT>
+		<UL>
 			<LI> <OBJECT type="text/sitemap">
 				<param name="Name" value="queue(name)">
 				<param name="Local" value="queue_name.html">
@@ -102,6 +127,10 @@
 			<LI> <OBJECT type="text/sitemap">
 				<param name="Name" value="dequeue(name)">
 				<param name="Local" value="dequeue_name.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="clearQueue([queueName])">
+				<param name="Local" value="clearQueue_queueName.html">
 				</OBJECT>
 		</UL>
 		<LI> <OBJECT type="text/sitemap">
@@ -423,9 +452,16 @@
 				<param name="Local" value="addClass_class.html">
 				</OBJECT>
 			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="addClass(function(index, class))">
+				<param name="Local" value="addClass_function(index, class).html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
 				<param name="Name" value="removeClass([class])">
 				<param name="Local" value="removeClass_class.html">
 				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="removeClass(function(index, class))">
+				<param name="Local" value="removeClass_function(index, class).html">
 			<LI> <OBJECT type="text/sitemap">
 				<param name="Name" value="toggleClass(class)">
 				<param name="Local" value="toggleClass_class.html">
@@ -433,6 +469,10 @@
 			<LI> <OBJECT type="text/sitemap">
 				<param name="Name" value="toggleClass(class, switch)">
 				<param name="Local" value="toggleClass_class_switch.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="toggleClass(function(index, class), [switch])">
+				<param name="Local" value="toggleClass_function(index, class)_switch.html">
 				</OBJECT>
 		</UL>
 		<LI> <OBJECT type="text/sitemap">
@@ -447,6 +487,10 @@
 				<param name="Name" value="html(val)">
 				<param name="Local" value="html_val.html">
 				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="html(function(index, html))">
+				<param name="Local" value="html_function(index, html).html">
+				</OBJECT>
 		</UL>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="文本">
@@ -459,6 +503,10 @@
 			<LI> <OBJECT type="text/sitemap">
 				<param name="Name" value="text(val)">
 				<param name="Local" value="text_val.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="text(function(index, text))">
+				<param name="Local" value="text_function(index, text).html">
 				</OBJECT>
 		</UL>
 		<LI> <OBJECT type="text/sitemap">
@@ -474,8 +522,12 @@
 				<param name="Local" value="val_val.html">
 				</OBJECT>
 			<LI> <OBJECT type="text/sitemap">
-				<param name="Name" value="val(fn)">
-				<param name="Local" value="val_fn.html">
+				<param name="Name" value="val(array)">
+				<param name="Local" value="val_array.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="val(function(index, value))">
+				<param name="Local" value="val_function(index, value).html">
 				</OBJECT>
 		</UL>
 	</UL>
@@ -490,6 +542,14 @@
 			<LI> <OBJECT type="text/sitemap">
 				<param name="Name" value="eq(index)">
 				<param name="Local" value="eq_index.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="first()">
+				<param name="Local" value="first.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="last()">
+				<param name="Local" value="last.html">
 				</OBJECT>
 			<LI> <OBJECT type="text/sitemap">
 				<param name="Name" value="hasClass(class)">
@@ -510,6 +570,10 @@
 			<LI> <OBJECT type="text/sitemap">
 				<param name="Name" value="map(callback)">
 				<param name="Local" value="map_callback.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="has(expr)">
+				<param name="Local" value="has_expr.html">
 				</OBJECT>
 			<LI> <OBJECT type="text/sitemap">
 				<param name="Name" value="not(expr)">
@@ -553,6 +617,10 @@
 				<param name="Local" value="nextAll_expr.html">
 				</OBJECT>
 			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="nextUntil([expr])">
+				<param name="Local" value="nextUntil_expr.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
 				<param name="Name" value="offsetParent()">
 				<param name="Local" value="offsetParent.html">
 				</OBJECT>
@@ -565,12 +633,20 @@
 				<param name="Local" value="parents_expr.html">
 				</OBJECT>
 			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="parentsUntil([expr])">
+				<param name="Local" value="parentsUntil_expr.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
 				<param name="Name" value="prev([expr])">
 				<param name="Local" value="prev_expr.html">
 				</OBJECT>
 			<LI> <OBJECT type="text/sitemap">
 				<param name="Name" value="prevAll([expr])">
 				<param name="Local" value="prevAll_expr.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="prevUntil([expr])">
+				<param name="Local" value="prevUntil_expr.html">
 				</OBJECT>
 			<LI> <OBJECT type="text/sitemap">
 				<param name="Name" value="siblings([expr])">
@@ -604,12 +680,20 @@
 				<param name="Local" value="append_content.html">
 				</OBJECT>
 			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="append(function(index, html))">
+				<param name="Local" value="append_function(index, html).html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
 				<param name="Name" value="appendTo(content)">
 				<param name="Local" value="appendTo_content.html">
 				</OBJECT>
 			<LI> <OBJECT type="text/sitemap">
 				<param name="Name" value="prepend(content)">
 				<param name="Local" value="prepend_content.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="prepend(function(index, html))">
+				<param name="Local" value="prepend_function(index, html).html">
 				</OBJECT>
 			<LI> <OBJECT type="text/sitemap">
 				<param name="Name" value="prependTo(content)">
@@ -625,8 +709,16 @@
 				<param name="Local" value="after_content.html">
 				</OBJECT>
 			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="after(function)">
+				<param name="Local" value="after_function.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
 				<param name="Name" value="before(content)">
 				<param name="Local" value="before_content.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="before(function)">
+				<param name="Local" value="before_function.html">
 				</OBJECT>
 			<LI> <OBJECT type="text/sitemap">
 				<param name="Name" value="insertAfter(content)">
