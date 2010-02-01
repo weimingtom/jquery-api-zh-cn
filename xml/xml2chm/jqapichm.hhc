@@ -474,8 +474,8 @@
 				<param name="Local" value="val_val.html">
 				</OBJECT>
 			<LI> <OBJECT type="text/sitemap">
-				<param name="Name" value="val(val)">
-				<param name="Local" value="val_val-1.html">
+				<param name="Name" value="val(fn)">
+				<param name="Local" value="val_fn.html">
 				</OBJECT>
 		</UL>
 	</UL>
@@ -525,16 +525,16 @@
 			</OBJECT>
 		<UL>
 			<LI> <OBJECT type="text/sitemap">
-				<param name="Name" value="add(expr)">
-				<param name="Local" value="add_expr.html">
+				<param name="Name" value="add(expr, [context])">
+				<param name="Local" value="add_expr_context.html">
 				</OBJECT>
 			<LI> <OBJECT type="text/sitemap">
 				<param name="Name" value="children([expr])">
 				<param name="Local" value="children_expr.html">
 				</OBJECT>
 			<LI> <OBJECT type="text/sitemap">
-				<param name="Name" value="closest([expr])">
-				<param name="Local" value="closest_expr.html">
+				<param name="Name" value="closest(expr, [context])">
+				<param name="Local" value="closest_expr_context.html">
 				</OBJECT>
 			<LI> <OBJECT type="text/sitemap">
 				<param name="Name" value="contents()">
@@ -828,8 +828,8 @@
 				<param name="Local" value="triggerHandler_type_data.html">
 				</OBJECT>
 			<LI> <OBJECT type="text/sitemap">
-				<param name="Name" value="unbind([type], [data])">
-				<param name="Local" value="unbind_type_data.html">
+				<param name="Name" value="unbind([type], [fn])">
+				<param name="Local" value="unbind_type_fn.html">
 				</OBJECT>
 		</UL>
 		<LI> <OBJECT type="text/sitemap">
@@ -837,8 +837,8 @@
 			</OBJECT>
 		<UL>
 			<LI> <OBJECT type="text/sitemap">
-				<param name="Name" value="live(type, fn)">
-				<param name="Local" value="live_type_fn.html">
+				<param name="Name" value="live(type, [data], fn)">
+				<param name="Local" value="live_type_data_fn.html">
 				</OBJECT>
 			<LI> <OBJECT type="text/sitemap">
 				<param name="Name" value="die([type], [fn])">
@@ -1255,8 +1255,8 @@
 			</OBJECT>
 		<UL>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="jQuery.param(obj)">
-			<param name="Local" value="jQuery.param_obj.html">
+			<param name="Name" value="jQuery.param(obj, [traditional])">
+			<param name="Local" value="jQuery.param_obj_traditional.html">
 			</OBJECT>
 		</UL>
 	</UL>
