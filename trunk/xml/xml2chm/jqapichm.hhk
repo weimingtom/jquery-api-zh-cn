@@ -5,7 +5,10 @@
 <!-- Sitemap 1.0 -->
 </HEAD><BODY>
 <UL>
-
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="速查表">
+		<param name="Local" value="cheatsheet.html">
+		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="jQuery(expression, [context])">
 		<param name="Local" value="jQuery_expression_context.html">
@@ -15,8 +18,16 @@
 		<param name="Local" value="jQuery_html_ownerDocument.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="jQuery(html, props)">
+		<param name="Local" value="jQuery_html_props.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="jQuery(elements)">
 		<param name="Local" value="jQuery_elements.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="jQuery()">
+		<param name="Local" value="jQuery.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="jQuery(callback)">
@@ -51,11 +62,11 @@
 		<param name="Local" value="get_index.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="index(subject)">
+		<param name="Name" value="index([subject])">
 		<param name="Local" value="index_subject.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="data(name)">
+		<param name="Name" value="data([name])">
 		<param name="Local" value="data_name.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
@@ -63,8 +74,20 @@
 		<param name="Local" value="data_name_value.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="data(obj)">
+		<param name="Local" value="data_obj.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="removeData(name)">
 		<param name="Local" value="removeData_name.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="jQuery.data(element, key, value)">
+		<param name="Local" value="jQuery.data_element_key_value.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="jQuery.data([element], [key])">
+		<param name="Local" value="jQuery.data_element_key.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="queue(name)">
@@ -83,19 +106,23 @@
 		<param name="Local" value="dequeue_name.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="fn.extend(object)">
+		<param name="Name" value="clearQueue([queueName])">
+		<param name="Local" value="clearQueue_queueName.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="jQuery.fn.extend(object)">
 		<param name="Local" value="jQuery.fn.extend_object.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="extend(object)">
+		<param name="Name" value="jQuery.extend(object)">
 		<param name="Local" value="jQuery.extend_object.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="noConflict()">
+		<param name="Name" value="jQuery.noConflict()">
 		<param name="Local" value="jQuery.noConflict.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="noConflict(extreme)">
+		<param name="Name" value="jQuery.noConflict(extreme)">
 		<param name="Local" value="jQuery.noConflict_extreme.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
@@ -327,9 +354,16 @@
 		<param name="Local" value="addClass_class.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="addClass(function(index, class))">
+		<param name="Local" value="addClass_function(index, class).html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="removeClass([class])">
 		<param name="Local" value="removeClass_class.html">
 		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="removeClass(function(index, class))">
+		<param name="Local" value="removeClass_function(index, class).html">
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="toggleClass(class)">
 		<param name="Local" value="toggleClass_class.html">
@@ -337,6 +371,10 @@
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="toggleClass(class, switch)">
 		<param name="Local" value="toggleClass_class_switch.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="toggleClass(function(index, class), [switch])">
+		<param name="Local" value="toggleClass_function(index, class)_switch.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="html()">
@@ -347,12 +385,20 @@
 		<param name="Local" value="html_val.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="html(function(index, html))">
+		<param name="Local" value="html_function(index, html).html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="text()">
 		<param name="Local" value="text.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="text(val)">
 		<param name="Local" value="text_val.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="text(function(index, text))">
+		<param name="Local" value="text_function(index, text).html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="val()">
@@ -363,12 +409,24 @@
 		<param name="Local" value="val_val.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="val(fn)">
-		<param name="Local" value="val_fn.html">
+		<param name="Name" value="val(array)">
+		<param name="Local" value="val_array.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="val(function(index, value))">
+		<param name="Local" value="val_function(index, value).html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="eq(index)">
 		<param name="Local" value="eq_index.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="first()">
+		<param name="Local" value="first.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="last()">
+		<param name="Local" value="last.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="hasClass(class)">
@@ -389,6 +447,10 @@
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="map(callback)">
 		<param name="Local" value="map_callback.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="has(expr)">
+		<param name="Local" value="has_expr.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="not(expr)">
@@ -427,6 +489,10 @@
 		<param name="Local" value="nextAll_expr.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="nextUntil([expr])">
+		<param name="Local" value="nextUntil_expr.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="offsetParent()">
 		<param name="Local" value="offsetParent.html">
 		</OBJECT>
@@ -439,12 +505,20 @@
 		<param name="Local" value="parents_expr.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="parentsUntil([expr])">
+		<param name="Local" value="parentsUntil_expr.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="prev([expr])">
 		<param name="Local" value="prev_expr.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="prevAll([expr])">
 		<param name="Local" value="prevAll_expr.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="prevUntil([expr])">
+		<param name="Local" value="prevUntil_expr.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="siblings([expr])">
@@ -463,12 +537,20 @@
 		<param name="Local" value="append_content.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="append(function(index, html))">
+		<param name="Local" value="append_function(index, html).html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="appendTo(content)">
 		<param name="Local" value="appendTo_content.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="prepend(content)">
 		<param name="Local" value="prepend_content.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="prepend(function(index, html))">
+		<param name="Local" value="prepend_function(index, html).html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="prependTo(content)">
@@ -479,8 +561,16 @@
 		<param name="Local" value="after_content.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="after(function)">
+		<param name="Local" value="after_function.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="before(content)">
 		<param name="Local" value="before_content.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="before(function)">
+		<param name="Local" value="before_function.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="insertAfter(content)">
@@ -499,6 +589,14 @@
 		<param name="Local" value="wrap_elem.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="wrap(fn)">
+		<param name="Local" value="wrap_fn.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="unwrap()">
+		<param name="Local" value="unwrap.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="wrapAll(html)">
 		<param name="Local" value="wrapAll_html.html">
 		</OBJECT>
@@ -515,6 +613,10 @@
 		<param name="Local" value="wrapInner_elem.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="wrapInner(fn)">
+		<param name="Local" value="wrapInner_fn.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="replaceWith(content)">
 		<param name="Local" value="replaceWith_content.html">
 		</OBJECT>
@@ -529,6 +631,10 @@
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="remove([expr])">
 		<param name="Local" value="remove_expr.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="detach([expr])">
+		<param name="Local" value="detach_expr.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="clone()">
@@ -551,8 +657,16 @@
 		<param name="Local" value="css_name_value.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="css(name, function(index, value))">
+		<param name="Local" value="css_name_function(index, value).html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="offset()">
 		<param name="Local" value="offset.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="offset(coordinates)">
+		<param name="Local" value="offset_coordinates.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="position()">
@@ -835,11 +949,11 @@
 		<param name="Local" value="stop_clearQueue_gotoEnd.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="fx.off">
+		<param name="Name" value="jQuery.fx.off">
 		<param name="Local" value="jQuery.fx.off.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="ajax([options])">
+		<param name="Name" value="jQuery.ajax([options])">
 		<param name="Local" value="jQuery.ajax_options.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
@@ -847,19 +961,19 @@
 		<param name="Local" value="load_url_data_callback.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="get(url, [data], [callback], [type])">
+		<param name="Name" value="jQuery.get(url, [data], [callback], [type])">
 		<param name="Local" value="jQuery.get_url_data_callback_type.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="getJSON(url, [data], [callback])">
+		<param name="Name" value="jQuery.getJSON(url, [data], [callback])">
 		<param name="Local" value="jQuery.getJSON_url_data_callback.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="getScript(url, [callback])">
+		<param name="Name" value="jQuery.getScript(url, [callback])">
 		<param name="Local" value="jQuery.getScript_url_callback.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="post(url, [data], [callback], [type])">
+		<param name="Name" value="jQuery.post(url, [data], [callback], [type])">
 		<param name="Local" value="jQuery.post_url_data_callback_type.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
@@ -887,7 +1001,7 @@
 		<param name="Local" value="ajaxSuccess_callback.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="ajaxSetup([options])">
+		<param name="Name" value="jQuery.ajaxSetup([options])">
 		<param name="Local" value="jQuery.ajaxSetup_options.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
@@ -899,68 +1013,100 @@
 		<param name="Local" value="serializeArray.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="support">
+		<param name="Name" value="jQuery.support">
 		<param name="Local" value="jQuery.support.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="browser">
+		<param name="Name" value="jQuery.browser">
 		<param name="Local" value="jQuery.browser.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="browser.version">
+		<param name="Name" value="jQuery.browser.version">
 		<param name="Local" value="jQuery.browser.version.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="boxModel">
+		<param name="Name" value="jQuery.boxModel">
 		<param name="Local" value="jQuery.boxModel.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="each(object, [callback])">
+		<param name="Name" value="jQuery.each(object, [callback])">
 		<param name="Local" value="jQuery.each_object_callback.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="extend(target, object1, [objectN])">
+		<param name="Name" value="jQuery.extend([deep], target, object1, [objectN])">
 		<param name="Local" value="jQuery.extend_deep_target_object1_objectN.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="grep(array, callback, [invert])">
+		<param name="Name" value="jQuery.grep(array, callback, [invert])">
 		<param name="Local" value="jQuery.grep_array_callback_invert.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="makeArray(obj)">
+		<param name="Name" value="jQuery.makeArray(obj)">
 		<param name="Local" value="jQuery.makeArray_obj.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="map(array, callback)">
+		<param name="Name" value="jQuery.map(array, callback)">
 		<param name="Local" value="jQuery.map_array_callback.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="inArray(value, array)">
+		<param name="Name" value="jQuery.inArray(value, array)">
 		<param name="Local" value="jQuery.inArray_value_array.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="merge(first, second)">
+		<param name="Name" value="jQuery.toArray()">
+		<param name="Local" value="jQuery.toArray.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="jQuery.merge(first, second)">
 		<param name="Local" value="jQuery.merge_first_second.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="unique(array)">
+		<param name="Name" value="jQuery.unique(array)">
 		<param name="Local" value="jQuery.unique_array.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="isArray(obj)">
+		<param name="Name" value="jQuery.parseJSON(json)">
+		<param name="Local" value="jQuery.parseJSON_json.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="jQuery.noop">
+		<param name="Local" value="jQuery.noop.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="jQuery.proxy(function, scope)">
+		<param name="Local" value="jQuery.proxy_function_scope.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="jQuery.contains(container, contained)">
+		<param name="Local" value="jQuery.contains_container_contained.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="jQuery.isArray(obj)">
 		<param name="Local" value="jQuery.isArray_obj.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="isFunction(obj)">
+		<param name="Name" value="jQuery.isFunction(obj)">
 		<param name="Local" value="jQuery.isFunction_obj.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="trim(str)">
+		<param name="Name" value="jQuery.isEmptyObject(obj)">
+		<param name="Local" value="jQuery.isEmptyObject_obj.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="jQuery.isPlainObject(obj)">
+		<param name="Local" value="jQuery.isPlainObject_obj.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="jQuery.trim(str)">
 		<param name="Local" value="jQuery.trim_str.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="param(obj, [traditional]))">
+		<param name="Name" value="jQuery.param(obj, [traditional])">
 		<param name="Local" value="jQuery.param_obj_traditional.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="jQuery.error(message)">
+		<param name="Local" value="jQuery.error_message.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="关于jQuery 中文文档">
@@ -977,10 +1123,6 @@
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="提交bug及获取更新">
 		<param name="Local" value="bugAndUpdate.html">
-		</OBJECT>
-	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="速查表">
-		<param name="Local" value="cheatsheet.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="changelog">
