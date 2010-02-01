@@ -13,10 +13,10 @@
 		h2,h3{font-size: 12px;}
 		ul{margin:0 0 5px 10px;}
 		ul ul{margin:0 0 0 10px;}
-		div.col{float:left;width: 196px;height:915px;overflow:hidden;margin-right: 2px;}
+		div.col{float:left;width: 196px;height:920px;overflow:hidden;margin-right: 2px;}
 		a,a:link,a:visited{color:rgb(64,112,170);text-decoration: none;}
 		a:hover{color:white;background: rgb(79,129,189);}
-		.hover{background:rgb(232,238,247);}
+		.col>div:hover{background:rgb(232,238,247);}
 	</style>
 </head>
 <body>
@@ -76,26 +76,20 @@
 				<li><a href="attr_name.html">attr(name)</a></li>
 				<li><a href="attr_properties.html">attr(properties)</a></li>
 				<li><a href="attr_key_value.html">attr(key, value)</a></li>
-				<li><a href="attr_key_fn.html">attr(key, fn)</a></li>
+				<li><a href="attr_key_function(index, attr).html">attr(key, fn)</a></li>
 				<li><a href="removeAttr_name.html">removeAttr(name)</a></li>
 			</ul></li>
 			<li><h3>CSS 类</h3>
 			<ul>
-				<li><a href="addClass_class.html">addClass(class)</a></li>
-				<li><a href="removeClass_class.html">removeClass([class])</a></li>
-				<li><a href="toggleClass_class.html">toggleClass(class</a> <a href="toggleClass_class_switch.html">[, switch]</a>)</li>
+				<li><a href="addClass_class.html">addClass(class</a><a href="addClass_function(index, class).html"> | fn)</a></li>
+				<li><a href="removeClass_class.html">removeClass([class</a><a href="removeClass_function(index, class).html"> | fn])</a></li>
+				<li><a href="toggleClass_class.html">toggleClass(class</a><a href="toggleClass_function(index, class)_switch.html">|fn </a><a href="toggleClass_class_switch.html">[, sw]</a>)</li>
 			</ul></li>
-			<li><h3>HTML代码</h3>
+			<li><h3>HTML代码/文本/值</h3>
 			<ul>
-				<li><a href="html.html">html</a>( <a href="html_val.html">[val]</a> )</li>
-			</ul></li>
-			<li><h3>文本</h3>
-			<ul>
-				<li><a href="text.html">text</a>( <a href="text_val.html">[val]</a> )</li>
-			</ul></li>
-			<li><h3>值</h3>
-			<ul>
-				<li><a href="val.html">val</a>( <a href="val_val.html">[val]</a> )</li>
+				<li><a href="html.html">html</a>( <a href="html_val.html">[val</a><a href="html_function(index, html).html"> | fn]</a> )</li>
+				<li><a href="text.html">text</a>( <a href="text_val.html">[val</a><a href="text_function(index, text).html"> | fn]</a> )</li>
+				<li><a href="val.html">val</a>( <a href="val_val.html">[val</a><a href="val_function(index, value).html"> | fn </a><a href="val_array.html">| arr]</a> )</li>
 			</ul></li>
 		</ul>
 	</div>
@@ -106,11 +100,11 @@
 			<ul>
 				<li><a href="css_name.html">css(name)</a></li>
 				<li><a href="css_properties.html">css(properties)</a></li>
-				<li><a href="css_name_value.html">css(name, value)</a></li>
+				<li><a href="css_name_value.html">css(name, value</a><a href="css_name_function(index, value).html"> | fn)</a></li>
 			</ul></li>
 			<li><h3>位置</h3>
 			<ul>
-				<li><a href="offset.html">offset()</a></li>
+				<li><a href="offset.html">offset</a>([<a href="offset_coordinates.html">coordinates</a>])</li>
 				<li><a href="position.html">position()</a></li>
 				<li><a href="scrollTop.html">scrollTop</a>( <a href="scrollTop_val.html">[val]</a> )</li>
 				<li><a href="scrollLeft.html">scrollLeft</a>( <a href="scrollLeft_val.html">[val]</a> )</li>
@@ -218,15 +212,15 @@
 		<ul>
 			<li><h3>内部插入</h3>
 			<ul>
-				<li><a href="append_content.html">append(content)</a></li>
+				<li><a href="append_content.html">append(content</a><a href="append_function(index, html).html"> | fn)</a></li>
 				<li><a href="appendTo_content.html">appendTo(content)</a></li>
-				<li><a href="prepend_content.html">prepend(content)</a></li>
+				<li><a href="prepend_content.html">prepend(content</a><a href="prepend_function(index, html).html"> | fn)</a></li>
 				<li><a href="prependTo_content.html">prependTo(content)</a></li>
 			</ul></li>
 			<li><h3>外部插入</h3>
 			<ul>
-				<li><a href="after_content.html">after(content)</a></li>
-				<li><a href="before_content.html">before(content)</a></li>
+				<li><a href="after_content.html">after(content</a><a href="after_function.html"> | fn)</a></li>
+				<li><a href="before_content.html">before(content</a><a href="before_function.html"> | fn)</a></li>
 				<li><a href="insertAfter_content.html">insertAfter(content)</a></li>
 				<li><a href="insertBefore_content.html">insertBefore(content)</a></li>
 			</ul></li>
@@ -234,10 +228,13 @@
 			<ul>
 				<li><a href="wrap_html.html">wrap(html)</a></li>
 				<li><a href="wrap_elem.html">wrap(elem)</a></li>
+				<li><a href="wrap_fn.html">wrap(fn)</a></li>
+				<li><a href="unwrap.html">unwrap()</a></li>
 				<li><a href="wrapAll_html.html">wrapAll(html)</a></li>
 				<li><a href="wrapAll_elem.html">wrapAll(elem)</a></li>
 				<li><a href="wrapInner_html.html">wrapInner(html)</a></li>
 				<li><a href="wrapInner_elem.html">wrapInner(elem)</a></li>
+				<li><a href="wrapInner_fn.html">wrapInner(fn)</a></li>
 			</ul></li>
 			<li><h3>替换</h3>
 			<ul>
@@ -248,6 +245,7 @@
 			<ul>
 				<li><a href="empty.html">empty()</a></li>
 				<li><a href="remove_expr.html">remove([expr])</a></li>
+				<li><a href="detach_expr.html">detach([expr])</a></li>
 			</ul></li>
 			<li><h3>复制</h3>
 			<ul>
@@ -262,11 +260,13 @@
 			<li><h3>过滤</h3>
 			<ul>
 				<li><a href="eq_index.html">eq(index)</a></li>
+				<li><a href="first.html">first()</a></li>
+				<li><a href="last.html">last()</a></li>
 				<li><a href="hasClass_class.html">hasClass(class)</a></li>
-				<li><a href="filter_expr.html">filter(expr)</a></li>
-				<li><a href="filter_fn.html">filter(fn)</a></li>
+				<li><a href="filter_expr.html">filter(expr</a><a href="filter_fn.html"> | fn)</li>
 				<li><a href="is_expr.html">is(expr)</a></li>
 				<li><a href="map_callback.html">map(callback)</a></li>
+				<li><a href="has_expr.html">has(expr)</a></li>
 				<li><a href="not_expr.html">not(expr)</a></li>
 				<li><a href="slice_start_end.html">slice(start, [end])</a></li>
 			</ul></li>
@@ -279,11 +279,14 @@
 				<li><a href="find_expr.html">find(expr)</a></li>
 				<li><a href="next_expr.html">next([expr])</a></li>
 				<li><a href="nextAll_expr.html">nextAll([expr])</a></li>
+				<li><a href="nextUntil_expr.html">nextUntil([expr])</a></li>
 				<li><a href="offsetParent.html">offsetParent()</a></li>
 				<li><a href="parent_expr.html">parent([expr])</a></li>
 				<li><a href="parents_expr.html">parents([expr])</a></li>
+				<li><a href="parentsUntil_expr.html">parentsUntil([expr])</a></li>
 				<li><a href="prev_expr.html">prev([expr])</a></li>
 				<li><a href="prevAll_expr.html">prevAll([expr])</a></li>
+				<li><a href="prevUntil_expr.html">prevUntil([expr])</a></li>
 				<li><a href="siblings_expr.html">siblings([expr])</a></li>
 			</ul></li>
 			<li><h3>串联</h3>
@@ -312,7 +315,7 @@
 			</ul></li>
 			<li><h3>事件委派</h3>
 			<ul>
-				<li><a href="live_type_fn.html">live(type, fn)</a></li>
+				<li><a href="live_type_data_fn.html">live(type, [data], fn)</a></li>
 				<li><a href="die_type_fn.html">die([type], [fn])</a></li>
 			</ul></li>
 			<li><h3>事件切换</h3>
@@ -430,13 +433,23 @@
 				<li><a href="jQuery.makeArray_obj.html">$.makeArray(obj)</a></li>
 				<li><a href="jQuery.map_array_callback.html">$.map(array, callback)</a></li>
 				<li><a href="jQuery.inArray_value_array.html">$.inArray(value, array)</a></li>
+				<li><a href="jQuery.toArray.html">$.toArray()</a></li>
 				<li><a href="jQuery.merge_first_second.html">$.merge(first, second)</a></li>
 				<li><a href="jQuery.unique_array.html">$.unique(array)</a></li>
+				<li><a href="jQuery.parseJSON_json.html">$.parseJSON(json)</a></li>
+			</ul></li>
+			<li><h3>函数操作</h3>
+				<li><a href="jQuery.noop.html">$.noop</a></li>
+				<li><a href="jQuery.proxy_function_scope.html">$.proxy(function, scope)</a></li>
+			<ul>
 			</ul></li>
 			<li><h3>测试操作</h3>
 			<ul>
+				<li><a href="jQuery.contains_container_contained.html">$.contains(container, contained)</a></li>
 				<li><a href="jQuery.isArray_obj.html">$.isArray(obj)</a></li>
 				<li><a href="jQuery.isFunction_obj.html">$.isFunction(obj)</a></li>
+				<li><a href="jQuery.isEmptyObject_obj.html">$.isEmptyObject(obj)</a></li>
+				<li><a href="jQuery.isPlainObject_obj.html">$.isPlainObject(obj)</a></li>
 			</ul></li>
 			<li><h3>字符串操作</h3>
 			<ul>
@@ -444,7 +457,11 @@
 			</ul></li>
 			<li><h3>URL</h3>
 			<ul>
-				<li><a href="jQuery.param_obj.html">$.param(obj)</a></li>
+				<li><a href="jQuery.param_obj_traditional.html">$.param(obj, [traditional])</a></li>
+			</ul></li>
+			<li><h3>插件编写</h3>
+			<ul>
+				<li><a href="jQuery.error_message.html">$.error(message)</a></li>
 			</ul></li>
 		</ul>
 	</div>
@@ -457,10 +474,5 @@
 		</ul>
 	</div>
 </div>
-<script src="js/jquery.js" type="text/javascript" ></script>
-<script type="text/javascript" >
-	$(".col>div").hover(function(){$(this).addClass("hover")},function(){$(this).removeClass("hover")})
-</script>
-
 </body>
 </html>
