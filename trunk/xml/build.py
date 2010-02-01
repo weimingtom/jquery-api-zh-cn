@@ -20,6 +20,11 @@ print("正在创建"+targetdir)
 if os.path.exists(targetdir):
 	print("正在删除现有的"+targetdir)
 	shutil.rmtree(targetdir)
+
+if os.path.exists("dist"):
+	print("正在删除现有的dist")
+	shutil.rmtree("dist")
+	
 try:
 	os.mkdir(targetdir)
 	print(targetdir+"创建完成")
@@ -71,7 +76,7 @@ def write2file(node,method,fname=""):
 	xm.writelines("<?xml-stylesheet type='text/xsl' href='style/style.xsl'?>")
 	xm.writelines(node.toxml())
 	xm.close()
-	XSLTransform(filename,"style/style.xsl").write(filename[:-3]+"html",encoding="gb2312")
+	XSLTransform(filename,"style/style.xsl").write(filename[:-3]+"html",method="html",encoding="gb2312")
 	os.remove(filename)
 
 for node in xmldoc.getElementsByTagName("function"):
@@ -97,9 +102,6 @@ print("正在生成chm文件")
 if os.path.exists(hhc):
 	os.spawnl(os.P_WAIT,hhc,"hhc",os.path.join(targetdir,"jqapichm.hhp"))
 
-if os.path.exists("dist"):
-	print("正在删除现有的dist")
-	shutil.rmtree("dist")
 try:
 	os.mkdir("dist")
 	os.mkdir("dist\\chm")
@@ -111,8 +113,6 @@ except:
 	print("创建dist发生异常")
 
 shutil.copyfile(r'build\jqapichm.chm', r'dist\chm\jqapichm.chm')
-shutil.copyfile(r'xml2chm\fixxml.reg', r'dist\chm\fixxml.reg')
-shutil.copyfile(r'xml2chm\readme.txt', r'dist\chm\readme.txt')
 print("chm发布完成")
 
 shutil.copyfile(r'jqueryapi.xml', r'dist\xml\jqueryapi.xml')

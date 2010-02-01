@@ -11,16 +11,13 @@
 			<title><xsl:if test="self::function">
 					<xsl:value-of select="@name"/>(<xsl:for-each select="params">
 						<xsl:choose>
-							<xsl:when test="@optional">
-								[<xsl:value-of select="@name"/>]
-							</xsl:when>
+							<xsl:when test="@optional">[<xsl:value-of select="@name"/>]</xsl:when>
 							<xsl:otherwise>
 								<xsl:value-of select="@name"/>
 							</xsl:otherwise>
 						</xsl:choose>
 						<xsl:if test="position() != last()">, </xsl:if>
-					</xsl:for-each>)
-				</xsl:if>
+					</xsl:for-each>)</xsl:if>
 				<xsl:if test="self::selector">
 					<xsl:value-of select="sample"/>
 				</xsl:if>
@@ -29,6 +26,8 @@
 				</xsl:if>
 			</title>
 			<link type="text/css" rel="stylesheet" rev="stylesheet" href="style/style.css" media="all" />
+			<script type="text/javascript" src="js/jquery.js"></script>
+			<script type="text/javascript" src="js/jquery-doc-split.js"></script>
 		</head>
 		<body id="split">
 		<div  id="content">
@@ -49,8 +48,7 @@
 								</xsl:otherwise>
 							</xsl:choose>
 							<xsl:if test="position() != last()">, </xsl:if>
-						</xsl:for-each>)
-					</xsl:if>
+						</xsl:for-each>)</xsl:if>
 					<xsl:if test="self::selector">
 						<xsl:value-of select="sample"/>
 					</xsl:if>
@@ -104,8 +102,6 @@
 				</xsl:if>
 			</div>
 		</div>
-			<script type="text/javascript" src="js/jquery.js">a</script>
-			<script type="text/javascript" src="js/jquery-doc-split.js">a</script>
 		</body>
 		</html>
 	</xsl:template>
