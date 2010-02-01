@@ -1398,6 +1398,11 @@
 				<param name="Name" value="jQuery.trim(str)">
 				<param name="Local" value="jQuery.trim_str.html">
 				</OBJECT>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="URL">
+			</OBJECT>
+		<UL>
 			<LI> <OBJECT type="text/sitemap">
 				<param name="Name" value="jQuery.param(obj, [traditional])">
 				<param name="Local" value="jQuery.param_obj_traditional.html">
