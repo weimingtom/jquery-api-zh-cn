@@ -32,8 +32,8 @@ try:
 	print(targetdir+"\js"+"创建完成")
 except:
 	print(targetdir+"\js"+"已被创建")
-shutil.copyfile('js\jquery-1.2.6.pack.js', targetdir+"\js\jquery-1.2.6.pack.js")
-print(targetdir+"\js\jquery-1.2.6.pack.js"+"复制完成")
+shutil.copyfile('js\jquery.js', targetdir+"\js\jquery.js")
+print(targetdir+"\js\jquery.js"+"复制完成")
 shutil.copyfile('js\jquery-doc-split.js', targetdir+"\js\jquery-doc-split.js")
 print(targetdir+"\js\jquery-doc-split.js"+"复制完成")
 
@@ -116,7 +116,7 @@ shutil.copyfile(r'xml2chm\readme.txt', r'dist\chm\readme.txt')
 print("chm发布完成")
 
 shutil.copyfile(r'jqueryapi.xml', r'dist\xml\jqueryapi.xml')
-shutil.copyfile(r'js\jquery-1.2.6.pack.js', r'dist\xml\js\jquery-1.2.6.pack.js')
+shutil.copyfile(r'js\jquery.js', r'dist\xml\js\jquery.js')
 shutil.copyfile(r'js\jquery-doc.js', r'dist\xml\js\jquery-doc.js')
 shutil.copyfile(r'style\style.css', r'dist\xml\style\style.css')
 shutil.copyfile(r'style\stylecn.xsl', r'dist\xml\style\stylecn.xsl')
