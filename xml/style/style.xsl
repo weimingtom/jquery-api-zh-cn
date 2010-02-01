@@ -8,11 +8,11 @@
 		<html xmlns="http://www.w3.org/1999/xhtml">
 		<head>
 			<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-			<title>jQuery 中文参考 - <xsl:if test="self::function">
+			<title><xsl:if test="self::function">
 					<xsl:value-of select="@name"/>(<xsl:for-each select="params">
 						<xsl:choose>
 							<xsl:when test="@optional">
-								<em class="optional">[<xsl:value-of select="@name"/>]</em>
+								[<xsl:value-of select="@name"/>]
 							</xsl:when>
 							<xsl:otherwise>
 								<xsl:value-of select="@name"/>
@@ -29,10 +29,6 @@
 				</xsl:if>
 			</title>
 			<link type="text/css" rel="stylesheet" rev="stylesheet" href="style/style.css" media="all" />
-			<!--
-			<script type="text/javascript" src="js/jquery-1.2.6.pack.js"></script>
-			<script type="text/javascript" src="js/jquery-doc-split.js"></script>
-			-->
 		</head>
 		<body id="split">
 		<div  id="content">
@@ -66,7 +62,7 @@
 				<div class="desc">
 					<p><xsl:value-of select="desc"/></p>
 					<div class="longdesc">
-						<xsl:value-of select="longdesc"/>
+						<pre><xsl:value-of select="longdesc"/></pre>
 					</div>
 				</div>
 				<xsl:if test="params">
@@ -108,6 +104,8 @@
 				</xsl:if>
 			</div>
 		</div>
+			<script type="text/javascript" src="js/jquery.js">a</script>
+			<script type="text/javascript" src="js/jquery-doc-split.js">a</script>
 		</body>
 		</html>
 	</xsl:template>
