@@ -1,3 +1,10 @@
+2010-02-02 13:12:43 +0800
+* 修复原先 $.ajax部分报错的问题
+
+2010-02-02 00:11:32 +0800
+* 重新翻译了 bind
++ 更新到1.4.1，width() jQuery.parseJSON height() jQuery.error
+
 2010-01-30 21:45:21 +0800
 * 修改了ajax、live等改动巨大的条目
 + first、last
