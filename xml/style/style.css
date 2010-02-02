@@ -175,6 +175,14 @@ hr{
 }
 #content .longdesc p{
 	font-size: 12px;
+	line-height:1.5;
+	margin:10px 0;
+}
+#content .longdesc strong{
+	font-size: 14px;
+}
+#content .longdesc a{
+	font-size: 12px;
 }
 #content .longdesc{
 	margin-top: 5px;
