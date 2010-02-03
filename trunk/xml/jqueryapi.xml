@@ -4495,15 +4495,13 @@ $("#stop").click(function(){
 
 如果要处理$.ajax()得到的数据，则需要使用回调函数。beforeSend、error、dataFilter、success、complete。
 
-beforeSend 在发送请求之前调用，并且传入一个XMLHttpRequest作为参数。
-
-error 在请求出错时调用。传入XMLHttpRequest对象，描述错误类型的字符串以及一个异常对象（如果有的话）
-
-dataFilter 在请求成功之后调用。传入返回的数据以及&quot;dataType&quot;参数的值。并且必须返回新的数据（可能是处理过的）传递给success回调函数。
-
-success 当请求之后调用。传入返回后的数据，以及包含成功代码的字符串。
-
-complete 当请求完成之后调用这个函数，无论成功或失败。传入XMLHttpRequest对象，以及一个包含成功或错误代码的字符串。
+&lt;ul&gt;
+    &lt;li&gt;beforeSend 在发送请求之前调用，并且传入一个XMLHttpRequest作为参数。&lt;/li&gt;
+    &lt;li&gt;error 在请求出错时调用。传入XMLHttpRequest对象，描述错误类型的字符串以及一个异常对象（如果有的话）&lt;/li&gt;
+    &lt;li&gt;dataFilter 在请求成功之后调用。传入返回的数据以及&quot;dataType&quot;参数的值。并且必须返回新的数据（可能是处理过的）传递给success回调函数。&lt;/li&gt;
+    &lt;li&gt;success 当请求之后调用。传入返回后的数据，以及包含成功代码的字符串。&lt;/li&gt;
+    &lt;li&gt;complete 当请求完成之后调用这个函数，无论成功或失败。传入XMLHttpRequest对象，以及一个包含成功或错误代码的字符串。&lt;/li&gt;
+&lt;/ul&gt;
 
 '''数据类型'''
 
@@ -5500,7 +5498,7 @@ alert(shallowDecoded);
       <selector name="bugAndUpdate">
         <sample>提交bug及获取更新</sample>
         <longdesc><![CDATA[<p>如果大家使用过程中发现了什么翻译错误，可以找到项目地址 <br /><a href="http://code.google.com/p/jquery-api-zh-cn/issues/list">http://code.google.com/p/jquery-api-zh-cn/issues/list</a><br />来反馈。  </p><h3>版本信息： </h3><p> $Rev$ <br /> $Author$ <br /> $Date$</p><p>changelog: <a href="changelog.txt">changelog.txt</a></p><h3>检查更新： </h3><div id="update">
-						<button id="checkUpdate" onclick="window.curVer='100202';$('<script src=\'http://jquery-api-zh-cn.googlecode.com/svn/trunk/update.js?'+(+new Date)+'\' type=\'text/javascript\' charset=\'utf-8\'></script>').appendTo('head');">检查更新</button>
+						<button id="checkUpdate" onclick="window.curVer='100203';$('<script src=\'http://jquery-api-zh-cn.googlecode.com/svn/trunk/update.js?'+(+new Date)+'\' type=\'text/javascript\' charset=\'utf-8\'></script>').appendTo('head');">检查更新</button>
 					</div>
 ]]></longdesc>
       </selector>
