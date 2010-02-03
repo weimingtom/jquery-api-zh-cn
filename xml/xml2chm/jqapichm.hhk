@@ -949,6 +949,10 @@
 		<param name="Local" value="stop_clearQueue_gotoEnd.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="delay(duration, [queueName])">
+		<param name="Local" value="delay_duration_queueName.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="jQuery.fx.off">
 		<param name="Local" value="jQuery.fx.off.html">
 		</OBJECT>
