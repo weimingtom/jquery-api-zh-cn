@@ -462,6 +462,7 @@
 			<LI> <OBJECT type="text/sitemap">
 				<param name="Name" value="removeClass(function(index, class))">
 				<param name="Local" value="removeClass_function(index, class).html">
+				</OBJECT>
 			<LI> <OBJECT type="text/sitemap">
 				<param name="Name" value="toggleClass(class)">
 				<param name="Local" value="toggleClass_class.html">

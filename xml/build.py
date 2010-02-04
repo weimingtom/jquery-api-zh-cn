@@ -104,7 +104,6 @@ if os.path.exists(hhc):
 
 try:
 	os.mkdir("dist")
-	os.mkdir("dist\\chm")
 	os.mkdir("dist\\xml")
 	os.mkdir("dist\\xml\\style")
 	os.mkdir("dist\\xml\\js")
@@ -112,7 +111,7 @@ try:
 except:
 	print("创建dist发生异常")
 
-shutil.copyfile(r'build\jqapichm.chm', r'dist\chm\jqapichm.chm')
+shutil.copyfile(r'build\jqapichm.chm', r'dist\jQueryAPI-1002.chm')
 print("chm发布完成")
 
 shutil.copyfile(r'jqueryapi.xml', r'dist\xml\jqueryapi.xml')
