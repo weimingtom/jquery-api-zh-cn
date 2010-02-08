@@ -2110,6 +2110,19 @@ $("input").val(["check2", "radio1"]);</code>
       </function>
     </subcat>
     <subcat value="查找">
+		  <function name="find" return="jQuery">
+        <desc>搜索所有与指定表达式匹配的元素。这个函数是找出正在处理的元素的后代元素的好方法。</desc>
+        <longdesc>所有搜索都依靠jQuery表达式来完成。这个表达式可以使用CSS1-3的选择器语法来写。</longdesc>
+        <params name="expr" type="String">
+          <desc>用于查找的表达式</desc>
+        </params>
+        <example>
+          <desc>从所有的段落开始，进一步搜索下面的span元素。与$("p span")相同。</desc>
+          <html>&lt;p&gt;&lt;span&gt;Hello&lt;/span&gt;, how are you?&lt;/p&gt;</html>
+          <code>$("p").find("span")</code>
+          <result>[ &lt;span&gt;Hello&lt;/span&gt; ]</result>
+        </example>
+      </function>
       <function name="children" return="jQuery">
         <desc>取得一个包含匹配的元素集合中每一个元素的所有子元素的元素集合。</desc>
         <longdesc>可以通过可选的表达式来过滤所匹配的子元素。注意：parents()将查找所有祖辈元素，而children()只考虑子元素而不考虑所有后代元素。</longdesc>
@@ -2425,19 +2438,6 @@ $("input").val(["check2", "radio1"]);</code>
           <html>&lt;iframe src="/index-blank.html" width="300" height="100"&gt;&lt;/iframe&gt;</html>
           <code>$("iframe").contents().find("body")
   .append("I'm in an iframe!");</code>
-        </example>
-      </function>
-      <function name="find" return="jQuery">
-        <desc>搜索所有与指定表达式匹配的元素。这个函数是找出正在处理的元素的后代元素的好方法。</desc>
-        <longdesc>所有搜索都依靠jQuery表达式来完成。这个表达式可以使用CSS1-3的选择器语法来写。</longdesc>
-        <params name="expr" type="String">
-          <desc>用于查找的表达式</desc>
-        </params>
-        <example>
-          <desc>从所有的段落开始，进一步搜索下面的span元素。与$("p span")相同。</desc>
-          <html>&lt;p&gt;&lt;span&gt;Hello&lt;/span&gt;, how are you?&lt;/p&gt;</html>
-          <code>$("p").find("span")</code>
-          <result>[ &lt;span&gt;Hello&lt;/span&gt; ]</result>
         </example>
       </function>
       <function name="end" return="jQuery">
@@ -3684,7 +3684,7 @@ $("p").unbind("click", foo); // ... 再也不会被触发 foo</code>
         $(this).css({"list-style-type":"disc", "color":"red"});
       },
       function () {
-        $(this).css({"list-style-type":"", "color":""});
+        $(this).css({"list-style-type":", "color":"});
       }
     );</code>
         </example>
@@ -5347,7 +5347,7 @@ jQuery.contains(document.body, document.documentElement); // false</code>
         </params>
         <example>
           <desc>检测是否为数组</desc>
-          <code>$("b").append( "" + $.isArray([]) );</code>
+          <code>$("b").append( " + $.isArray([]) );</code>
           <result>&lt;b&gt;true&lt;/b&gt;</result>
         </example>
       </function>
