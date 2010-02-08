@@ -2110,34 +2110,6 @@ $("input").val(["check2", "radio1"]);</code>
       </function>
     </subcat>
     <subcat value="查找">
-      <function name="add" return="jQuery">
-        <desc>把与表达式匹配的元素添加到jQuery对象中。这个函数可以用于连接分别与两个表达式匹配的元素结果集。</desc>
-        <longdesc>jQuery 1.4 中， .add()方法返回的结果将始终以元素在HTML文档中出现的顺序来排序，而不再是简单的添加。</longdesc>
-        <params name="expr" type="String, DOMElement, Array&lt;DOMElement&gt;">
-          <desc>用于匹配元素并添加的表达式字符串，或者用于动态生成的HTML代码，如果是一个字符串数组则返回多个元素</desc>
-        </params>
-        <params name="context" type="Element, jQuery" optional="true">
-          <desc>作为待查找的 DOM 元素集、文档或 jQuery 对象。</desc>
-        </params>
-        <example>
-          <desc>添加一个新元素到一组匹配的元素中，并且这个新元素能匹配给定的表达式。</desc>
-          <html>&lt;p&gt;Hello&lt;/p&gt;&lt;span&gt;Hello Again&lt;/span&gt;</html>
-          <code>$("p").add("span")</code>
-          <result>[ &lt;p&gt;Hello&lt;/p&gt;, &lt;span&gt;Hello Again&lt;/span&gt; ]</result>
-        </example>
-        <example>
-          <desc>动态生成一个元素并添加至匹配的元素中</desc>
-          <html>&lt;p&gt;Hello&lt;/p&gt;</html>
-          <code>$("p").add("&lt;span&gt;Again&lt;/span&gt;")</code>
-          <result>[ &lt;p&gt;Hello&lt;/p&gt;, &lt;span&gt;Hello Again&lt;/span&gt; ]</result>
-        </example>
-        <example>
-          <desc>为匹配的元素添加一个或者多个元素</desc>
-          <html>&lt;p&gt;Hello&lt;/p&gt;&lt;p&gt;&lt;span id="a"&gt;Hello Again&lt;/span&gt;&lt;/p&gt;</html>
-          <code>$("p").add(document.getElementById("a"))</code>
-          <result>[ &lt;p&gt;Hello&lt;/p&gt;, &lt;p&gt;&lt;span id="a"&gt;Hello Again&lt;/span&gt;&lt;/p&gt;, &lt;span id="a"&gt;Hello Again&lt;/span&gt; ]</result>
-        </example>
-      </function>
       <function name="children" return="jQuery">
         <desc>取得一个包含匹配的元素集合中每一个元素的所有子元素的元素集合。</desc>
         <longdesc>可以通过可选的表达式来过滤所匹配的子元素。注意：parents()将查找所有祖辈元素，而children()只考虑子元素而不考虑所有后代元素。</longdesc>
@@ -2188,34 +2160,6 @@ $("input").val(["check2", "radio1"]);</code>
 });</code>
         </example>
 		</function>
-      <function name="contents" return="jQuery">
-        <desc>查找匹配元素内部所有的子节点（包括文本节点）。如果元素是一个iframe，则查找文档内容</desc>
-        <example>
-          <desc>查找所有文本节点并加粗</desc>
-          <html>&lt;p&gt;Hello &lt;a href="http://ejohn.org/"&gt;John&lt;/a&gt;, how are you doing?&lt;/p&gt;</html>
-          <code>$("p").contents().not("[nodeType=1]").wrap("&lt;b/&gt;");</code>
-          <result>&lt;p&gt;&lt;b&gt;Hello&lt;/b&gt; &lt;a href="http://ejohn.org/"&gt;John&lt;/a&gt;, &lt;b&gt;how are you doing?&lt;/b&gt;&lt;/p&gt;</result>
-        </example>
-        <example>
-          <desc>往一个空框架中加些内容</desc>
-          <html>&lt;iframe src="/index-blank.html" width="300" height="100"&gt;&lt;/iframe&gt;</html>
-          <code>$("iframe").contents().find("body")
-  .append("I'm in an iframe!");</code>
-        </example>
-      </function>
-      <function name="find" return="jQuery">
-        <desc>搜索所有与指定表达式匹配的元素。这个函数是找出正在处理的元素的后代元素的好方法。</desc>
-        <longdesc>所有搜索都依靠jQuery表达式来完成。这个表达式可以使用CSS1-3的选择器语法来写。</longdesc>
-        <params name="expr" type="String">
-          <desc>用于查找的表达式</desc>
-        </params>
-        <example>
-          <desc>从所有的段落开始，进一步搜索下面的span元素。与$("p span")相同。</desc>
-          <html>&lt;p&gt;&lt;span&gt;Hello&lt;/span&gt;, how are you?&lt;/p&gt;</html>
-          <code>$("p").find("span")</code>
-          <result>[ &lt;span&gt;Hello&lt;/span&gt; ]</result>
-        </example>
-      </function>
       <function name="next" return="jQuery">
         <desc>取得一个包含匹配的元素集合中每一个元素紧邻的后面同辈元素的元素集合。</desc>
         <longdesc>这个函数只返回后面那个紧邻的同辈元素，而不是后面所有的同辈元素（可以使用nextAll）。可以用一个可选的表达式进行筛选。</longdesc>
@@ -2427,6 +2371,34 @@ $("input").val(["check2", "radio1"]);</code>
       </function>
     </subcat>
     <subcat value="串联">
+      <function name="add" return="jQuery">
+        <desc>把与表达式匹配的元素添加到jQuery对象中。这个函数可以用于连接分别与两个表达式匹配的元素结果集。</desc>
+        <longdesc>jQuery 1.4 中， .add()方法返回的结果将始终以元素在HTML文档中出现的顺序来排序，而不再是简单的添加。</longdesc>
+        <params name="expr" type="String, DOMElement, Array&lt;DOMElement&gt;">
+          <desc>用于匹配元素并添加的表达式字符串，或者用于动态生成的HTML代码，如果是一个字符串数组则返回多个元素</desc>
+        </params>
+        <params name="context" type="Element, jQuery" optional="true">
+          <desc>作为待查找的 DOM 元素集、文档或 jQuery 对象。</desc>
+        </params>
+        <example>
+          <desc>添加一个新元素到一组匹配的元素中，并且这个新元素能匹配给定的表达式。</desc>
+          <html>&lt;p&gt;Hello&lt;/p&gt;&lt;span&gt;Hello Again&lt;/span&gt;</html>
+          <code>$("p").add("span")</code>
+          <result>[ &lt;p&gt;Hello&lt;/p&gt;, &lt;span&gt;Hello Again&lt;/span&gt; ]</result>
+        </example>
+        <example>
+          <desc>动态生成一个元素并添加至匹配的元素中</desc>
+          <html>&lt;p&gt;Hello&lt;/p&gt;</html>
+          <code>$("p").add("&lt;span&gt;Again&lt;/span&gt;")</code>
+          <result>[ &lt;p&gt;Hello&lt;/p&gt;, &lt;span&gt;Hello Again&lt;/span&gt; ]</result>
+        </example>
+        <example>
+          <desc>为匹配的元素添加一个或者多个元素</desc>
+          <html>&lt;p&gt;Hello&lt;/p&gt;&lt;p&gt;&lt;span id="a"&gt;Hello Again&lt;/span&gt;&lt;/p&gt;</html>
+          <code>$("p").add(document.getElementById("a"))</code>
+          <result>[ &lt;p&gt;Hello&lt;/p&gt;, &lt;p&gt;&lt;span id="a"&gt;Hello Again&lt;/span&gt;&lt;/p&gt;, &lt;span id="a"&gt;Hello Again&lt;/span&gt; ]</result>
+        </example>
+      </function>
       <function name="andSelf" return="jQuery">
         <desc>加入先前所选的加入当前元素中</desc>
         <longdesc>对于筛选或查找后的元素，要加入先前所选元素时将会很有用。</longdesc>
@@ -2438,6 +2410,34 @@ $("input").val(["check2", "radio1"]);</code>
     &lt;p class="border"&gt;First Paragraph&lt;/p&gt;
     &lt;p class="border"&gt;Second Paragraph&lt;/p&gt;
 &lt;/div&gt;</result>
+        </example>
+      </function>
+      <function name="contents" return="jQuery">
+        <desc>查找匹配元素内部所有的子节点（包括文本节点）。如果元素是一个iframe，则查找文档内容</desc>
+        <example>
+          <desc>查找所有文本节点并加粗</desc>
+          <html>&lt;p&gt;Hello &lt;a href="http://ejohn.org/"&gt;John&lt;/a&gt;, how are you doing?&lt;/p&gt;</html>
+          <code>$("p").contents().not("[nodeType=1]").wrap("&lt;b/&gt;");</code>
+          <result>&lt;p&gt;&lt;b&gt;Hello&lt;/b&gt; &lt;a href="http://ejohn.org/"&gt;John&lt;/a&gt;, &lt;b&gt;how are you doing?&lt;/b&gt;&lt;/p&gt;</result>
+        </example>
+        <example>
+          <desc>往一个空框架中加些内容</desc>
+          <html>&lt;iframe src="/index-blank.html" width="300" height="100"&gt;&lt;/iframe&gt;</html>
+          <code>$("iframe").contents().find("body")
+  .append("I'm in an iframe!");</code>
+        </example>
+      </function>
+      <function name="find" return="jQuery">
+        <desc>搜索所有与指定表达式匹配的元素。这个函数是找出正在处理的元素的后代元素的好方法。</desc>
+        <longdesc>所有搜索都依靠jQuery表达式来完成。这个表达式可以使用CSS1-3的选择器语法来写。</longdesc>
+        <params name="expr" type="String">
+          <desc>用于查找的表达式</desc>
+        </params>
+        <example>
+          <desc>从所有的段落开始，进一步搜索下面的span元素。与$("p span")相同。</desc>
+          <html>&lt;p&gt;&lt;span&gt;Hello&lt;/span&gt;, how are you?&lt;/p&gt;</html>
+          <code>$("p").find("span")</code>
+          <result>[ &lt;span&gt;Hello&lt;/span&gt; ]</result>
         </example>
       </function>
       <function name="end" return="jQuery">
