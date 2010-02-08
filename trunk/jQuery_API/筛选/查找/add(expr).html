@@ -29,13 +29,14 @@
 <hr style="color:#595959;" />
 
 <div class="content">
-				<h1>add(expr)</h1>
-				<div class="desc">把与表达式匹配的元素添加到jQuery对象中。这个函数可以用于连接分别与两个表达式匹配的元素结果集。</div>  <hr />
-				<div class="desc">Adds more elements, matched by the given expression, to the set of matched elements.</div>  
+				<h1>.add( selector,  <em>[context]</em> )</h1>
+				<div class="desc">添加元素到匹配的元素集合。</div>  <hr />
+				<div class="desc">Add elements to the set of matched elements.</div>  
 				<h2>返回值</h2>
 				<p class="indent">jQuery</p>
 				<h2>参数</h2>
-				<p class="indent"><strong>expr </strong>(String, DOMElement, Array&lt;DOMElement&gt;) : 用于匹配元素并添加的表达式字符串，或者用于动态生成的HTML代码，如果是一个字符串数组则返回多个元素</p>
+				<p class="indent"><strong>selector </strong>(String) : 一个选择器的字符串表达式，用于匹配其他元素。</p>
+				<p class="indent"><strong>context </strong>(Element, jQuery) : 针对特定范围添加元素。</p>
 				<h2>示例</h2>
 				<p class="indent">
 					添加一个新元素到一组匹配的元素中，并且这个新元素能匹配给定的表达式。
@@ -84,7 +85,7 @@
 				<div class="code">
 					[ &lt;p&gt;Hello&lt;/p&gt;, &lt;p&gt;&lt;span id="a"&gt;Hello Again&lt;/span&gt;&lt;/p&gt;, &lt;span id="a"&gt;Hello Again&lt;/span&gt; ] 
 				</div>
-			</div>
+</div>
             
 </body>
 </html>
