@@ -590,20 +590,12 @@
 			</OBJECT>
 		<UL>
 			<LI> <OBJECT type="text/sitemap">
-				<param name="Name" value="add(expr, [context])">
-				<param name="Local" value="add_expr_context.html">
-				</OBJECT>
-			<LI> <OBJECT type="text/sitemap">
 				<param name="Name" value="children([expr])">
 				<param name="Local" value="children_expr.html">
 				</OBJECT>
 			<LI> <OBJECT type="text/sitemap">
 				<param name="Name" value="closest(expr, [context])">
 				<param name="Local" value="closest_expr_context.html">
-				</OBJECT>
-			<LI> <OBJECT type="text/sitemap">
-				<param name="Name" value="contents()">
-				<param name="Local" value="contents.html">
 				</OBJECT>
 			<LI> <OBJECT type="text/sitemap">
 				<param name="Name" value="find(expr)">
@@ -659,8 +651,16 @@
 			</OBJECT>
 		<UL>
 			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="add(expr, [context])">
+				<param name="Local" value="add_expr_context.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
 				<param name="Name" value="andSelf()">
 				<param name="Local" value="andSelf.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="contents()">
+				<param name="Local" value="contents.html">
 				</OBJECT>
 			<LI> <OBJECT type="text/sitemap">
 				<param name="Name" value="end()">
