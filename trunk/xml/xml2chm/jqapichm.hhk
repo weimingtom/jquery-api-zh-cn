@@ -809,6 +809,14 @@
 		<param name="Local" value="focus_fn.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="focusin(fn)">
+		<param name="Local" value="focusin_fn.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="focusout(fn)">
+		<param name="Local" value="focusout_fn.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="keydown()">
 		<param name="Local" value="keydown.html">
 		</OBJECT>
