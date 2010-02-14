@@ -5498,7 +5498,7 @@ alert(shallowDecoded);
       <selector name="bugAndUpdate">
         <sample>提交bug及获取更新</sample>
         <longdesc><![CDATA[<p>如果大家使用过程中发现了什么翻译错误，可以找到项目地址 <br /><a href="http://code.google.com/p/jquery-api-zh-cn/issues/list">http://code.google.com/p/jquery-api-zh-cn/issues/list</a><br />来反馈。  </p><h3>版本信息： </h3><p> $Rev$ <br /> $Author$ <br /> $Date$</p><p>changelog: <a href="changelog.txt">changelog.txt</a></p><h3>检查更新： </h3><div id="update">
-						<button id="checkUpdate" onclick="window.curVer='100204';$('<script src=\'http://jquery-api-zh-cn.googlecode.com/svn/trunk/update.js?'+(+new Date)+'\' type=\'text/javascript\' charset=\'utf-8\'></script>').appendTo('head');">检查更新</button>
+						<button id="checkUpdate" onclick="window.curVer='100214';$('<script src=\'http://jquery-api-zh-cn.googlecode.com/svn/trunk/update.js?'+(+new Date)+'\' type=\'text/javascript\' charset=\'utf-8\'></script>').appendTo('head');">检查更新</button>
 					</div>
 ]]></longdesc>
       </selector>
