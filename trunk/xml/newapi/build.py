@@ -10,4 +10,4 @@ def XSLTransform(xml,xslt):
         except:
             root=etree.parse(xml)
             return transform(root)
-XSLTransform("jQueryXMLDocs.xml","stylenew.xsl").write("test.html")
+XSLTransform("jQueryXMLDocs.xml","index.xsl").write("index.html")
