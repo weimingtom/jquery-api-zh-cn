@@ -11,7 +11,7 @@ website:	http://shawphy.com/
 
 /* =Reset
 -------------------------------------*/
-body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,th,td,*{
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,th,td{
     margin: 0;
 	padding: 0;
 	outline: 0;
@@ -95,17 +95,11 @@ hr{
 #sidebar{
 	font-size: 14px;
 }
-#sidebar ul,#sidebar ul ul li div,#sidebar ul ul li h3{
+#sidebar div{
 	display:none;
 }
-#sidebar ul ul{
+#sidebar ul{
 	display:block;
-}
-#sidebar ul ul li h2{
-	display:block;
-	background: #fff;
-	font-size: 12px;
-	text-align: left;
 }
 #sidebar h2{
 	padding: 4px;
@@ -114,7 +108,15 @@ hr{
 	font-size: 14px;
 	text-align: center;
 }
-#sidebar h2:hover{
+#sidebar ul li{
+	padding: 4px;
+	cursor:pointer;
+	display:block;
+	background: #fff;
+	font-size: 12px;
+	text-align: left;
+}
+#sidebar h2:hover,#sidebar ul li:hover{
 	color:white;
 	background: rgb(79,129,189);
 }
