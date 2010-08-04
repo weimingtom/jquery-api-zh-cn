@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="2.0">
-	<xsl:output method="html" indent="no" omit-xml-declaration="no" encoding="utf-8"
+<xsl:stylesheet version="1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+      xmlns:msxsl="urn:schemas-microsoft-com:xslt"
+      xmlns:user="http://mycompany.com/mynamespace">
+	<xsl:output method="html" indent="yes" omit-xml-declaration="no" encoding="utf-8"
 		cdata-section-elements="" media-type=""
 		doctype-public=""
 		doctype-system="" />
+		<msxsl:script language="JScript" implements-prefix="user">
+			function xml(nodelist) {
+				return nodelist.nextNode().xml;
+			}
+		</msxsl:script>
+
 	<xsl:template match="/">
 		<html>
 		<head>
@@ -49,9 +58,7 @@
 					</xsl:for-each>
 				</div>
 				<div id="content">
-				<!--
 					<xsl:apply-templates select="/api/entries/entry"/>
-				-->
 				</div>
 			</div><!--
 			<script type="text/javascript">
@@ -77,7 +84,7 @@
 	<xsl:template match="/api/entries/entry">
 		<div>
 			<h2>
-					<xsl:if test="@return">
+					<xsl:if test="@return!=''">
 						<span>返回值:<xsl:value-of select="@return"/></span>
 					</xsl:if>
 				<xsl:if test="@type='method'">
@@ -92,13 +99,8 @@
 								</xsl:otherwise>
 							</xsl:choose>
 							<xsl:if test="position() != last()">, </xsl:if>
-						</xsl:for-each>)
+						</xsl:for-each>)<br/>
 					</xsl:for-each>
-
-
-
-
-
 				</xsl:if>
 				<xsl:if test="@type='selector'">
 					<xsl:value-of select="sample"/>
@@ -111,7 +113,7 @@
 			<div class="desc">
 				<p><xsl:value-of select="desc"/></p>
 				<div class="longdesc">
-					<xsl:value-of select="longdesc"/>
+					<xsl:value-of select="user:xml(longdesc)" disable-output-escaping="yes"/>
 				</div>
 			</div>
 			<xsl:if test="params">

@@ -72,13 +72,8 @@
 								</xsl:otherwise>
 							</xsl:choose>
 							<xsl:if test="position() != last()">, </xsl:if>
-						</xsl:for-each>)					
+						</xsl:for-each>)
 					</xsl:for-each>
-					
-					
-
-					
-					
 				</xsl:if>
 				<xsl:if test="@type='selector'">
 					<xsl:value-of select="sample"/>
