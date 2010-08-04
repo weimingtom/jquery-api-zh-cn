@@ -1,18 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xsl:stylesheet version="1.0"
-      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-      xmlns:msxsl="urn:schemas-microsoft-com:xslt"
-      xmlns:user="http://mycompany.com/mynamespace">
+<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 	<xsl:output method="html" indent="yes" omit-xml-declaration="no" encoding="utf-8"
 		cdata-section-elements="" media-type=""
 		doctype-public=""
-		doctype-system="" />
-		<msxsl:script language="JScript" implements-prefix="user">
-			function xml(nodelist) {
-				return nodelist.nextNode().xml;
-			}
-		</msxsl:script>
-
+		doctype-system=""/>
 	<xsl:template match="/">
 		<html>
 		<head>
@@ -58,7 +49,12 @@
 					</xsl:for-each>
 				</div>
 				<div id="content">
-					<xsl:apply-templates select="/api/entries/entry"/>
+					<xsl:for-each-group select="/api/entries/entry" group-by="@name">
+						<xsl:sort select="@name"/>
+						<xsl:result-document href="./output/{@name}.html">
+							<xsl:apply-templates select="current-group()"/>
+						</xsl:result-document>
+					</xsl:for-each-group>
 				</div>
 			</div><!--
 			<script type="text/javascript">
@@ -74,7 +70,10 @@
 			<script>
 				$("#sidebar h2").click(function(){
 					$(this).next("div").toggle().siblings("div").hide();
-					return false;
+				});
+				$("#sidebar li").click(function(){
+					$("#content").empty().css("top",$(document).scrollTop());
+					$("#content").load("output/"+$(this).text().replace("()","")+".html");
 				});
 			</script>
 		</body>
@@ -113,7 +112,7 @@
 			<div class="desc">
 				<p><xsl:value-of select="desc"/></p>
 				<div class="longdesc">
-					<xsl:value-of select="user:xml(longdesc)" disable-output-escaping="yes"/>
+					<xsl:copy-of select="longdesc"/>
 				</div>
 			</div>
 			<xsl:if test="params">
