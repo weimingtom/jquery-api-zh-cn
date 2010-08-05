@@ -107,12 +107,11 @@
 	<xsl:template match="/api/entries/entry">
 		<div>
 			<h2>
-					<xsl:if test="@return!=''">
-						<span>返回值:<xsl:value-of select="@return"/></span>
+				<xsl:if test="@return!=''">
+					<span>返回值:<xsl:value-of select="@return"/></span>
 					</xsl:if>
 				<xsl:if test="@type='method'">
-					<xsl:for-each select="signature">
-						<xsl:value-of select="../@name"/>(<xsl:for-each select="argument">
+						<xsl:value-of select="@name"/>(<xsl:for-each select="signature[1]/argument">
 							<xsl:choose>
 								<xsl:when test="@optional">
 									<em class="optional">[<xsl:value-of select="@name"/>]</em>
@@ -123,7 +122,6 @@
 							</xsl:choose>
 							<xsl:if test="position() != last()">, </xsl:if>
 						</xsl:for-each>)<br/>
-					</xsl:for-each>
 				</xsl:if>
 				<xsl:if test="@type='selector'">
 					<xsl:value-of select="sample"/>
@@ -135,6 +133,35 @@
 			<h3>概述</h3>
 			<div class="desc">
 				<p><xsl:value-of select="desc"/></p>
+				<ul class="signatures">
+
+					<xsl:for-each select="signature">
+						<li>
+						<h4>
+						<span><xsl:value-of select="added"/> 版增加</span>
+						<xsl:value-of select="../@name"/>(<xsl:for-each select="argument">
+							<xsl:choose>
+								<xsl:when test="@optional">
+									<em class="optional">[<xsl:value-of select="@name"/>]</em>
+								</xsl:when>
+								<xsl:otherwise>
+									<xsl:value-of select="@name"/>
+								</xsl:otherwise>
+							</xsl:choose>
+							<xsl:if test="position() != last()">, </xsl:if>
+						</xsl:for-each>)</h4>
+						<xsl:for-each select="argument">
+							<p class="arguement">
+								<strong><xsl:value-of select="@name"/></strong>
+								(<xsl:value-of select="@type"/>)
+								<xsl:if test="@optional"> 可选参数，</xsl:if>
+								<xsl:if test="@default">默认值:'<xsl:value-of select="@default"/>'</xsl:if>
+								<xsl:value-of select="desc"/>
+							</p>
+						</xsl:for-each>
+						</li>
+					</xsl:for-each>
+				</ul>
 				<div class="longdesc">
 					<xsl:copy-of select="longdesc/*"/>
 				</div>
@@ -184,18 +211,38 @@
 			<h4>描述:</h4>
 			<p><xsl:value-of select="desc"/></p>
 		</xsl:if>
-		<xsl:if test="css">
-			<h5>CSS 代码:</h5>
-			<pre><code><xsl:value-of select="css"/></code></pre>
-		</xsl:if>
-		<xsl:if test="html">
-			<h5>HTML 代码:</h5>
-			<pre><code><xsl:value-of select="html"/></code></pre>
-		</xsl:if>
-		<xsl:if test="code">
-			<h5>jQuery 代码:</h5>
-			<pre><code><xsl:value-of select="code"/></code></pre>
-		</xsl:if>
+		<xsl:choose>
+			<xsl:when test="html[1] and code[1]">
+			<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;<xsl:if test="css">
+&lt;style&gt;
+<xsl:value-of select="css"/>
+&lt;/style&gt;
+</xsl:if>
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    <xsl:value-of select="html"/>
+    &lt;script&gt;<xsl:value-of select="code"/>&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+			</xsl:when>
+			<xsl:otherwise>
+				<xsl:if test="css">
+					<h5>CSS 代码:</h5>
+					<pre><code><xsl:value-of select="css"/></code></pre>
+				</xsl:if>
+				<xsl:if test="html">
+					<h5>HTML 代码:</h5>
+					<pre><code><xsl:value-of select="html"/></code></pre>
+				</xsl:if>
+				<xsl:if test="code">
+					<h5>jQuery 代码:</h5>
+					<pre><code><xsl:value-of select="code"/></code></pre>
+				</xsl:if>
+			</xsl:otherwise>
+		</xsl:choose>
 		<xsl:if test="results">
 			<h5>结果:</h5>
 			<pre><code><xsl:value-of select="results"/></code></pre>
