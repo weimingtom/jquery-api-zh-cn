@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-	<xsl:output method="html" indent="yes" omit-xml-declaration="no" encoding="utf-8"
-		cdata-section-elements="" media-type=""
-		doctype-public=""
-		doctype-system=""/>
+	<xsl:output method="html" indent="yes"
+		doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN"
+		doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" />
+
 	<xsl:template match="/">
 		<html>
 		<head>
-			<meta charset="utf-8"/>
 			<title>jQuery <xsl:value-of select="/api/categories/category[@name='Version']/category[last()]/@name"/> 中文文档 </title>
 			<link rel="stylesheet" href="style.css"/>
 		</head>
@@ -27,8 +26,18 @@
 										<ul>
 											<xsl:for-each select="//entry/category[@name=current()/@name]/..">
 												<xsl:sort select="@name"/>
-												<xsl:if test="not(following::node()/@name=@name)">
-													<li><xsl:value-of select="@name"/><xsl:if test="@type='method'">()</xsl:if></li>
+												<xsl:if test="not(following::entry[1]/@name=@name)">
+													<xsl:choose>
+														<xsl:when test="@type='selector'">
+															<li class="selector">
+																<xsl:attribute name="title"><xsl:value-of select="@name"/></xsl:attribute>
+																<xsl:value-of select="sample"/>
+															</li>
+														</xsl:when>
+														<xsl:otherwise>
+															<li><xsl:value-of select="@name"/><xsl:if test="@type='method'">()</xsl:if></li>
+														</xsl:otherwise>
+													</xsl:choose>
 												</xsl:if>
 											</xsl:for-each>
 										</ul>
@@ -38,7 +47,7 @@
 									<ul>
 									<xsl:for-each select="//entry/category[@name=current()/@name]/..">
 										<xsl:sort select="@name"/>
-										<xsl:if test="not(following::node()/@name=@name)">
+										<xsl:if test="not(following::entry[1]/@name=@name)">
 											<li><xsl:value-of select="@name"/><xsl:if test="@type='method'">()</xsl:if></li>
 										</xsl:if>
 									</xsl:for-each>
@@ -49,11 +58,22 @@
 					</xsl:for-each>
 				</div>
 				<div id="content">
-					<xsl:for-each-group select="/api/entries/entry" group-by="@name">
-						<xsl:sort select="@name"/>
-						<xsl:result-document href="./output/{@name}.html">
-							<xsl:apply-templates select="current-group()"/>
-						</xsl:result-document>
+					<xsl:for-each-group select="/api/entries/entry" group-by="@type">
+						<xsl:for-each-group select="current-group()" group-by="@name">
+							<xsl:sort select="@name"/>
+							<xsl:choose>
+								<xsl:when test="@type='selector'">
+									<xsl:result-document href="./output/{replace(@name,' ','-')}-selector.html">
+										<xsl:apply-templates select="current-group()"/>
+									</xsl:result-document>
+								</xsl:when>
+								<xsl:otherwise>
+									<xsl:result-document href="./output/{@name}.html">
+										<xsl:apply-templates select="current-group()"/>
+									</xsl:result-document>
+								</xsl:otherwise>
+							</xsl:choose>
+						</xsl:for-each-group>
 					</xsl:for-each-group>
 				</div>
 			</div><!--
@@ -66,14 +86,18 @@
 				pageTracker._initData();
 				pageTracker._trackPageview();
 			</script>-->
-			<script src="jquery.min.js">0</script>
+			<script src="jquery.min.js"></script>
 			<script>
 				$("#sidebar h2").click(function(){
 					$(this).next("div").toggle().siblings("div").hide();
 				});
 				$("#sidebar li").click(function(){
 					$("#content").empty().css("top",$(document).scrollTop());
-					$("#content").load("output/"+$(this).text().replace("()","")+".html");
+					var name="output/"+$(this).text().replace("()","");
+					if($(this).hasClass("selector")){
+						name="output/"+$(this).attr("title").replace(" ","-")+"-selector";
+					}
+					$("#content").load(name+".html");
 				});
 			</script>
 		</body>
@@ -112,7 +136,7 @@
 			<div class="desc">
 				<p><xsl:value-of select="desc"/></p>
 				<div class="longdesc">
-					<xsl:copy-of select="longdesc"/>
+					<xsl:copy-of select="longdesc/*"/>
 				</div>
 			</div>
 			<xsl:if test="params">
@@ -172,9 +196,9 @@
 			<h5>jQuery 代码:</h5>
 			<pre><code><xsl:value-of select="code"/></code></pre>
 		</xsl:if>
-		<xsl:if test="result">
+		<xsl:if test="results">
 			<h5>结果:</h5>
-			<pre><code><xsl:value-of select="result"/></code></pre>
+			<pre><code><xsl:value-of select="results"/></code></pre>
 		</xsl:if>
 	</xsl:template>
 
