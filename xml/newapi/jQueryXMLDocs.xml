@@ -1,6 +1,4 @@
-<?xml version="1.0" ?>
-<?xml-stylesheet type='text/xsl' href='index.xsl'?>
-<api>
+<?xml version="1.0" ?><api>
   <categories>
     <category name="Ajax">
       <category name="Global Ajax Event Handlers"/>
@@ -50,7 +48,7 @@
     <category name="Offset"/>
     <category name="Plugin Authoring"/>
     <category name="Properties">
-      <category name="Properties of jQuery Object Instances"/>
+      <category name="Properties of jQuery Object Instances "/>
       <category name="Properties of the Global jQuery Object"/>
     </category>
     <category name="Selectors">
@@ -14463,6 +14461,6 @@ $("button").click(function () {
 
 Minified using disk
 Page Caching using disk (enhanced)
-Database Caching 12/22 queries in 0.072 seconds using disk
+Database Caching 12/22 queries in 0.074 seconds using disk
 
-Served from: api.jquery.com @ 2010-08-03 12:52:38 -->
+Served from: api.jquery.com @ 2010-08-05 16:15:11 -->
