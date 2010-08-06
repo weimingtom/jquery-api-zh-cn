@@ -159,7 +159,7 @@ hr{
 }
 
 #content .entry{
-	margin-bottom: 20px;
+	margin-bottom: 40px;
 }
 #content .signatures{
 	background: rgb(238,243,249);
@@ -176,12 +176,12 @@ hr{
 	font-weight: bold;
 	color: #444;
 }
-#content .desc .signatures p{
+#content .desc .signatures div{
 	font-size: 12px;
 	text-indent: 1em;
 	margin: 5px;
 }
-#content .desc .signatures p strong{
+#content .desc .signatures div strong{
 	color: #444;
 }
 #content .signatures h4 span{
@@ -224,4 +224,17 @@ em.optional{
 }
 #content h2 em.optional{
 	color:#eee;
+}
+#content .desc .signatures div.option{
+	border-top: 1px solid #ccc;
+	margin:10px 30px;
+	padding:10px 5px 0;
+}
+#content .option .type{
+	float:right;
+	width: 150px;
+}
+#content .option span.default{
+	color:#999;
+	display:block;
 }
