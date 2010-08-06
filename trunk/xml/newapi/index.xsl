@@ -87,7 +87,7 @@
 				pageTracker._trackPageview();
 			</script>-->
 			<script src="jquery.min.js"></script>
-			<script>
+			<script><![CDATA[
 				$("#sidebar h2").click(function(){
 					$(this).next("div").toggle().siblings("div").hide();
 				});
@@ -97,15 +97,26 @@
 					if($(this).hasClass("selector")){
 						name="output/"+$(this).attr("title").replace(" ","-")+"-selector";
 					}
-					$("#content").load(name+".html");
+					$("#content").load(name+".html",function(){
+						$("iframe").each(function(){
+							 var doc = this.contentDocument ||
+									(iframe.contentWindow && iframe.contentWindow.document) ||
+									iframe.document ||
+									null;
+							if(doc == null) return true;
+							doc.open();
+							doc.write($(this).prev().prev().find("code").text());
+							doc.close();
+						})
+					});
 				});
-			</script>
+			]]></script>
 		</body>
 		</html>
 	</xsl:template>
 
 	<xsl:template match="/api/entries/entry">
-		<div>
+		<div class="entry">
 			<h2>
 				<xsl:if test="@return!=''">
 					<span>返回值:<xsl:value-of select="@return"/></span>
@@ -130,7 +141,6 @@
 					<xsl:value-of select="@name"/>
 				</xsl:if>
 			</h2>
-			<h3>概述</h3>
 			<div class="desc">
 				<p><xsl:value-of select="desc"/></p>
 				<ul class="signatures">
@@ -208,7 +218,7 @@
 
 	<xsl:template match="example">
 		<xsl:if test="desc">
-			<h4>描述:</h4>
+			<h4>示例:</h4>
 			<p><xsl:value-of select="desc"/></p>
 		</xsl:if>
 		<xsl:choose>
@@ -216,17 +226,28 @@
 			<pre><code>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;<xsl:if test="css">
-&lt;style&gt;
-<xsl:value-of select="css"/>
-&lt;/style&gt;
-</xsl:if>
+&lt;style&gt;<xsl:value-of select="css"/>&lt;/style&gt;</xsl:if>
 &lt;script src="jquery.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-    <xsl:value-of select="html"/>
-    &lt;script&gt;<xsl:value-of select="code"/>&lt;/script&gt;
+
+<xsl:value-of select="html"/>
+
+&lt;script&gt;
+
+<xsl:value-of select="code"/>
+
+&lt;/script&gt;
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
+<h5>演示:</h5>
+<iframe src="blank.html" width="638" height="125">
+	<xsl:if test="height">
+		<xsl:attribute name="height">
+			<xsl:value-of select="height"/>
+		</xsl:attribute>
+	</xsl:if>
+</iframe>
 			</xsl:when>
 			<xsl:otherwise>
 				<xsl:if test="css">

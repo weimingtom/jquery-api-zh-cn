@@ -127,7 +127,7 @@ hr{
 	display:none;
 }
 #content ul li{
-	margin-left: 15px;
+	margin:0 15px;
 	list-style: disc;
 }
 #content ol li{
@@ -139,8 +139,8 @@ hr{
 	margin-left: 5px;
 }
 #content h2{
-	margin: 5px auto;
-	padding: 5px;
+	margin-bottom: 5px;
+	padding: 10px;
 	background:rgb(79,129,189);
 	color: #fff;
 	font-weight: bold;
@@ -157,12 +157,17 @@ hr{
 	background: rgb(149,179,215);
 	color: #fff;
 }
+
+#content .entry{
+	margin-bottom: 20px;
+}
 #content .signatures{
-	background: rgb(219,229,241);
+	background: rgb(238,243,249);
+	margin-top: 10px;
 }
 #content .signatures li{
 	list-style:none;
-	padding-bottom: 10px;
+	padding-bottom: 5px;
 }
 #content .signatures h4{
 	border-bottom: 1px solid #aaa;
@@ -174,7 +179,7 @@ hr{
 #content .desc .signatures p{
 	font-size: 12px;
 	text-indent: 1em;
-	margin-bottom: 0;
+	margin: 5px;
 }
 #content .desc .signatures p strong{
 	color: #444;
@@ -203,7 +208,12 @@ hr{
 #content .longdesc{
 	margin-top: 5px;
 }
-#content pre{
+#content .example h4{
+	background: rgb(219,229,241);
+	padding: 5px 10px;
+	margin-left: 10px;
+}
+#content pre,#content iframe{
 	margin: 10px;
 	padding:5px 10px;
 	border: 1px dashed rgb(79,129,189);
