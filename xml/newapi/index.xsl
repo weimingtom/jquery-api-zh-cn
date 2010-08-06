@@ -17,30 +17,32 @@
 			<div id="wrapper">
 				<div id="sidebar">
 					<xsl:for-each select="/api/categories/category">
-						<h2><xsl:value-of select="@name"/></h2>
+						<h2><xsl:value-of select="document('jQueryAPI-zh-cn.xml')/api/categories//category[@name=current()/@name]/@zh"/></h2>
 						<div>
 							<xsl:choose>
 								<xsl:when test="category">
 									<xsl:for-each select="category">
-										<b><xsl:value-of select="@name"/></b>
-										<ul>
-											<xsl:for-each select="//entry/category[@name=current()/@name]/..">
-												<xsl:sort select="@name"/>
-												<xsl:if test="not(following::entry[1]/@name=@name)">
-													<xsl:choose>
-														<xsl:when test="@type='selector'">
-															<li class="selector">
-																<xsl:attribute name="title"><xsl:value-of select="@name"/></xsl:attribute>
-																<xsl:value-of select="sample"/>
-															</li>
-														</xsl:when>
-														<xsl:otherwise>
-															<li><xsl:value-of select="@name"/><xsl:if test="@type='method'">()</xsl:if></li>
-														</xsl:otherwise>
-													</xsl:choose>
-												</xsl:if>
-											</xsl:for-each>
-										</ul>
+										<xsl:if test="//entry/category[@name=current()/@name]">
+											<b><xsl:value-of select="document('jQueryAPI-zh-cn.xml')/api/categories//category[@name=current()/@name]/@zh"/></b>
+											<ul>
+												<xsl:for-each select="//entry/category[@name=current()/@name]/..">
+													<xsl:sort select="@name"/>
+													<xsl:if test="not(following::entry[1]/@name=@name)">
+														<xsl:choose>
+															<xsl:when test="@type='selector'">
+																<li class="selector">
+																	<xsl:attribute name="title"><xsl:value-of select="@name"/></xsl:attribute>
+																	<xsl:value-of select="sample"/>
+																</li>
+															</xsl:when>
+															<xsl:otherwise>
+																<li><xsl:value-of select="@name"/><xsl:if test="@type='method'">()</xsl:if></li>
+															</xsl:otherwise>
+														</xsl:choose>
+													</xsl:if>
+												</xsl:for-each>
+											</ul>
+										</xsl:if>
 									</xsl:for-each>
 								</xsl:when>
 								<xsl:otherwise>
@@ -209,7 +211,6 @@
 			</xsl:if>
 			<xsl:if test="example">
 				<div class="example">
-					<h3>示例</h3>
 					<xsl:apply-templates select="example"/>
 				</div>
 			</xsl:if>
@@ -218,7 +219,7 @@
 
 	<xsl:template match="example">
 		<xsl:if test="desc">
-			<h4>示例:</h4>
+			<h3>示例:</h3>
 			<p><xsl:value-of select="desc"/></p>
 		</xsl:if>
 		<xsl:choose>
