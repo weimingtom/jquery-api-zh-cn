@@ -7,7 +7,7 @@
 	<xsl:template match="/">
 		<html>
 		<head>
-			<title>jQuery <xsl:value-of select="/api/categories/category[@name='Version']/category[last()]/@name"/> 中文文档 </title>
+			<title>jQuery <xsl:value-of select="replace(/api/categories/category[@name='Version']/category[last()]/@name,'Version ','')"/> 中文文档 </title>
 			<link rel="stylesheet" href="style.css"/>
 		</head>
 		<body id="api">
@@ -147,7 +147,7 @@
 				</xsl:if>
 			</h2>
 			<div class="desc">
-				<p><xsl:value-of select="$zh-entry/desc"/></p>
+				<p><xsl:copy-of select="$zh-entry/desc/node()"/></p>
 				<ul class="signatures">
 					<xsl:for-each select="signature">
 						<xsl:variable name="sigpos" select="position()"/>
