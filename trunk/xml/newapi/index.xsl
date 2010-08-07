@@ -154,7 +154,7 @@
 						<xsl:variable name="zh-signature" select="$zh-entry/signature[$sigpos]"/>
 						<li>
 						<h4>
-						<span><xsl:value-of select="added"/> 版增加</span>
+						<span><xsl:value-of select="added"/> 版后加入</span>
 						<xsl:value-of select="../@name"/>(<xsl:for-each select="argument">
 							<xsl:choose>
 								<xsl:when test="@optional">
@@ -192,7 +192,7 @@
 					</xsl:for-each>
 				</ul>
 				<div class="longdesc">
-					<xsl:copy-of select="$zh-entry/longdesc/*"/>
+					<xsl:copy-of select="$zh-entry/longdesc/node()"/>
 				</div>
 			</div>
 			<xsl:if test="example">
