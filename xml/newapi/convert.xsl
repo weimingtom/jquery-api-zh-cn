@@ -11,8 +11,8 @@
 					<xsl:for-each select="/api/entries/entry">
 						<entry type="{@type}" name="{@name}">
 							<desc>
-								<xsl:value-of select="$zh-entrys[@type=current()/@type][@name=current()/@name]/desc"/><br/>
-								<xsl:value-of select="desc"/>
+								<xsl:value-of select="$zh-entrys[@type=current()/@type][@name=current()/@name]/desc"/>
+								<xsl:copy-of select="desc/node()"/>
 							</desc>
 							<xsl:for-each select="signature">
 								<signature>
@@ -29,7 +29,7 @@
 								</signature>
 							</xsl:for-each>
 							<longdesc>
-								<xsl:copy-of select="$zh-entrys[@type=current()/@type][@name=current()/@name]/longdesc/node()"/><br/>
+								<xsl:copy-of select="$zh-entrys[@type=current()/@type][@name=current()/@name]/longdesc/node()"/>
 								<xsl:copy-of select="longdesc/node()"/>
 							</longdesc>
 							<xsl:for-each select="example">
