@@ -12,7 +12,7 @@
       <category name="CSS" zh="CSS"/>
       <category name="Data" zh="数据"/>
       <category name="Dimensions" zh="尺寸"/>
-      <category name="Effects" zh="效果">
+      <category name="Effects" zh="动画效果">
          <category name="Basics" zh="基本"/>
          <category name="Custom" zh="自定义"/>
          <category name="Fading" zh="渐变"/>
@@ -286,8 +286,8 @@
                <desc>用于匹配元素的DOM元素。</desc>
             </argument>
          </signature>
-         <longdesc>.has()方法将会从给定的jQuery对象中重新创建一组匹配的对象。提供的选择器会一一测试原先那些对象的后代，含有匹配后代的对象将得以保留。
-    <p>提供一个代表DOM元素集合的jQuery对象， <code>.has()</code> 方法以匹配元素的子集创建一个新的jQuery对象。提供的选择器会一一测试原先那些元素的后代，含有匹配后代的元素会保留在结果中。</p>
+         <longdesc>
+    <p>如果提供一个jQuery对象代表DOM元素集合， <code>.has()</code> 方法会用其子集创建一个新的jQuery对象。提供的选择器会一一测试原先那些元素的后代，含有匹配后代的元素会保留在结果中。</p>
             <p>想想一个带有如下嵌套列表的页面：</p>
             <pre>
  &lt;ul&gt;
@@ -308,65 +308,65 @@
 
          </longdesc>
          <example>
-            <desc>检查是否一个元素在另一个之内。</desc>
+            <desc>检测是否一个元素在另一个之内。</desc>
          </example>
       </entry>
       <entry type="method" name="jQuery.contains">
-         <desc>jQuery 1.4 新增。一个DOM节点是否包含另一个DOM节点。Check to see if a DOM node is within another DOM node.</desc>
+         <desc>检测一个DOM节点是否包含另一个DOM节点。</desc>
          <signature>
             <argument name="container">
-               <desc>The DOM element that may contain the other element.</desc>
+               <desc>可能包含其他元素的DOM元素。</desc>
             </argument>
             <argument name="contained">
-               <desc>The DOM node that may be contained by the other element.</desc>
+               <desc>可能被其他元素包含的DOM节点。</desc>
             </argument>
          </signature>
          <longdesc/>
          <example>
-            <desc>Check if an element is inside another.</desc>
+            <desc>检测是否一个元素在另一个之内。</desc>
          </example>
       </entry>
       <entry type="method" name="jQuery.noop">
-         <desc>An empty function.</desc>
+         <desc>一个空函数。</desc>
          <signature/>
          <longdesc>
-            <p>You can use this empty function when you wish to pass around a function that will do nothing.</p>
-            <p>This is useful for plugin authors who offer optional callbacks; in the case that no callback is given, something like <code>jQuery.noop</code> could execute.</p>
+            <p>你可以在希望仅仅传递一个函数而不做任何事情时，传递这个空函数。</p>
+            <p>这对插件作者很有用。如果你设置了一个可选的回调函数，那么如果用户调用时没提供这个函数，那么就可以用 <code>jQuery.noop</code> 替代。</p>
          </longdesc>
       </entry>
       <entry type="method" name="delay">
-         <desc>设置一个延时来推迟执行队列中之后的项目。Set a timer to delay execution of subsequent items in the queue.</desc>
+         <desc>设置一个延时来推迟执行队列中之后的项目。</desc>
          <signature>
             <argument name="duration">
-               <desc>An integer indicating the number of milliseconds to delay execution of the next item in the queue.</desc>
+               <desc>以毫秒为单位的整数，用于设定队列推迟执行的时间。</desc>
             </argument>
             <argument name="queueName">
-               <desc>A string containing the name of the queue. Defaults to <code>fx</code>, the standard effects queue.</desc>
+               <desc>队列名的字符串。默认是动画队列 <code>fx</code> 。</desc>
             </argument>
          </signature>
-         <longdesc>jQuery 1.4新增。用于将队列中的函数延时执行。他既可以推迟动画队列的执行，也可以用于自定义队列。<p>Added to jQuery in version 1.4, the <code>.delay()</code> method allows us to delay the execution of functions that follow it in the queue. It can be used with the standard effects queue or with a custom queue. </p>
-            <p>Durations are given in milliseconds; higher values indicate slower animations, not faster ones. The strings <code>'fast'</code> and <code>'slow'</code> can be supplied to indicate durations of 200 and 600 milliseconds, respectively.</p>
-            <p>Using the standard effects queue, we can, for example, set an 800-millisecond delay between the <code>.slideUp()</code> and <code>.fadeIn()</code> of <code>&lt;div id="foo"&gt;</code>:</p>
+         <longdesc>
+            <p>jQuery 1.4新增, <code>.delay()</code> 用于将队列中的函数延时执行。他既可以推迟动画队列中函数的执行，也可以用于自定义队列。 </p>
+            <p>毫秒为单位的延时，数字越大，动画越慢。字符串 <code>'fast'</code> 和 <code>'slow'</code> 分别代表200和600毫秒的延时。</p>
+            <p>例如，我们可以在 <code>&lt;div id="foo"&gt;</code> 的 <code>.slideUp()</code> 和 <code>.fadeIn()</code> 动画之间添加800毫秒的延时 :</p>
             <pre>$('#foo').slideUp(300).delay(800).fadeIn(400);</pre>
-            <p>When this statement is executed, the element slides up for 300 milliseconds and then pauses for 800 milliseconds before fading in for 400 milliseconds.</p>
+            <p>当这句语句执行后，元素会有300毫秒的卷起动画，接着暂停800毫秒，再出现400毫秒淡入动画。</p>
             <p>
-               <strong>jQuery.delay() is best for delaying between queued jQuery effects and such, and is not a replacement for JavaScript's native <a href="https://developer.mozilla.org/en/DOM/window.setTimeout">setTimeout</a> function, which may be more appropriate for certain use cases.</strong>
+               <strong>jQuery.delay() 用在jQuery动画或者类似队列中是再好不过的了。但不应替代 JavaScript 原生的 <a href="https://developer.mozilla.org/en/DOM/window.setTimeout">setTimeout</a> 函数，后者更适用于通常情况。</strong>
             </p>
          </longdesc>
          <example>
-            <desc>Animate the hiding and showing of two divs, delaying the first before showing it.</desc>
+            <desc>隐藏再显示两个div。其中绿色的div再次出现得更慢。</desc>
          </example>
       </entry>
       <entry type="method" name="parentsUntil">
-         <desc>查找当前元素的所有的父辈元素，直到遇到匹配的那个元素为止。Get the ancestors of each element in the current set of matched elements, up to but not including the element matched by the selector.</desc>
+         <desc>查找当前元素的所有的先辈元素，直到遇到选择器匹配的元素为止，不包括那个匹配到的元素。</desc>
          <signature>
             <argument name="selector">
-               <desc>A string containing a selector expression to indicate where to stop matching ancestor elements.</desc>
+               <desc>选择器字符串，用于确定到哪个先辈元素时停止匹配。</desc>
             </argument>
          </signature>
-         <longdesc>如果提供的jQuery代表了一组DOM元素，.parentsUntil()方法也能让我们找遍所有元素的祖先元素，直到遇到了一个跟提供的参数匹配的元素的时候才会停下来。这个返回的jQuery对象里包含了下面所有找到的父辈元素，但不包括那个选择器匹配到的元素。
-		
-		<p>Given a jQuery object that represents a set of DOM elements, the <code>.parentsUntil()</code> method traverses through the ancestors of these elements until it reaches an element matched by the selector passed in the method's argument. The resulting jQuery object contains all of the ancestors up to but not including the one matched by the <code>.parentsUntil()</code> selector. Consider a page with a basic nested list as follows:</p>
+         <longdesc>
+            <p>如果提供一个jQuery对象代表DOM元素集合， <code>.parentsUntil()</code> 方法会找遍所有这些元素的先辈元素，直到遇到了跟参数匹配的元素才会停止。返回的jQuery对象中包含了所有找到的先辈元素，除了与 <code>.parentsUntil()</code> 选择器匹配的那个元素。考虑如下的嵌套列表：</p>
             <pre>&lt;ul class="level-1"&gt;
   &lt;li class="item-i"&gt;I&lt;/li&gt;
   &lt;li class="item-ii"&gt;II
@@ -385,32 +385,30 @@
   &lt;li class="item-iii"&gt;III&lt;/li&gt;
 &lt;/ul&gt;
 </pre>  
-            <p>If we begin at item A, we can find its ancestors up to but not including <code>&lt;ul class="level-1"&gt;</code> as follows:</p>
+            <p>如果我们从项目 A 开始找它的先辈，但不包括 <code>&lt;ul class="level-1"&gt;</code> ，就可以用下面代码：</p>
             <pre>$('li.item-a').parentsUntil('.level-1')
     .css('background-color', 'red');</pre>
-            <p>The result of this call is a red background for the level-2 list and the item II. </p>
-            <p>If the .parentsUntil() selector is not matched, or if no selector is supplied, the returned jQuery object contains all of the previous jQuery object's ancestors. For example, let's say we begin at item A again, but this time we use a selector that is not matched by any of its ancestors:</p>
+            <p>结果就是 level-2 列表和项目 II 的背景变红。 </p>
+            <p>如果提供给 .parentsUntil() 的选择器没有匹配到任何东西，或者干脆没有提供选择器，那么返回的对象会是这个对象所有的先辈元素。例如再次从项目 A 开始找，但这次使用一个匹配不到任何东西的选择器：</p>
             <pre>$('li.item-a').parentsUntil('.not-here')
     .css('background-color', 'red');</pre>
-            <p>The result of this call is a red background-color style applied to the level-2 list, the item II, the level-1 list, the <code>&lt;body&gt;</code> element, and the <code>&lt;html&gt;</code> element.</p>
+            <p>其结果是给 level-2 列表, 项目 II,  level-1 列表, <code>&lt;body&gt;</code> 元素和 <code>&lt;html&gt;</code> 元素都设置了红色背景。</p>
          </longdesc>
          <example>
-            <desc>Find the ancestors of &lt;li class="item-a"&gt; up to &lt;ul class="level-1"&gt; and give them a red background color.</desc>
+            <desc>查找 &lt;li class="item-a"&gt; 的先辈，直到 &lt;ul class="level-1"&gt; 为止，并给他们设置红色背景。</desc>
          </example>
       </entry>
       <entry type="method" name="prevUntil">
-         <desc>查找当前元素之前所有的同辈元素，直到遇到匹配的那个元素为止。Get all preceding siblings of each element up to but not including the element matched by the selector.</desc>
+         <desc>查找当前元素之前所有的同辈元素，直到遇到选择器匹配的元素为止，不包括那个匹配到的元素。</desc>
          <signature>
             <argument name="selector">
-               <desc>A string containing a selector expression to indicate where to stop matching preceding sibling elements.</desc>
+               <desc>选择器字符串，用于确定到哪个排在前面的同辈元素时停止匹配。</desc>
             </argument>
          </signature>
-         <longdesc>如果提供的jQuery代表了一组DOM元素，.prevUntil()方法也能让我们找遍所有元素所在的DOM树，直到遇到了一个跟提供的参数匹配的元素的时候才会停下来。这个新jQuery对象里包含了前面所有找到的同辈元素，但不包括那个选择器匹配到的元素。
-		
-		如果没有选择器匹配到，或者没有提供参数，那么排在前面的所有同辈元素都会被选中。这就跟用没有提供参数的 .prevAll()效果一样。<p>Given a jQuery object that represents a set of DOM elements, the <code>.prevUntil()</code> method allows us to search through the predecessors of these elements in the DOM tree, stopping when it reaches an element matched by the method's argument. The new jQuery object that is returned contains all previous siblings up to but not including the one matched by the <code>.prevUntil()</code> selector.</p>
-            <p>If the selector is not matched or is not supplied, all previous siblings will be selected; in these cases it selects the same elements as the <code>.prevAll()</code> method does when no filter selector is provided.</p>
+         <longdesc><p>如果提供的jQuery代表了一组DOM元素， <code>.prevUntil()</code> 方法会找遍所有元素所在的DOM树中排在他们前面的元素，直到遇到了一个跟提供的参数匹配的元素的时候才会停下来。这个新jQuery对象里包含了前面所有找到的同辈元素，但不包括提供给 <code>.prevUntil()</code> 的选择器匹配到的元素。</p>
+            <p>如果提供的选择器没有匹配到任何东西，或者干脆没有提供选择器，那么排在前面的所有同辈元素都会被选中。这就跟用没有提供参数的 <code>.prevAll()</code> 效果一样。</p>
   
-            <p>Consider a page with a simple definition list as follows:</p>
+            <p>考虑如下的定义列表：</p>
             <pre>
 &lt;dl&gt;
   &lt;dt&gt;term 1&lt;/dt&gt;
@@ -429,27 +427,25 @@
   &lt;dd&gt;definition 3-b&lt;/dd&gt;
 &lt;/dl&gt;
 </pre>
-              <p>If we begin at the second term, we can find the elements which come after it until a preceding <code>&lt;dt&gt;</code>.</p>
+              <p>如果我们从 term 2 开始，查找在他之前的所有元素，直到 <code>&lt;dt&gt;</code>为止。</p>
             <pre>$('#term-2').prevUntil('dt').css('background-color', 'red');</pre>
-              <p>The result of this call is a red background behind definitions <code>1-a</code>, <code>1-b</code>, <code>1-c</code>, and <code>1-d</code>. </p>
+              <p>其结果是使 definitions <code>1-a</code>, <code>1-b</code>, <code>1-c</code>, 和 <code>1-d</code> 的背景变为红色。</p>
          </longdesc>
          <example>
-            <desc>Find the siblings that precede &lt;dt id="term-2"&gt; up to the preceding &lt;dt&gt; and give them a red background color.</desc>
+            <desc>查找排在 &lt;dt id="term-2"&gt; 之前的同辈元素，直到 &lt;dt&gt; 为止，并把他们的背景都设成红色。</desc>
          </example>
       </entry>
       <entry type="method" name="nextUntil">
-         <desc>查找当前元素之后所有的同辈元素，直到遇到匹配的那个元素为止。Get all following siblings of each element up to but not including the element matched by the selector.</desc>
+         <desc>查找当前元素之前所有的同辈元素，直到遇到选择器匹配的元素为止，不包括那个匹配到的元素。</desc>
          <signature>
             <argument name="selector">
-               <desc>A string containing a selector expression to indicate where to stop matching following sibling elements.</desc>
+               <desc>选择器字符串，用于确定到哪个跟在后面的同辈元素时停止匹配。</desc>
             </argument>
          </signature>
-         <longdesc>如果提供的jQuery代表了一组DOM元素，.nextUntil()方法也能让我们找遍所有元素所在的DOM树，直到遇到了一个跟提供的参数匹配的元素的时候才会停下来。这个新jQuery对象里包含了下面所有找到的同辈元素，但不包括那个选择器匹配到的元素。
-		
-		如果没有选择器匹配到，或者没有提供参数，那么跟在后面的所有同辈元素都会被选中。这就跟用没有提供参数的 .nextAll()效果一样。<p>Given a jQuery object that represents a set of DOM elements, the <code>.nextUntil()</code> method allows us to search through the successors of these elements in the DOM tree, stopping when it reaches an element matched by the method's argument. The new jQuery object that is returned contains all following siblings up to but not including the one matched by the <code>.nextUntil()</code> selector.</p>
-            <p>If the selector is not matched or is not supplied, all following siblings will be selected; in these cases it selects the same elements as the <code>.nextAll()</code> method does when no filter selector is provided.</p>
+         <longdesc><p>如果提供的jQuery代表了一组DOM元素， <code>.nextUntil()</code> 方法会找遍所有元素所在的DOM树中跟在他们后面的元素，直到遇到了一个跟提供的参数匹配的元素时才会停下来。这个新jQuery对象里包含了后面所有找到的同辈元素，但不包括提供给 <code>.nextUntil()</code> 的选择器匹配到的元素。</p>
+            <p>如果提供的选择器没有匹配到任何东西，或者干脆没有提供选择器，那么排在后面的所有同辈元素都会被选中。这就跟用没有提供参数的 <code>.nextAll()</code> 效果一样。</p>
   
-            <p>Consider a page with a simple definition list as follows:</p>
+            <p>考虑如下的定义列表：</p>
             <pre>
 &lt;dl&gt;
   &lt;dt&gt;term 1&lt;/dt&gt;
@@ -468,45 +464,44 @@
   &lt;dd&gt;definition 3-b&lt;/dd&gt;
 &lt;/dl&gt;
 </pre>
-              <p>If we begin at the second term, we can find the elements which come after it until a following <code>&lt;dt&gt;</code>.</p>
+              <p>如果我们从 term 2 开始，查找在他之后的所有元素，直到 <code>&lt;dt&gt;</code>为止</p>
             <pre>$('#term-2').nextUntil('dt').css('background-color', 'red');</pre>
-              <p>The result of this call is a red background behind definitions <code>2-a</code>, <code>2-b</code>, and <code>2-c</code>. </p>
+              <p>其结果是使 definition <code>2-a</code>, <code>2-b</code>, and <code>2-c</code> 的背景变为红色。</p>
          </longdesc>
          <example>
-            <desc>Find the siblings that follow &lt;dt id="term-2"&gt; up to the next &lt;dt&gt; and give them a red background color.</desc>
+            <desc>查找跟在 &lt;dt id="term-2"&gt; 之后的同辈元素，直到 &lt;dt&gt; 为止，并把他们的背景都设成红色。</desc>
          </example>
       </entry>
       <entry type="method" name="event.isImmediatePropagationStopped">
-         <desc>  Returns whether event.stopImmediatePropagation() was ever called on this event object. </desc>
+         <desc>根据事件对象中是否调用过 <a href="/event.stopImmediatePropagation">event.stopImmediatePropagation()</a> 方法来返回一个布尔值。</desc>
          <signature/>
          <longdesc> 
-            <p>This property was introduced in <a href="http://www.w3.org/TR/2003/NOTE-DOM-Level-3-Events-20031107/events.html#Events-Event-isImmediatePropagationStopped">DOM level 3</a>.</p>  
+            <p>这个事件方法在 <a href="http://www.w3.org/TR/2003/NOTE-DOM-Level-3-Events-20031107/events.html#Events-Event-isImmediatePropagationStopped">DOM level 3</a> 有介绍。</p>  
          </longdesc>
          <example>
-            <desc>Checks whether event.stopImmediatePropagation() was called.</desc>
+            <desc>检测 event.stopImmediatePropagation() 是否被调用过。</desc>
          </example>
       </entry>
       <entry type="method" name="event.stopImmediatePropagation">
-         <desc> Keeps the rest of the handlers from being executed and prevents the event from bubbling up the DOM tree
-  </desc>
+         <desc>阻止剩余的事件处理函数执行并且防止事件冒泡到DOM树上。</desc>
          <signature/>
          <longdesc>
-            <p>In addition to keeping any additional handlers on an element from being executed, this method also stops the bubbling by implicitly calling <code>event.stopPropagation()</code>. To simply prevent the event from bubbling to ancestor elements but allow other event handlers to execute on the same element, we can use <code>
-                  <a href="http://api.jquery.com/event.stopPropagation">event.stopPropagation()</a>
-               </code> instead.</p>
-            <p>Use <code>
-                  <a href="http://api.jquery.com/event.isImmediatePropagationStopped">event.isImmediatePropagationStopped()</a>
-               </code> to know whether this method was ever called (on that event object).</p> 
+            <p>除了阻止元素上其他的事件处理函数的执行，这个方法还会通过在内部调用 <code>event.stopPropagation()</code> 来停止事件冒泡。如果仅仅想要停止事件冒泡到先辈元素上，而让这个元素上的其他事件处理函数继续执行，我们可以使用 <code>
+                  <a href="/event.stopPropagation">event.stopPropagation()</a>
+               </code> 来代替。</p>
+            <p>使用 <code>
+                  <a href="/event.isImmediatePropagationStopped">event.isImmediatePropagationStopped()</a>
+               </code> 来确定这个方法是否(在那个事件对象上)调用过了。</p> 
          </longdesc>
          <example>
-            <desc>Prevents other event handlers from being called.</desc>
+            <desc>阻止调用其他事件处理函数。</desc>
          </example>
       </entry>
       <entry type="method" name="event.isPropagationStopped">
-         <desc>  Returns whether <a href="/event.stopPropagation">event.stopPropagation()</a> was ever called on this event object. </desc>
+         <desc>根据事件对象中是否调用过 <a href="/event.stopPropagation">event.stopPropagation()</a> 方法来返回一个布尔值。 </desc>
          <signature/>
          <longdesc>
-            <p>This event method is described in the <a href="http://www.w3.org/TR/2003/WD-DOM-Level-3-Events-20030331/events.html#Events-Event-isPropagationStopped">W3C DOM Level 3 specification</a>.</p>
+            <p>这个事件方法在 <a href="http://www.w3.org/TR/2003/WD-DOM-Level-3-Events-20030331/events.html#Events-Event-isPropagationStopped">W3C DOM Level 3 specification</a> 有介绍。</p>
          </longdesc>
          <example>
             <desc>Checks whether event.stopPropagation() was called</desc>
@@ -557,7 +552,7 @@
          <signature/>
          <longdesc> It can be useful for getting previous return values of custom events.  </longdesc>
          <example>
-            <desc>Alert previous handler's return value</desc>
+            <desc>Display previous handler's return value</desc>
          </example>
       </entry>
       <entry type="property" name="event.which">
@@ -1807,8 +1802,7 @@ alert($('body').data());
                <desc>A selector with which to filter by.</desc>
             </argument>
          </signature>
-         <longdesc>在jQuery 1.3中，已经支持复杂选择器了（例如:not(div a) 和 :not(div,a)）<p>All selectors are accepted inside <code>:not()</code>,  for example: <code>:not(div a)</code> and <code>:not(div,a)</code>.</p>
-         </longdesc>
+         <longdesc><p>All selectors are accepted inside <code>:not()</code>,  for example: <code>:not(div a)</code> and <code>:not(div,a)</code>.</p> <h3>Additional Notes</h3><p>The <code><a href="/not/">.not()</a></code> method is typically faster and may end up providing you with more readable selections than pushing complex selectors or variables into a <code>:not()</code> selector filter.</p></longdesc>
          <example>
             <desc>Finds all inputs that are not checked and highlights the next sibling span.  Notice there is no change when clicking the checkboxes since no click events have been linked.</desc>
          </example>
@@ -1886,7 +1880,7 @@ alert($('body').data());
          </example>
       </entry>
       <entry type="selector" name="descendant">
-         <desc>在给定的祖先元素下匹配所有的后代元素Selects all elements that are descendants of a given ancestor.</desc>
+         <desc>在给定的先辈元素下匹配所有的后代元素Selects all elements that are descendants of a given ancestor.</desc>
          <signature>
             <argument name="ancestor">
                <desc>Any valid selector.</desc>
@@ -3242,7 +3236,7 @@ The <code>$.browser</code> property is deprecated in jQuery 1.3, but there are n
 
 '''事件委托'''
 
-.live() 方法能对一个还没有添加进DOM的元素有效，是由于使用了事件委托：绑定在祖先元素上的事件处理函数可以对在后代上触发的事件作出回应。传递给 .live() 的事件处理函数不会绑定在元素上，而是把他作为一个特殊的事件处理函数，绑定在 DOM 树的根节点上。在我们的例子中，当点击新的元素后，会依次发生下列步骤：
+.live() 方法能对一个还没有添加进DOM的元素有效，是由于使用了事件委托：绑定在先辈元素上的事件处理函数可以对在后代上触发的事件作出回应。传递给 .live() 的事件处理函数不会绑定在元素上，而是把他作为一个特殊的事件处理函数，绑定在 DOM 树的根节点上。在我们的例子中，当点击新的元素后，会依次发生下列步骤：
 
   &lt;ol&gt;
     &lt;li&gt;生成一个click事件传递给 &amp;lt;div&amp;gt; 来处理 &lt;/li&gt;
@@ -4847,7 +4841,7 @@ The second button starts a traditional chained animation, where each animation w
          </example>
       </entry>
       <entry type="method" name="parents">
-         <desc>取得一个包含着所有匹配元素的祖先元素的元素集合（不包含根元素）。可以通过一个可选的表达式进行筛选。Get the ancestors of each element in the current set of matched elements, optionally filtered by a selector.</desc>
+         <desc>取得一个包含着所有匹配元素的先辈元素的元素集合（不包含根元素）。可以通过一个可选的表达式进行筛选。Get the ancestors of each element in the current set of matched elements, optionally filtered by a selector.</desc>
          <signature>
             <argument name="selector">
                <desc>A string containing a selector expression to match elements against.</desc>
@@ -7159,13 +7153,13 @@ $.each(map, function(key, value) {
          </example>
       </entry>
       <entry type="method" name="clone">
-         <desc>克隆匹配的DOM元素并且选中这些克隆的副本。 元素以及其所有的事件处理并且选中这些克隆的副本Create a copy of the set of matched elements.</desc>
+         <desc>克隆匹配的DOM元素并且选中这些克隆的副本。 元素以及其所有的事件处理并且选中这些克隆的副本Create a deep copy of the set of matched elements.</desc>
          <signature>
             <argument name="withDataAndEvents">
                <desc>A Boolean indicating whether event handlers should be copied along with the elements. As of jQuery 1.4 element data will be copied as well.</desc>
             </argument>
          </signature>
-         <longdesc>在想把DOM文档中元素的副本添加到其他位置时这个函数非常有用。在想把DOM文档中元素的副本添加到其他位置时这个函数非常有用。<p>The <code>.clone()</code> method, when used in conjunction with one of the insertion methods, is a convenient way to duplicate elements on a page. Consider the following HTML:</p>
+         <longdesc>在想把DOM文档中元素的副本添加到其他位置时这个函数非常有用。在想把DOM文档中元素的副本添加到其他位置时这个函数非常有用。<p>The <code>.clone()</code> method performs a <em>deep</em> copy of the set of matched elements, meaning that it copies the matched elements as well as all of their descendant elements and text nodes. When used in conjunction with one of the insertion methods, <code>.clone()</code> is a convenient way to duplicate elements on a page. Consider the following HTML:</p>
 				        <pre>&lt;div class="container"&gt;
   &lt;div class="hello"&gt;Hello&lt;/div&gt;
   &lt;div class="goodbye"&gt;Goodbye&lt;/div&gt;
@@ -7364,7 +7358,7 @@ $.each(map, function(key, value) {
                <desc>A callback function which generates a structure to wrap around the content of the matched elements.</desc>
             </argument>
          </signature>
-         <longdesc>这个函数的原理是检查提供的第一个元素（它是由所提供的HTML标记代码动态生成的），并在它的代码结构中找到最上层的祖先元素－－这个祖先元素就是包装元素。<p>The <code>.wrapInner()</code> function can take any string or object that could be passed to the <code>$()</code> factory function to specify a DOM structure. This structure may be nested several levels deep, but should contain only one inmost element. The structure will be wrapped around the content of each of the elements in the set of matched elements.</p>
+         <longdesc>这个函数的原理是检查提供的第一个元素（它是由所提供的HTML标记代码动态生成的），并在它的代码结构中找到最上层的先辈元素－－这个先辈元素就是包装元素。<p>The <code>.wrapInner()</code> function can take any string or object that could be passed to the <code>$()</code> factory function to specify a DOM structure. This structure may be nested several levels deep, but should contain only one inmost element. The structure will be wrapped around the content of each of the elements in the set of matched elements.</p>
 				        <p>Consider the following HTML:</p>
 				        <pre>&lt;div class="container"&gt;
   &lt;div class="inner"&gt;Hello&lt;/div&gt;
@@ -7415,7 +7409,7 @@ $.each(map, function(key, value) {
                <desc>An HTML snippet, selector expression, jQuery object, or DOM element specifying the structure to wrap around the matched elements.</desc>
             </argument>
          </signature>
-         <longdesc>这于 '.wrap()'&lt;a href="http://docs.jquery.com/Manipulation/wrap" title="Manipulation/wrap"&gt;&lt;/a&gt; 是不同的，'.wrap()'为每一个匹配的元素都包裹一次。这种包装对于在文档中插入额外的结构化标记最有用，而且它不会破坏原始文档的语义品质。这个函数的原理是检查提供的第一个元素并在它的代码结构中找到最上层的祖先元素－－这个祖先元素就是包装元素。这于 '.wrap()'&lt;a href="http://docs.jquery.com/Manipulation/wrap" title="Manipulation/wrap"&gt;&lt;/a&gt; 是不同的，'.wrap()'为每一个匹配的元素都包裹一次。<p>The <code>.wrapAll()</code> function can take any string or object that could be passed to the <code>$()</code> function to specify a DOM structure. This structure may be nested several levels deep, but should contain only one inmost element. The structure will be wrapped around all of the elements in the set of matched elements, as a single group.</p>
+         <longdesc>这于 '.wrap()'&lt;a href="http://docs.jquery.com/Manipulation/wrap" title="Manipulation/wrap"&gt;&lt;/a&gt; 是不同的，'.wrap()'为每一个匹配的元素都包裹一次。这种包装对于在文档中插入额外的结构化标记最有用，而且它不会破坏原始文档的语义品质。这个函数的原理是检查提供的第一个元素并在它的代码结构中找到最上层的先辈元素－－这个先辈元素就是包装元素。这于 '.wrap()'&lt;a href="http://docs.jquery.com/Manipulation/wrap" title="Manipulation/wrap"&gt;&lt;/a&gt; 是不同的，'.wrap()'为每一个匹配的元素都包裹一次。<p>The <code>.wrapAll()</code> function can take any string or object that could be passed to the <code>$()</code> function to specify a DOM structure. This structure may be nested several levels deep, but should contain only one inmost element. The structure will be wrapped around all of the elements in the set of matched elements, as a single group.</p>
 				        <p>Consider the following HTML:</p>
 				        <pre>&lt;div class="container"&gt;
   &lt;div class="inner"&gt;Hello&lt;/div&gt;
@@ -7456,7 +7450,7 @@ $.each(map, function(key, value) {
                <desc>A callback function which generates a structure to wrap around the matched elements.</desc>
             </argument>
          </signature>
-         <longdesc>这种包装对于在文档中插入额外的结构化标记最有用，而且它不会破坏原始文档的语义品质。这个函数的原理是检查提供的第一个元素（它是由所提供的HTML标记代码动态生成的），并在它的代码结构中找到最上层的祖先元素－－这个祖先元素就是包裹元素。当HTML标记代码中的元素包含文本时无法使用这个函数。因此，如果要添加文本应该在包裹完成之后再行添加。<p>The <code>.wrap()</code> function can take any string or object that could be passed to the <code>$()</code> factory function to specify a DOM structure. This structure may be nested several levels deep, but should contain only one inmost element. The structure will be wrapped around each of the elements in the set of matched elements. This method returns the original set of elements for chaining purposes.</p>
+         <longdesc>这种包装对于在文档中插入额外的结构化标记最有用，而且它不会破坏原始文档的语义品质。这个函数的原理是检查提供的第一个元素（它是由所提供的HTML标记代码动态生成的），并在它的代码结构中找到最上层的先辈元素－－这个先辈元素就是包裹元素。当HTML标记代码中的元素包含文本时无法使用这个函数。因此，如果要添加文本应该在包裹完成之后再行添加。<p>The <code>.wrap()</code> function can take any string or object that could be passed to the <code>$()</code> factory function to specify a DOM structure. This structure may be nested several levels deep, but should contain only one inmost element. The structure will be wrapped around each of the elements in the set of matched elements. This method returns the original set of elements for chaining purposes.</p>
             <p>Consider the following HTML:</p>
             <pre>&lt;div class="container"&gt;
   &lt;div class="inner"&gt;Hello&lt;/div&gt;
