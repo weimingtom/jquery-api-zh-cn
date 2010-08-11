@@ -359,14 +359,14 @@
          </example>
       </entry>
       <entry type="method" name="parentsUntil">
-         <desc>查找当前元素的所有的先辈元素，直到遇到选择器匹配的元素为止，不包括那个匹配到的元素。</desc>
+         <desc>查找当前元素的所有的前辈元素，直到遇到选择器匹配的元素为止，不包括那个匹配到的元素。</desc>
          <signature>
             <argument name="selector">
-               <desc>选择器字符串，用于确定到哪个先辈元素时停止匹配。</desc>
+               <desc>选择器字符串，用于确定到哪个前辈元素时停止匹配。</desc>
             </argument>
          </signature>
          <longdesc>
-            <p>如果提供一个jQuery对象代表DOM元素集合， <code>.parentsUntil()</code> 方法会找遍所有这些元素的先辈元素，直到遇到了跟参数匹配的元素才会停止。返回的jQuery对象中包含了所有找到的先辈元素，除了与 <code>.parentsUntil()</code> 选择器匹配的那个元素。考虑如下的嵌套列表：</p>
+            <p>如果提供一个jQuery对象代表DOM元素集合， <code>.parentsUntil()</code> 方法会找遍所有这些元素的前辈元素，直到遇到了跟参数匹配的元素才会停止。返回的jQuery对象中包含了所有找到的前辈元素，除了与 <code>.parentsUntil()</code> 选择器匹配的那个元素。考虑如下的嵌套列表：</p>
             <pre>&lt;ul class="level-1"&gt;
   &lt;li class="item-i"&gt;I&lt;/li&gt;
   &lt;li class="item-ii"&gt;II
@@ -385,17 +385,17 @@
   &lt;li class="item-iii"&gt;III&lt;/li&gt;
 &lt;/ul&gt;
 </pre>  
-            <p>如果我们从项目 A 开始找它的先辈，但不包括 <code>&lt;ul class="level-1"&gt;</code> ，就可以用下面代码：</p>
+            <p>如果我们从项目 A 开始找它的前辈，但不包括 <code>&lt;ul class="level-1"&gt;</code> ，就可以用下面代码：</p>
             <pre>$('li.item-a').parentsUntil('.level-1')
     .css('background-color', 'red');</pre>
             <p>结果就是 level-2 列表和项目 II 的背景变红。 </p>
-            <p>如果提供给 .parentsUntil() 的选择器没有匹配到任何东西，或者干脆没有提供选择器，那么返回的对象会是这个对象所有的先辈元素。例如再次从项目 A 开始找，但这次使用一个匹配不到任何东西的选择器：</p>
+            <p>如果提供给 .parentsUntil() 的选择器没有匹配到任何东西，或者干脆没有提供选择器，那么返回的对象会是这个对象所有的前辈元素。例如再次从项目 A 开始找，但这次使用一个匹配不到任何东西的选择器：</p>
             <pre>$('li.item-a').parentsUntil('.not-here')
     .css('background-color', 'red');</pre>
             <p>其结果是给 level-2 列表, 项目 II,  level-1 列表, <code>&lt;body&gt;</code> 元素和 <code>&lt;html&gt;</code> 元素都设置了红色背景。</p>
          </longdesc>
          <example>
-            <desc>查找 &lt;li class="item-a"&gt; 的先辈，直到 &lt;ul class="level-1"&gt; 为止，并给他们设置红色背景。</desc>
+            <desc>查找 &lt;li class="item-a"&gt; 的前辈，直到 &lt;ul class="level-1"&gt; 为止，并给他们设置红色背景。</desc>
          </example>
       </entry>
       <entry type="method" name="prevUntil">
@@ -486,7 +486,7 @@
          <desc>阻止剩余的事件处理函数执行并且防止事件冒泡到DOM树上。</desc>
          <signature/>
          <longdesc>
-            <p>除了阻止元素上其他的事件处理函数的执行，这个方法还会通过在内部调用 <code>event.stopPropagation()</code> 来停止事件冒泡。如果仅仅想要停止事件冒泡到先辈元素上，而让这个元素上的其他事件处理函数继续执行，我们可以使用 <code>
+            <p>除了阻止元素上其他的事件处理函数的执行，这个方法还会通过在内部调用 <code>event.stopPropagation()</code> 来停止事件冒泡。如果仅仅想要停止事件冒泡到前辈元素上，而让这个元素上的其他事件处理函数继续执行，我们可以使用 <code>
                   <a href="/event.stopPropagation">event.stopPropagation()</a>
                </code> 来代替。</p>
             <p>使用 <code>
@@ -498,108 +498,108 @@
          </example>
       </entry>
       <entry type="method" name="event.isPropagationStopped">
-         <desc>根据事件对象中是否调用过 <a href="/event.stopPropagation">event.stopPropagation()</a> 方法来返回一个布尔值。 </desc>
+         <desc>根据事件对象中是否调用过 <a href="/event.stopPropagation">event.stopPropagation()</a> 方法来返回一个布尔值。</desc>
          <signature/>
          <longdesc>
             <p>这个事件方法在 <a href="http://www.w3.org/TR/2003/WD-DOM-Level-3-Events-20030331/events.html#Events-Event-isPropagationStopped">W3C DOM Level 3 specification</a> 有介绍。</p>
          </longdesc>
          <example>
-            <desc>Checks whether event.stopPropagation() was called</desc>
+            <desc>检测 event.stopPropagation() 是否被调用过。</desc>
          </example>
       </entry>
       <entry type="method" name="event.stopPropagation">
-         <desc>Prevents the event from bubbling up the DOM tree, preventing any parent handlers from being notified of the event.   </desc>
+         <desc>防止事件冒泡到DOM树上，也就是不触发的任何前辈元素上的事件处理函数。</desc>
          <signature/>
          <longdesc>  
-            <p>We can use <code>
+            <p>我们可以用 <code>
                   <a href="/event.isPropagationStopped">event.isPropagationStopped()</a>
-               </code> to determine if this method was ever called (on that event object). </p>
-            <p>This method works for custom events triggered with <a href="/trigger">trigger()</a>, as well.</p>
-            <p>Note that this will not prevent other handlers <em>on the same element</em> from running. </p> 
+               </code> 来确定这个方法是否(在那个事件对象上)调用过了。</p>
+            <p>这个方法对 <a href="/trigger">trigger()</a> 来自定义的事件同样有效。</p>
+            <p>注意，这不会阻止<em>同一个元素上</em>的其他事件处理函数的运行。</p> 
          </longdesc>
          <example>
-            <desc>Kill the bubbling on the click event.</desc>
+            <desc>灭掉click事件的冒泡。</desc>
          </example>
       </entry>
       <entry type="method" name="event.isDefaultPrevented">
-         <desc>Returns whether <a href="/event.preventDefault">event.preventDefault()</a> was ever called on this event object. </desc>
+         <desc>根据事件对象中是否调用过 <a href="/event.preventDefault">event.preventDefault()</a> 方法来返回一个布尔值。</desc>
          <signature/>
          <longdesc>   </longdesc>
          <example>
-            <desc>Checks whether event.preventDefault() was called.</desc>
+            <desc>检测 event.preventDefault() 是否被调用过。</desc>
          </example>
       </entry>
       <entry type="method" name="event.preventDefault">
-         <desc> If this method is called, the default action of the event will not be triggered. </desc>
+         <desc>阻止默认事件行为的触发。</desc>
          <signature/>
          <longdesc> 
-            <p>For example, clicked anchors will not take the browser to a new URL. We can use <code>event.isDefaultPrevented()</code> to determine if this method has been called by an event handler that was triggered by this event.</p>  
+            <p>举例来说，在执行这个方法后，如果点击一个锚点<code>&lt;a /&gt;</code>，就不会让浏览器跳转到新的 URL 去了。我们可以用 <code>event.isDefaultPrevented()</code> 来确定这个方法是否(在那个事件对象上)调用过了。</p>
          </longdesc>
          <example>
-            <desc>Cancel the default action (navigation) of the click.</desc>
+            <desc>取消点击的默认行为(导航)。</desc>
          </example>
       </entry>
       <entry type="property" name="event.timeStamp">
-         <desc> This attribute returns the number of milliseconds since January 1, 1970, when the event is triggered.   </desc>
+         <desc>这个属性返回事件触发时距离1970年1月1日的毫秒数。</desc>
          <signature/>
-         <longdesc>It can be useful for profiling the performance of certain jQuery functions. </longdesc>
+         <longdesc>这可以很方便的检测某个jQuery函数的性能。</longdesc>
          <example>
-            <desc>Display the time since the click handler last executed.</desc>
+            <desc>显示两次点击之间的时间。</desc>
          </example>
       </entry>
       <entry type="property" name="event.result">
-         <desc> This attribute contains the last value returned by an event handler that was triggered by this event, unless the value was <code>undefined</code>.  </desc>
+         <desc>这个属性包含了当前事件事件最后触发的那个处理函数的返回值，除非值是 <code>undefined</code> 。</desc>
          <signature/>
-         <longdesc> It can be useful for getting previous return values of custom events.  </longdesc>
+         <longdesc>这经常用于获取自定义事件的前一个返回值。</longdesc>
          <example>
-            <desc>Display previous handler's return value</desc>
+            <desc>显示前一个事件处理函数的返回值。</desc>
          </example>
       </entry>
       <entry type="property" name="event.which">
-         <desc> For key or button events, this attribute indicates the specific button or key that was pressed.  </desc>
+         <desc>针对键盘和鼠标事件，这个属性能确定你到底按的是哪个键。</desc>
          <signature/>
          <longdesc> 
             <p>
-               <code>event.which</code> normalizes <code>event.keyCode</code> and <code>event.charCode</code>. It is recommended to watch <code>event.which</code> for keyboard key input. For more detail, read about <a href="https://developer.mozilla.org/en/DOM/event.charCode#Notes">event.charCode on the MDC</a>. </p> 
+               <code>event.which</code> 将 <code>event.keyCode</code> 和 <code>event.charCode</code> 标准化了。推荐用 <code>event.which</code> 来监视键盘输入。更多细节请参阅： <a href="https://developer.mozilla.org/en/DOM/event.charCode#Notes">event.charCode on the MDC</a>. </p> 
          </longdesc>
          <example>
-            <desc>Log what key was depressed.</desc>
+            <desc>记录按键</desc>
          </example>
       </entry>
       <entry type="property" name="event.pageY">
-         <desc>The mouse position relative to the top edge of the document. </desc>
+         <desc>鼠标相对于文档顶部的坐标。</desc>
          <signature/>
          <longdesc>   </longdesc>
          <example>
-            <desc>Show the mouse position relative to the left and top edges of the document (within this iframe).</desc>
+            <desc>显示鼠标相对于文档（框架中）顶部和左边的坐标。</desc>
          </example>
       </entry>
       <entry type="property" name="event.pageX">
-         <desc>The mouse position relative to the left edge of the document. </desc>
+         <desc>鼠标相对于文档左部的坐标。</desc>
          <signature/>
          <longdesc>   </longdesc>
          <example>
-            <desc>Show the mouse position relative to the left and top edges of the document (within the iframe).</desc>
+            <desc>显示鼠标相对于文档（框架中）顶部和左边的坐标。</desc>
          </example>
       </entry>
       <entry type="property" name="event.currentTarget">
-         <desc> The current DOM element within the event bubbling phase.  </desc>
+         <desc>事件冒泡阶段当前所在DOM元素。</desc>
          <signature/>
          <longdesc>
-            <p>This property will always be equal to the <code>this</code> of the function.</p>  
+            <p>这个属性总是等于函数的 <code>this</code> 。</p>
          </longdesc>
          <example>
-            <desc>Alert that currentTarget matches the `this` keyword.</desc>
+            <desc>currentTarget 总是完全等同于 `this` 。</desc>
          </example>
       </entry>
       <entry type="property" name="event.relatedTarget">
-         <desc>  The other DOM element involved in the event, if any. </desc>
+         <desc>在事件中涉及的其他任何DOM元素。</desc>
          <signature/>
          <longdesc>
-            <p>For <code>mouseout</code>, indicates the element being entered; for <code>mousein</code>, indicates the element being exited. </p> 
+            <p>对于 <code>mouseout</code> 事件，他指向被进入的元素；对于 <code>mousein</code> 事件，他指向被离开的元素。</p> 
          </longdesc>
          <example>
-            <desc>On mouseout of anchors, alert the element type being entered.</desc>
+            <desc>对于锚点的 mouseout 事件，显示被进入的元素类型。</desc>
          </example>
       </entry>
       <entry type="property" name="event.data">
@@ -1880,7 +1880,7 @@ alert($('body').data());
          </example>
       </entry>
       <entry type="selector" name="descendant">
-         <desc>在给定的先辈元素下匹配所有的后代元素Selects all elements that are descendants of a given ancestor.</desc>
+         <desc>在给定的前辈元素下匹配所有的后代元素Selects all elements that are descendants of a given ancestor.</desc>
          <signature>
             <argument name="ancestor">
                <desc>Any valid selector.</desc>
@@ -3236,7 +3236,7 @@ The <code>$.browser</code> property is deprecated in jQuery 1.3, but there are n
 
 '''事件委托'''
 
-.live() 方法能对一个还没有添加进DOM的元素有效，是由于使用了事件委托：绑定在先辈元素上的事件处理函数可以对在后代上触发的事件作出回应。传递给 .live() 的事件处理函数不会绑定在元素上，而是把他作为一个特殊的事件处理函数，绑定在 DOM 树的根节点上。在我们的例子中，当点击新的元素后，会依次发生下列步骤：
+.live() 方法能对一个还没有添加进DOM的元素有效，是由于使用了事件委托：绑定在前辈元素上的事件处理函数可以对在后代上触发的事件作出回应。传递给 .live() 的事件处理函数不会绑定在元素上，而是把他作为一个特殊的事件处理函数，绑定在 DOM 树的根节点上。在我们的例子中，当点击新的元素后，会依次发生下列步骤：
 
   &lt;ol&gt;
     &lt;li&gt;生成一个click事件传递给 &amp;lt;div&amp;gt; 来处理 &lt;/li&gt;
@@ -4841,7 +4841,7 @@ The second button starts a traditional chained animation, where each animation w
          </example>
       </entry>
       <entry type="method" name="parents">
-         <desc>取得一个包含着所有匹配元素的先辈元素的元素集合（不包含根元素）。可以通过一个可选的表达式进行筛选。Get the ancestors of each element in the current set of matched elements, optionally filtered by a selector.</desc>
+         <desc>取得一个包含着所有匹配元素的前辈元素的元素集合（不包含根元素）。可以通过一个可选的表达式进行筛选。Get the ancestors of each element in the current set of matched elements, optionally filtered by a selector.</desc>
          <signature>
             <argument name="selector">
                <desc>A string containing a selector expression to match elements against.</desc>
@@ -7358,7 +7358,7 @@ $.each(map, function(key, value) {
                <desc>A callback function which generates a structure to wrap around the content of the matched elements.</desc>
             </argument>
          </signature>
-         <longdesc>这个函数的原理是检查提供的第一个元素（它是由所提供的HTML标记代码动态生成的），并在它的代码结构中找到最上层的先辈元素－－这个先辈元素就是包装元素。<p>The <code>.wrapInner()</code> function can take any string or object that could be passed to the <code>$()</code> factory function to specify a DOM structure. This structure may be nested several levels deep, but should contain only one inmost element. The structure will be wrapped around the content of each of the elements in the set of matched elements.</p>
+         <longdesc>这个函数的原理是检查提供的第一个元素（它是由所提供的HTML标记代码动态生成的），并在它的代码结构中找到最上层的前辈元素－－这个前辈元素就是包装元素。<p>The <code>.wrapInner()</code> function can take any string or object that could be passed to the <code>$()</code> factory function to specify a DOM structure. This structure may be nested several levels deep, but should contain only one inmost element. The structure will be wrapped around the content of each of the elements in the set of matched elements.</p>
 				        <p>Consider the following HTML:</p>
 				        <pre>&lt;div class="container"&gt;
   &lt;div class="inner"&gt;Hello&lt;/div&gt;
@@ -7409,7 +7409,7 @@ $.each(map, function(key, value) {
                <desc>An HTML snippet, selector expression, jQuery object, or DOM element specifying the structure to wrap around the matched elements.</desc>
             </argument>
          </signature>
-         <longdesc>这于 '.wrap()'&lt;a href="http://docs.jquery.com/Manipulation/wrap" title="Manipulation/wrap"&gt;&lt;/a&gt; 是不同的，'.wrap()'为每一个匹配的元素都包裹一次。这种包装对于在文档中插入额外的结构化标记最有用，而且它不会破坏原始文档的语义品质。这个函数的原理是检查提供的第一个元素并在它的代码结构中找到最上层的先辈元素－－这个先辈元素就是包装元素。这于 '.wrap()'&lt;a href="http://docs.jquery.com/Manipulation/wrap" title="Manipulation/wrap"&gt;&lt;/a&gt; 是不同的，'.wrap()'为每一个匹配的元素都包裹一次。<p>The <code>.wrapAll()</code> function can take any string or object that could be passed to the <code>$()</code> function to specify a DOM structure. This structure may be nested several levels deep, but should contain only one inmost element. The structure will be wrapped around all of the elements in the set of matched elements, as a single group.</p>
+         <longdesc>这于 '.wrap()'&lt;a href="http://docs.jquery.com/Manipulation/wrap" title="Manipulation/wrap"&gt;&lt;/a&gt; 是不同的，'.wrap()'为每一个匹配的元素都包裹一次。这种包装对于在文档中插入额外的结构化标记最有用，而且它不会破坏原始文档的语义品质。这个函数的原理是检查提供的第一个元素并在它的代码结构中找到最上层的前辈元素－－这个前辈元素就是包装元素。这于 '.wrap()'&lt;a href="http://docs.jquery.com/Manipulation/wrap" title="Manipulation/wrap"&gt;&lt;/a&gt; 是不同的，'.wrap()'为每一个匹配的元素都包裹一次。<p>The <code>.wrapAll()</code> function can take any string or object that could be passed to the <code>$()</code> function to specify a DOM structure. This structure may be nested several levels deep, but should contain only one inmost element. The structure will be wrapped around all of the elements in the set of matched elements, as a single group.</p>
 				        <p>Consider the following HTML:</p>
 				        <pre>&lt;div class="container"&gt;
   &lt;div class="inner"&gt;Hello&lt;/div&gt;
@@ -7450,7 +7450,7 @@ $.each(map, function(key, value) {
                <desc>A callback function which generates a structure to wrap around the matched elements.</desc>
             </argument>
          </signature>
-         <longdesc>这种包装对于在文档中插入额外的结构化标记最有用，而且它不会破坏原始文档的语义品质。这个函数的原理是检查提供的第一个元素（它是由所提供的HTML标记代码动态生成的），并在它的代码结构中找到最上层的先辈元素－－这个先辈元素就是包裹元素。当HTML标记代码中的元素包含文本时无法使用这个函数。因此，如果要添加文本应该在包裹完成之后再行添加。<p>The <code>.wrap()</code> function can take any string or object that could be passed to the <code>$()</code> factory function to specify a DOM structure. This structure may be nested several levels deep, but should contain only one inmost element. The structure will be wrapped around each of the elements in the set of matched elements. This method returns the original set of elements for chaining purposes.</p>
+         <longdesc>这种包装对于在文档中插入额外的结构化标记最有用，而且它不会破坏原始文档的语义品质。这个函数的原理是检查提供的第一个元素（它是由所提供的HTML标记代码动态生成的），并在它的代码结构中找到最上层的前辈元素－－这个前辈元素就是包裹元素。当HTML标记代码中的元素包含文本时无法使用这个函数。因此，如果要添加文本应该在包裹完成之后再行添加。<p>The <code>.wrap()</code> function can take any string or object that could be passed to the <code>$()</code> factory function to specify a DOM structure. This structure may be nested several levels deep, but should contain only one inmost element. The structure will be wrapped around each of the elements in the set of matched elements. This method returns the original set of elements for chaining purposes.</p>
             <p>Consider the following HTML:</p>
             <pre>&lt;div class="container"&gt;
   &lt;div class="inner"&gt;Hello&lt;/div&gt;
