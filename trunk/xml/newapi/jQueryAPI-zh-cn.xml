@@ -603,93 +603,87 @@
          </example>
       </entry>
       <entry type="property" name="event.data">
-         <desc> Contains the optional data passed to jQuery.fn.bind when the current executing handler was bound.  </desc>
+         <desc> 包含传给 bind 函数的可选数据。</desc>
          <signature/>
          <longdesc>   </longdesc>
          <example>
-            <desc>The description of the example.</desc>
+            <desc>显示传入的数据</desc>
          </example>
       </entry>
       <entry type="property" name="event.target">
-         <desc> The DOM element that initiated the event.  </desc>
+         <desc>最初触发事件的DOM元素。</desc>
          <signature/>
          <longdesc> 
-            <p>This can be the element that registered for the event or a child of it.  It is often useful to compare <code>event.target</code> to <code>this</code> in order to determine if the event is being handled due to event bubbling. This property is very useful in event delegation, when events bubble.</p>
+            <p>这是注册事件时的对象，或者它的子元素。通常用于比较 <code>event.target</code> 和 <code>this</code> 来确定事件是不是由于冒泡而触发的。经常用于事件冒泡时处理事件委托。</p>
          </longdesc>
          <example>
-            <desc>Display the tag's name on click</desc>
+            <desc>显示点击元素的标签名。</desc>
          </example>
          <example>
-            <desc>Implements a simple event delegation: The click handler is added to an unordered list, and the children of its li children are hidden. Clicking one of the li children toggles (see toggle()) their children.</desc>
+            <desc>实现一个简单的事件委托：给无序列表增加一个点击事件处理函数，然后他的子元素li的子元素都隐藏起来。当点击这个ul其中一个子元素li的时候，来回切换显示（参见 <a href="/toggle">toggle()</a>）li的子元素。</desc>
          </example>
       </entry>
       <entry type="property" name="event.type">
-         <desc> Describes the nature of the event.  </desc>
+         <desc>描述事件类型。</desc>
          <signature/>
          <longdesc>   </longdesc>
          <example>
-            <desc>On all anchor clicks, alert the event type.</desc>
+            <desc>点击所有锚点后弹出事件类型。</desc>
          </example>
       </entry>
       <entry type="property" name="jQuery.fx.off">
-         <desc>关闭页面上所有的动画。Globally disable all animations.</desc>
+         <desc>禁用页面上所有的动画。</desc>
          <signature/>
-         <longdesc>把这个属性设置为true可以立即关闭所有动画(所有效果会立即执行完毕)。有些情况下可能需要这样，比如：
-
-* 你在配置比较低的电脑上使用jQuery。
-
-* 你的一些用户由于动画效果而遇到了 &lt;a href="http://www.jdeegan.phlegethon.org/turn_off_animation.html"&gt;可访问性问题&lt;/a&gt;
-
-当把这个属性设成false之后，可以重新开启所有动画。
-    <p>When this property is set to <code>true</code>, all animation methods will immediately set elements to their final state when called, rather than displaying an effect. This may be desirable for a couple reasons:</p>
+         <longdesc>
+            <p>把这个属性设置为 <code>true</code> 后，所有动画方法会立即停止特效，并把元素设置成动画的最终状态。有时候确实有必要这样做，比如：</p>
             <ul>
-               <li>jQuery is being used on a low-resource device.</li>
-               <li>Users are encountering accessibility problems with the animations (see the article <a href="http://www.jdeegan.phlegethon.org/turn_off_animation.html">Turn Off Animation</a> for more information).</li>
+               <li>jQuery 用在资源较少的设备。</li>
+               <li>一些用户由于动画效果而遇到了可访问性问题。（参考文章 <a href="http://www.jdeegan.phlegethon.org/turn_off_animation.html">Turn Off Animation</a> 以获取更多信息。）</li>
             </ul>
-            <p>Animations can be turned back on by setting the property to <code>false</code>.</p>
+            <p>当把这个属性设成 <code>false</code> 之后，可以重新开启所有动画。</p>
 
          </longdesc>
          <example>
-            <desc>Toggle animation on and off</desc>
+            <desc>切换开启或关闭动画。</desc>
          </example>
       </entry>
       <entry type="method" name="each">
-         <desc>以每一个匹配的元素作为上下文来执行一个函数。Iterate over a jQuery object, executing a function for each matched element. </desc>
+         <desc>迭代jQuery对象，为每个匹配的元素执行函数。</desc>
          <signature>
             <argument name="function(index, Element)">
-               <desc>A function to execute for each matched element.</desc>
+               <desc>为每个匹配元素执行的函数</desc>
             </argument>
          </signature>
-         <longdesc>意味着，每次执行传递进来的函数时，函数中的this关键字都指向一个不同的DOM元素（每次都是一个不同的匹配元素）。而且，在每次执行函数时，都会给函数传递一个表示作为执行环境的元素在匹配的元素集合中所处位置的数字值作为参数（从零开始的整型）。 返回 'false' 将停止循环 (就像在普通的循环中使用 'break')。返回 'true' 跳至下一个循环(就像在普通的循环中使用'continue')。
-  <p>The <code>.each()</code> method is designed to make DOM looping constructs concise and less error-prone. When called it iterates over the DOM elements that are part of the jQuery object. Each time the callback runs, it is passed the current loop iteration, beginning from 0. More importantly, the callback is fired in the context of the current DOM element, so the keyword <code>this</code> refers to the element.</p>
-            <p>Suppose we had a simple unordered list on the page:</p>
+         <longdesc>
+  <p><code>.each()</code> 方法用来让DOM循环结构更简单更不易出错。他会迭代jQuery对象中的每一个DOM元素。每次回调函数执行时，会传递当前循环次数作为参数(从0开始计数)。更重要的是，回调函数是在当前DOM元素为上下文的语境中触发的。因此关键字 <code>this</code> 总是指向这个元素。</p>
+            <p>假设页面上有这样一个简单的无序列表。</p>
             <pre>&lt;ul&gt;
     &lt;li&gt;foo&lt;/li&gt;
     &lt;li&gt;bar&lt;/li&gt;
   &lt;/ul&gt;
   </pre>
-            <p>We can select the list items and iterate across them:</p>
+            <p>我们可以选中并迭代这些列表：</p>
             <pre>$('li').each(function(index) {
     alert(index + ': ' + $(this).text());
   });
   </pre>
-            <p>A message is thus alerted for each item in the list:</p>
+            <p>列表中每一项会显示在下面的消息中：</p>
             <p>
                <span class="output">0: foo</span>
                <br/>
                <span class="output">1: bar</span>
             </p>
-            <p>We can stop the loop from within the callback function by returning <code>false</code>.</p>  
-  
+            <p>我们可以通过返回 <code>false</code>以便在回调函数内中止循环。</p>
+
          </longdesc>
          <example>
-            <desc>Iterates over three divs and sets their color property.</desc>
+            <desc>遍历三个div并设置它们的color属性。</desc>
          </example>
          <example>
-            <desc>If you want to have the jQuery object instead of the regular DOM element, use the $(this) function, for example:</desc>
+            <desc>如果你不想要普通的DOM元素，而想获得的是jQuery对象的话，使用$(this) 函数。例如：</desc>
          </example>
          <example>
-            <desc>You can use 'return' to break out of each() loops early.</desc>
+            <desc>你可以使用 'return' 来提前结束 each() 循环。</desc>
          </example>
       </entry>
       <entry type="method" name="pushStack">
