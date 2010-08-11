@@ -154,7 +154,7 @@
 						<xsl:variable name="zh-signature" select="$zh-entry/signature[$sigpos]"/>
 						<li>
 						<h4>
-						<span><xsl:value-of select="added"/> 版后加入</span>
+						<span><xsl:value-of select="added"/> 新增</span>
 						<xsl:value-of select="../@name"/>(<xsl:for-each select="argument">
 							<xsl:choose>
 								<xsl:when test="@optional">
