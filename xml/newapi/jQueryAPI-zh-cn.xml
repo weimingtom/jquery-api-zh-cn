@@ -687,221 +687,219 @@
          </example>
       </entry>
       <entry type="method" name="pushStack">
-         <desc>Add a collection of DOM elements onto the jQuery stack.</desc>
+         <desc>将一个DOM元素集合加入到jQuery栈。</desc>
          <signature>
             <argument name="elements">
-               <desc>An array of elements to push onto the stack and make into a new jQuery object.</desc>
+               <desc>将要压入jQuery栈的元素，用于生成一个新的jQuery对象。</desc>
             </argument>
          </signature>
          <signature>
             <argument name="elements">
-               <desc>An array of elements to push onto the stack and make into a new jQuery object.</desc>
+               <desc>将要压入jQuery栈的元素，用于生成一个新的jQuery对象。</desc>
             </argument>
             <argument name="name">
-               <desc>The name of a jQuery method that generated the array of elements.</desc>
+               <desc>用于生成元素数组的jQuery方法名。</desc>
             </argument>
             <argument name="arguments">
-               <desc>The arguments that were passed in to the jQuery method (for serialization).</desc>
+               <desc>传递给jQuery方法的参数(用于序列化)。</desc>
             </argument>
          </signature>
          <longdesc/>
          <example>
-            <desc>Add some elements onto the jQuery stack, then pop back off again.</desc>
+            <desc>把一些元素加入到jQuery栈中，再弹出。</desc>
          </example>
       </entry>
       <entry type="method" name="jQuery.globalEval">
-         <desc>Execute some JavaScript code globally.</desc>
+         <desc>全局执行一些JavaScript代码。</desc>
          <signature>
             <argument name="code">
-               <desc>The JavaScript code to execute.</desc>
+               <desc>将要执行的 JavaScript 代码。</desc>
             </argument>
          </signature>
          <longdesc>
-            <p>This method behaves differently from using a normal JavaScript <code>eval()</code> in that it's executed within the global context (which is important for loading external scripts dynamically).</p>
+            <p>这个方法与普通 JavaScript 中 <code>eval()</code> 的不同之处在于，他是在全局的上下文语境中执行的代码，这对于动态载入外部脚本非常重要。</p>
          </longdesc>
          <example>
-            <desc>Execute a script in the global context.</desc>
+            <desc>全局地执行脚本。</desc>
          </example>
       </entry>
       <entry type="method" name="jQuery.isXMLDoc">
-         <desc>Check to see if a DOM node is within an XML document (or is an XML document).</desc>
+         <desc>检测一个DOM节点是否在一个XML文档中（或者本身就是一个XML文档）。</desc>
          <signature>
             <argument name="node">
-               <desc>The DOM node that will be checked to see if it's in an XML document.</desc>
+               <desc>用于检测是否在XML文档中的DOM节点。</desc>
             </argument>
          </signature>
          <longdesc/>
          <example>
-            <desc>Check an object to see if it's in an XML document.</desc>
+            <desc>检测一个对象是否在一个XML文档之中。</desc>
          </example>
       </entry>
       <entry type="method" name="jQuery.removeData">
-         <desc>Remove a previously-stored piece of data.</desc>
+         <desc>移除先前存储的数据片段。</desc>
          <signature>
             <argument name="element">
-               <desc>A DOM element from which to remove data.</desc>
+               <desc>将要移除数据的DOM元素。</desc>
             </argument>
             <argument name="name">
-               <desc>A string naming the piece of data to remove.</desc>
+               <desc>将要移除的数据片段名。</desc>
             </argument>
          </signature>
          <longdesc>
             <p>
-               <strong>Note:</strong> This is a low-level method, you should probably use <code>
+               <strong>注意：</strong> 这是一个底层方法，应当使用更合适的 <code>
                   <a href="/removeData">.removeData()</a>
-               </code> instead.</p>
-	           <p>The <code>jQuery.removeData()</code> method allows us to remove values that were previously set using <code>
+               </code> 来代替。</p>
+	           <p><code>jQuery.removeData()</code> 允许你移除先前用 <code>
                   <a href="/jQuery.data">jQuery.data()</a>
-               </code>. When called with the name of a key, <code>jQuery.removeData()</code> deletes that particular value; when called with no arguments, all values are removed.</p>
+               </code> 设置的数据。如果提供了name参数，则 <code>jQuery.removeData()</code> 删除那个指定的值，如果不带参数，则删除所有数据。</p>
          </longdesc>
          <example>
-            <desc>Set a data store for 2 names then remove one of them.</desc>
+            <desc>设置两个数据，然后再删除其中一个。</desc>
          </example>
       </entry>
       <entry type="method" name="jQuery.data">
-         <desc>在元素上存放数据,返回jQuery对象。 查询在元素上存放的数据Store arbitrary data associated with the specified element.</desc>
+         <desc>在指定的元素上随心所欲的存放数据。</desc>
          <signature>
             <argument name="element">
-               <desc>The DOM element to associate with the data.</desc>
+               <desc>用于存放数据的DOM元素。</desc>
             </argument>
             <argument name="key">
-               <desc>A string naming the piece of data to set.</desc>
+               <desc>将要设置的数据片段名。</desc>
             </argument>
             <argument name="value">
-               <desc>The new data value.</desc>
+               <desc>新的数据值。</desc>
             </argument>
          </signature>
-         <longdesc>注意：这是一个底层方法。你应当使用.data()来代替。如果不指定参数，则会返回元素上面存放的所有数据，以Object的形式返回。
-		
-注意：这是一个底层方法。你应当使用.data()来代替。<p>
-               <strong>Note:</strong> This is a low-level method; you should probably use <code>
+         <longdesc>
+               <p>
+               <strong>注意：</strong> 这是一个底层方法，应当使用更合适的 <code>
                   <a href="/data">.data()</a>
-               </code> instead.</p>
-	           <p>The <code>jQuery.data()</code> method allows us to attach data of any type to DOM elements in a way that is safe from circular references and therefore from memory leaks. We can set several distinct values for a single element and retrieve them later:</p>
+               </code> 来代替。</p>
+	           <p><code>jQuery.data()</code> 方法允许我们安全地将任何类型的数据附加到DOM元素上而不用担心循环引用和内存泄露之类的问题。我们在单个元素上设置几个独立的数据，并且以后还可以分别检索到：</p>
 	           <pre>jQuery.data(document.body, 'foo', 52);
-		jQuery.data(document.body, 'bar', 'test');</pre>
+jQuery.data(document.body, 'bar', 'test');</pre>
          </longdesc>
          <example>
-            <desc>Store then retrieve a value from the div element.</desc>
+            <desc>在一个DIV元素上存放数据，然后检索这个数据。</desc>
          </example>
       </entry>
       <entry type="method" name="jQuery.data">
-         <desc>在元素上存放数据,返回jQuery对象。 查询在元素上存放的数据Returns value at named data store for the element, as set by <code>jQuery.data(element, name, value)</code>, or the full data store for the element.</desc>
+         <desc>返回用 <code>jQuery.data(element, name, value)</code> 存放在元素上的指定数据，或者元素上的所有数据。</desc>
          <signature>
             <argument name="element">
-               <desc>The DOM element to query for the data.</desc>
+               <desc>将要查询数据的DOM元素。</desc>
             </argument>
             <argument name="key">
-               <desc>Name of the data stored.</desc>
+               <desc>存放的数据名。</desc>
             </argument>
          </signature>
          <signature>
             <argument name="element">
-               <desc>The DOM element to query for the data.</desc>
+               <desc>将要查询数据的DOM元素。</desc>
             </argument>
          </signature>
-         <longdesc>注意：这是一个底层方法。你应当使用.data()来代替。如果不指定参数，则会返回元素上面存放的所有数据，以Object的形式返回。
-		
-注意：这是一个底层方法。你应当使用.data()来代替。<p>
-               <strong>Note:</strong> This is a low-level method; you should probably use <code>
+         <longdesc>
+            <p>
+               <strong>注意：</strong> 这是一个底层方法，应当使用更合适的 <code>
                   <a href="/data">.data()</a>
-               </code> instead.</p>
-            <p>The <code>jQuery.data()</code> method allows us to attach data of any type to DOM elements in a way that is safe from circular references and therefore from memory leaks. We can retrieve several distinct values for a single element one at a time, or as a set:</p>
+               </code> 来代替。</p>
+            <p><code>jQuery.data()</code> 方法允许我们安全地将任何类型的数据附加到DOM元素上而不用担心循环引用和内存泄露之类的问题。 我们可以分别在DOM元素上获取几个独立的数据，或者一次获取一组：</p>
             <pre>alert(jQuery.data( document.body, 'foo' ));
 alert(jQuery.data( document.body ));</pre>
-            <p>The above lines alert the data values that were set on the <code>body</code> element. If nothing was set on that element, an empty string is returned.</p>
-            <p>Calling <code>jQuery.data(element)</code> retrieves all of the element's associated values as a JavaScript object. Note that jQuery itself uses this method to store data for internal use, such as event handlers, so do not assume that it contains only data that your own code has stored.</p>
+            <p>上面两行中alert的数据都是先前给 <code>body</code> 设置的。如果先前没有设置过，则返回一个空字符串。</p>
+            <p>调用 <code>jQuery.data(element)</code> 可以返回一个JavaScript对象，包含元素上所有存放的数据。注意jQuery本身也在内部使用这个方法存放数据，比如事件处理函数，所以返回的对象中会包含不是你自己代码存放的数据。</p>
          </longdesc>
          <example>
-            <desc>Get the data named "blah" stored at for an element.</desc>
+            <desc>获取存放在元素上名叫 "blah" 的数据。</desc>
          </example>
       </entry>
       <entry type="method" name="jQuery.dequeue">
-         <desc>Execute the next function on the queue for the matched element.</desc>
+         <desc>为匹配的元素执行队列中下一个函数。</desc>
          <signature>
             <argument name="element">
-               <desc>A DOM element from which to remove and execute a queued function.</desc>
+               <desc>一个DOM元素，会从它附带的函数队列中弹出并执行一个函数。</desc>
             </argument>
             <argument name="queueName">
-               <desc>A string containing the name of the queue. Defaults to <code>fx</code>, the standard effects queue.</desc>
+               <desc>包含队列名的字符串。默认值是 <code>fx</code> ，即动画效果队列。</desc>
             </argument>
          </signature>
          <longdesc>
             <p>
-               <strong>Note:</strong> This is a low-level method, you should probably use <code>
+               <strong>注意：</strong> 这是一个底层方法，应当使用更合适的 <code>
                   <a href="/dequeue">.dequeue()</a>
-               </code> instead.</p>
-            <p>When <code>jQuery.dequeue()</code> is called, the next function on the queue is removed from the queue, and then executed. This function should in turn (directly or indirectly) cause <code>jQuery.dequeue()</code> to be called, so that the sequence can continue.</p>
+               </code> 来代替。</p>
+            <p>当调用 <code>jQuery.dequeue()</code> 时，队列中的下一个函数会从队列中移出并执行。这个函数应当在内部直接或间接调用 <code>jQuery.dequeue()</code> 以便队列得以继续执行下去。</p>
          </longdesc>
          <example>
-            <desc>Use dequeue to end a custom queue function which allows the queue to keep going.</desc>
+            <desc>使用 dequeue 来结束一个自定义的队列函数，以便能够让队列继续运行下去。</desc>
          </example>
       </entry>
       <entry type="method" name="jQuery.queue">
-         <desc>Show the queue of functions to be executed on the matched element.</desc>
+         <desc>显示匹配元素上将要执行的函数队列。</desc>
          <signature>
             <argument name="element">
-               <desc>A DOM element to inspect for an attached queue.</desc>
+               <desc>将要检测附加队列的DOM元素。</desc>
             </argument>
             <argument name="queueName">
-               <desc>A string containing the name of the queue. Defaults to <code>fx</code>, the standard effects queue.</desc>
+               <desc>包含队列名的字符串。默认值是 <code>fx</code> ，即动画效果队列。</desc>
             </argument>
          </signature>
          <longdesc>
             <p>
-               <strong>Note:</strong> This is a low-level method, you should probably use <code>
+               <strong>注意：</strong> 这是一个底层方法，应当使用更合适的 <code>
                   <a href="/queue">.queue()</a>
-               </code> instead.</p>
+               </code> 来代替。</p>
          </longdesc>
          <example>
-            <desc>Show the length of the queue.</desc>
+            <desc>显示队列长度。</desc>
          </example>
       </entry>
       <entry type="method" name="jQuery.queue">
-         <desc>Manipulate the queue of functions to be executed on the matched element.</desc>
+         <desc>操作匹配元素上将要执行的函数队列。</desc>
          <signature>
             <argument name="element">
-               <desc>A DOM element where the array of queued functions is attached.</desc>
+               <desc>带有函数队列数组的DOM元素。</desc>
             </argument>
             <argument name="queueName">
-               <desc>A string containing the name of the queue. Defaults to <code>fx</code>, the standard effects queue.</desc>
+               <desc>包含队列名的字符串。默认值是 <code>fx</code> ，即动画效果队列。</desc>
             </argument>
             <argument name="newQueue">
-               <desc>An array of functions to replace the current queue contents.</desc>
+               <desc>一个用于替换现有队列内容的函数数组。</desc>
             </argument>
          </signature>
          <signature>
             <argument name="element">
-               <desc>A DOM element on which to add a queued function.</desc>
+               <desc>将要往队列中增加一个函数的DOM元素。</desc>
             </argument>
             <argument name="queueName">
-               <desc>A string containing the name of the queue. Defaults to <code>fx</code>, the standard effects queue.</desc>
+               <desc>包含队列名的字符串。默认值是 <code>fx</code> ，即动画效果队列。</desc>
             </argument>
             <argument name="callback()">
-               <desc>The new function to add to the queue.</desc>
+               <desc>将要添加进队列的新函数。</desc>
             </argument>
          </signature>
          <longdesc>
             <p>
-               <strong>Note:</strong> This is a low-level method, you should probably use <code>
+               <strong>注意：</strong> 这是一个底层方法，应当使用更合适的 <code>
                   <a href="/queue">.queue()</a>
-               </code> instead.</p>
-	           <p>Every element can have one or more queues of functions attached to it by jQuery. In most applications, only one queue (called <code>fx</code>) is used. Queues allow a sequence of actions to be called on an element asynchronously, without halting program execution.</p>
-	           <p>The <code>jQuery.queue()</code> method allows us to directly manipulate this queue of functions. Calling <code>jQuery.queue()</code> with a callback is particularly useful; it allows us to place a new function at the end of the queue.</p>
-	           <p>Note that when adding a function with <code>jQuery.queue()</code>, we should ensure that <code>jQuery.dequeue()</code> is eventually called so that the next function in line executes.</p>
+               </code> 来代替。</p>
+	           <p>每个元素都可以通过jQuery附加一个或多个函数队列。在大多数程序中，只会使用一个队列（名为 <code>fx</code>）。队列允许异步地对某个元素进行一系列操作，而不是把整个程序挂起。</p>
+	           <p><code>jQuery.queue()</code> 允许我们直接操作这个函数队列。最常用的用法是调用 <code>jQuery.queue()</code> 时带一个回调函数，这样就能让我们在队列最后放置一个新的函数。</p>
+	           <p>注意，当通过 <code>jQuery.queue()</code> 增加一个函数时，务必确保函数的最后调用了 <code>jQuery.dequeue()</code> ，以便能够执行队列中的下一个函数。</p>
          </longdesc>
          <example>
-            <desc>Queue a custom function.</desc>
+            <desc>将一个自定义函数加入队列。</desc>
          </example>
          <example>
-            <desc>Set a queue array to delete the queue.</desc>
+            <desc>通过设置一个队列数组，来删除已有的队列。</desc>
          </example>
       </entry>
       <entry type="method" name="clearQueue">
-         <desc>jQuery 1.4 新增。清空对象上尚未执行的所有队列Remove from the queue all items that have not yet been run.</desc>
+         <desc>清空对象上尚未执行的所有队列。</desc>
          <signature>
             <argument name="queueName">
-               <desc>A string containing the name of the queue. Defaults to <code>fx</code>, the standard effects queue.</desc>
+               <desc>包含队列名的字符串。默认值是 <code>fx</code> ，即动画效果队列。</desc>
             </argument>
          </signature>
          <longdesc>如果不带参数，则默认清空的是动画队列。这跟stop(true)类似，但stop()只能清空动画队列，而这个可以清空所有通过 .queue() 创建的队列。<p>When the <code>.clearQueue()</code> method is called, all functions on the queue that have not been executed are removed from the queue. When used without an argument, <code>.clearQueue()</code> removes the remaining functions from <code>fx</code>, the standard effects queue. In this way it is similar to <code>.stop(true)</code>. However,  while the <code>.stop()</code> method is meant to be used only with animations, <code>.clearQueue()</code> can also be used to remove any function that has been added to a generic jQuery queue with the <code>.queue()</code> method. </p>
