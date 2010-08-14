@@ -219,6 +219,9 @@ hr{
 	border: 1px dashed rgb(79,129,189);
 	display:block;
 }
+#content iframe{
+	padding: 0;
+}
 em.optional{
 	color: #999;
 }

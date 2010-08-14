@@ -64,7 +64,7 @@
       </category>
       <category name="Traversing" zh="遍历">
          <category name="Filtering" zh="筛选"/>
-         <category name="Miscellaneous Traversing" zh="其他遍历"/>
+         <category name="Miscellaneous Traversing" zh="其它遍历"/>
          <category name="Tree Traversal" zh="树遍历"/>
       </category>
       <category name="Utilities" zh="工具"/>
@@ -236,7 +236,7 @@
                <desc>将要改变上下文语境的函数名(这个函数必须是前一个参数context对象的属性)。</desc>
             </argument>
          </signature>
-         <longdesc><p>当有事件处理函数要附加到元素上，但他们的上下文语境实际是指向另一个对象时，这个方法最有用了。更妙的是，jQuery能够确保即便你绑定的函数是经过jQuery.proxy()处理过的函数，你依然用原先的函数来准确无误地取消绑定。</p>
+         <longdesc><p>当有事件处理函数要附加到元素上，但它们的上下文语境实际是指向另一个对象时，这个方法最有用了。更妙的是，jQuery能够确保即便你绑定的函数是经过jQuery.proxy()处理过的函数，你依然用原先的函数来准确无误地取消绑定。</p>
          </longdesc>
          <example>
             <desc>增强函数的上下文语境</desc>
@@ -315,10 +315,10 @@
          <desc>检测一个DOM节点是否包含另一个DOM节点。</desc>
          <signature>
             <argument name="container">
-               <desc>可能包含其他元素的DOM元素。</desc>
+               <desc>可能包含其它元素的DOM元素。</desc>
             </argument>
             <argument name="contained">
-               <desc>可能被其他元素包含的DOM节点。</desc>
+               <desc>可能被其它元素包含的DOM节点。</desc>
             </argument>
          </signature>
          <longdesc/>
@@ -345,7 +345,7 @@
             </argument>
          </signature>
          <longdesc>
-            <p>jQuery 1.4新增, <code>.delay()</code> 用于将队列中的函数延时执行。他既可以推迟动画队列中函数的执行，也可以用于自定义队列。 </p>
+            <p>jQuery 1.4新增, <code>.delay()</code> 用于将队列中的函数延时执行。它既可以推迟动画队列中函数的执行，也可以用于自定义队列。 </p>
             <p>毫秒为单位的延时，数字越大，动画越慢。字符串 <code>'fast'</code> 和 <code>'slow'</code> 分别代表200和600毫秒的延时。</p>
             <p>例如，我们可以在 <code>&lt;div id="foo"&gt;</code> 的 <code>.slideUp()</code> 和 <code>.fadeIn()</code> 动画之间添加800毫秒的延时 :</p>
             <pre>$('#foo').slideUp(300).delay(800).fadeIn(400);</pre>
@@ -395,7 +395,7 @@
             <p>其结果是给 level-2 列表, 项目 II,  level-1 列表, <code>&lt;body&gt;</code> 元素和 <code>&lt;html&gt;</code> 元素都设置了红色背景。</p>
          </longdesc>
          <example>
-            <desc>查找 &lt;li class="item-a"&gt; 的前辈，直到 &lt;ul class="level-1"&gt; 为止，并给他们设置红色背景。</desc>
+            <desc>查找 &lt;li class="item-a"&gt; 的前辈，直到 &lt;ul class="level-1"&gt; 为止，并给它们设置红色背景。</desc>
          </example>
       </entry>
       <entry type="method" name="prevUntil">
@@ -405,7 +405,7 @@
                <desc>选择器字符串，用于确定到哪个排在前面的同辈元素时停止匹配。</desc>
             </argument>
          </signature>
-         <longdesc><p>如果提供的jQuery代表了一组DOM元素， <code>.prevUntil()</code> 方法会找遍所有元素所在的DOM树中排在他们前面的元素，直到遇到了一个跟提供的参数匹配的元素的时候才会停下来。这个新jQuery对象里包含了前面所有找到的同辈元素，但不包括提供给 <code>.prevUntil()</code> 的选择器匹配到的元素。</p>
+         <longdesc><p>如果提供的jQuery代表了一组DOM元素， <code>.prevUntil()</code> 方法会找遍所有元素所在的DOM树中排在它们前面的元素，直到遇到了一个跟提供的参数匹配的元素的时候才会停下来。这个新jQuery对象里包含了前面所有找到的同辈元素，但不包括提供给 <code>.prevUntil()</code> 的选择器匹配到的元素。</p>
             <p>如果提供的选择器没有匹配到任何东西，或者干脆没有提供选择器，那么排在前面的所有同辈元素都会被选中。这就跟用没有提供参数的 <code>.prevAll()</code> 效果一样。</p>
   
             <p>考虑如下的定义列表：</p>
@@ -427,12 +427,12 @@
   &lt;dd&gt;definition 3-b&lt;/dd&gt;
 &lt;/dl&gt;
 </pre>
-              <p>如果我们从 term 2 开始，查找在他之前的所有元素，直到 <code>&lt;dt&gt;</code>为止。</p>
+              <p>如果我们从 term 2 开始，查找在它之前的所有元素，直到 <code>&lt;dt&gt;</code>为止。</p>
             <pre>$('#term-2').prevUntil('dt').css('background-color', 'red');</pre>
               <p>其结果是使 definitions <code>1-a</code>, <code>1-b</code>, <code>1-c</code>, 和 <code>1-d</code> 的背景变为红色。</p>
          </longdesc>
          <example>
-            <desc>查找排在 &lt;dt id="term-2"&gt; 之前的同辈元素，直到 &lt;dt&gt; 为止，并把他们的背景都设成红色。</desc>
+            <desc>查找排在 &lt;dt id="term-2"&gt; 之前的同辈元素，直到 &lt;dt&gt; 为止，并把它们的背景都设成红色。</desc>
          </example>
       </entry>
       <entry type="method" name="nextUntil">
@@ -442,7 +442,7 @@
                <desc>选择器字符串，用于确定到哪个跟在后面的同辈元素时停止匹配。</desc>
             </argument>
          </signature>
-         <longdesc><p>如果提供的jQuery代表了一组DOM元素， <code>.nextUntil()</code> 方法会找遍所有元素所在的DOM树中跟在他们后面的元素，直到遇到了一个跟提供的参数匹配的元素时才会停下来。这个新jQuery对象里包含了后面所有找到的同辈元素，但不包括提供给 <code>.nextUntil()</code> 的选择器匹配到的元素。</p>
+         <longdesc><p>如果提供的jQuery代表了一组DOM元素， <code>.nextUntil()</code> 方法会找遍所有元素所在的DOM树中跟在它们后面的元素，直到遇到了一个跟提供的参数匹配的元素时才会停下来。这个新jQuery对象里包含了后面所有找到的同辈元素，但不包括提供给 <code>.nextUntil()</code> 的选择器匹配到的元素。</p>
             <p>如果提供的选择器没有匹配到任何东西，或者干脆没有提供选择器，那么排在后面的所有同辈元素都会被选中。这就跟用没有提供参数的 <code>.nextAll()</code> 效果一样。</p>
   
             <p>考虑如下的定义列表：</p>
@@ -464,12 +464,12 @@
   &lt;dd&gt;definition 3-b&lt;/dd&gt;
 &lt;/dl&gt;
 </pre>
-              <p>如果我们从 term 2 开始，查找在他之后的所有元素，直到 <code>&lt;dt&gt;</code>为止</p>
+              <p>如果我们从 term 2 开始，查找在它之后的所有元素，直到 <code>&lt;dt&gt;</code>为止</p>
             <pre>$('#term-2').nextUntil('dt').css('background-color', 'red');</pre>
               <p>其结果是使 definition <code>2-a</code>, <code>2-b</code>, and <code>2-c</code> 的背景变为红色。</p>
          </longdesc>
          <example>
-            <desc>查找跟在 &lt;dt id="term-2"&gt; 之后的同辈元素，直到 &lt;dt&gt; 为止，并把他们的背景都设成红色。</desc>
+            <desc>查找跟在 &lt;dt id="term-2"&gt; 之后的同辈元素，直到 &lt;dt&gt; 为止，并把它们的背景都设成红色。</desc>
          </example>
       </entry>
       <entry type="method" name="event.isImmediatePropagationStopped">
@@ -486,7 +486,7 @@
          <desc>阻止剩余的事件处理函数执行并且防止事件冒泡到DOM树上。</desc>
          <signature/>
          <longdesc>
-            <p>除了阻止元素上其他的事件处理函数的执行，这个方法还会通过在内部调用 <code>event.stopPropagation()</code> 来停止事件冒泡。如果仅仅想要停止事件冒泡到前辈元素上，而让这个元素上的其他事件处理函数继续执行，我们可以使用 <code>
+            <p>除了阻止元素上其它的事件处理函数的执行，这个方法还会通过在内部调用 <code>event.stopPropagation()</code> 来停止事件冒泡。如果仅仅想要停止事件冒泡到前辈元素上，而让这个元素上的其它事件处理函数继续执行，我们可以使用 <code>
                   <a href="/event.stopPropagation">event.stopPropagation()</a>
                </code> 来代替。</p>
             <p>使用 <code>
@@ -494,7 +494,7 @@
                </code> 来确定这个方法是否(在那个事件对象上)调用过了。</p> 
          </longdesc>
          <example>
-            <desc>阻止调用其他事件处理函数。</desc>
+            <desc>阻止调用其它事件处理函数。</desc>
          </example>
       </entry>
       <entry type="method" name="event.isPropagationStopped">
@@ -515,7 +515,7 @@
                   <a href="/event.isPropagationStopped">event.isPropagationStopped()</a>
                </code> 来确定这个方法是否(在那个事件对象上)调用过了。</p>
             <p>这个方法对 <a href="/trigger">trigger()</a> 来自定义的事件同样有效。</p>
-            <p>注意，这不会阻止<em>同一个元素上</em>的其他事件处理函数的运行。</p> 
+            <p>注意，这不会阻止<em>同一个元素上</em>的其它事件处理函数的运行。</p> 
          </longdesc>
          <example>
             <desc>灭掉click事件的冒泡。</desc>
@@ -593,10 +593,10 @@
          </example>
       </entry>
       <entry type="property" name="event.relatedTarget">
-         <desc>在事件中涉及的其他任何DOM元素。</desc>
+         <desc>在事件中涉及的其它任何DOM元素。</desc>
          <signature/>
          <longdesc>
-            <p>对于 <code>mouseout</code> 事件，他指向被进入的元素；对于 <code>mousein</code> 事件，他指向被离开的元素。</p> 
+            <p>对于 <code>mouseout</code> 事件，它指向被进入的元素；对于 <code>mousein</code> 事件，它指向被离开的元素。</p> 
          </longdesc>
          <example>
             <desc>对于锚点的 mouseout 事件，显示被进入的元素类型。</desc>
@@ -620,7 +620,7 @@
             <desc>显示点击元素的标签名。</desc>
          </example>
          <example>
-            <desc>实现一个简单的事件委托：给无序列表增加一个点击事件处理函数，然后他的子元素li的子元素都隐藏起来。当点击这个ul其中一个子元素li的时候，来回切换显示（参见 <a href="/toggle">toggle()</a>）li的子元素。</desc>
+            <desc>实现一个简单的事件委托：给无序列表增加一个点击事件处理函数，然后它的子元素li的子元素都隐藏起来。当点击这个ul其中一个子元素li的时候，来回切换显示（参见 <a href="/toggle">toggle()</a>）li的子元素。</desc>
          </example>
       </entry>
       <entry type="property" name="event.type">
@@ -655,7 +655,7 @@
             </argument>
          </signature>
          <longdesc>
-  <p><code>.each()</code> 方法用来让DOM循环结构更简单更不易出错。他会迭代jQuery对象中的每一个DOM元素。每次回调函数执行时，会传递当前循环次数作为参数(从0开始计数)。更重要的是，回调函数是在当前DOM元素为上下文的语境中触发的。因此关键字 <code>this</code> 总是指向这个元素。</p>
+  <p><code>.each()</code> 方法用来让DOM循环结构更简单更不易出错。它会迭代jQuery对象中的每一个DOM元素。每次回调函数执行时，会传递当前循环次数作为参数(从0开始计数)。更重要的是，回调函数是在当前DOM元素为上下文的语境中触发的。因此关键字 <code>this</code> 总是指向这个元素。</p>
             <p>假设页面上有这样一个简单的无序列表。</p>
             <pre>&lt;ul&gt;
     &lt;li&gt;foo&lt;/li&gt;
@@ -717,7 +717,7 @@
             </argument>
          </signature>
          <longdesc>
-            <p>这个方法与普通 JavaScript 中 <code>eval()</code> 的不同之处在于，他是在全局的上下文语境中执行的代码，这对于动态载入外部脚本非常重要。</p>
+            <p>这个方法与普通 JavaScript 中 <code>eval()</code> 的不同之处在于，它是在全局的上下文语境中执行的代码，这对于动态载入外部脚本非常重要。</p>
          </longdesc>
          <example>
             <desc>全局地执行脚本。</desc>
@@ -750,7 +750,7 @@
                <strong>注意：</strong> 这是一个底层方法，应当使用更合适的 <code>
                   <a href="/removeData">.removeData()</a>
                </code> 来代替。</p>
-	           <p><code>jQuery.removeData()</code> 允许你移除先前用 <code>
+	           <p><code>jQuery.removeData()</code> 允许我们移除先前用 <code>
                   <a href="/jQuery.data">jQuery.data()</a>
                </code> 设置的数据。如果提供了name参数，则 <code>jQuery.removeData()</code> 删除那个指定的值，如果不带参数，则删除所有数据。</p>
          </longdesc>
@@ -902,117 +902,111 @@ alert(jQuery.data( document.body ));</pre>
                <desc>包含队列名的字符串。默认值是 <code>fx</code> ，即动画效果队列。</desc>
             </argument>
          </signature>
-         <longdesc>如果不带参数，则默认清空的是动画队列。这跟stop(true)类似，但stop()只能清空动画队列，而这个可以清空所有通过 .queue() 创建的队列。<p>When the <code>.clearQueue()</code> method is called, all functions on the queue that have not been executed are removed from the queue. When used without an argument, <code>.clearQueue()</code> removes the remaining functions from <code>fx</code>, the standard effects queue. In this way it is similar to <code>.stop(true)</code>. However,  while the <code>.stop()</code> method is meant to be used only with animations, <code>.clearQueue()</code> can also be used to remove any function that has been added to a generic jQuery queue with the <code>.queue()</code> method. </p>
+         <longdesc>如果不带参数，则默认清空的是动画队列。这跟stop(true)类似，但stop()只能清空动画队列，而这个可以清空所有通过 .queue() 创建的队列。<p>当调用 <code>.clearQueue()</code> 方法时，队列中所有尚未执行的函数都将被移除。如果不带参数，则 <code>.clearQueue()</code> 默认清空标准动画队列 <code>fx</code> 中剩余的函数。这个方法跟 <code>.stop(true)</code>. 很类似。但 <code>.stop()</code> 方法只适用于动画，而 <code>.clearQueue()</code> 则可以用于移除任何由 <code>.queue()</code> 方法添加的jQuery通用队列中的函数。 </p>
          </longdesc>
          <example>
-            <desc>Empty the queue.</desc>
+            <desc>清空队列。</desc>
          </example>
       </entry>
       <entry type="method" name="toArray">
-         <desc>Retrieve all the DOM elements contained in the jQuery set, as an array.</desc>
+         <desc>返回一个数组，包含jQuery对象集合中的所有DOM元素。</desc>
          <signature/>
          <longdesc>
             <p>
-               <code>.toArray()</code> returns all of the elements in the jQuery set:</p>
+               用 <code>.toArray()</code> 返回jQuery集合中所有元素：</p>
             <pre>alert($('li').toArray());</pre>
-            <p>All of the matched DOM nodes are returned by this call, contained in a standard array:</p>
+            <p>所有匹配的DOM节点都会包含在一个标准的数组中：</p>
             <p>
                <span class="result">[&lt;li id="foo"&gt;, &lt;li id="bar"&gt;]</span>
             </p>
          </longdesc>
          <example>
-            <desc>Selects all divs in the document and returns the DOM Elements as an Array, then uses the built-in reverse-method to reverse that array.</desc>
+            <desc>选择文档中所有的div，并且返回一个DOM元素数组，然后利用浏览器内置的reverse方法反转整个数组。</desc>
          </example>
       </entry>
       <entry type="method" name="jQuery.isEmptyObject">
-         <desc>jQuery 1.4 新增。测试对象是否是空对象（不包含任何属性）。Check to see if an object is empty (contains no properties).</desc>
+         <desc>测试对象是否是空对象（不包含任何属性）。.</desc>
          <signature>
             <argument name="object">
-               <desc>The object that will be checked to see if it's empty.</desc>
+               <desc>用于检测是否为空的对象。</desc>
             </argument>
          </signature>
-         <longdesc>jQuery 1.4 中，这个方法既检测对象本身的属性，也检测从原型继承的属性（因此没有使用hasOwnProperty）。<p>As of jQuery 1.4 this method checks both properties on the object itself and properties inherited from prototypes (in that it doesn't use hasOwnProperty).</p>
+         <longdesc><p>jQuery 1.4 中，这个方法既检测对象本身的属性，也检测从原型继承的属性（因为没有使用hasOwnProperty）。</p>
          </longdesc>
          <example>
-            <desc>Check an object to see if it's empty.</desc>
+            <desc>检测一个对象是否是一个空对象。</desc>
          </example>
       </entry>
       <entry type="method" name="jQuery.isPlainObject">
-         <desc>jQuery 1.4 新增。测试对象是否是纯粹的对象（通过 "{}" 或者 "new Object" 创建的）。Check to see if an object is a plain object (created using "{}" or "new Object").</desc>
+         <desc>测试对象是否是纯粹的对象（通过 "{}" 或者 "new Object" 创建的）。</desc>
          <signature>
             <argument name="object">
-               <desc>The object that will be checked to see if it's a plain object.</desc>
+               <desc>用于检测是否是一个纯粹的对象。</desc>
             </argument>
          </signature>
          <longdesc/>
          <example>
-            <desc>Check an object to see if it's a plain object.</desc>
+            <desc>测试对象是否是纯粹的对象。</desc>
          </example>
       </entry>
       <entry type="method" name="keydown">
-         <desc>触发每一个匹配元素的keydown事件 在每一个匹配元素的keydown事件中绑定一个处理函数。Bind an event handler to the "keydown" JavaScript event, or trigger that event on an element.</desc>
+         <desc>为 "keydown" 事件绑定一个处理函数，或者触发元素上的 "keydown" 事件。 </desc>
          <signature>
             <argument name="handler(eventObject)">
-               <desc>A function to execute each time the event is triggered.</desc>
+               <desc>每次事件触发时会执行的函数。</desc>
             </argument>
          </signature>
          <signature/>
-         <longdesc>这个函数会调用执行绑定到keydown事件的所有函数，包括浏览器的默认行为。可以通过在某个绑定的函数中返回false来防止触发浏览器的默认行为。keydown事件会在键盘按下时触发。keydown事件会在键盘按下时触发。
-<p>This method is a shortcut for <code>.bind('keydown', handler)</code> in the first variation, and <code>.trigger('keydown')</code> in the second.</p>
-            <p>The <code>keydown</code> event is sent to an element when the user first presses a key on the keyboard. It can be attached to any element, but the event is only sent to the element that has the focus. Focusable elements can vary between browsers, but form elements can always get focus so are reasonable candidates for this event type.</p>
-            <p>For example, consider the HTML:</p>
+         <longdesc>
+            <p>这个函数的第一种用法是 <code>.bind('keydown', handler)</code> 的快捷方式，第二种用法是 <code>.trigger('keydown')</code> 的快捷方式。</p>
+            <p>当用户第一次按下一个按键时，会在这个元素上触发 <code>keydown</code> 。这个事件可以附加给任何元素，但是只有可以获得焦点的元素才能触发这个事件。不同的浏览器中，可聚焦的元素略有不同，但表单元素总是可以获得焦点，所以这个事件可以放心的用在这些元素上。</p>
+            <p>举例来说，请看下面的HTML：</p>
             <pre>&lt;form&gt;
   &lt;input id="target" type="text" value="Hello there" /&gt;
 &lt;/form&gt;
 &lt;div id="other"&gt;
   Trigger the handler
 &lt;/div&gt;</pre>
-            <p>The event handler can be bound to the input field:</p>
+            <p>事件处理函数可以绑定在输入框上：</p>
             <pre>$('#target').keydown(function() {
   alert('Handler for .keydown() called.');
 });</pre>
-            <p>Now when the insertion point is inside the field and a key is pressed, the alert is displayed:</p>
+            <p>现在，当插入点在这个输入框内部时，按下一个按键，那么弹出对话框中就会显示下面的文字：</p>
             <p>
                <span class="output">Handler for .keydown() called.</span>
             </p>
-            <p>We can trigger the event manually when another element is clicked:</p>
+            <p>我们也可以在点击另一个元素时手动触发这个事件：</p>
             <pre>$('#other').click(function() {
   $('#target').keydown();
 });</pre>
-            <p>After this code executes, clicks on <span class="output">Trigger the handler</span> will also alert the message.</p>
-            <p>If key presses anywhere need to be caught (for example, to implement global shortcut keys on a page), it is useful to attach this behavior to the <code>document</code> object. Because of event bubbling, all key presses will make their way up the DOM to the <code>document</code> object unless explicitly stopped.</p>
-            <p>To determine which key was pressed, we can examine the <a href="http://api.jquery.com/category/events/event-object/">event object</a> that is passed to the handler function. While browsers use differing properties to store this information, jQuery normalizes the <code>.which</code> property so we can reliably use it to retrieve the key code. This code corresponds to a key on the keyboard, including codes for special keys such as arrows. For catching actual text entry, <code>.keypress()</code> may be a better choice.</p>
+            <p>在代码执行后，如果你点击 <span class="output">Trigger the handler</span> 将同样会弹出上面的消息。</p>
+            <p>如果需要捕获在任意位置的按键事件（例如要在页面上实现全局的快捷键），那么可以把这个行为附加到 <code>document</code> 对象上去。由于事件冒泡，所有的按键事件都会沿着各自的DOM树冒泡到 <code>document</code> 对象，除非被明确的制止。</p>
+            <p>要确定哪个按键被按下了，我们可以检测传递给事件处理函数的 <a href="http://api.jquery.com/category/events/event-object/">event object</a> 。由于不同的浏览器使用不同的属性来存储这个信息，所以jQuery将它们标准化成 <code>.which</code> 属性，以便我们能可靠地使用它来获取按键代码。这个代码与键盘上的按键一一对应，包括方向键等特殊键。如果要捕获实际输入的文本， <code>.keypress()</code> 可能是个更好的选择。</p>
          </longdesc>
          <example>
-            <desc>Show the event object for the keydown handler when a key is pressed in the input.</desc>
+            <desc>当按键按下时，显示传递给 keydown 事件处理函数的事件对象。</desc>
          </example>
       </entry>
       <entry type="method" name="index">
-         <desc>搜索匹配的元素，并返回相应元素的索引值，从0开始计数。Search for a given element from among the matched elements.</desc>
+         <desc>从匹配的元素中搜索给定元素的索引值，从0开始计数。</desc>
          <signature/>
          <signature>
             <argument name="selector">
-               <desc>A selector representing a jQuery collection in which to look for an element.</desc>
+               <desc>一个选择器，代表一个jQuery对象，将会从这个对象中查找元素。</desc>
             </argument>
          </signature>
          <signature>
             <argument name="element">
-               <desc>The DOM element or first element within the jQuery object to look for.</desc>
+               <desc>将要用于查找的DOM元素，或者jQuery对象中的第一个元素。</desc>
             </argument>
          </signature>
-         <longdesc>如果不给 .index() 方法传递参数，那么返回值就是这个jQuery对象集合中第一个元素相对于其同辈元素的位置。
-		
-			如果参数是一组DOM元素或者jQuery对象，那么返回值就是传递的元素相对于原先集合的位置。
-		
-		如果参数是一个选择器，那么返回值就是原先元素相对于选择器匹配元素中的位置。如果找不到匹配的元素，则返回-1。
-		
-		具体请参考示例。
-		<h4>Return Values</h4>
-            <p>If no argument is passed to the <code>.index()</code> method, the return value is an integer indicating the position of the first element within the jQuery object relative to its sibling elements.</p>
-            <p>If <code>.index()</code> is called on a collection of elements and a DOM element or jQuery object is passed in, <code>.index()</code> returns an integer indicating the position of the passed element relative to the original collection.</p>
-            <p>If a selector string is passed as an argument, <code>.index()</code> returns an integer indicating the position of the original element relative to the elements matched by the selector. If the element is not found, <code>.index()</code> will return -1.</p>
-            <h4>Detail</h4>
-            <p>The complementary operation to <code>.get()</code>, which accepts an index and returns a DOM node, <code>.index()</code> can take a DOM node and returns an index. Suppose we have a simple unordered list on the page:</p>
+         <longdesc>
+            <h4>返回值</h4>
+            <p>如果不传递任何参数给 <code>.index()</code> 方法，则返回值就是jQuery对象中第一个元素相对于它同辈元素的位置。</p>
+            <p>如果在一组元素上调用 <code>.index()</code> ，并且参数是一个DOM元素或jQuery对象， <code>.index()</code> 返回值就是传入的元素相对于原先集合的位置。</p>
+            <p>如果参数是一个选择器， <code>.index()</code> 返回值就是原先元素相对于选择器匹配元素的位置。如果找不到匹配的元素，则 <code>.index()</code> 返回 -1.</p>
+            <h4>细节</h4>
+            <p><code>.get()</code> 接受一个索引值参数并返回对应的DOM节点， <code>.index()</code> 与其正好相反，接受一个DOM节点然后返回其索引值。假设页面上有个简单的无序列表：</p>
             <pre>
 &lt;ul&gt;
   &lt;li id="foo"&gt;foo&lt;/li&gt;
@@ -1020,90 +1014,91 @@ alert(jQuery.data( document.body ));</pre>
   &lt;li id="baz"&gt;baz&lt;/li&gt;
 &lt;/ul&gt;
 </pre>
-            <p>If we retrieve one of the three list items (for example, through a DOM function or as the context to an event handler), <code>.index()</code> can search for this list item within the set of matched elements:</p>
+            <p>如果我们获取了三个li中的一个元素（例如通过DOM函数，或者事件处理函数中的上下文this）， <code>.index()</code> 能够在匹配的元素中找到这个列表项：</p>
             <pre>
 var listItem = document.getElementById('bar');
 alert('Index: ' + $('li').index(listItem));
-We get back the zero-based position of the list item:
 </pre>
+            <p>我们就能得到这个li所在的位置，从0开始计数的：</p>
             <p>
                <span class="output">Index: 1</span>
             </p>
-            <p>Similarly, if we retrieve a jQuery object consisting of one of the three list items, <code>.index()</code> will search for that list item:</p>
+            <p>类似的，如果我们获得了含有这三个之中一个元素的jQuery对象， <code>.index()</code> 也能用于搜索那个列表项：</p>
             <pre>
 var listItem = $('#bar');
 alert('Index: ' + $('li').index(listItem));
 </pre>
-            <p>We get back the zero-based position of the list item:</p>
+            <p>我们就能得到这个li所在的位置，从0开始计数的：</p>
             <p>
                <span class="output">Index: 1</span>
             </p>
-            <p>Note that if the jQuery collection used as the <code>.index()</code> method's argument contains more than one element, the first element within the matched set of elements will be used.</p>
+            <p>注意，如果作为 <code>.index()</code> 参数使用的jQuery集合含有多个元素，则只会使用第一个：</p>
             <pre>
 var listItems = $('li:gt(0)');
 alert('Index: ' + $('li').index(listItems));
 </pre>
-            <p>We get back the zero-based position of the first list item within the matched set:</p>
+            <p>我们得到了匹配的li集合中，第一个元素的位置，从0开始计数。</p>
             <p>
                <span class="output">Index: 1</span>
             </p>
-            <p>If we use a string as the <code>.index()</code> method's argument, it is interpreted as a jQuery selector string. The first element among the object's matched elements which also matches this selector is located.</p>
+            <p>如果我们将一个字符串传递给 <code>.index()</code> 方法，这个字符串会被解析成jQuery选择器，将会定位到调用 <code>.index()</code> 的jQuery对象中第一个元素，相对于由这个选择器匹配到的元素集合中的位置：</p>
             <pre>
 var listItem = $('#bar');
 alert('Index: ' + listItem.index('li'));
 </pre>
-            <p>We get back the zero-based position of the list item:</p>
+            <p>我们就能得到这个列表项li#bar所在的位置，从0开始计数的：</p>
             <p>
                <span class="output">Index: 1</span>
             </p>
-            <p>If we omit the argument, <code>.index()</code> will return the position of the first element within the set of matched elements in relation to its siblings:</p>
+            <p>如果我们忽略参数， <code>.index()</code> 将返回集合中第一个元素相对于其同辈元素的位置：</p>
             <pre>alert('Index: ' + $('#bar').index();</pre>
-            <p>Again, we get back the zero-based position of the list item:</p>
+            <p>又一次，我们得到了这个li从0开始数的位置。</p>
             <p>
                <span class="output">Index: 1</span>
             </p>
 
          </longdesc>
          <example>
-            <desc>On click, returns the index (based zero) of that div in the page.</desc>
+            <desc>点击后，返回那个div在页面上的索引值(从0开始计数)。</desc>
          </example>
          <example>
-            <desc>Returns the index for the element with ID bar.</desc>
+            <desc>返回ID为bar的元素的索引值。</desc>
          </example>
          <example>
-            <desc>Returns the index for the first item in the jQuery collection.</desc>
+            <desc>返回jQuery集合中第一项的索引值。</desc>
          </example>
          <example>
-            <desc>Returns the index for the element with ID bar in relation to all &lt;li&gt; elements.</desc>
+            <desc>返回ID为bar的元素相对于所有 &lt;li&gt; 元素的索引值。</desc>
          </example>
          <example>
-            <desc>Returns the index for the element with ID bar in relation to its siblings.</desc>
+            <desc>返回ID为bar的元素相对于同辈的索引值。</desc>
          </example>
          <example>
-            <desc>Returns -1, as there is no element with ID foobar.</desc>
+            <desc>由于没有元素的ID为foobar，所以返回 -1。</desc>
          </example>
       </entry>
       <entry type="method" name="removeData">
-         <desc>在元素上移除存放的数据Remove a previously-stored piece of data.</desc>
+         <desc>移除先前存储的数据片段。</desc>
          <signature>
             <argument name="name">
-               <desc>A string naming the piece of data to delete.</desc>
+               <desc>将要移除的数据片段名。</desc>
             </argument>
          </signature>
-         <longdesc>与$(...).data(name, value)函数作用相反<p>The <code>.removeData()</code> method allows us to remove values that were previously set using <code>.data()</code>. When called with the name of a key, <code>.removeData()</code> deletes that particular value; when called with no arguments, all values are removed.</p>
+         <longdesc>
+         <p><code>.removeData()</code> 方法允许我们移除先前用 <code>.data()</code>. 设置的数据。如果提供了name参数，则 <code>.removeData()</code> 删除那个指定的值，如果不带参数，则删除所有数据。</p>
          </longdesc>
          <example>
-            <desc>Set a data store for 2 names then remove one of them.</desc>
+            <desc>设置两个数据，然后再删除其中一个。</desc>
          </example>
       </entry>
       <entry type="method" name="data">
-         <desc>返回元素上储存的相应名字的数据，可以用data(name, value)来设定。 在元素上存放数据,返回jQuery对象。 在元素上存放一组数据，返回jQuery对象。Store arbitrary data associated with the matched elements.</desc>
+         <desc>在匹配的元素上随心所欲的存放数据。</desc>
          <signature>
             <argument name="key">
-               <desc>A string naming the piece of data to set.</desc>
+               <desc>将要设置的数据片段名。</desc>
             </argument>
             <argument name="value">
-               <desc>The new data value; it can be any Javascript type including Array or Object.</desc>
+               <desc>新的数据值；可以是任何 Javascript 数据类型，包括数组和对象。</desc>
             </argument>
          </signature>
          <signature>
@@ -1176,7 +1171,7 @@ alert($('body').data());
          </signature>
          <longdesc>这是取得所有匹配元素的一种向后兼容的方式（不同于jQuery对象，而实际上是元素数组）。
 
-如果你想要直接操作 DOM 对象而不是 jQuery 对象，这个函数非常有用。这能够让你选择一个实际的DOM 元素并且对他直接操作，而不是通过 jQuery 函数。$(this).get(0)与$(this)[0]等价。<p>The <code>.get()</code> method grants us access to the DOM nodes underlying each jQuery object. Suppose we had a simple unordered list on the page:</p>
+如果你想要直接操作 DOM 对象而不是 jQuery 对象，这个函数非常有用。这能够让你选择一个实际的DOM 元素并且对它直接操作，而不是通过 jQuery 函数。$(this).get(0)与$(this)[0]等价。<p>The <code>.get()</code> method grants us access to the DOM nodes underlying each jQuery object. Suppose we had a simple unordered list on the page:</p>
             <pre>
 &lt;ul&gt;
   &lt;li id="foo"&gt;foo&lt;/li&gt;
@@ -1242,11 +1237,11 @@ alert($('body').data());
                <desc>A Boolean indicating whether to remove all jQuery variables from the global scope (including jQuery itself).</desc>
             </argument>
          </signature>
-         <longdesc>这有助于确保jQuery不会与其他库的$对象发生冲突。
+         <longdesc>这有助于确保jQuery不会与其它库的$对象发生冲突。
 
 在运行这个函数后，就只能使用jQuery变量访问jQuery对象。例如，在要用到$("div p")的地方，就必须换成jQuery("div p")。
 
-'''注意:'''这个函数必须在你导入jQuery文件之后，并且在导入另一个导致冲突的库'''之前'''使用。当然也应当在其他冲突的库被使用之前，除非jQuery是最后一个导入的。这是相对于简单的 '''noConflict''' 方法更极端的版本，因为这将完全重新定义jQuery。这通常用于一种极端的情况，比如你想要将jQuery嵌入一个高度冲突的环境。'''注意:'''调用此方法后极有可能导致插件失效。<p>Many JavaScript libraries use <code> $</code> as a function or variable name, just as jQuery does. In jQuery's case, <code> $</code> is just an alias for <code>jQuery</code>, so all functionality is available without using <code> $</code>. If we need to use another JavaScript library alongside jQuery, we can return control of <code> $</code> back to the other library with a call to <code>$.noConflict()</code>:</p>
+'''注意:'''这个函数必须在你导入jQuery文件之后，并且在导入另一个导致冲突的库'''之前'''使用。当然也应当在其它冲突的库被使用之前，除非jQuery是最后一个导入的。这是相对于简单的 '''noConflict''' 方法更极端的版本，因为这将完全重新定义jQuery。这通常用于一种极端的情况，比如你想要将jQuery嵌入一个高度冲突的环境。'''注意:'''调用此方法后极有可能导致插件失效。<p>Many JavaScript libraries use <code> $</code> as a function or variable name, just as jQuery does. In jQuery's case, <code> $</code> is just an alias for <code>jQuery</code>, so all functionality is available without using <code> $</code>. If we need to use another JavaScript library alongside jQuery, we can return control of <code> $</code> back to the other library with a call to <code>$.noConflict()</code>:</p>
             <pre>
 &lt;script type="text/javascript" src="other_lib.js"&gt;&lt;/script&gt;
 &lt;script type="text/javascript" src="jquery.js"&gt;&lt;/script&gt;
@@ -2049,7 +2044,7 @@ alert($('body').data());
          </example>
       </entry>
       <entry type="method" name="dequeue">
-         <desc>从队列最前端移除一个队列函数，并执行他。Execute the next function on the queue for the matched elements.</desc>
+         <desc>从队列最前端移除一个队列函数，并执行它。Execute the next function on the queue for the matched elements.</desc>
          <signature>
             <argument name="queueName">
                <desc>A string containing the name of the queue. Defaults to <code>fx</code>, the standard effects queue.</desc>
@@ -2972,7 +2967,7 @@ It is not possible to cancel the <code>unload</code> event with <code>.preventDe
          </signature>
          <longdesc>如果绑定给window对象，则会在所有内容加载后触发，包括窗口，框架，对象和图像。如果绑定在元素上，则当元素的内容加载完毕后触发。
 
-'''注意:'''只有当在这个元素完全加载完之前绑定load的处理函数,才会在他加载完后触发。如果之后再绑定就永远不会触发了。所以'''不要'''在$(document).ready()里绑定load事件，因为jQuery会在所有DOM加载完成后再绑定load事件。默认使用 GET 方式 - 传递附加参数时自动转换为 POST 方式。jQuery 1.2 中，可以指定选择符，来筛选载入的 HTML 文档，DOM 中将仅插入筛选出的 HTML 代码。语法形如 "url #some &gt; selector"。请查看示例。
+'''注意:'''只有当在这个元素完全加载完之前绑定load的处理函数,才会在它加载完后触发。如果之后再绑定就永远不会触发了。所以'''不要'''在$(document).ready()里绑定load事件，因为jQuery会在所有DOM加载完成后再绑定load事件。默认使用 GET 方式 - 传递附加参数时自动转换为 POST 方式。jQuery 1.2 中，可以指定选择符，来筛选载入的 HTML 文档，DOM 中将仅插入筛选出的 HTML 代码。语法形如 "url #some &gt; selector"。请查看示例。
   <p>This method is a shortcut for <code>.bind('load', handler)</code>.</p>
             <p>The <code>load</code> event is sent to an element when it and all sub-elements have been completely loaded. This event can be sent to any element associated with a URL: images, scripts, frames, iframes, and the <code>window</code> object.</p>
             <blockquote>
@@ -3224,11 +3219,11 @@ The <code>$.browser</code> property is deprecated in jQuery 1.3, but there are n
 
 &lt;pre&gt;$('body').append('&amp;lt;div class="clickme"&amp;gt;Another target&amp;lt;/div&amp;gt;');&lt;/pre&gt;
 
-然后再点击新增的元素，他依然能够触发事件处理函数。
+然后再点击新增的元素，它依然能够触发事件处理函数。
 
 '''事件委托'''
 
-.live() 方法能对一个还没有添加进DOM的元素有效，是由于使用了事件委托：绑定在前辈元素上的事件处理函数可以对在后代上触发的事件作出回应。传递给 .live() 的事件处理函数不会绑定在元素上，而是把他作为一个特殊的事件处理函数，绑定在 DOM 树的根节点上。在我们的例子中，当点击新的元素后，会依次发生下列步骤：
+.live() 方法能对一个还没有添加进DOM的元素有效，是由于使用了事件委托：绑定在前辈元素上的事件处理函数可以对在后代上触发的事件作出回应。传递给 .live() 的事件处理函数不会绑定在元素上，而是把它作为一个特殊的事件处理函数，绑定在 DOM 树的根节点上。在我们的例子中，当点击新的元素后，会依次发生下列步骤：
 
   &lt;ol&gt;
     &lt;li&gt;生成一个click事件传递给 &amp;lt;div&amp;gt; 来处理 &lt;/li&gt;
@@ -3248,7 +3243,7 @@ The <code>$.browser</code> property is deprecated in jQuery 1.3, but there are n
 &lt;ul&gt;
 	&lt;li&gt;在jQuery 1.4中，.live()方法支持自定义事件，也支持所有的 JavaScript 事件。在jQuery 1.4.1中，甚至也支持 focus 和 blue 事件了（映射到更合适，并且可以冒泡的focusin和focusout上）。另外，在jQuery 1.4.1中，也能支持hover（映射到"mouseenter mouseleave"）。然而在jQuery 1.3.x中，只支持支持的JavaScript事件和自定义事件：click, dblclick, keydown, keypress, keyup, mousedown, mousemove, mouseout, mouseover, 和 mouseup.&lt;/li&gt;
 	&lt;li&gt;.live() 并不完全支持通过DOM遍历的方法找到的元素。取而代之的是，应当总是在一个选择器后面直接使用 .live() 方法，正如前面例子里提到的。&lt;/li&gt;
-	&lt;li&gt;当一个事件处理函数用 .live() 绑定后，要停止执行其他的事件处理函数，那么这个函数必须返回 false。 仅仅调用 .stopPropagation() 无法实现这个目的。&lt;/li&gt;
+	&lt;li&gt;当一个事件处理函数用 .live() 绑定后，要停止执行其它的事件处理函数，那么这个函数必须返回 false。 仅仅调用 .stopPropagation() 无法实现这个目的。&lt;/li&gt;
 &lt;/ul&gt;
 
 参考 .bind() 方法可以获得更多关于事件绑定的信息。
@@ -3357,7 +3352,7 @@ The <code>$.browser</code> property is deprecated in jQuery 1.3, but there are n
          </signature>
          <longdesc>这个方法的行为表现与trigger类似，但有以下三个主要区别： 
 		
-* 第一，他不会触发浏览器默认事件。
+* 第一，它不会触发浏览器默认事件。
 
 * 第二，只触发jQuery对象集合中第一个元素的事件处理函数。
 
@@ -3398,7 +3393,7 @@ jQuery也支持 &lt;a href="http://docs.jquery.com/Namespaced_Events"&gt;命名�
 
 '''jQuery 1.3中新增：'''
 
-所有触发的事件现在会冒泡到DOM树上了。举例来说，如果你在一个段落p上触发一个事件，他首先会在这个元素上触发，其次到父元素，在到父元素的父元素，直到触发到document对象。这个事件对象有一个 .target 属性指向最开始触发这个事件的元素。你可以用 stopPropagation() 来阻止事件冒泡，或者在事件处理函数中返回false即可。
+所有触发的事件现在会冒泡到DOM树上了。举例来说，如果你在一个段落p上触发一个事件，它首先会在这个元素上触发，其次到父元素，在到父元素的父元素，直到触发到document对象。这个事件对象有一个 .target 属性指向最开始触发这个事件的元素。你可以用 stopPropagation() 来阻止事件冒泡，或者在事件处理函数中返回false即可。
 
 事件对象构造器现在已经公开，并且你可以自行创建一个事件对象。这个事件对象可以直接传递给trigger所触发的事件处理函数。事件对象的完整属性列表可以在 &lt;a href="http://docs.jquery.com/Events/jQuery.Event"&gt;jQuery.Event&lt;/a&gt; 的文档里找到。
 
@@ -3408,7 +3403,7 @@ jQuery也支持 &lt;a href="http://docs.jquery.com/Namespaced_Events"&gt;命名�
 
 * 你可以使用jQuery.Event对象。可以将数据放进这个对象，并且这个对象可以被触发的事件处理函数获取到。
 
-* 最后，你可以传递一个带有数据的字面量对象。他将被复制到真正的jQuery.Event对象上去。 注意在这种情况下你'''必须'''指定一个 &lt;em&gt;type&lt;/em&gt; 属性。
+* 最后，你可以传递一个带有数据的字面量对象。它将被复制到真正的jQuery.Event对象上去。 注意在这种情况下你'''必须'''指定一个 &lt;em&gt;type&lt;/em&gt; 属性。
     <p>Any event handlers attached with <code>.bind()</code> or one of its shortcut methods are triggered when the corresponding event occurs. They can be fired manually, however, with the <code>.trigger()</code> method. A call to <code>.trigger()</code> executes the handlers in the same order they would be if the event were triggered naturally by the user:</p>
             <pre>$('#foo').bind('click', function() {
       alert($(this).text());
@@ -3497,7 +3492,7 @@ $('#foo').trigger('custom', ['Custom', 'Event']);
                <desc>A function to execute at the time the event is triggered.</desc>
             </argument>
          </signature>
-         <longdesc>在每个对象上，这个事件处理函数只会被执行一次。其他规则与bind()函数相同。这个事件处理函数会接收到一个事件对象，可以通过它来阻止（浏览器）默认的行为。如果既想取消默认的行为，又想阻止事件起泡，这个事件处理函数必须返回false。
+         <longdesc>在每个对象上，这个事件处理函数只会被执行一次。其它规则与bind()函数相同。这个事件处理函数会接收到一个事件对象，可以通过它来阻止（浏览器）默认的行为。如果既想取消默认的行为，又想阻止事件起泡，这个事件处理函数必须返回false。
 
 多数情况下，可以把事件处理函数定义为匿名函数（见示例一）。在不可能定义匿名函数的情况下，可以传递一个可选的数据对象作为第二个参数（而事件处理函数则作为第三个参数），见示例二。
 <p>This method is identical to <code>.bind()</code>, except that the handler is unbound after its first invocation. For example:</p>
@@ -3938,9 +3933,9 @@ This example is also an illustration of a closure. Since the handler refers to t
 		
 jQuery还提供了一些绑定这些标准事件类型的简单方式，比如.click()用于简化.bind('click')。一共有以下这些：blur, focus, focusin, focusout, load, resize, scroll, unload, click, dblclick, mousedown, mouseup, mousemove, mouseover, mouseout, mouseenter, mouseleave, change, select, submit, keydown, keypress, keyup, error 。
 
-任何作为type参数的字符串都是合法的；如果一个字符串不是原生的JavaScript事件名，那么这个事件处理函数会绑定到一个自定义事件上。这些自定义事件绝对不会由浏览器触发，但可以通过使用.trigger()或者.triggerHandler()在其他代码中手动触发。
+任何作为type参数的字符串都是合法的；如果一个字符串不是原生的JavaScript事件名，那么这个事件处理函数会绑定到一个自定义事件上。这些自定义事件绝对不会由浏览器触发，但可以通过使用.trigger()或者.triggerHandler()在其它代码中手动触发。
 
-如果type参数的字符串中包含一个点(.)字符，那么这个事件就看做是有命名空间的了。这个点字符就用来分隔事件和他的命名空间。举例来说，如果执行 .bind('click.name', handler) ，那么字符串中的 click 是事件类型，而字符串 name 就是命名空间。命名空间允许我们取消绑定或者触发一些特定类型的事件，而不用触发别的事件。参考unbind()来获取更多信息。
+如果type参数的字符串中包含一个点(.)字符，那么这个事件就看做是有命名空间的了。这个点字符就用来分隔事件和它的命名空间。举例来说，如果执行 .bind('click.name', handler) ，那么字符串中的 click 是事件类型，而字符串 name 就是命名空间。命名空间允许我们取消绑定或者触发一些特定类型的事件，而不用触发别的事件。参考unbind()来获取更多信息。
 
 当一个事件传到一个元素上，所有绑定在上面的针对哪个事件的处理函数都会触发。如果注册了多个事件处理函数，总是按照绑定的顺序依次触发。当所有绑定的事件处理函数执行完毕后，事件继续沿着普通的事件冒泡途径上浮。
 
@@ -3988,13 +3983,13 @@ fn这个参数接受一个回调函数，就像先前展示的那样。在这个
 });
 &lt;/pre&gt;
 
-这个代码执行之后，当用户点击了ID为foo的元素内部之后，他的文本内容就会出现在一个警告框中。
+这个代码执行之后，当用户点击了ID为foo的元素内部之后，它的文本内容就会出现在一个警告框中。
 
 '''事件对象'''
 
 fn这个参数的回调函数还可以接受一个参数。当这个函数被调用时，一个JavaScript事件对象会作为一个参数传进来。
 
-这个事件对象通常是没有必要且可以省略的参数，因为当这个事件处理函数绑定的时候就能够明确知道他在触发的时候应该做些什么，通常就已经可以获得充分的信息了。然而在有些时候，在事件初始化的时候需要获取更多关于用户环境的信息。可以参考完整的关于&lt;a href="/category/events/event-object/"&gt;事件对象&lt;/a&gt;的内容（英文）。
+这个事件对象通常是没有必要且可以省略的参数，因为当这个事件处理函数绑定的时候就能够明确知道它在触发的时候应该做些什么，通常就已经可以获得充分的信息了。然而在有些时候，在事件初始化的时候需要获取更多关于用户环境的信息。可以参考完整的关于&lt;a href="/category/events/event-object/"&gt;事件对象&lt;/a&gt;的内容（英文）。
 
 在事件处理函数内返回false就等价于执行事件对象上的.preventDefault()和.stopPropagation()。
 
@@ -4024,7 +4019,7 @@ $('#bar').bind('click', function() {
 });
 &lt;/pre&gt;
 
-由于这两个函数在他们各自的环境中都有message，所以触发时显示的消息都是 Not in the face! 。变量值被改变了。为了回避这个问题，我们可以把message变量作为data参数传递进去：
+由于这两个函数在它们各自的环境中都有message，所以触发时显示的消息都是 Not in the face! 。变量值被改变了。为了回避这个问题，我们可以把message变量作为data参数传递进去：
 
 &lt;pre&gt;var message = 'Spoon!';
 $('#foo').bind('click', {msg: message}, function(event) {
@@ -4036,7 +4031,7 @@ $('#bar').bind('click', {msg: message}, function(event) {
 });
 &lt;/pre&gt;
 
-这时在函数内部不再直接指向这个变量了；取而代之的是按值传递给了data参数，他能保持绑定事件时的值。第一个函数现在会显示Spoon!，而第二个则显示Not in the face!
+这时在函数内部不再直接指向这个变量了；取而代之的是按值传递给了data参数，它能保持绑定事件时的值。第一个函数现在会显示Spoon!，而第二个则显示Not in the face!
 
 注意，如果这个对象按引用传递给了函数，那么将会使情况变得极其复杂。
 
@@ -4415,7 +4410,7 @@ $('&lt;input&gt;');
                <desc>A Boolean indicating whether to complete the current animation immediately. Defaults to <code>false</code>.</desc>
             </argument>
          </signature>
-         <longdesc>如果队列中有等待执行的动画(并且clearQueue没有设为true)，他们将被马上执行
+         <longdesc>如果队列中有等待执行的动画(并且clearQueue没有设为true)，它们将被马上执行
   <p>When <code>.stop()</code> is called on an element, the currently-running animation (if any) is immediately stopped. If, for instance, an element is being hidden with <code>.slideUp()</code> when <code>.stop()</code> is called, the element will now still be displayed, but will be a fraction of its previous height. Callback functions are not called.</p>
             <p>If more than one animation method is called on the same element, the later animations are placed in the effects queue for the element. These animations will not begin until the first one completes. When <code>.stop()</code> is called, the next animation in the queue begins immediately. If the <code>clearQueue</code> parameter is provided with a value of <code>true</code>, then the rest of the animations in the queue are removed and never run.</p>
             <p>If the <code>jumpToEnd</code> property is provided with a value of <code>true</code>, the current animation stops, but the element is immediately given its target values for each CSS property. In our above <code>.slideUp()</code> example, the element would be immediately hidden. The callback function is then immediately called, if provided.</p>
@@ -5476,7 +5471,7 @@ $('li.item-a').closest('#one', listItemII)
                <desc>A callback function that is executed if the request succeeds.</desc>
             </argument>
          </signature>
-         <longdesc>在 jQuery 1.2 中，您可以通过使用&lt;a href="http://bob.pythonmac.org/archives/2005/12/05/remote-json-jsonp/" class="external text" title="http://bob.pythonmac.org/archives/2005/12/05/remote-json-jsonp/"&gt;JSONP&lt;/a&gt; 形式的回调函数来加载其他网域的JSON数据，如 "myurl?callback=?"。jQuery 将自动替换 ? 为正确的函数名，以执行回调函数。  注意：此行以后的代码将在这个回调函数执行前执行。
+         <longdesc>在 jQuery 1.2 中，您可以通过使用&lt;a href="http://bob.pythonmac.org/archives/2005/12/05/remote-json-jsonp/" class="external text" title="http://bob.pythonmac.org/archives/2005/12/05/remote-json-jsonp/"&gt;JSONP&lt;/a&gt; 形式的回调函数来加载其它网域的JSON数据，如 "myurl?callback=?"。jQuery 将自动替换 ? 为正确的函数名，以执行回调函数。  注意：此行以后的代码将在这个回调函数执行前执行。
     <p>This is a shorthand Ajax function, which is equivalent to:</p>
 				        <pre>$.ajax({
   url: <em>url</em>,
@@ -5589,7 +5584,7 @@ $('li.item-a').closest('#one', listItemII)
          </signature>
          <longdesc>如果绑定给window对象，则会在所有内容加载后触发，包括窗口，框架，对象和图像。如果绑定在元素上，则当元素的内容加载完毕后触发。
 
-'''注意:'''只有当在这个元素完全加载完之前绑定load的处理函数,才会在他加载完后触发。如果之后再绑定就永远不会触发了。所以'''不要'''在$(document).ready()里绑定load事件，因为jQuery会在所有DOM加载完成后再绑定load事件。默认使用 GET 方式 - 传递附加参数时自动转换为 POST 方式。jQuery 1.2 中，可以指定选择符，来筛选载入的 HTML 文档，DOM 中将仅插入筛选出的 HTML 代码。语法形如 "url #some &gt; selector"。请查看示例。
+'''注意:'''只有当在这个元素完全加载完之前绑定load的处理函数,才会在它加载完后触发。如果之后再绑定就永远不会触发了。所以'''不要'''在$(document).ready()里绑定load事件，因为jQuery会在所有DOM加载完成后再绑定load事件。默认使用 GET 方式 - 传递附加参数时自动转换为 POST 方式。jQuery 1.2 中，可以指定选择符，来筛选载入的 HTML 文档，DOM 中将仅插入筛选出的 HTML 代码。语法形如 "url #some &gt; selector"。请查看示例。
     <p>This method is the simplest way to fetch data from the server. It is roughly equivalent to <code>$.get(url, data, success)</code> except that it is a method rather than global function and it has an implicit callback function.  When a successful response is detected (i.e. when <code>textStatus</code> is "success" or "notmodified"), <code>.load()</code> sets the HTML contents of the matched element to the returned data. This means that most uses of the method can be quite simple:</p>
             <pre>$('#result').load('ajax/test.html');</pre>
             <p>The provided callback, if any, is executed after this post-processing has been performed:</p>
@@ -5740,9 +5735,9 @@ $('li.item-a').closest('#one', listItemII)
 
 '''数据类型'''
 
-$.ajax()函数依赖服务器提供的信息来处理返回的数据。如果服务器报告说返回的数据是XML，那么返回的结果就可以用普通的XML方法或者jQuery的选择器来遍历。如果见得到其他类型，比如HTML，则数据就以文本形式来对待。
+$.ajax()函数依赖服务器提供的信息来处理返回的数据。如果服务器报告说返回的数据是XML，那么返回的结果就可以用普通的XML方法或者jQuery的选择器来遍历。如果见得到其它类型，比如HTML，则数据就以文本形式来对待。
 
-通过dataType选项还可以指定其他不同数据处理方式。除了单纯的XML，还可以指定 html、json、jsonp、script或者text。
+通过dataType选项还可以指定其它不同数据处理方式。除了单纯的XML，还可以指定 html、json、jsonp、script或者text。
 
 其中，text和xml类型返回的数据不会经过处理。数据仅仅简单的将XMLHttpRequest的responseText或responseHTML属性传递给success回调函数，
 
@@ -5750,9 +5745,9 @@ $.ajax()函数依赖服务器提供的信息来处理返回的数据。如果服
 
 如果指定为html类型，任何内嵌的JavaScript都会在HTML作为一个字符串返回之前执行。类似的，指定script类型的话，也会先执行服务器端生成JavaScript，然后再把脚本作为一个文本数据返回。
 
-如果指定为json类型，则会把获取到的数据作为一个JavaScript对象来解析，并且把构建好的对象作为结果返回。为了实现这个目的，他首先尝试使用JSON.parse()。如果浏览器不支持，则使用一个函数来构建。JSON数据是一种能很方便通过JavaScript解析的结构化数据。如果获取的数据文件存放在远程服务器上（域名不同，也就是跨域获取数据），则需要使用jsonp类型。使用这种类型的话，会创建一个查询字符串参数 callback=? ，这个参数会加在请求的URL后面。服务器端应当在JSON数据前加上回调函数名，以便完成一个有效的JSONP请求。如果要指定回调函数的参数名来取代默认的callback，可以通过设置$.ajax()的jsonp参数。
+如果指定为json类型，则会把获取到的数据作为一个JavaScript对象来解析，并且把构建好的对象作为结果返回。为了实现这个目的，它首先尝试使用JSON.parse()。如果浏览器不支持，则使用一个函数来构建。JSON数据是一种能很方便通过JavaScript解析的结构化数据。如果获取的数据文件存放在远程服务器上（域名不同，也就是跨域获取数据），则需要使用jsonp类型。使用这种类型的话，会创建一个查询字符串参数 callback=? ，这个参数会加在请求的URL后面。服务器端应当在JSON数据前加上回调函数名，以便完成一个有效的JSONP请求。如果要指定回调函数的参数名来取代默认的callback，可以通过设置$.ajax()的jsonp参数。
 
-'''注意'''，JSONP是JSON格式的扩展。他要求一些服务器端的代码来检测并处理查询字符串参数。更多信息可以参阅 &lt;a href="http://bob.pythonmac.org/archives/2005/12/05/remote-json-jsonp/"&gt;最初的文章&lt;/a&gt;。
+'''注意'''，JSONP是JSON格式的扩展。它要求一些服务器端的代码来检测并处理查询字符串参数。更多信息可以参阅 &lt;a href="http://bob.pythonmac.org/archives/2005/12/05/remote-json-jsonp/"&gt;最初的文章&lt;/a&gt;。
 
 如果指定了script或者jsonp类型，那么当从服务器接收到数据时，实际上是用了&amp;lt;script&amp;gt;标签而不是XMLHttpRequest对象。这种情况下，$.ajax()不再返回一个XMLHttpRequest对象，并且也不会传递事件处理函数，比如beforeSend。
 
@@ -5760,7 +5755,7 @@ $.ajax()函数依赖服务器提供的信息来处理返回的数据。如果服
 
 默认情况下，Ajax请求使用GET方法。如果要使用POST方法，可以设定type参数值。这个选项也会影响data选项中的内容如何发送到服务器。
 
-data选项既可以包含一个查询字符串，比如 key1=value1&amp;amp;key2=value2 ，也可以是一个映射，比如 {key1: 'value1', key2: 'value2'} 。如果使用了后者的形式，则数据再发送器会被转换成查询字符串。这个处理过程也可以通过设置processData选项为false来回避。如果我们希望发送一个XML对象给服务器时，这种处理可能并不合适。并且在这种情况下，我们也应当改变contentType选项的值，用其他合适的MIME类型来取代默认的  application/x-www-form-urlencoded 。
+data选项既可以包含一个查询字符串，比如 key1=value1&amp;amp;key2=value2 ，也可以是一个映射，比如 {key1: 'value1', key2: 'value2'} 。如果使用了后者的形式，则数据再发送器会被转换成查询字符串。这个处理过程也可以通过设置processData选项为false来回避。如果我们希望发送一个XML对象给服务器时，这种处理可能并不合适。并且在这种情况下，我们也应当改变contentType选项的值，用其它合适的MIME类型来取代默认的  application/x-www-form-urlencoded 。
 
 '''高级选项'''
 
@@ -5770,13 +5765,13 @@ global选项用于阻止响应注册的回调函数，比如.ajaxSend，或者aj
 
 Ajax请求是限时的，所以错误警告被捕获并处理后，可以用来提升用户体验。请求超时这个参数通常就保留其默认值，要不就通过jQuery.ajaxSetup来全局设定，很少为特定的请求重新设置timeout选项。
 
-默认情况下，请求总会被发出去，但浏览器有可能从他的缓存中调取数据。要禁止使用缓存的结果，可以设置cache参数为false。如果希望判断数据自从上次请求后没有更改过就报告出错的话，可以设置ifModified为true。
+默认情况下，请求总会被发出去，但浏览器有可能从它的缓存中调取数据。要禁止使用缓存的结果，可以设置cache参数为false。如果希望判断数据自从上次请求后没有更改过就报告出错的话，可以设置ifModified为true。
 
 scriptCharset允许给&amp;lt;script&amp;gt;标签的请求设定一个特定的字符集，用于script或者jsonp类似的数据。当脚本和页面字符集不同时，这特别好用。
 
-Ajax的第一个字母是asynchronous的开头字母，这意味着所有的操作都是并行的，完成的顺序没有前后关系。$.ajax()的async参数总是设置成true，这标志着在请求开始后，其他代码依然能够执行。强烈不建议把这个选项设置成false，这意味着所有的请求都不再是异步的了，这也会导致浏览器被锁死。
+Ajax的第一个字母是asynchronous的开头字母，这意味着所有的操作都是并行的，完成的顺序没有前后关系。$.ajax()的async参数总是设置成true，这标志着在请求开始后，其它代码依然能够执行。强烈不建议把这个选项设置成false，这意味着所有的请求都不再是异步的了，这也会导致浏览器被锁死。
 
-$.ajax函数返回他创建的XMLHttpRequest对象。通常jQuery只在内部处理并创建这个对象，但用户也可以通过xhr选项来传递一个自己创建的xhr对象。返回的对象通常已经被丢弃了，但依然提供一个底层接口来观察和操控请求。比如说，调用对象上的.abort()可以在请求完成前挂起请求。
+$.ajax函数返回它创建的XMLHttpRequest对象。通常jQuery只在内部处理并创建这个对象，但用户也可以通过xhr选项来传递一个自己创建的xhr对象。返回的对象通常已经被丢弃了，但依然提供一个底层接口来观察和操控请求。比如说，调用对象上的.abort()可以在请求完成前挂起请求。
 <p>The <code>$.ajax()</code> function underlies all Ajax requests sent by jQuery.  It is often unnecessary to directly call this function, as several higher-level alternatives like <code>
                   <a href="/jQuery.get">$.get()</a>
                </code> and <code>
@@ -6757,7 +6752,7 @@ $('#clickme').click(function() {
          </example>
       </entry>
       <entry type="method" name="jQuery.extend">
-         <desc>扩展jQuery对象本身。 用一个或多个其他对象来扩展一个对象，返回被扩展的对象。Merge the contents of two or more objects together into the first object.</desc>
+         <desc>扩展jQuery对象本身。 用一个或多个其它对象来扩展一个对象，返回被扩展的对象。Merge the contents of two or more objects together into the first object.</desc>
          <signature>
             <argument name="target">
                <desc> An object that will receive the new properties if additional objects are passed in or that will extend the jQuery namespace if it is the sole argument.</desc>
@@ -6896,15 +6891,15 @@ $.each(map, function(key, value) {
       <entry type="property" name="jQuery.support">
          <desc>jQuery 1.3 新增。一组用于展示不同浏览器各自特性和bug的属性集合。A collection of properties that represent the presence of different browser features or bugs.</desc>
          <signature/>
-         <longdesc>jQuery提供了一系列属性，你也可以自由增加你自己的属性。其中许多属性是很低级的，所以很难说他们能否在日新月异的发展中一直保持有效，但这这些主要用于插件和内核开发者。
+         <longdesc>jQuery提供了一系列属性，你也可以自由增加你自己的属性。其中许多属性是很低级的，所以很难说它们能否在日新月异的发展中一直保持有效，但这这些主要用于插件和内核开发者。
 
 所有这些支持的属性值都通过特性检测来实现，而不是用任何浏览器检测。以下有一些非常棒的资源用于解释这些特性检测是如何工作的：&lt;ul&gt;&lt;li&gt;http://peter.michaux.ca/articles/feature-detection-state-of-the-art-browser-scripting&lt;/li&gt;&lt;li&gt;http://yura.thinkweb2.com/cft/&lt;/li&gt;&lt;li&gt;http://www.jibbering.com/faq/faq_notes/not_browser_detect.html&lt;/li&gt;&lt;/ul&gt;jQuery.support主要包括以下测试：
 
 '''boxModel''': 如果这个页面和浏览器是以W3C CSS盒式模型来渲染的，则等于true。通常在IE 6和IE 7的怪癖模式中这个值是false。在document准备就绪前，这个值是null。
 
-'''cssFloat''': 如果用cssFloat来访问CSS的float的值，则返回true。目前在IE中会返回false,他用styleFloat代替。
+'''cssFloat''': 如果用cssFloat来访问CSS的float的值，则返回true。目前在IE中会返回false,它用styleFloat代替。
 
-'''hrefNormalized''': 如果浏览器从getAttribute("href")返回的是原封不动的结果，则返回true。在IE中会返回false，因为他的URLs已经常规化了。
+'''hrefNormalized''': 如果浏览器从getAttribute("href")返回的是原封不动的结果，则返回true。在IE中会返回false，因为它的URLs已经常规化了。
 
 '''htmlSerialize''': 如果浏览器通过innerHTML插入链接元素的时候会序列化这些链接，则返回true，目前IE中返回false。
 
@@ -6914,13 +6909,13 @@ $.each(map, function(key, value) {
 
 '''objectAll''': 如果在某个元素对象上执行getElementsByTagName("*")会返回所有子孙元素，则为true，目前在IE 7中为false。
 
-'''opacity''': 如果浏览器能适当解释透明度样式属性，则返回true，目前在IE中返回false，因为他用alpha滤镜代替。
+'''opacity''': 如果浏览器能适当解释透明度样式属性，则返回true，目前在IE中返回false，因为它用alpha滤镜代替。
 
 '''scriptEval''': 使用 appendChild/createTextNode 方法插入脚本代码时，浏览器是否执行脚本，目前在IE中返回false，IE使用 .text 方法插入脚本代码以执行。
 
-'''style''': 如果getAttribute("style")返回元素的行内样式，则为true。目前IE中为false，因为他用cssText代替。
+'''style''': 如果getAttribute("style")返回元素的行内样式，则为true。目前IE中为false，因为它用cssText代替。
 
-'''tbody''': 如果浏览器允许table元素不包含tbody元素，则返回true。目前在IE中会返回false，他会自动插入缺失的tbody。
+'''tbody''': 如果浏览器允许table元素不包含tbody元素，则返回true。目前在IE中会返回false，它会自动插入缺失的tbody。
     <p>Rather than using <code>$.browser</code> to detect the current user agent and alter the page presentation based on which browser is running, it is a good practice to perform <strong>feature detection</strong>. This means that prior to executing code which relies on a browser feature, we test to ensure that the feature works properly. To make this process simpler, jQuery performs many such tests and makes the results available to us as properties of the <code>jQuery.support</code> object.</p>
             <p>The values of all the support properties are determined using feature detection (and do not use any form of browser sniffing). </p>
 
@@ -7118,7 +7113,7 @@ $.each(map, function(key, value) {
          </example>
       </entry>
       <entry type="method" name="unwrap">
-         <desc>这个方法将移出元素的父元素。这能快速取消 .wrap()方法的效果。匹配的元素（以及他们的同辈元素）会在DOM结构上替换他们的父元素。Remove the parents of the set of matched elements from the DOM, leaving the matched elements in their place.</desc>
+         <desc>这个方法将移出元素的父元素。这能快速取消 .wrap()方法的效果。匹配的元素（以及它们的同辈元素）会在DOM结构上替换它们的父元素。Remove the parents of the set of matched elements from the DOM, leaving the matched elements in their place.</desc>
          <signature/>
          <longdesc>
             <p>The <code>.unwrap()</code> method removes the element's parent. This is effectively the inverse of the <code>
@@ -7151,7 +7146,7 @@ $.each(map, function(key, value) {
                <desc>A Boolean indicating whether event handlers should be copied along with the elements. As of jQuery 1.4 element data will be copied as well.</desc>
             </argument>
          </signature>
-         <longdesc>在想把DOM文档中元素的副本添加到其他位置时这个函数非常有用。在想把DOM文档中元素的副本添加到其他位置时这个函数非常有用。<p>The <code>.clone()</code> method performs a <em>deep</em> copy of the set of matched elements, meaning that it copies the matched elements as well as all of their descendant elements and text nodes. When used in conjunction with one of the insertion methods, <code>.clone()</code> is a convenient way to duplicate elements on a page. Consider the following HTML:</p>
+         <longdesc>在想把DOM文档中元素的副本添加到其它位置时这个函数非常有用。在想把DOM文档中元素的副本添加到其它位置时这个函数非常有用。<p>The <code>.clone()</code> method performs a <em>deep</em> copy of the set of matched elements, meaning that it copies the matched elements as well as all of their descendant elements and text nodes. When used in conjunction with one of the insertion methods, <code>.clone()</code> is a convenient way to duplicate elements on a page. Consider the following HTML:</p>
 				        <pre>&lt;div class="container"&gt;
   &lt;div class="hello"&gt;Hello&lt;/div&gt;
   &lt;div class="goodbye"&gt;Goodbye&lt;/div&gt;
@@ -7193,7 +7188,7 @@ $.each(map, function(key, value) {
                <desc>A selector expression that filters the set of matched elements to be removed.</desc>
             </argument>
          </signature>
-         <longdesc>这个方法不会把匹配的元素从jQuery对象中删除，因而可以在将来再使用这些匹配的元素。但除了这个元素本身得以保留之外，其他的比如绑定的事件，附加的数据等都会被移除。<p>Similar to <code>
+         <longdesc>这个方法不会把匹配的元素从jQuery对象中删除，因而可以在将来再使用这些匹配的元素。但除了这个元素本身得以保留之外，其它的比如绑定的事件，附加的数据等都会被移除。<p>Similar to <code>
                   <a href="/empty">.empty()</a>
                </code>, the <code>.remove()</code> method takes elements out of the DOM. We use <code>.remove()</code> when we want to remove the element itself, as well as everything inside it. In addition to the elements themselves, all bound events and jQuery data  associated with the elements are removed.</p>
 				        <p>Consider the following HTML:</p>
@@ -7431,7 +7426,7 @@ $.each(map, function(key, value) {
          </example>
       </entry>
       <entry type="method" name="wrap">
-         <desc>把所有匹配的元素用其他元素的结构化标记包裹起来。 把所有匹配的元素用其他元素的结构化标记包装起来。 把所有匹配的元素用其他元素的结构化标记包装起来。Wrap an HTML structure around each element in the set of matched elements.</desc>
+         <desc>把所有匹配的元素用其它元素的结构化标记包裹起来。 把所有匹配的元素用其它元素的结构化标记包装起来。 把所有匹配的元素用其它元素的结构化标记包装起来。Wrap an HTML structure around each element in the set of matched elements.</desc>
          <signature>
             <argument name="wrappingElement">
                <desc>An HTML snippet, selector expression, jQuery object, or DOM element specifying the structure to wrap around the matched elements.</desc>
@@ -8087,13 +8082,13 @@ $('input:radio[name=bar]:checked').val(); // get the value from a set of radio b
          </example>
       </entry>
       <entry type="method" name="map">
-         <desc>将一组元素转换成其他数组（不论是否是元素数组）Pass each element in the current matched set through a function, producing a new jQuery object containing the return values.</desc>
+         <desc>将一组元素转换成其它数组（不论是否是元素数组）Pass each element in the current matched set through a function, producing a new jQuery object containing the return values.</desc>
          <signature>
             <argument name="callback(index, domElement)">
                <desc>A function object that will be invoked for each element in the current set.</desc>
             </argument>
          </signature>
-         <longdesc>你可以用这个函数来建立一个列表，不论是值、属性还是CSS样式，或者其他特别形式。这都可以用'$.map()'来方便的建立。<p>As the return value is a jQuery-wrapped array, it's very common to <code>get()</code> the returned object to work with a basic array.</p>
+         <longdesc>你可以用这个函数来建立一个列表，不论是值、属性还是CSS样式，或者其它特别形式。这都可以用'$.map()'来方便的建立。<p>As the return value is a jQuery-wrapped array, it's very common to <code>get()</code> the returned object to work with a basic array.</p>
             <p>The <code>.map()</code> method is particularly useful for getting or setting the value of a collection of elements. Consider a form with a set of checkboxes in it:</p>
             <pre>
 &lt;form method="post" action=""&gt;
