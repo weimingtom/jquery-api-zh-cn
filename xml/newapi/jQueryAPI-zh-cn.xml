@@ -1103,17 +1103,12 @@ alert('Index: ' + listItem.index('li'));
          </signature>
          <signature>
             <argument name="obj">
-               <desc>An object of key-value pairs of data to set.</desc>
+               <desc>用于设置的键值对。</desc>
             </argument>
          </signature>
-         <longdesc>如果jQuery集合指向多个元素，那将只返回第一个元素的对应数据。
-
-这个函数可以用于在一个元素上存取数据而避免了循环引用的风险。jQuery.data是1.2.3版的新功能。你可以在很多地方使用这个函数，另外jQuery UI里经常使用这个函数。
-
-如果不带任何参数，则会把所有数据作为一个JavaScript对象来返回。如果jQuery集合指向多个元素，那将在所有元素上设置对应数据。
-
-这个函数不用建立一个新的expando，就能在一个元素上存放任何格式的数据，而不仅仅是字符串。注意，如果使用这个方法之后，原先存放的所有数据都会被重写！因为这些数据，包括事件处理函数，都是绑定在元素上的。所以以一个obj作为参数使用 .data()方法时，请务必小心！<p>The <code>.data()</code> method allows us to attach data of any type to DOM elements in a way that is safe from circular references and therefore from memory leaks.</p>
-            <p> We can set several distinct values for a single element and retrieve them later:</p>
+         <longdesc>
+            <p><code>.data()</code> 方法允许我们安全地将任何类型的数据附加到DOM元素上而不用担心循环引用和内存泄露之类的问题。</p>
+            <p>在单个元素上设置几个独立的数据，并且以后还可以分别检索到：</p>
             <pre>
 $('body').data('foo', 52);
 $('body').data('bar', { myType: 'test', count: 40 });
@@ -1121,7 +1116,7 @@ $('body').data('bar', { myType: 'test', count: 40 });
 $('body').data('foo'); // 52
 $('body').data(); // {foo: 52, bar: { myType: 'test', count: 40 }}
 </pre>
-            <p>Setting an element's data object with <code>.data(obj)</code> replaces all data previously stored with that element. If you are using third-party plugins it may not be advisable to completely replace the element's data object, since plugins may have also set data. Until jQuery 1.4.2, jQuery itself used the <code>.data()</code> method to save information about events that have been bound to the element, using a data item named 'events'.</p>
+            <p>下面的例子是通过用 <code>.data(obj)</code> 设置一个数据对象，来替换元素上先前设置的所有数据。如果你试用了第三方插件，那么不建议完全替换掉元素上的数据对象，因为插件也可能在上面设置了某些数据。另外，截止到 jQuery 1.4.2，jQuery本身就一直是用了 <code>.data()</code> 方法来存放绑定在元素上的事件信息，数据名为 'events'。</p>
             <pre>
 $('body').data('foo', 52);
 $('body').data({one: 1, two: 2});
@@ -1129,17 +1124,17 @@ $('body').data({one: 1, two: 2});
 $('body').data('foo'); // undefined
 $('body').data(); // {one: 1, two: 2}
 </pre>
-            <p>Due to the way browsers interact with plugins and external code, the <code>.data()</code> method cannot be used on <code>&lt;object&gt;</code>, <code>&lt;applet&gt;</code> or <code>&lt;embed&gt;</code> elements.</p>
+            <p>由于浏览器本身内部实现插件和外部代码方式的不同，<code>.data()</code> 方法不能用于 <code>&lt;object&gt;</code>, <code>&lt;applet&gt;</code> 或 <code>&lt;embed&gt;</code> 元素。</p>
          </longdesc>
          <example>
-            <desc>Store then retrieve a value from the div element.</desc>
+            <desc>往div元素上存放再获取数据</desc>
          </example>
       </entry>
       <entry type="method" name="data">
-         <desc>返回元素上储存的相应名字的数据，可以用data(name, value)来设定。 在元素上存放数据,返回jQuery对象。 在元素上存放一组数据，返回jQuery对象。Returns value at named data store for the element, as set by data(name, value).</desc>
+         <desc>返回元素上储存的相应名字的数据，可以用data(name, value)来设定。</desc>
          <signature>
             <argument name="key">
-               <desc>Name of the data stored.</desc>
+               <desc>先前存放的数据名</desc>
             </argument>
          </signature>
          <signature/>
@@ -1150,12 +1145,12 @@ $('body').data(); // {one: 1, two: 2}
 如果不带任何参数，则会把所有数据作为一个JavaScript对象来返回。如果jQuery集合指向多个元素，那将在所有元素上设置对应数据。
 
 这个函数不用建立一个新的expando，就能在一个元素上存放任何格式的数据，而不仅仅是字符串。注意，如果使用这个方法之后，原先存放的所有数据都会被重写！因为这些数据，包括事件处理函数，都是绑定在元素上的。所以以一个obj作为参数使用 .data()方法时，请务必小心！
-<p>The <code>.data()</code> method allows us to attach data of any type to DOM elements in a way that is safe from circular references and therefore from memory leaks. We can retrieve several distinct values for a single element one at a time, or as a set:</p>
+            <p><code>.data()</code> 方法允许我们安全地将任何类型的数据附加到DOM元素上而不用担心循环引用和内存泄露之类的问题。我们可以同时获取单一元素上几个独立的数据，或者整个一组：</p>
             <pre>
 alert($('body').data('foo'));
 alert($('body').data());
 </pre>
-            <p>The above lines alert the data values that were set on the <code>body</code> element. If nothing was set on that element, an empty string is returned:</p>
+            <p>上面两行会显示先前设置在 <code>body</code> 元素上的数据。如果元素上没有设置过任何东西，则会返回一个空字符串。</p>
             <p>Calling <code>.data()</code> with no parameters retrieves all of the values as a JavaScript object. This object can be safely cached in a variable as long as a new object is not set with <code>.data(obj)</code>.</p>
          </longdesc>
          <example>
@@ -8208,13 +8203,23 @@ $('input:radio[name=bar]:checked').val(); // get the value from a set of radio b
          <desc>筛选出与指定表达式匹配的元素集合。 筛选出与指定函数返回值匹配的元素集合Reduce the set of matched elements to those that match the selector or pass the function's test. </desc>
          <signature>
             <argument name="selector">
-               <desc>A string containing a selector expression to match elements against.</desc>
+               <desc>A string containing a selector expression to match the current set of elements against.</desc>
             </argument>
          </signature>
          <signature>
             <argument name="function(index)">
                <desc>A function used as a test for each element in the set. <code>this</code> is the current DOM element.</desc>
             </argument>
+         </signature>
+         <signature>
+             <argument name="element" type="Element">
+                <desc>An element to match the current set of elements against.</desc>
+             </argument>
+          </signature>
+          <signature>
+             <argument name="jQuery object" type="Object">
+                <desc>An existing jQuery object to match the current set of elements against.</desc>
+             </argument>
          </signature>
          <longdesc>这个方法用于缩小匹配的范围。用逗号分隔多个表达式这个函数内部将对每个对象计算一次 (正如 '$.each'). 如果调用的函数返回false则这个元素被删除，否则就会保留。<p>Given a jQuery object that represents a set of DOM elements, the <code>.filter()</code> method constructs a new jQuery object from a subset of the matching elements. The supplied selector is tested against each element; all elements matching the selector will be included in the result.</p>
             <p>Consider a page with a simple list on it:</p>

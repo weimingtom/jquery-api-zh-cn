@@ -48,7 +48,7 @@
     <category name="Offset"/>
     <category name="Plugin Authoring"/>
     <category name="Properties">
-      <category name="Properties of jQuery Object Instances"/>
+      <category name="Properties of jQuery Object Instances "/>
       <category name="Properties of the Global jQuery Object"/>
     </category>
     <category name="Selectors">
@@ -13893,13 +13893,25 @@ input { clear:left}
                 <signature>
                   <added>1.0</added>
                   <argument name="selector" type="Selector">
-                    <desc>A string containing a selector expression to match elements against.</desc>
+                    <desc>A string containing a selector expression to match the current set of elements against.</desc>
                   </argument>
                 </signature>
                 <signature>
                   <added>1.0</added>
                   <argument name="function(index)" type="Function">
                     <desc>A function used as a test for each element in the set. <code>this</code> is the current DOM element.</desc>
+                  </argument>
+                </signature>
+                <signature>
+                  <added>1.4</added>
+                  <argument name="element" type="Element">
+                    <desc>An element to match the current set of elements against.</desc>
+                  </argument>
+                </signature>
+                <signature>
+                  <added>1.4</added>
+                  <argument name="jQuery object" type="Object">
+                    <desc>An existing jQuery object to match the current set of elements against.</desc>
                   </argument>
                 </signature>
                 <desc>Reduce the set of matched elements to those that match the selector or pass the function's test. </desc>
@@ -14469,6 +14481,6 @@ $("button").click(function () {
 
 Minified using disk
 Page Caching using disk (enhanced)
-Database Caching 12/22 queries in 0.071 seconds using disk
+Database Caching 12/22 queries in 0.073 seconds using disk
 
-Served from: api.jquery.com @ 2010-08-11 07:57:01 -->
+Served from: api.jquery.com @ 2010-08-23 00:38:28 -->
