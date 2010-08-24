@@ -184,7 +184,7 @@
          </example>
       </entry>
       <entry type="method" name="jQuery.error">
-         <desc>接受一个字符串，并抛出包含此字符串的异常。Takes a string and throws an exception containing it.</desc>
+         <desc>接受一个字符串，并抛出包含此字符串的异常。</desc>
          <signature>
             <argument name="message">
                <desc>待发送的消息</desc>
@@ -193,7 +193,7 @@
          <longdesc>这个方法主要是让插件开发人员可以重载此方法，并以更好的方式显示错误，或者提供更多信息。
          </longdesc>
          <example>
-            <desc>重载 jQuery.error 用于在 Firebug 中显示</desc>
+            <desc>重载 jQuery.error 以便可以在 Firebug 中显示</desc>
          </example>
       </entry>
       <entry type="method" name="jQuery.parseJSON">
@@ -207,9 +207,9 @@
             <p>传入一个错误的JSON字符串会抛出一个异常。比如下面这些错误的JSON字符串：</p>
             <ul>
                <li>
-                  <code>{test: 1}</code> (test does not have double quotes around it).</li>
+                  <code>{test: 1}</code> (test 没有用双引号包裹)</li>
                <li>
-                  <code>{'test': 1}</code> ('test' is using single quotes instead of double quotes).</li>
+                  <code>{'test': 1}</code> ('test' 用了单引号包裹而不是双引号包裹)</li>
             </ul>
             <p>另外，如果你什么都不传入，或者传入一个空字符串、null或undefined，parseJSON都会返回 null 。如果浏览器原生实现了 <code>JSON.parse</code>， jQuery 则会使用它来解析字符串。更多关于JSON格式的细节请参考 <a href="http://json.org/">http://json.org/</a> 。
             </p>
@@ -1138,111 +1138,107 @@ $('body').data(); // {one: 1, two: 2}
             </argument>
          </signature>
          <signature/>
-         <longdesc>如果jQuery集合指向多个元素，那将只返回第一个元素的对应数据。
-
-这个函数可以用于在一个元素上存取数据而避免了循环引用的风险。jQuery.data是1.2.3版的新功能。你可以在很多地方使用这个函数，另外jQuery UI里经常使用这个函数。
-
-如果不带任何参数，则会把所有数据作为一个JavaScript对象来返回。如果jQuery集合指向多个元素，那将在所有元素上设置对应数据。
-
-这个函数不用建立一个新的expando，就能在一个元素上存放任何格式的数据，而不仅仅是字符串。注意，如果使用这个方法之后，原先存放的所有数据都会被重写！因为这些数据，包括事件处理函数，都是绑定在元素上的。所以以一个obj作为参数使用 .data()方法时，请务必小心！
+         <longdesc>
             <p><code>.data()</code> 方法允许我们安全地将任何类型的数据附加到DOM元素上而不用担心循环引用和内存泄露之类的问题。我们可以同时获取单一元素上几个独立的数据，或者整个一组：</p>
             <pre>
 alert($('body').data('foo'));
 alert($('body').data());
 </pre>
             <p>上面两行会显示先前设置在 <code>body</code> 元素上的数据。如果元素上没有设置过任何东西，则会返回一个空字符串。</p>
-            <p>Calling <code>.data()</code> with no parameters retrieves all of the values as a JavaScript object. This object can be safely cached in a variable as long as a new object is not set with <code>.data(obj)</code>.</p>
+            <p>调用 <code>.data()</code> 时如果不带参数，将会以 JavaScript 对象的形式获取所有数据。这个对象可以安全的存放在变量中，因为一旦这个新对象被提取出来，之后对元素进行的 <code>.data(obj)</code> 操作，将无法再影响到这个对象了。</p>
          </longdesc>
          <example>
-            <desc>Get the data named "blah" stored at for an element.</desc>
+            <desc>获取存放在元素上，名为 "blah" 的数据。</desc>
          </example>
       </entry>
       <entry type="method" name="get">
-         <desc>取得所有匹配的 DOM 元素集合。 取得其中一个匹配的元素。 num表示取得第几个匹配的元素。Retrieve the DOM elements matched by the jQuery object.</desc>
+         <desc>获取jQuery对象对应的DOM元素。</desc>
          <signature>
             <argument name="index">
-               <desc>A zero-based integer indicating which element to retrieve.</desc>
+               <desc>从0开始计数，确定获取哪个元素。</desc>
             </argument>
          </signature>
-         <longdesc>这是取得所有匹配元素的一种向后兼容的方式（不同于jQuery对象，而实际上是元素数组）。
-
-如果你想要直接操作 DOM 对象而不是 jQuery 对象，这个函数非常有用。这能够让你选择一个实际的DOM 元素并且对它直接操作，而不是通过 jQuery 函数。$(this).get(0)与$(this)[0]等价。<p>The <code>.get()</code> method grants us access to the DOM nodes underlying each jQuery object. Suppose we had a simple unordered list on the page:</p>
+         <longdesc>
+            <p><code>.get()</code> 方法允许我们直接访问jQuery对象隐含的DOM节点。假设我们页面上有一个简单的无序列表：</p>
             <pre>
 &lt;ul&gt;
   &lt;li id="foo"&gt;foo&lt;/li&gt;
   &lt;li id="bar"&gt;bar&lt;/li&gt;
 &lt;/ul&gt;
 </pre>
-            <p>Without a parameter, <code>.get()</code> returns all of the elements:</p>
+            <p>不带参数的 <code>.get()</code> 会返回所有的元素：</p>
             <pre>alert($('li').get());</pre>
-            <p>All of the matched DOM nodes are returned by this call, contained in a standard array:</p>
+            <p>调用这个方法会返回所有匹配的DOM节点，这些节点包含在一个标准的数组中：</p>
             <p>
                <span class="result">[&lt;li id="foo"&gt;, &lt;li id="bar"&gt;]</span>
             </p>
-            <p>With an index specified, .get() will retrieve a single element:</p>
+            <p>如果指定了 index 参数， .get() 则会获取单个元素：</p>
             <pre>($('li').get(0));</pre>
-            <p>Since the index is zero-based, the first list item is returned:</p>
+            <p>由于索引 index 是以 0 开始计数的，所以上面代码返回了第一个列表项：</p>
             <p>
                <span class="output">&lt;li id="foo"&gt;</span>
             </p>
-            <p>Each jQuery object also masquerades as an array, so we can use the array dereferencing operator to get at the list item instead:</p>
+            <p>由于每个 jQuery 对象也会冒充为一个数组，所以我们也可以用直接用数组的取值运算符来获得列表项：</p>
             <pre>alert($('li')[0]);</pre>
-            <p>However, this syntax lacks some of the additional capabilities of .get(), such as specifying a negative index:</p>
+            <p>然而，这种语法缺少某些 .get() 所具有的附加功能，比如可以指定索引值为负值：</p>
             <pre>alert($('li').get(-1));</pre>
-            <p>A negative index is counted from the end of the matched set, so this example will return the last item in the list:</p>
+            <p>负的索引值表示从匹配的集合中从末尾开始倒数，所以上面这个例子将会返回列表中最后一项：</p>
             <p>
                <span class="output">&lt;li id="bar"&gt;</span>
             </p>
          </longdesc>
          <example>
-            <desc>Selects all divs in the document and returns the DOM Elements as an Array, then uses the built-in reverse-method to reverse that array.</desc>
+            <desc>选择文档中的所有div，并且作为一个数组返回。然后使用浏览器原生的 reverse 方法将数组翻转。</desc>
          </example>
          <example>
-            <desc>Gives the tag name of the element clicked on.</desc>
+            <desc>给出点中元素的标签名。</desc>
          </example>
       </entry>
       <entry type="method" name="size">
-         <desc>jQuery 对象中元素的个数。Return the number of DOM elements matched by the jQuery object.</desc>
+         <desc>返回 jQuery 对象中对应 DOM 元素的个数。</desc>
          <signature/>
-         <longdesc>这个函数的返回值与 jQuery 对象的'&lt;span title="Core/length"&gt;length&lt;/span&gt;' 属性一致。Suppose we had a simple unordered list on the page:
+		 <longdesc>
+            <p>假设页面上有下面一个简单的无序列表：</p>
 <pre>
 &lt;ul&gt;
   &lt;li&gt;foo&lt;/li&gt;
   &lt;li&gt;bar&lt;/li&gt;
 &lt;/ul&gt;
 </pre>
-            <p>We can determine the number of list items by calling <code>.size()</code>:</p>
+            <p>我们通过调用 <code>.size()</code> 来获取列表项的数目：</p>
             <pre>alert('Size: ' + $('li').size());</pre>
-            <p>This will alert the count of items:</p>
+            <p>于是就显示了列表项的个数：</p>
             <p>
                <span class="output">Size: 2</span>
             </p>
             <p>
-               <strong>You should use the <a href="/length/">.length</a> property instead, which is slightly faster.</strong>
+               <strong>你也可以使用 <a href="/length/">.length</a> 属性来代替，他会略微快那么一点点。</strong>
             </p>
          </longdesc>
          <example>
-            <desc>Count the divs. Click to add more.</desc>
+            <desc>计算div的数据。点击后会增加。</desc>
          </example>
       </entry>
       <entry type="method" name="jQuery.noConflict">
-         <desc>运行这个函数将变量$的控制权让渡给第一个实现它的那个库。 将$和jQuery的控制权都交还给原来的库。用之前请考虑清楚!Relinquish jQuery's control of the <code>$</code> variable.</desc>
+         <desc>放弃jQuery对 <code>$</code> 变量的控制权。</desc>
          <signature>
             <argument name="removeAll">
-               <desc>A Boolean indicating whether to remove all jQuery variables from the global scope (including jQuery itself).</desc>
+               <desc>一个布朗值，用于确定是否在全局作用域中移除所有 jQuery 变量，包括 jQuery 本身。</desc>
             </argument>
          </signature>
          <longdesc>这有助于确保jQuery不会与其它库的$对象发生冲突。
 
 在运行这个函数后，就只能使用jQuery变量访问jQuery对象。例如，在要用到$("div p")的地方，就必须换成jQuery("div p")。
 
-'''注意:'''这个函数必须在你导入jQuery文件之后，并且在导入另一个导致冲突的库'''之前'''使用。当然也应当在其它冲突的库被使用之前，除非jQuery是最后一个导入的。这是相对于简单的 '''noConflict''' 方法更极端的版本，因为这将完全重新定义jQuery。这通常用于一种极端的情况，比如你想要将jQuery嵌入一个高度冲突的环境。'''注意:'''调用此方法后极有可能导致插件失效。<p>Many JavaScript libraries use <code> $</code> as a function or variable name, just as jQuery does. In jQuery's case, <code> $</code> is just an alias for <code>jQuery</code>, so all functionality is available without using <code> $</code>. If we need to use another JavaScript library alongside jQuery, we can return control of <code> $</code> back to the other library with a call to <code>$.noConflict()</code>:</p>
+'''注意:'''这个函数必须在你导入jQuery文件之后，并且在导入另一个导致冲突的库'''之前'''使用。当然也应当在其它冲突的库被使用之前，除非jQuery是最后一个导入的。这是相对于简单的 '''noConflict''' 方法更极端的版本，因为这将完全重新定义jQuery。这通常用于一种极端的情况，比如你想要将jQuery嵌入一个高度冲突的环境。'''注意:'''调用此方法后极有可能导致插件失效。
+
+            <p>许多 JavaScript 库会跟 jQuery 一样使用 <code> $</code> 作为一个函数或者变量名。在 jQuery 中 <code> $</code> 仅仅是 <code>jQuery</code> 对象的别名，所以就算不用 <code> $</code> 也可以完整地使用所有功能。如果你需要跟 jQuery 同时使用其他 JavaScript 库，我们可以通过调用 <code>$.noConflict()</code> 来吧 <code> $</code> 的控制权交还给其他库：</p>
             <pre>
 &lt;script type="text/javascript" src="other_lib.js"&gt;&lt;/script&gt;
 &lt;script type="text/javascript" src="jquery.js"&gt;&lt;/script&gt;
 &lt;script type="text/javascript"&gt;
   $.noConflict();
-  // Code that uses other library's $ can follow here.
+  // 其他使用 $ 的库的代码可以放在这里。
 &lt;/script&gt;
 </pre>
             <p>This technique is especially effective in conjunction with the .ready() method's ability to alias the jQuery object, as within callback passed to .ready() we can use $ if we wish without fear of conflicts later:</p>
