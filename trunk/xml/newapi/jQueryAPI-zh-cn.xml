@@ -1226,37 +1226,32 @@ alert($('body').data());
                <desc>一个布朗值，用于确定是否在全局作用域中移除所有 jQuery 变量，包括 jQuery 本身。</desc>
             </argument>
          </signature>
-         <longdesc>这有助于确保jQuery不会与其它库的$对象发生冲突。
-
-在运行这个函数后，就只能使用jQuery变量访问jQuery对象。例如，在要用到$("div p")的地方，就必须换成jQuery("div p")。
-
-'''注意:'''这个函数必须在你导入jQuery文件之后，并且在导入另一个导致冲突的库'''之前'''使用。当然也应当在其它冲突的库被使用之前，除非jQuery是最后一个导入的。这是相对于简单的 '''noConflict''' 方法更极端的版本，因为这将完全重新定义jQuery。这通常用于一种极端的情况，比如你想要将jQuery嵌入一个高度冲突的环境。'''注意:'''调用此方法后极有可能导致插件失效。
-
-            <p>许多 JavaScript 库会跟 jQuery 一样使用 <code> $</code> 作为一个函数或者变量名。在 jQuery 中 <code> $</code> 仅仅是 <code>jQuery</code> 对象的别名，所以就算不用 <code> $</code> 也可以完整地使用所有功能。如果你需要跟 jQuery 同时使用其他 JavaScript 库，我们可以通过调用 <code>$.noConflict()</code> 来吧 <code> $</code> 的控制权交还给其他库：</p>
+         <longdesc>
+            <p>许多 JavaScript 库会跟 jQuery 一样使用 <code> $</code> 作为一个函数或者变量名。在 jQuery 中 <code>$</code> 仅仅是 <code>jQuery</code> 对象的别名，所以就算不用 <code>$</code> 也可以通过 <code>jQuery</code> 完整地使用所有功能。例如，用到 $("div p") 的地方，换成 jQuery("div p") 也是可以的。下面的例子就展示了如果你需要跟 jQuery 同时使用其他 JavaScript 库，我们可以通过调用 <code>$.noConflict()</code> 来把 <code>$</code> 的控制权交还给其他库：</p>
             <pre>
 &lt;script type="text/javascript" src="other_lib.js"&gt;&lt;/script&gt;
 &lt;script type="text/javascript" src="jquery.js"&gt;&lt;/script&gt;
 &lt;script type="text/javascript"&gt;
   $.noConflict();
-  // 其他使用 $ 的库的代码可以放在这里。
+  // 这里的代码使用其他库中的 $ 。
 &lt;/script&gt;
 </pre>
-            <p>This technique is especially effective in conjunction with the .ready() method's ability to alias the jQuery object, as within callback passed to .ready() we can use $ if we wish without fear of conflicts later:</p>
+            <p>这里有个技巧对于解决冲突特别有效。.ready() 方法可以给 jQuery 对象取个别名，这样就能够在传给 .ready() 的回调函数的内部继续使用 $ 而不用担心冲突：</p>
             <pre>
 &lt;script type="text/javascript" src="other_lib.js"&gt;&lt;/script&gt;
 &lt;script type="text/javascript" src="jquery.js"&gt;&lt;/script&gt;
 &lt;script type="text/javascript"&gt;
   $.noConflict();
   jQuery(document).ready(function($) {
-    // Code that uses jQuery's $ can follow here.
+    // 这里的代码使用 jQuery 中的 $
   });
-  // Code that uses other library's $ can follow here.
+  // 这里的代码使用其他库的 $
 &lt;/script&gt;
 </pre>
-            <p>If necessary, we can free up the <code> jQuery</code> name as well by passing <code>true</code> as an argument to the method. This is rarely necessary, and if we must do this (for example, if we need to use multiple versions of the <code>jQuery</code> library on the same page), we need to consider that most plug-ins rely on the presence of the jQuery variable and may not operate correctly in this situation.</p>
+            <p>如果有必要，我们只要把参数 <code>true</code> 传给这个方法，就可以把 <code>jQuery</code> 这个变量完全释放。这种情况非常罕见，但有时候我们必须这么做（比如我们需要在一个页面中引入多个版本的 <code>jQuery</code> 库）。注意，这样做很有可能导致插件失效，因为插件通常依赖于 jQuery 变量。</p>
          </longdesc>
          <example>
-            <desc>Maps the original object that was referenced by $ back to $.</desc>
+            <desc>把原先映射在 $ 上的对象重新映射到 $ 上。</desc>
          </example>
          <example>
             <desc>Reverts the $ alias and then creates and executes a function to provide the $ as a jQuery alias inside the functions scope. Inside the function the original $ object is not available. This works well for most plugins that don't rely on any other library.  
