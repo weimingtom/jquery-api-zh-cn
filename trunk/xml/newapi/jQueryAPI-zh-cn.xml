@@ -204,7 +204,7 @@
             </argument>
          </signature>
          <longdesc>
-            <p>传入一个错误的JSON字符串会抛出一个异常。比如下面这些错误的JSON字符串：</p>
+            <p>传入一个错误的JSON字符串可能会抛出一个异常。比如下面这些错误的JSON字符串：</p>
             <ul>
                <li>
                   <code>{test: 1}</code> (test 没有用双引号包裹)</li>
@@ -1116,7 +1116,7 @@ $('body').data('bar', { myType: 'test', count: 40 });
 $('body').data('foo'); // 52
 $('body').data(); // {foo: 52, bar: { myType: 'test', count: 40 }}
 </pre>
-            <p>下面的例子是通过用 <code>.data(obj)</code> 设置一个数据对象，来替换元素上先前设置的所有数据。如果你试用了第三方插件，那么不建议完全替换掉元素上的数据对象，因为插件也可能在上面设置了某些数据。另外，截止到 jQuery 1.4.2，jQuery本身就一直是用了 <code>.data()</code> 方法来存放绑定在元素上的事件信息，数据名为 'events'。</p>
+            <p>下面的例子是通过用 <code>.data(obj)</code> 设置一个数据对象，来替换元素上先前设置的所有数据。如果你试用了第三方插件，那么不建议完全替换掉元素上的数据对象，因为插件也可能在上面设置了某些数据。jQuery本身就是用了 <code>.data()</code> 方法来存放绑定在元素上的事件信息，数据名为 'events' 和 'handle'，并且也保留了任何以下划线 ('_') 开头的数据名，以供内部使用。</p>
             <pre>
 $('body').data('foo', 52);
 $('body').data({one: 1, two: 2});
@@ -1131,7 +1131,7 @@ $('body').data(); // {one: 1, two: 2}
          </example>
       </entry>
       <entry type="method" name="data">
-         <desc>返回元素上储存的相应名字的数据，可以用data(name, value)来设定。</desc>
+         <desc>返回jQuery对象集合中第一个元素上储存的数据，这个数据是先前用data(name, value)设定的。</desc>
          <signature>
             <argument name="key">
                <desc>先前存放的数据名</desc>
@@ -1144,8 +1144,15 @@ $('body').data(); // {one: 1, two: 2}
 alert($('body').data('foo'));
 alert($('body').data());
 </pre>
-            <p>上面两行会显示先前设置在 <code>body</code> 元素上的数据。如果元素上没有设置过任何东西，则会返回一个空字符串。</p>
-            <p>调用 <code>.data()</code> 时如果不带参数，将会以 JavaScript 对象的形式获取所有数据。这个对象可以安全的存放在变量中，因为一旦这个新对象被提取出来，之后对元素进行的 <code>.data(obj)</code> 操作，将无法再影响到这个对象了。</p>
+            <p>上面两行会显示先前设置在 <code>body</code> 元素上的数据。如果元素上没有设置过任何东西，则会返回 null 。</p>
+            <p>调用 <code>.data()</code> 时如果不带参数，将会以 JavaScript 对象的形式获取所有数据。这个对象可以安全的存放在变量中，因为一旦这个新对象被提取出来，之后对元素进行的 <code>.data(obj)</code> 操作，将无法再影响到这个对象了。另外，直接操作对象会比通过调用 <code>.data()</code>来设置或获取值要快一些：</p>
+<pre>
+var mydata = $("#mydiv").data();
+if ( mydata.count &lt; 9 ) {
+    mydata.count = 43;
+    mydata.status = "embiggened";
+}
+</pre>
          </longdesc>
          <example>
             <desc>获取存放在元素上，名为 "blah" 的数据。</desc>
@@ -1254,13 +1261,10 @@ alert($('body').data());
             <desc>把原先映射在 $ 上的对象重新映射到 $ 上。</desc>
          </example>
          <example>
-            <desc>Reverts the $ alias and then creates and executes a function to provide the $ as a jQuery alias inside the functions scope. Inside the function the original $ object is not available. This works well for most plugins that don't rely on any other library.  
-
-</desc>
+            <desc>恢复 $ 别名，然后创建并执行一个函数，其内部作用域提供了 $ 作为 jQuery 的别名。这样，就不会访问到全局的 $ 对象了。大多数不依赖其他库的插件在这个函数中都可以正常使用。</desc>
          </example>
          <example>
-            <desc>You can chain the jQuery.noConflict() with the shorthand ready for a compact code.
-</desc>
+            <desc>你可以对 jQuery.noConflict() 进行链式操作来调用 ready 的快捷方式，这样可以压缩代码。</desc>
          </example>
          <example>
             <desc>Creates a different alias instead of jQuery to use in the rest of the script.</desc>
@@ -1530,7 +1534,7 @@ alert($('body').data());
          </example>
       </entry>
       <entry type="selector" name="attributeEndsWith">
-         <desc>匹配给定的属性是以某些值结尾的元素Selects elements that have the specified attribute with a value ending exactly with a given string.</desc>
+         <desc>匹配给定的属性是以某些值结尾的元素Selects elements that have the specified attribute with a value ending exactly with a given string. The comparison is case sensitive.</desc>
          <signature>
             <argument name="attribute">
                <desc>An attribute name.</desc>
@@ -3306,7 +3310,7 @@ The <code>$.browser</code> property is deprecated in jQuery 1.3, but there are n
             <blockquote>
                <ul>
                   <li>As of <b>jQuery 1.4</b> the <code>.live()</code> method supports custom events as well as all JavaScript events. As of <b>jQuery 1.4.1</b> even <code>focus</code> and <code>blur</code> work with live (mapping to the more appropriate, bubbling, events <code>focusin</code> and <code>focusout</code>).</li>
-                  <li>As of <b>jQuery 1.4.1</b> the <code>hover</code> event can be specified (mapping to "<code>mouseenter mouseleave</code>").</li>
+                  <li>As of <b>jQuery 1.4.1</b> the <code>hover</code> event can be specified (mapping to <code>mouseenter</code> and  <code>mouseleave</code>, which, in turn, are mapped to <code>mouseover</code> and <code>mouseout</code>).</li>
                </ul>
             </blockquote>
          </longdesc>
@@ -3369,6 +3373,11 @@ The <code>$.browser</code> property is deprecated in jQuery 1.3, but there are n
                <desc>An array of additional parameters to pass along to the event handler.</desc>
             </argument>
          </signature>
+        <signature>
+            <argument name="event">
+                <desc>一个 <a href="http://api.jquery.com/category/events/event-object/"><code>jQuery.Event</code></a> 对象。</desc>
+            </argument>
+        </signature>
          <longdesc>这个函数也会导致浏览器同名的默认行为的执行。比如，如果用trigger()触发一个'submit'，则同样会导致浏览器提交表单。如果要阻止这种默认行为，应返回false。
 
 你也可以触发由bind()注册的自定义事件而不限于浏览器默认事件。
@@ -3395,7 +3404,7 @@ jQuery也支持 &lt;a href="http://docs.jquery.com/Namespaced_Events"&gt;命名�
       alert($(this).text());
     });
     $('#foo').trigger('click');</pre>
-            <p>While <code>.trigger()</code> simulates an event activation, complete with a synthesized event object, it does not perfectly replicate a naturally-occurring event.</p>
+            <p>As of jQuery 1.3, <code>.trigger()</code>ed events bubble up the DOM tree; an event handler can stop the bubbling by returning <code>false</code> from the handler or calling the <a href="http://api.jquery.com/event.stopPropagation/"><code>.stopPropagation()</code></a> method on the event object passed into the event. Although <code>.trigger()</code> simulates an event activation, complete with a synthesized event object, it does not perfectly replicate a naturally-occurring event.</p>
             <p>To trigger handlers bound via jQuery without also triggering the native event, use <a href="http://api.jquery.com/triggerHandler/">
                   <code>.triggerHandler()</code>
                </a> instead. </p>
@@ -4195,10 +4204,10 @@ $('#bar').bind('click', {msg: message}, function(event) {
          <desc>选取一个匹配的子集Reduce the set of matched elements to a subset specified by a range of indices.</desc>
          <signature>
             <argument name="start">
-               <desc>An integer indicating the 0-based position after which the elements are selected. If negative, it indicates an offset from the end of the set.</desc>
+                <desc>An integer indicating the 0-based position at which the elements begin to be selected. If negative, it indicates an offset from the end of the set.</desc>
             </argument>
             <argument name="end">
-               <desc>An integer indicating the 0-based position before which the elements stop being selected. If negative, it indicates an offset from the end of the set. If omitted, the range continues until the end of the set.</desc>
+                <desc>An integer indicating the 0-based position at which the elements stop being selected. If negative, it indicates an offset from the end of the set. If omitted, the range continues until the end of the set.</desc>
             </argument>
          </signature>
          <longdesc>与原来的slice方法类似<p>Given a jQuery object that represents a set of DOM elements, the <code>.slice()</code> method constructs a new jQuery object from a subset of the matching elements. The supplied <code>start</code> index identifies the position of one of the elements in the set; if <code>end</code> is omitted, all elements after this one will be included in the result.</p>
@@ -4477,7 +4486,7 @@ $('ul.first').find('.foo')
             <pre>$('li.third-item').nextAll().andSelf()
   .css('background-color', 'red');
 </pre>
-            <p>The result of this call is a red background behind items 3, 4 and 5. First, the initial selector locates item 3, initializing the stack with the set containing just this item. The call to <code>.nextAll()</code> then pushes the set of items 4 and 5 onto the stack. Finally, the <code>.andSelf()</code> invocation merges these two sets together, creating a jQuery object that points to all three items.</p>
+            <p>The result of this call is a red background behind items 3, 4 and 5. First, the initial selector locates item 3, initializing the stack with the set containing just this item. The call to <code>.nextAll()</code> then pushes the set of items 4 and 5 onto the stack. Finally, the <code>.andSelf()</code> invocation merges these two sets together, creating a jQuery object that points to all three items in document order: <code>{[&lt;li.third-item&gt;,&lt;li&gt;,&lt;li&gt; ]}</code>.</p></longdesc>
          </longdesc>
          <example>
             <desc>Find all divs, and all the paragraphs inside of them, and give them both classnames.  Notice the div doesn't have the yellow background color since it didn't use andSelf.</desc>
@@ -4677,7 +4686,8 @@ The second button starts a traditional chained animation, where each animation w
                <desc>A string containing a selector expression to match elements against.</desc>
             </argument>
          </signature>
-         <longdesc>可以用表达式过滤。<p>Given a jQuery object that represents a set of DOM elements, the <code>.prevAll()</code> method allows us to search through the predecessors of these elements in the DOM tree and construct a new jQuery object from the matching elements.</p>
+        <longdesc>
+            <p>Given a jQuery object that represents a set of DOM elements, the <code>.parents()</code> method allows us to search through the ancestors of these elements in the DOM tree and construct a new jQuery object from the matching elements ordered from immediate parent on up; the elements are returned in order from the closest parent to the outer ones. The <code>.parents()</code> and <code>.parent()</code> methods are similar, except that the latter only travels a single level up the DOM tree.</p>
             <p>The method optionally accepts a selector expression of the same type that we can pass to the <code>$()</code> function. If the selector is supplied, the elements will be filtered by testing whether they match it.</p>
             <p>Consider a page with a simple list on it:</p>
             <pre>
@@ -5149,7 +5159,7 @@ The second button starts a traditional chained animation, where each animation w
          </example>
       </entry>
       <entry type="method" name="next">
-         <desc>取得一个包含匹配的元素集合中每一个元素紧邻的后面同辈元素的元素集合。Get the immediately following sibling of each element in the set of matched elements, optionally filtered by a selector.</desc>
+          <desc>Get the immediately following sibling of each element in the set of matched elements. If a selector is provided, it retrieves the next sibling that matches the selector.</desc>
          <signature>
             <argument name="selector">
                <desc>A string containing a selector expression to match elements against.</desc>
@@ -5299,7 +5309,7 @@ The second button starts a traditional chained animation, where each animation w
          </example>
       </entry>
       <entry type="method" name="contents">
-         <desc>查找匹配元素内部所有的子节点（包括文本节点）。如果元素是一个iframe，则查找文档内容Get the children of each element in the set of matched elements, including text nodes.</desc>
+          <desc>Get the children of each element in the set of matched elements, including text and comment nodes.</desc>
          <signature/>
          <longdesc>
             <p>Given a jQuery object that represents a set of DOM elements, the <code>.contents()</code> method allows us to search through the immediate children of these elements in the DOM tree and construct a new jQuery object from the matching elements. The <code>.contents()</code> and <code>.children()</code> methods are similar, except that the former includes text nodes as well as HTML elements in the resulting jQuery object.</p>
@@ -5626,7 +5636,7 @@ $('li.item-a').closest('#one', listItemII)
                <desc>If set to false it will force the pages that you request to not be cached by the browser.</desc>
             </option>
             <option name="complete(XMLHttpRequest, textStatus)">
-               <desc>A function to be called when the request finishes (after success and error callbacks are executed). The function gets passed two arguments: The XMLHttpRequest object and a string describing the status of the request. This is an <a href="http://docs.jquery.com/Ajax_Events">Ajax Event</a>.</desc>
+              <desc>A function to be called when the request finishes (after success and error callbacks are executed). The function gets passed two arguments: The XMLHttpRequest object and a string categorizing the status of the request (<code>"success"</code>, <code>"notmodified"</code>, <code>"error"</code>, <code>"timeout"</code>, or <code>"parsererror"</code>). This is an <a href='http://docs.jquery.com/Ajax_Events'>Ajax Event</a>.</desc>
             </option>
             <option name="contentType">
                <desc>When sending data to the server, use this content-type. Default is "application/x-www-form-urlencoded", which is fine for most cases. If you explicitly pass in a content-type to $.ajax() then it'll always be sent to the server (even if no data is sent). Data will always be transmitted to the server using UTF-8 charset; you must decode this appropriately on the server side.</desc>
@@ -5774,12 +5784,12 @@ $.ajax函数返回它创建的XMLHttpRequest对象。通常jQuery只在内部处
             <p>This example, using no options, loads the contents of the current page, but does nothing with the result. To use the result, we can implement one of the callback functions.</p>
 
             <h4 id="callback-functions">Callback Functions</h4>
-            <p>The <code>beforeSend</code>, <code>error</code>, <code>dataFilter</code>, <code>success</code> and <code>complete</code> options all take callback functions that are invoked at the appropriate times:</p>
+            <p>The <code>beforeSend</code>, <code>error</code>, <code>dataFilter</code>, <code>success</code> and <code>complete</code> options all take callback functions that are invoked at the appropriate times. The <code>this</code> object for all of them will be the object in the <code>context</code> property passed to <code>$.ajax</code> in the settings; if that was not specified it will be a reference to the Ajax settings themselves. Some types of Ajax requests, such as JSONP and cross-domain GET requests, do not use XHR; in those cases the <code>XMLHttpRequest</code> parameter passed to the callback will be <code>undefined</code>.</p>
             <ol>
                <li>
                   <code>beforeSend</code> is called before the request is sent, and is passed the <code>XMLHttpRequest</code> object as a parameter.</li>
                <li>
-                  <code>error</code> is called if the request fails. It is passed the <code>XMLHttpRequest</code> object, a string indicating the error type, and an exception object if applicable.</li>
+                  <li><code>error</code> is called if the request fails. It is passed the <code>XMLHttpRequest</code>, a string indicating the error type, and an exception object if applicable.</li>
                <li>
                   <code>dataFilter</code> is called on success. It is passed the returned data and the value of <code>dataType</code>, and must return the (possibly altered) data to pass on to <code>success</code>.</li>
                <li>
@@ -5877,7 +5887,8 @@ option to false, the automatic conversion of data to strings is prevented.</desc
                <desc>A string containing a selector expression to match elements against.</desc>
             </argument>
          </signature>
-         <longdesc>可以通过可选的表达式来过滤所匹配的子元素。注意：parents()将查找所有祖辈元素，而children()只考虑子元素而不考虑所有后代元素。<p>Given a jQuery object that represents a set of DOM elements, the <code>.children()</code> method allows us to search through the immediate children of these elements in the DOM tree and construct a new jQuery object from the matching elements. The <code>.find()</code> and <code>.children()</code> methods are similar, except that the latter only travels a single level down the DOM tree.</p>
+         <longdesc>
+            <p>Given a jQuery object that represents a set of DOM elements, the <code>.children()</code> method allows us to search through the immediate children of these elements in the DOM tree and construct a new jQuery object from the matching elements. The <code>.find()</code> and <code>.children()</code> methods are similar, except that the latter only travels a single level down the DOM tree. Note also that like most jQuery methods, <code>.children()</code> does not return text nodes; to get <em>all</em> children including text and comment nodes, use <code>.contents()</code>.</p>
             <p>The method optionally accepts a selector expression of the same type that we can pass to the <code>$()</code> function. If the selector is supplied, the elements will be filtered by testing whether they match it.</p>
             <p>Consider a page with a basic nested list on it:</p>
             <pre>
@@ -6172,53 +6183,50 @@ $('li').not(document.getElementById('notli'))
          <longdesc>如果点击了一个匹配的元素，则触发指定的第一个函数，当再次点击同一元素时，则触发指定的第二个函数，如果有更多函数，则再次触发，直到最后一个。随后的每次点击都重复对这几个函数的轮番调用。
 
 可以使用unbind("click")来删除。如果元素是可见的，切换为隐藏的；如果元素是隐藏的，切换为可见的。如果switch设为true，则调用show()方法来显示匹配的元素，如果switch设为false则调用hide()来隐藏元素。可以根据指定的速度动态地改变每个匹配元素的高度、宽度和不透明度。在jQuery 1.3中，padding和margin也会有动画，效果更流畅。
-  &lt;p&gt;With no parameters, the &lt;code&gt;.toggle()&lt;/code&gt; method simply toggles the visibility of elements:&lt;/p&gt;
-&lt;pre&gt;$('.target').toggle();
-&lt;/pre&gt;
-&lt;p&gt;The matched elements will be revealed or hidden immediately, with no animation, by changing the CSS &lt;code&gt;display&lt;/code&gt; property. If the element is initially displayed, it will be hidden; if hidden, it will be shown. The &lt;code&gt;display&lt;/code&gt; property is saved and restored as needed. If an element has a &lt;code&gt;display&lt;/code&gt; value of &lt;code&gt;inline&lt;/code&gt;, then is hidden and shown, it will once again be displayed &lt;code&gt;inline&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;When a duration is provided, &lt;code&gt;.toggle()&lt;/code&gt; becomes an animation method. The &lt;code&gt;.toggle()&lt;/code&gt; method animates the width, height, and opacity of the matched elements simultaneously. When these properties reach 0 after a hiding animation, the &lt;code&gt;display&lt;/code&gt; style property is set to &lt;code&gt;none&lt;/code&gt; to ensure that the element no longer affects the layout of the page.&lt;/p&gt;
-&lt;p&gt;Durations are given in milliseconds; higher values indicate slower animations, not faster ones. The strings &lt;code&gt;'fast'&lt;/code&gt; and &lt;code&gt;'slow'&lt;/code&gt; can be supplied to indicate durations of &lt;code&gt;200&lt;/code&gt; and &lt;code&gt;600&lt;/code&gt; milliseconds, respectively.&lt;/p&gt;
-&lt;p&gt;If supplied, the callback is fired once the animation is complete. This can be useful for stringing different animations together in sequence. The callback is not sent any arguments, but &lt;code&gt;this&lt;/code&gt; is set to the DOM element being animated. If multiple elements are animated, it is important to note that the callback is executed once per matched element, not once for the animation as a whole.&lt;/p&gt;
-&lt;p&gt;We can animate any element, such as a simple image:&lt;/p&gt;
-&lt;pre&gt;&amp;lt;div id="clickme"&amp;gt;
+<p>With no parameters, the <code>.toggle()</code> method simply toggles the visibility of elements:</p>
+<pre>$('.target').toggle();
+</pre>
+<p>The matched elements will be revealed or hidden immediately, with no animation, by changing the CSS <code>display</code> property. If the element is initially displayed, it will be hidden; if hidden, it will be shown. The <code>display</code> property is saved and restored as needed. If an element has a <code>display</code> value of <code>inline</code>, then is hidden and shown, it will once again be displayed <code>inline</code>.</p>
+<p>When a duration is provided, <code>.toggle()</code> becomes an animation method. The <code>.toggle()</code> method animates the width, height, and opacity of the matched elements simultaneously. When these properties reach 0 after a hiding animation, the <code>display</code> style property is set to <code>none</code> to ensure that the element no longer affects the layout of the page.</p>
+<p>Durations are given in milliseconds; higher values indicate slower animations, not faster ones. The strings <code>'fast'</code> and <code>'slow'</code> can be supplied to indicate durations of <code>200</code> and <code>600</code> milliseconds, respectively.</p>
+<p>If supplied, the callback is fired once the animation is complete. This can be useful for stringing different animations together in sequence. The callback is not sent any arguments, but <code>this</code> is set to the DOM element being animated. If multiple elements are animated, it is important to note that the callback is executed once per matched element, not once for the animation as a whole.</p>
+<p>We can animate any element, such as a simple image:</p>
+<pre>&lt;div id="clickme"&gt;
   Click here
-&amp;lt;/div&amp;gt;
-&amp;lt;img id="book" src="book.png" alt="" width="100" height="123" /&amp;gt;
-&lt;/pre&gt;
-&lt;p&gt;We will cause &lt;code&gt;.toggle()&lt;/code&gt; to be called when another element is clicked:&lt;/p&gt;
-&lt;pre&gt;$('#clickme').click(function() {
+&lt;/div&gt;
+&lt;img id="book" src="book.png" alt="" width="100" height="123" /&gt;
+</pre>
+<p>We will cause <code>.toggle()</code> to be called when another element is clicked:</p>
+<pre>$('#clickme').click(function() {
   $('#book').toggle('slow', function() {
     // Animation complete.
   });
 });
-&lt;/pre&gt;
-&lt;p&gt;With the element initially shown, we can hide it slowly with the first click:
-&lt;/p&gt;
-&lt;p class="image"&gt; 
-&lt;img src="0042_06_09.png" alt="" /&gt;
-&lt;img src="0042_06_10.png" alt="" /&gt;
-&lt;img src="0042_06_11.png" alt="" /&gt;
-&lt;img src="0042_06_12.png" alt="" /&gt;
-&lt;/p&gt;
-&lt;p&gt;A second click will show the element once again:&lt;/p&gt;
-&lt;p class="image"&gt;&lt;img src="0042_06_13.png" alt="" /&gt;
-&lt;img src="0042_06_14.png" alt="" /&gt;
-&lt;img src="0042_06_15.png" alt="" /&gt;
-&lt;img src="0042_06_16.png" alt="" /&gt;
-&lt;/p&gt;
-&lt;p&gt;The second version of the method accepts a Boolean parameter. If this parameter is &lt;code&gt;true&lt;/code&gt;, then the matched elements are shown; if &lt;code&gt;false&lt;/code&gt;, the elements are hidden. In essence, the statement:
-&lt;/p&gt;
-&lt;pre&gt;$('#foo').toggle(showOrHide);
-is equivalent to:
-if (showOrHide) {
+</pre>
+<p>With the element initially shown, we can hide it slowly with the first click:
+</p>
+<p class="image four-across"> 
+<img src="/images/0042_06_09.png" alt="" />
+<img src="/images/0042_06_10.png" alt="" />
+<img src="/images/0042_06_11.png" alt="" />
+<img src="/images/0042_06_12.png" alt="" />
+</p>
+<p>A second click will show the element once again:</p>
+<p class="image four-across"><img src="/images/0042_06_13.png" alt="" />
+<img src="/images/0042_06_14.png" alt="" />
+<img src="/images/0042_06_15.png" alt="" />
+<img src="/images/0042_06_16.png" alt="" />
+</p>
+<p>The second version of the method accepts a Boolean parameter. If this parameter is <code>true</code>, then the matched elements are shown; if <code>false</code>, the elements are hidden. In essence, the statement:
+</p>
+<pre>$('#foo').toggle(showOrHide);</pre>
+<p>is equivalent to:</p>
+<pre>if (showOrHide) {
   $('#foo').show();
-}
-else {
+} else {
   $('#foo').hide();
 }
-&lt;/pre&gt;
-
-</longdesc>
+</pre></longdesc>
          <example>
             <desc>Toggles all paragraphs.</desc>
          </example>
@@ -6802,7 +6810,7 @@ $('#clickme').click(function() {
          </signature>
          <longdesc>不同于例遍 jQuery 对象的 $().each() 方法，此方法可用于例遍任何对象。回调函数拥有两个参数：第一个为对象的成员或数组的索引，第二个为对应变量或内容。如果需要退出 each 循环可使回调函数返回 false，其它返回值将被忽略。 
 
-    <p>The <code>$.each()</code> function is not the same as <a href="/each/">.each()</a>, which is used to iterate, exclusively, over a jQuery object. The <code>$.each()</code> function can be used to iterate over any collection, whether it is a map (JavaScript object) or an array. In the case of an array, the callback is passed an array index and a corresponding array value each time. (The value can also be accessed through the <code>this</code> keyword.)</p>
+    <p>The <code>$.each()</code> function is not the same as <a href="/each/">.each()</a>, which is used to iterate, exclusively, over a jQuery object. The <code>$.each()</code> function can be used to iterate over any collection, whether it is a map (JavaScript object) or an array. In the case of an array, the callback is passed an array index and a corresponding array value each time. (The value can also be accessed through the <code>this</code> keyword, but Javascript will always wrap the <code>this</code> value as an <code>Object</code> even if it is a simple string or number value.) The method returns its first argument, the object that was iterated.</p>
 
             <pre>$.each([52, 97], function(index, value) { 
   alert(index + ': ' + value); 

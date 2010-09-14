@@ -284,7 +284,7 @@ $("body").undelegate("p", "click", foo); // ... foo will no longer be called.]]>
                   </argument>
                 </signature>
                 <desc>Takes a well-formed JSON string and returns the resulting JavaScript object.</desc>
-                <longdesc><p>Passing in a malformed JSON string will result in an exception being thrown. For example, the following are all malformed JSON strings:</p>
+                <longdesc><p>Passing in a malformed JSON string may result in an exception being thrown. For example, the following are all malformed JSON strings:</p>
 <ul>
 <li><code>{test: 1}</code> (test does not have double quotes around it).</li>
 <li><code>{'test': 1}</code> ('test' is using single quotes instead of double quotes).</li>
@@ -743,7 +743,7 @@ $("button").click(function(event) {
     <signature>
         <added>1.3</added>
     </signature>
-    <desc> Keeps the rest of the handlers from being executed and prevents the event from bubbling up the DOM tree
+    <desc> Keeps the rest of the handlers from being executed and prevents the event from bubbling up the DOM tree.
   </desc>
     <longdesc><p>In addition to keeping any additional handlers on an element from being executed, this method also stops the bubbling by implicitly calling <code>event.stopPropagation()</code>. To simply prevent the event from bubbling to ancestor elements but allow other event handlers to execute on the same element, we can use <code><a href="http://api.jquery.com/event.stopPropagation">event.stopPropagation()</a></code> instead.</p>
 <p>Use <code><a href="http://api.jquery.com/event.isImmediatePropagationStopped">event.isImmediatePropagationStopped()</a></code> to know whether this method was ever called (on that event object).</p> </longdesc>
@@ -2001,11 +2001,10 @@ $('body').data('bar', { myType: 'test', count: 40 });
 $('body').data('foo'); // 52
 $('body').data(); // {foo: 52, bar: { myType: 'test', count: 40 }}
 </pre>
-<p>Setting an element's data object with <code>.data(obj)</code> replaces all data previously stored with that element. If you are using third-party plugins it may not be advisable to completely replace the element's data object, since plugins may have also set data. Until jQuery 1.4.2, jQuery itself used the <code>.data()</code> method to save information about events that have been bound to the element, using a data item named 'events'.</p>
+<p>Setting an element's data object with <code>.data(obj)</code> replaces all data previously stored with that element. If you are using third-party plugins it may not be advisable to completely replace the element's data object, since plugins may have also set data. jQuery itself uses the <code>.data()</code> method to save information under the names 'events' and 'handle', and also reserves any data name starting with an underscore ('_') for internal use.</p>
 <pre>
 $('body').data('foo', 52);
 $('body').data({one: 1, two: 2});
-
 $('body').data('foo'); // undefined
 $('body').data(); // {one: 1, two: 2}
 </pre>
@@ -2044,15 +2043,22 @@ $("span:last").text($("div").data("test").last);
   <signature>
     <added>1.4</added>
   </signature>
-  <desc>Returns value at named data store for the element, as set by data(name, value).</desc>
+  <desc>Returns value at named data store for the first element in the jQuery collection, as set by data(name, value).</desc>
   <longdesc>
 <p>The <code>.data()</code> method allows us to attach data of any type to DOM elements in a way that is safe from circular references and therefore from memory leaks. We can retrieve several distinct values for a single element one at a time, or as a set:</p>
 <pre>
 alert($('body').data('foo'));
 alert($('body').data());
 </pre>
-<p>The above lines alert the data values that were set on the <code>body</code> element. If nothing was set on that element, an empty string is returned:</p>
-<p>Calling <code>.data()</code> with no parameters retrieves all of the values as a JavaScript object. This object can be safely cached in a variable as long as a new object is not set with <code>.data(obj)</code>.</p>
+<p>The above lines alert the data values that were set on the <code>body</code> element. If nothing was set on that element, null is returned.</p>
+<p>Calling <code>.data()</code> with no parameters retrieves all of the values as a JavaScript object. This object can be safely cached in a variable as long as a new object is not set with <code>.data(obj)</code>. Using the object directly to get or set values is faster than making individual calls to <code>.data()</code> to get or set each value:</p>
+<pre>
+var mydata = $("#mydiv").data();
+if ( mydata.count &lt; 9 ) {
+    mydata.count = 43;
+    mydata.status = "embiggened";
+}
+</pre>
 </longdesc>
 <example>
       <desc>Get the data named "blah" stored at for an element.</desc>
@@ -3225,7 +3231,7 @@ jQuery("div > p").hide();]]></results>
                 <argument name="value" type="String">
                     <desc>An attribute value. Quotes are optional.</desc>
                 </argument></signature>
-                <desc>Selects elements that have the specified attribute with a value ending exactly with a given string.</desc>
+                <desc>Selects elements that have the specified attribute with a value ending exactly with a given string. The comparison is case sensitive.</desc>
                 <longdesc></longdesc>
                 <example>
                     <desc>Finds all inputs with an attribute name that ends with 'letter' and puts text in them.</desc>
@@ -4323,7 +4329,7 @@ $("button").click(function () {
                     <desc>Show the length of the queue.</desc>
                     <code><![CDATA[$("#show").click(function () {
       var n = $("div").queue("fx");
-      $("span").text("Queue length is: " + n.length);
+      $("p").text("Queue length is: " + n.length);
     });
     function runIt() {
       $("div").show("slow");
@@ -4337,12 +4343,12 @@ $("button").click(function () {
     }
     runIt();]]></code>
                     <css><![CDATA[div { margin:3px; width:40px; height:40px;
-        position:absolute; left:0px; top:30px; 
+        position:absolute; left:0px; top:60px; 
         background:green; display:none; }
   div.newcolor { background:blue; }
-  span { color:red; }  ]]></css>
+  p { color:red; }  ]]></css>
                     <html><![CDATA[<button id="show">Show Length of Queue</button>
-  <span></span>
+  <p></p>
   <div></div>]]></html>
   </example>
 <category name="Custom"/>
@@ -6187,7 +6193,7 @@ if (jQuery.browser.msie) {
   <blockquote>
     <ul>
       <li>As of <b>jQuery 1.4</b> the <code>.live()</code> method supports custom events as well as all JavaScript events. As of <b>jQuery 1.4.1</b> even <code>focus</code> and <code>blur</code> work with live (mapping to the more appropriate, bubbling, events <code>focusin</code> and <code>focusout</code>).</li>
-      <li>As of <b>jQuery 1.4.1</b> the <code>hover</code> event can be specified (mapping to "<code>mouseenter mouseleave</code>").</li>
+      <li>As of <b>jQuery 1.4.1</b> the <code>hover</code> event can be specified (mapping to <code>mouseenter</code> and  <code>mouseleave</code>, which, in turn, are mapped to <code>mouseover</code> and <code>mouseout</code>).</li>
     </ul>
   </blockquote>
 </longdesc>
@@ -6304,13 +6310,19 @@ $("<span>Focused!</span>").appendTo("body").fadeOut(1000);
       <desc>An array of additional parameters to pass along to the event handler.</desc>
     </argument>
   </signature>
+  <signature>
+    <added>1.3</added>
+    <argument name="event" type="Event">
+      <desc>A <a href="http://api.jquery.com/category/events/event-object/"><code>jQuery.Event</code></a> object.</desc>
+    </argument>
+  </signature>
   <longdesc>
     <p>Any event handlers attached with <code>.bind()</code> or one of its shortcut methods are triggered when the corresponding event occurs. They can be fired manually, however, with the <code>.trigger()</code> method. A call to <code>.trigger()</code> executes the handlers in the same order they would be if the event were triggered naturally by the user:</p>
     <pre>$('#foo').bind('click', function() {
       alert($(this).text());
     });
     $('#foo').trigger('click');</pre>
-    <p>While <code>.trigger()</code> simulates an event activation, complete with a synthesized event object, it does not perfectly replicate a naturally-occurring event.</p>
+    <p>As of jQuery 1.3, <code>.trigger()</code>ed events bubble up the DOM tree; an event handler can stop the bubbling by returning <code>false</code> from the handler or calling the <a href="http://api.jquery.com/event.stopPropagation/"><code>.stopPropagation()</code></a> method on the event object passed into the event. Although <code>.trigger()</code> simulates an event activation, complete with a synthesized event object, it does not perfectly replicate a naturally-occurring event.</p>
     <p>To trigger handlers bound via jQuery without also triggering the native event, use <a href="http://api.jquery.com/triggerHandler/"><code>.triggerHandler()</code></a> instead. </p>
     <p>When we define a custom event type using the <code>.bind()</code> method, the second argument to <code>.trigger()</code> can become useful. For example, suppose we have bound a handler for the <code>custom</code> event to our element instead of the built-in <code>click</code> event as we did above:</p>
 <pre>$('#foo').bind('custom', function(event, param1, param2) {
@@ -7290,10 +7302,10 @@ span { color:blue; }
               <signature>
                 <added>1.1.4</added>
                 <argument name="start" type="Integer">
-                    <desc>An integer indicating the 0-based position after which the elements are selected. If negative, it indicates an offset from the end of the set.</desc>
+                    <desc>An integer indicating the 0-based position at which the elements begin to be selected. If negative, it indicates an offset from the end of the set.</desc>
                 </argument>
                 <argument name="end" optional="true" type="Integer">
-                    <desc>An integer indicating the 0-based position before which the elements stop being selected. If negative, it indicates an offset from the end of the set. If omitted, the range continues until the end of the set.</desc>
+                    <desc>An integer indicating the 0-based position at which the elements stop being selected. If negative, it indicates an offset from the end of the set. If omitted, the range continues until the end of the set.</desc>
                 </argument>
               </signature>
               <desc>Reduce the set of matched elements to a subset specified by a range of indices.</desc>
@@ -7741,7 +7753,7 @@ $('ul.first').find('.foo')
 <pre>$('li.third-item').nextAll().andSelf()
   .css('background-color', 'red');
 </pre>
-<p>The result of this call is a red background behind items 3, 4 and 5. First, the initial selector locates item 3, initializing the stack with the set containing just this item. The call to <code>.nextAll()</code> then pushes the set of items 4 and 5 onto the stack. Finally, the <code>.andSelf()</code> invocation merges these two sets together, creating a jQuery object that points to all three items.</p></longdesc>
+<p>The result of this call is a red background behind items 3, 4 and 5. First, the initial selector locates item 3, initializing the stack with the set containing just this item. The call to <code>.nextAll()</code> then pushes the set of items 4 and 5 onto the stack. Finally, the <code>.andSelf()</code> invocation merges these two sets together, creating a jQuery object that points to all three items in document order: <code>{[&lt;li.third-item&gt;,&lt;li&gt;,&lt;li&gt; ]}</code>.</p></longdesc>
                 <example>
                     <desc>Find all divs, and all the paragraphs inside of them, and give them both classnames.  Notice the div doesn't have the yellow background color since it didn't use andSelf.</desc>
                     <code><![CDATA[
@@ -7945,7 +7957,8 @@ $('ul.first').find('.foo')
     <desc>Click the button to animate the div with a number of different properties.</desc>
     <code><![CDATA[
 
-// Using multiple unit types within one animation.
+/* Using multiple unit types within one animation. */
+
 $("#go").click(function(){
   $("#block").animate({ 
     width: "70%",
@@ -8399,7 +8412,7 @@ div { background:blue; }
     </argument>
   </signature>
   <desc>Get the ancestors of each element in the current set of matched elements, optionally filtered by a selector.</desc>
-  <longdesc><p>Given a jQuery object that represents a set of DOM elements, the <code>.parents()</code> method allows us to search through the ancestors of these elements in the DOM tree and construct a new jQuery object from the matching elements ordered from immediate parent on up. The <code>.parents()</code> and <code>.parent()</code> methods are similar, except that the latter only travels a single level up the DOM tree.</p>
+  <longdesc><p>Given a jQuery object that represents a set of DOM elements, the <code>.parents()</code> method allows us to search through the ancestors of these elements in the DOM tree and construct a new jQuery object from the matching elements ordered from immediate parent on up; the elements are returned in order from the closest parent to the outer ones. The <code>.parents()</code> and <code>.parent()</code> methods are similar, except that the latter only travels a single level up the DOM tree.</p>
 <p>The method optionally accepts a selector expression of the same type that we can pass to the <code>$()</code> function. If the selector is supplied, the elements will be filtered by testing whether they match it.</p>
 <p>Consider a page with a basic nested list on it:</p>
 <pre>
@@ -9046,7 +9059,7 @@ $("span").click(function () {
                     <desc>A string containing a selector expression to match elements against.</desc>
                 </argument>
               </signature>
-              <desc>Get the immediately following sibling of each element in the set of matched elements, optionally filtered by a selector.</desc>
+              <desc>Get the immediately following sibling of each element in the set of matched elements. If a selector is provided, it retrieves the next sibling that matches the selector.</desc>
               <longdesc><p>Given a jQuery object that represents a set of DOM elements, the <code>.next()</code> method allows us to search through the immediately following sibling of these elements in the DOM tree and construct a new jQuery object from the matching elements.</p>
 <p>The method optionally accepts a selector expression of the same type that we can pass to the <code>$()</code> function. If the the immediately following sibling matches the selector, it remains in the newly constructed jQuery object; otherwise, it is excluded.</p>
 <p>Consider a page with a simple list on it:</p>
@@ -9270,7 +9283,7 @@ margin:10px; }
   alert('Load was performed.');
 });</pre></longdesc>
                 <example>
-                    <desc>We load the new <a href="http://jquery.com/plugins/project/color">official jQuery Color Animation plugin</a> dynamically and bind some color animations to occur once the new functionality is loaded.</desc>
+                    <desc>Load the <a href="http://github.com/jquery/jquery-color">official jQuery Color Animation plugin</a> dynamically and bind some color animations to occur once the new functionality is loaded.</desc>
                     <code><![CDATA[$.getScript("http://dev.jquery.com/view/trunk/plugins/color/jquery.color.js", function(){
   $("#go").click(function(){
     $(".block").animate( { backgroundColor: 'pink' }, 1000)
@@ -9304,7 +9317,7 @@ margin:10px; }
               <signature>
                 <added>1.2</added>
               </signature>
-              <desc>Get the children of each element in the set of matched elements, including text nodes.</desc>
+              <desc>Get the children of each element in the set of matched elements, including text and comment nodes.</desc>
               <longdesc><p>Given a jQuery object that represents a set of DOM elements, the <code>.contents()</code> method allows us to search through the immediate children of these elements in the DOM tree and construct a new jQuery object from the matching elements. The <code>.contents()</code> and <code>.children()</code> methods are similar, except that the former includes text nodes as well as HTML elements in the resulting jQuery object.</p>
 <p>The <code>.contents()</code> method can also be used to get the content document of an iframe, if the iframe is on the same domain as the main page.</p>
 <p>Consider a simple <code>&lt;div&gt;</code> with a number of text nodes, each of which is separated by two line break elements (<code>&lt;br /&gt;</code>):</p>
@@ -9715,7 +9728,7 @@ alert("The last 25 entries in the feed have been loaded");
       <desc>If set to false it will force the pages that you request to not be cached by the browser.</desc>
     </option>
     <option name="complete(XMLHttpRequest, textStatus)" type="Function">
-      <desc>A function to be called when the request finishes (after success and error callbacks are executed). The function gets passed two arguments: The XMLHttpRequest object and a string describing the status of the request. This is an <a href='http://docs.jquery.com/Ajax_Events'>Ajax Event</a>.</desc>
+      <desc>A function to be called when the request finishes (after success and error callbacks are executed). The function gets passed two arguments: The XMLHttpRequest object and a string categorizing the status of the request (<code>"success"</code>, <code>"notmodified"</code>, <code>"error"</code>, <code>"timeout"</code>, or <code>"parsererror"</code>). This is an <a href='http://docs.jquery.com/Ajax_Events'>Ajax Event</a>.</desc>
     </option>
     <option default="'application/x-www-form-urlencoded'" name="contentType" type="String">
       <desc>When sending data to the server, use this content-type. Default is "application/x-www-form-urlencoded", which is fine for most cases. If you explicitly pass in a content-type to $.ajax() then it'll always be sent to the server (even if no data is sent). Data will always be transmitted to the server using UTF-8 charset; you must decode this appropriately on the server side.</desc>
@@ -9798,10 +9811,10 @@ alert("The last 25 entries in the feed have been loaded");
       <p>This example, using no options, loads the contents of the current page, but does nothing with the result. To use the result, we can implement one of the callback functions.</p>
 
       <h4 id="callback-functions">Callback Functions</h4>
-      <p>The <code>beforeSend</code>, <code>error</code>, <code>dataFilter</code>, <code>success</code> and <code>complete</code> options all take callback functions that are invoked at the appropriate times:</p>
+      <p>The <code>beforeSend</code>, <code>error</code>, <code>dataFilter</code>, <code>success</code> and <code>complete</code> options all take callback functions that are invoked at the appropriate times. The <code>this</code> object for all of them will be the object in the <code>context</code> property passed to <code>$.ajax</code> in the settings; if that was not specified it will be a reference to the Ajax settings themselves. Some types of Ajax requests, such as JSONP and cross-domain GET requests, do not use XHR; in those cases the <code>XMLHttpRequest</code> parameter passed to the callback will be <code>undefined</code>.</p>
       <ol>
         <li><code>beforeSend</code> is called before the request is sent, and is passed the <code>XMLHttpRequest</code> object as a parameter.</li>
-        <li><code>error</code> is called if the request fails. It is passed the <code>XMLHttpRequest</code> object, a string indicating the error type, and an exception object if applicable.</li>
+        <li><code>error</code> is called if the request fails. It is passed the <code>XMLHttpRequest</code>, a string indicating the error type, and an exception object if applicable.</li>
         <li><code>dataFilter</code> is called on success. It is passed the returned data and the value of <code>dataType</code>, and must return the (possibly altered) data to pass on to <code>success</code>.</li>
         <li><code>success</code> is called if the request succeeds. It is passed the returned data, a string containing the success code, and the <code>XMLHttpRequest</code> object.</li>
         <li><code>complete</code> is called when the request finishes, whether in failure or success. It is passed the <code>XMLHttpRequest</code> object, as well as a string containing the success or error code.</li>
@@ -9940,7 +9953,7 @@ option to false, the automatic conversion of data to strings is prevented.</desc
                 </argument>
               </signature>
               <desc>Get the children of each element in the set of matched elements, optionally filtered by a selector.</desc>
-              <longdesc><p>Given a jQuery object that represents a set of DOM elements, the <code>.children()</code> method allows us to search through the immediate children of these elements in the DOM tree and construct a new jQuery object from the matching elements. The <code>.find()</code> and <code>.children()</code> methods are similar, except that the latter only travels a single level down the DOM tree.</p>
+              <longdesc><p>Given a jQuery object that represents a set of DOM elements, the <code>.children()</code> method allows us to search through the immediate children of these elements in the DOM tree and construct a new jQuery object from the matching elements. The <code>.find()</code> and <code>.children()</code> methods are similar, except that the latter only travels a single level down the DOM tree. Note also that like most jQuery methods, <code>.children()</code> does not return text nodes; to get <em>all</em> children including text and comment nodes, use <code>.contents()</code>.</p>
 <p>The method optionally accepts a selector expression of the same type that we can pass to the <code>$()</code> function. If the selector is supplied, the elements will be filtered by testing whether they match it.</p>
 <p>Consider a page with a basic nested list on it:</p>
 <pre>
@@ -10456,8 +10469,7 @@ $("p:last").text( "outerHeight:" + p.outerHeight() + " , outerHeight(true):" + p
   </argument>
 </signature>
 
-<longdesc>
-  <![CDATA[<p>With no parameters, the <code>.toggle()</code> method simply toggles the visibility of elements:</p>
+<longdesc><p>With no parameters, the <code>.toggle()</code> method simply toggles the visibility of elements:</p>
 <pre>$('.target').toggle();
 </pre>
 <p>The matched elements will be revealed or hidden immediately, with no animation, by changing the CSS <code>display</code> property. If the element is initially displayed, it will be hidden; if hidden, it will be shown. The <code>display</code> property is saved and restored as needed. If an element has a <code>display</code> value of <code>inline</code>, then is hidden and shown, it will once again be displayed <code>inline</code>.</p>
@@ -10479,31 +10491,28 @@ $("p:last").text( "outerHeight:" + p.outerHeight() + " , outerHeight(true):" + p
 </pre>
 <p>With the element initially shown, we can hide it slowly with the first click:
 </p>
-<p class="image"> 
-<img src="0042_06_09.png" alt="" />
-<img src="0042_06_10.png" alt="" />
-<img src="0042_06_11.png" alt="" />
-<img src="0042_06_12.png" alt="" />
+<p class="image four-across"> 
+<img src="/images/0042_06_09.png" alt="" />
+<img src="/images/0042_06_10.png" alt="" />
+<img src="/images/0042_06_11.png" alt="" />
+<img src="/images/0042_06_12.png" alt="" />
 </p>
 <p>A second click will show the element once again:</p>
-<p class="image"><img src="0042_06_13.png" alt="" />
-<img src="0042_06_14.png" alt="" />
-<img src="0042_06_15.png" alt="" />
-<img src="0042_06_16.png" alt="" />
+<p class="image four-across"><img src="/images/0042_06_13.png" alt="" />
+<img src="/images/0042_06_14.png" alt="" />
+<img src="/images/0042_06_15.png" alt="" />
+<img src="/images/0042_06_16.png" alt="" />
 </p>
 <p>The second version of the method accepts a Boolean parameter. If this parameter is <code>true</code>, then the matched elements are shown; if <code>false</code>, the elements are hidden. In essence, the statement:
 </p>
-<pre>$('#foo').toggle(showOrHide);
-is equivalent to:
-if (showOrHide) {
+<pre>$('#foo').toggle(showOrHide);</pre>
+<p>is equivalent to:</p>
+<pre>if (showOrHide) {
   $('#foo').show();
-}
-else {
+} else {
   $('#foo').hide();
 }
-</pre>
-]]>
-</longdesc>
+</pre></longdesc>
   <example>
       <desc>Toggles all paragraphs.</desc>
       <code><![CDATA[
@@ -11647,12 +11656,12 @@ var object1 = {
 };
 var object2 = {
   banana: {price: 200},
-  durian: 100
+  lime: 100
 };
 
 $.extend(true, object1, object2);
 ]]></code>
-    <results><![CDATA[object1 === {apple: 0, banana: {weight: 52, price: 200}, cherry: 97, durian: 100}]]></results>
+    <results><![CDATA[object1 === {apple: 0, banana: {weight: 52, price: 200}, cherry: 97, lime: 100}]]></results>
   </example>
 
 
@@ -11689,7 +11698,7 @@ empty == { validate: true, limit: 5, name: "bar" }]]></results>
 
   <longdesc> 
 
-    <p>The <code>$.each()</code> function is not the same as <a href="/each/">.each()</a>, which is used to iterate, exclusively, over a jQuery object. The <code>$.each()</code> function can be used to iterate over any collection, whether it is a map (JavaScript object) or an array. In the case of an array, the callback is passed an array index and a corresponding array value each time. (The value can also be accessed through the <code>this</code> keyword.)</p>
+    <p>The <code>$.each()</code> function is not the same as <a href="/each/">.each()</a>, which is used to iterate, exclusively, over a jQuery object. The <code>$.each()</code> function can be used to iterate over any collection, whether it is a map (JavaScript object) or an array. In the case of an array, the callback is passed an array index and a corresponding array value each time. (The value can also be accessed through the <code>this</code> keyword, but Javascript will always wrap the <code>this</code> value as an <code>Object</code> even if it is a simple string or number value.) The method returns its first argument, the object that was iterated.</p>
 
 <pre>$.each([52, 97], function(index, value) { 
   alert(index + ': ' + value); 
@@ -13872,7 +13881,7 @@ input { clear:left}
                     <desc>Turn the div with index 2 blue by adding an appropriate class.</desc>
                     <code><![CDATA[
 
-    $("div").eq(2).addClass("blue");
+    $("body").find("div").eq(2).addClass("blue");
 ]]></code>
                     <css><![CDATA[
   div { width:60px; height:60px; margin:10px; float:left;
@@ -14481,6 +14490,6 @@ $("button").click(function () {
 
 Minified using disk
 Page Caching using disk (enhanced)
-Database Caching 12/22 queries in 0.073 seconds using disk
+Database Caching 10/22 queries in 0.072 seconds using disk
 
-Served from: api.jquery.com @ 2010-08-23 00:38:28 -->
+Served from: api.jquery.com @ 2010-09-14 15:14:41 -->
